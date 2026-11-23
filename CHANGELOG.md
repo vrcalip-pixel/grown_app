@@ -1,6 +1,6 @@
 # Changelog
 
-## Pack 1.2 (on branch fix/misdemeanor-missed-date, waiting for author sign-off)
+## Pack 1.2 (approved by the author and live, Nov 22, 2026)
 
 ### Fixed
 - Misdemeanor with a date that already passed. v1.1 showed no urgent card and told the person to put the court date in their phone. Now it shows an urgent card ("Your court date passed. Act today.") and the next move is to call or go to the court today. The date counter and the repeated § 40508 warning are hidden on this path.
