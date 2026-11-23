@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* Grown v1.1 visual system, carried over as-is for parity. Phase 2 reworks it.
+   VOICE: calm, warm, frank. A friend who has done this before, talking you down.
+   LAYOUT: one calm column, max 640px, big tap targets, phone first. */
+:root{color-scheme:light dark;
+--bg:light-dark(#f4eee4,#1a1e21);--card:light-dark(#fffdf9,#23292d);--ink:light-dark(#26292b,#eef0f1);
+--soft:light-dark(#5d6266,#aab2b8);--green:#35657f;--green2:light-dark(#e6eef0,#2a3a44);
+--gold:#f2a93b;--gold2:light-dark(#fff3dc,#3a2e14);--red:light-dark(#b3261e,#ff8a80);--line:light-dark(#e6ddcf,#343c42)}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-soft: var(--soft);
+  --color-action: var(--green);
+  --color-action-soft: var(--green2);
+  --color-warn: var(--gold);
+  --color-warn-soft: var(--gold2);
+  --color-danger: var(--red);
+  --color-line: var(--line);
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--font-manrope),system-ui,sans-serif;overflow-x:clip}
+header{background:transparent;color:var(--ink);border-bottom:1px solid var(--line);padding:14px max(5vw,16px)}
+.hwrap{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:22px;letter-spacing:-.01em}
+.tag{font-size:13px;opacity:.85}
+main{max-width:640px;margin:0 auto;padding:24px max(5vw,16px) 48px}
+h1{font-size:clamp(30px,6vw,40px);line-height:1.08;margin:8px 0 12px;text-wrap:balance;font-weight:800;letter-spacing:-.02em}
+h2{font-size:22px;line-height:1.2;margin:0 0 8px;font-weight:800}
+p{margin:0 0 12px}.muted{color:var(--soft);font-size:15px}
+b{font-weight:700}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 1px 0 var(--line)}
+.choice{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:16px;padding:16px;margin:10px 0;font:600 17px/1.3 inherit;font-family:inherit;cursor:pointer;min-height:56px}
+.choice:hover:not(:disabled){border-color:var(--green)}
+.choice.picked{border-color:var(--green)}
+.choice:focus-visible,.btn:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.choice small{display:block;font-weight:400;font-size:14px;color:var(--soft);margin-top:2px}
+.choice:disabled{opacity:.55;cursor:not-allowed}
+.ico{flex:none;width:40px;height:40px;border-radius:12px;background:var(--green2);display:grid;place-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:999px;border:0;background:var(--green);color:#fff;font:800 16px inherit;font-family:inherit;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn.onblue{background:#fff;color:#35657f}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.prog{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin:4px 0 18px}.prog i{display:block;height:100%;background:var(--gold);transition:width .3s}
+.why{font-size:14px;color:var(--soft);background:var(--green2);border-radius:12px;padding:10px 12px;margin-top:6px}
+.next{background:var(--green);color:#fff;border:0}.next h2{color:#fff}.next p{color:#e8f2ec}
+.next .big{font-size:20px;font-weight:800;line-height:1.3;margin:6px 0 10px;color:#fff}
+.warn{background:var(--gold2);border-color:var(--gold)}
+.urgent{border:2px solid var(--red)}.urgent h2{color:var(--red)}
+.opt{border-top:1px solid var(--line);padding:14px 0}.opt:first-of-type{border-top:0;padding-top:4px}
+.opt b{font-size:17px}.fit{display:inline-block;font-size:13px;font-weight:800;padding:2px 10px;border-radius:999px;background:var(--green2);color:var(--ink);margin-left:6px;white-space:nowrap}
+.fit.no{background:transparent;border:1px solid var(--line);color:var(--soft)}
+ul{list-style:disc;padding-left:20px;margin:6px 0 10px}li{margin:4px 0}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:3px}
+.src{font-size:14px}.src li{margin:8px 0}.src span{color:var(--soft);display:block}
+input[type=date],textarea{font:16px inherit;font-family:inherit;padding:12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+.days{font-size:clamp(34px,8vw,48px);font-weight:800;line-height:1;margin:10px 0 4px}
+.fb button{flex:1 1 120px}
+footer{max-width:640px;margin:0 auto;padding:0 max(5vw,16px) 40px;font-size:13px;color:var(--soft)}
+.lead{font-size:19px;font-weight:800;line-height:1.3;margin:2px 0 4px}
+details summary{cursor:pointer;font-weight:600;color:var(--green);min-height:44px;display:flex;align-items:center}
+.next details summary{color:#fff;text-decoration:underline}
+details[open] summary{margin-bottom:4px}
+.tight{margin:0}
+.fade{animation:f .35s ease}@keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}.prog i{transition:none}}

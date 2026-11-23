@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grown: Ticket Help</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
+<style>
+/* VOICE: calm, warm, frank. A friend who has done this before, talking you down.
+   IDEA: a court notice translated onto a friend's note: the official thing, made human.
+   PICTURE: the working flow itself, one question at a time, under a small seedling mark.
+   COLOUR and TYPE: deep growing green ground, warm paper cards, marigold accent; Manrope 800/600/400.
+   LAYOUT: one calm column, max 640px, big tap targets, phone first. */
+:root{color-scheme:light dark;
+--bg:light-dark(#f4eee4,#1a1e21);--card:light-dark(#fffdf9,#23292d);--ink:light-dark(#26292b,#eef0f1);
+--soft:light-dark(#5d6266,#aab2b8);--green:#35657f;--green2:light-dark(#e6eef0,#2a3a44);
+--gold:#f2a93b;--gold2:light-dark(#fff3dc,#3a2e14);--red:light-dark(#b3261e,#ff8a80);--line:light-dark(#e6ddcf,#343c42)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Manrope,system-ui,sans-serif;overflow-x:clip}
+header{background:transparent;color:var(--ink);border-bottom:1px solid var(--line);padding:14px max(5vw,16px)}
+.hwrap{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:22px;letter-spacing:-.01em}
+.tag{font-size:13px;opacity:.85}
+main{max-width:640px;margin:0 auto;padding:24px max(5vw,16px) 48px}
+h1{font-size:clamp(30px,6vw,40px);line-height:1.08;margin:8px 0 12px;text-wrap:balance;font-weight:800;letter-spacing:-.02em}
+h2{font-size:22px;line-height:1.2;margin:0 0 8px;font-weight:800}
+p{margin:0 0 12px}.muted{color:var(--soft);font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 1px 0 var(--line)}
+.choice{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:16px;padding:16px;margin:10px 0;font:600 17px/1.3 inherit;cursor:pointer;min-height:56px}
+.choice:hover:not(:disabled){border-color:var(--green)}
+.choice:focus-visible,.btn:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.choice small{display:block;font-weight:400;font-size:14px;color:var(--soft);margin-top:2px}
+.choice:disabled{opacity:.55;cursor:not-allowed}
+.ico{flex:none;width:40px;height:40px;border-radius:12px;background:var(--green2);display:grid;place-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:999px;border:0;background:var(--green);color:#fff;font:800 16px inherit;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.prog{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin:4px 0 18px}.prog i{display:block;height:100%;background:var(--gold);transition:width .3s}
+.why{font-size:14px;color:var(--soft);background:var(--green2);border-radius:12px;padding:10px 12px;margin-top:6px}
+.next{background:var(--green);color:#fff;border:0}.next h2{color:#fff}.next p{color:#e8f2ec}
+.next .big{font-size:20px;font-weight:800;line-height:1.3;margin:6px 0 10px;color:#fff}
+.warn{background:var(--gold2);border-color:var(--gold)}
+.urgent{border:2px solid var(--red)}.urgent h2{color:var(--red)}
+.opt{border-top:1px solid var(--line);padding:14px 0}.opt:first-of-type{border-top:0;padding-top:4px}
+.opt b{font-size:17px}.fit{display:inline-block;font-size:13px;font-weight:800;padding:2px 10px;border-radius:999px;background:var(--green2);color:var(--ink);margin-left:6px;white-space:nowrap}
+.fit.no{background:transparent;border:1px solid var(--line);color:var(--soft)}
+ul{padding-left:20px;margin:6px 0 10px}li{margin:4px 0}
+a{color:inherit;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:3px}
+.src{font-size:14px}.src li{margin:8px 0}.src span{color:var(--soft);display:block}
+input[type=date],textarea{font:16px inherit;padding:12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+.days{font-size:clamp(34px,8vw,48px);font-weight:800;line-height:1;margin:10px 0 4px}
+.drop{border:2px dashed var(--green);border-radius:16px;padding:20px;text-align:center;background:var(--green2)}
+.drop input{margin-top:10px;max-width:100%}
+.fb button{flex:1 1 120px}
+footer{max-width:640px;margin:0 auto;padding:0 max(5vw,16px) 40px;font-size:13px;color:var(--soft)}
+.hide{display:none}
+.lead{font-size:19px;font-weight:800;line-height:1.3;margin:2px 0 4px}
+details summary{cursor:pointer;font-weight:600;color:var(--green);min-height:44px;display:flex;align-items:center}
+.next details summary{color:#fff;text-decoration:underline}
+details[open] summary{margin-bottom:4px}
+.fade{animation:f .35s ease}@keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}.prog i{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="hwrap">
+  <div class="brand"><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 29V15" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M16 16C16 9 11 5 4 5c0 7 5 11 12 11z" fill="#8fb8a6"/><path d="M16 13c0-6 4-9 11-9 0 6-4 9-11 9z" fill="#f2a93b"/></svg>Grown</div>
+  <div class="tag">Version 1.1 · Long Beach, CA</div>
+</div></header>
+
+<main id="app" aria-live="polite"></main>
+
+<footer>
+  <p>Grown explains what a document means and what your options are. It is not a lawyer and doesn't give legal advice. Grown never makes up fees or dates. It points you to the amount and due date printed on your own ticket or court notice. Facts last checked against official California court sources on Nov 22, 2026.</p>
+  <p>Built by Dr. Vincent Calip for HDA 294/494, The Agentic Self (ASU). Version one: nothing you tap is saved. If you choose the optional photo, it is sent to Claude to read once and is not stored by Grown.</p>
+</footer>
+
+<script>
+{
+const app = document.getElementById('app');
+const S = {}; // answers
+let sample = null;
+claude.use('sample').then(s => { sample = s; if (view === 'photo') render(); }).catch(() => {});
+let view = 'home';
+
+const SRC = {
+  selfhelp: {t:'California Courts Self-Help Guide: Traffic tickets', u:'https://selfhelp.courts.ca.gov/traffic', b:'Your options, the courtesy notice that can take 30+ days, fix-it tickets, and the court-never-texts scam warning'},
+  tbd: {t:'California Courts Self-Help Guide: Trial by written declaration', u:'https://www.selfhelp.courts.ca.gov/trial-written-declaration', b:'How to fight a ticket in writing without going to court'},
+  tvs: {t:'California Rules of Court, Rule 4.104', u:'https://courts.ca.gov/cms/rules/index/four/rule4_104', b:'Who can choose traffic school, including the 18-month rule'},
+  myc: {t:'California Courts Self-Help Guide: Ask to lower your fine (MyCitations)', u:'https://selfhelp.courts.ca.gov/traffic/mycitations', b:'Fine reductions, payment plans, more time, community service; traffic school comes first'},
+  fta: {t:'California Vehicle Code § 40508', u:'https://law.justia.com/codes/california/code-veh/division-17/chapter-2/article-2/section-40508/', b:'Missing your court date on purpose can be a separate misdemeanor'},
+  lasc: {t:'Superior Court of Los Angeles County: Traffic Online Services', u:'https://www.lacourt.ca.gov/traffic/v1/', b:'Where Long Beach tickets go. Look up your ticket by citation or license number'},
+  lb: {t:'City of Long Beach', u:'https://www.longbeach.gov/', b:'Parking tickets in Long Beach are handled by the city, not the court'}
+};
+
+const QS = [
+  {k:'where', q:'Where did you get the ticket?', why:'The place decides which court handles it. Long Beach tickets go to the LA County Superior Court.',
+   a:[['lb','In Long Beach'],['lac','Somewhere else in LA County'],['ca','Somewhere else in California'],['out','Outside California']]},
+  {k:'kind', q:'How did you get it?', why:'Parking tickets go to the City of Long Beach. Tickets an officer hands you go to the LA County court.',
+   a:[['moving','An officer handed it to me while I was driving','Speeding, red light, phone, stop sign'],['fixit','Fix-it ticket','Broken light, expired tags, no license or insurance card on you'],['parking','It was left on my windshield','A parking ticket'],['unsure',"I'm not sure","That's okay. The next question helps."]]},
+  {k:'sev', q:'Look next to the violation code on your ticket. Is "Misdemeanor" checked, or does it say "Must appear"?', why:'This one box decides whether you can handle it online or have to go to court in person. Most people never hear that a traffic stop can be a misdemeanor.', only:s=>['moving','fixit','unsure'].includes(s.kind),
+   a:[['m','Yes, it says Misdemeanor or Must appear'],['i','No, it says Infraction'],['cant',"I can't tell"]]},
+  {k:'date', q:'Look for a date on the ticket or a court notice. Has it passed?', why:'This is the one date that matters most. Grown never guesses it. It has to come from your paper.',
+   a:[['future','Not yet, it\'s coming up'],['passed','It already passed'],['none',"I can't find a date"]]},
+  {k:'school', q:'Have you gone to traffic school for another ticket in the last 18 months?', why:'Traffic school can keep a ticket off your public driving record, but only once every 18 months.', only:s=>!['fixit','parking'].includes(s.kind)&&s.sev!=='m',
+   a:[['no','No'],['yes','Yes'],['unsure',"I don't remember"]]},
+  {k:'cdl', q:'Do you have a commercial driver\'s license, or were you driving a commercial vehicle?', why:'Commercial drivers have different traffic school rules.', only:s=>!['fixit','parking'].includes(s.kind)&&s.sev!=='m',
+   a:[['no','No'],['yes','Yes']]},
+  {k:'money', q:'If you had to pay the full amount, how would that feel?', why:'California courts can lower fines, set up payment plans, or allow community service. Grown never asks your income, just how it feels, so it can point you to the right option.',
+   a:[['ok',"I can handle it"],['tight',"It'd be tight"],['no',"I can't afford it"]]}
+];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const visibleQs = () => QS.filter(q => !q.only || q.only(S));
+const icon = (d) => `<span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg></span>`;
+const IC = {
+  ticket:'<path d="M4 4h16v16l-3-2-3 2-2-2-2 2-3-2-3 2z"/><path d="M8 9h8M8 13h5"/>',
+  home:'<path d="M3 11l9-7 9 7v9H3z"/><path d="M10 20v-5h4v5"/>',
+  med:'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/>',
+  car:'<path d="M5 16l1.5-5h11L19 16"/><rect x="3" y="16" width="18" height="3" rx="1"/>',
+  cam:'<path d="M4 8h3l2-2h6l2 2h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>'
+};
+
+function go(v){ view = v; render(); window.scrollTo({top:0}); }
+
+function render(){
+  let h = '';
+  if (view === 'home') {
+    h = `<div class="fade"><p class="muted">For anyone figuring out adult life without someone who's done it before.</p>
+    <h1>A letter showed up. Let's figure out your next move.</h1>
+    <p>Pick what's in your hand. Grown asks a few plain questions, then tells you what it means, what your options are, and the one thing to do next.</p>
+    <p class="muted">Grown is not the court, the police, or immigration. No account. No name, license number, or income. No trackers. Nothing you tap is saved.</p>
+    <button class="choice" data-go="q0">${icon(IC.ticket)}<span>I got a traffic ticket<small>Long Beach, CA · about 2 minutes</small></span></button>
+    <button class="choice" data-go="lease">${icon(IC.home)}<span>My first lease<small>Preview: see how the next guide will work</small></span></button>
+    <button class="choice" disabled>${icon(IC.med)}<span>A medical bill I don't understand<small>Coming next</small></span></button>
+    <button class="choice" disabled>${icon(IC.car)}<span>A letter from the DMV<small>Coming next</small></span></button></div>`;
+  }
+  else if (view === 'photo') {
+    h = `<div class="fade"><h2>Got the ticket with you?</h2>
+    <p>You can snap a photo and Grown will try to read it to fill in your answers. Or just answer the questions yourself. Both get you to the same place.</p>
+    ${sample ? `<div class="drop"><b>${''}Upload or take a photo of your ticket</b><br><span class="muted">Optional. Your photo is sent to Claude to read it once. Grown doesn't store it. Cover your license number and address first.</span><br>
+      <input type="file" id="pic" accept="image/*" aria-label="Photo of your ticket"></div><p id="picmsg" class="muted" style="margin-top:10px"></p>`
+      : `<div class="card"><p class="muted" style="margin:0">Photo reading isn't available on this device yet. The questions work the same way.</p></div>`}
+    <div class="row"><button class="btn" data-go="q0">Answer the questions</button><button class="btn ghost" data-go="q0">Back</button></div></div>`;
+  }
+  else if (view === 'lease') {
+    const rows = [
+      ['What is this paper?','A lease, a rental application, or a notice from your landlord. You pick it from a plain list, just like the ticket guide.'],
+      ['Where is the place?','Long Beach first. City rules and California law both apply, so Grown checks both layers.'],
+      ['What date matters?','Move-in, rent due date, or the deadline on a notice. Always taken from your paper, never guessed.'],
+      ['What could it cost you?','Deposit, rent, fees. Grown points to the numbers on your lease and flags anything you should ask about before signing.'],
+      ['What are your options?','Sign, ask questions first, negotiate, or walk away. Each one with what it means for you.'],
+      ['Your next move','One clear step, with the official source behind it.']
+    ];
+    h = `<div class="fade"><div class="muted">Preview · not live yet</div><h1>Same pattern, new paper: your first lease</h1>
+    <p>Every Grown guide asks the same six questions. Only the answers change. That's how one guide becomes many: the skeleton stays, and each place and paper gets its own verified answers.</p>
+    <div class="card">${rows.map(([a,b],i)=>`<div class="opt"><b>${i+1}. ${a}</b><p style="margin:6px 0 0">${b}</p></div>`).join('')}</div>
+    <div class="card warn"><p style="margin:0">The lease guide isn't live because its facts haven't been checked against official sources yet. Grown only goes live with a guide once every rule in it is verified.</p></div>
+    <div class="row"><button class="btn" data-go="q0">Try the live ticket guide</button><button class="btn ghost" data-go="home">Back</button></div></div>`;
+  }
+  else if (view.startsWith('q')) {
+    const qs = visibleQs(); const i = +view.slice(1); const q = qs[i];
+    if (!q) { go('result'); return; }
+    h = `<div class="fade"><div class="muted">Question ${i+1} of ${qs.length}</div><div class="prog"><i style="width:${(i/qs.length)*100}%"></i></div>
+    <h2>${q.q}</h2>
+    ${q.a.map(([v,l,sub]) => `<button class="choice" data-ans="${q.k}|${v}|${i}" ${S[q.k]===v?'style="border-color:var(--green)"':''}><span>${l}${sub?`<small>${sub}</small>`:''}</span></button>`).join('')}
+    <div class="why"><b>Why Grown asks:</b> ${q.why}</div>
+    <div class="row"><button class="btn ghost" data-go="${i ? 'q'+(i-1) : 'home'}">Back</button>${i===0&&sample?'<button class="btn ghost" data-go="photo">Or read it from a photo</button>':''}</div></div>`;
+  }
+  else if (view === 'result') h = result();
+  app.innerHTML = h;
+  const due = document.getElementById('due');
+  if (due && S.printed) { due.value = S.printed; due.dispatchEvent(new Event('input', {bubbles:true})); }
+}
+
+function opt(title, fit, short, body, src){ return `<div class="opt"><b>${title}</b>${fit===true?'<span class="fit">Good fit for you</span>':fit===false?'<span class="fit no">Probably not for you</span>':''}<p style="margin:4px 0 0">${short}</p><details><summary>Show more</summary><p style="margin:0">${body}</p>${src?`<p class="muted" style="margin:4px 0 0">Source: <a href="${SRC[src].u}">${SRC[src].t}</a></p>`:''}</details></div>`; }
+
+function result(){
+  const used = new Set(['selfhelp']);
+  let whatLead='', what='', next='', nextWhy='', opts='', watch=[], urgent='';
+  const court = S.where==='lb'||S.where==='lac' ? 'the Superior Court of Los Angeles County' : 'the superior court in the county where you got the ticket';
+
+  if (S.where === 'out') {
+    whatLead = `Grown only covers California tickets so far.`;
+    what = `Grown version one only covers California, starting with Long Beach. Tickets are handled by the courts in the state where you got them, so the rules here may not apply to you.`;
+    next = `Look up the court named on your ticket and check its due date today.`;
+  } else if (S.kind === 'parking') {
+    used.add('lb');
+    whatLead = `A city parking ticket, not a court case.`;
+    what = `A parking ticket is not a court case in Long Beach. It's handled by the City of Long Beach, not the traffic court. It won't go on your driving record, but unpaid parking tickets can add penalties and block your car registration.`;
+    next = `Go to the City of Long Beach website and look up your parking citation by its number.`;
+    nextWhy = `Grown version one is built for court traffic tickets. Parking help is coming in a later version.`;
+  } else if (S.sev === 'm') {
+    used.add('fta');
+    whatLead = `A serious ticket. You have to go to court.`;
+    what = `If the officer marked it as a misdemeanor, or the ticket says you must appear, this is more serious than a regular traffic ticket. You usually can't just pay it online. You have to go to court on your date.`;
+    next = `Put your court date in your phone right now, and plan to be at the courthouse in person.`;
+    nextWhy = `For a misdemeanor, talking to a lawyer is worth it. If you can't afford one, ask the court about a public defender when you appear.`;
+    watch.push(`Missing a court date you promised to appear for can be its own separate misdemeanor (Vehicle Code § 40508). This is the most expensive mistake people make.`);
+  } else {
+    used.add('lasc');
+    whatLead = S.kind==='fixit' ? `A fix-it ticket: fix it, prove it, pay a small fee.` : (S.sev==='cant' ? `Likely a regular ticket. Check the box first.` : `A regular ticket. Not criminal, but it has a deadline.`);
+    what = S.kind==='fixit'
+      ? `A fix-it ticket (also called a correctable violation) means the officer saw something you can fix, like a broken light or expired tags. If you fix it and show proof, you usually just pay a small fee instead of the full fine.`
+      : `This is a traffic infraction, the most common kind of ticket. It's handled by ${court}. ${S.where==='lb'?'Long Beach tickets go to the LA County court system, not the City of Long Beach.':''} You are not in criminal trouble, but you do have to deal with it by the date on your ticket.`;
+
+    if (S.sev === 'cant') urgent += `<div class="card warn fade"><h2>Check one box before you pay.</h2><p style="margin:0">Until you know if it's a misdemeanor, don't assume you can pay online. Look it up on the court site, or ask the traffic clerk.</p></div>`;
+    if (S.date === 'passed') {
+      used.add('fta');
+      urgent += `<div class="card urgent fade"><h2>Your date passed. Act this week.</h2><p>Missing your date doesn't make the ticket go away. The court can add penalties, and if you promised to appear and didn't, that can become a separate misdemeanor (Vehicle Code § 40508). The fix is still the same: contact the court as soon as you can. Courts see this all the time.</p><p style="margin:0">After a missed date you may lose the choice of traffic school, so ask the clerk what is still open to you.</p></div>`;
+      next = `Look up your ticket on the LA County court's traffic website today, using your citation number or driver's license number.`;
+      nextWhy = `It shows what you owe now and which options are still open. If it isn't online, call or visit the court's traffic clerk.`;
+    } else if (S.date === 'none') {
+      next = `Look up your ticket on the LA County court's traffic website using your citation number or driver's license number.`;
+      nextWhy = `If nothing shows up yet, that's normal. The court mails a notice with your amount and options, and it can take 30 days or longer. Your ticket may also show a date to appear. Don't wait for the letter if that date is coming.`;
+    } else if (S.kind === 'fixit') {
+      next = `Fix the problem, then get the proof of correction signed before your date.`;
+      nextWhy = `The back of your ticket says who can sign it off. Then you send the signed proof to the court with the fee.`;
+    } else {
+      const schoolOk = S.school==='no' && S.cdl!=='yes';
+      if (S.money==='no' || S.money==='tight') {
+        next = schoolOk
+          ? `First ask for traffic school. Then, if the amount is too much, ask the court to lower it with MyCitations.`
+          : `Ask the court to lower the amount, or for a payment plan or more time, using MyCitations.`;
+        nextWhy = schoolOk
+          ? `Order matters: the state's guide says to ask for traffic school before you ask for a reduction.`
+          : `You'll answer questions about your income and expenses. You can also ask for community service.`;
+      } else {
+        next = schoolOk ? `Look up your ticket and choose traffic school before your due date.` : `Decide by your due date: pay it, or fight it if you believe you didn't do it.`;
+        nextWhy = schoolOk ? `It keeps this ticket off your public driving record, which helps keep your insurance from going up.` : `Paying counts as a conviction on your driving record.`;
+      }
+    }
+
+    if (S.kind !== 'fixit') {
+      used.add('tvs'); used.add('myc'); used.add('tbd');
+      const schoolFit = S.cdl==='yes' ? false : S.school==='yes' ? false : S.date==='passed' ? null : S.school==='no' ? true : null;
+      opts = [
+        opt('Traffic school', schoolFit, `Keeps it off your public record. Once every 18 months.`, `You pay the full amount plus a court fee and the school's own fee, then take a DMV-approved class. The ticket stays confidential, off your public record. ${S.school==='unsure'?'You said you don\'t remember: the 18 months count from the date of your old ticket to the date of this one.':''} ${S.cdl==='yes'?'Commercial drivers usually can\'t use traffic school this way.':''}`, 'tvs'),
+        opt('Ask to lower the amount', S.money==='ok'?null:true, `Ask for less, a payment plan, or more time.`, `If paying would be hard, ask the court for a lower amount, a payment plan, more time, or community service. You can do it online with MyCitations. You'll be asked to enter a plea, so if you plan to fight the ticket, don't ask for a reduction first.`, 'myc'),
+        opt('Fight it', null, `Plead not guilty, in person or in writing.`, `If you believe you didn't do it, you can plead not guilty and have a trial in person, or a trial by written declaration, where you send your side in writing. For a written trial you usually pay the amount up front and get it back if you win.`, 'tbd'),
+        opt('Just pay it', S.money==='ok'&&schoolFit!==true?true:null, `Fastest, but it goes on your driving record.`, `The fastest way to close it. It counts as a conviction, goes on your driving record, and can raise your insurance.`, 'selfhelp')
+      ].join('');
+    } else {
+      opts = opt('Show proof and pay the fee', true, `Fix it, get it signed off, pay a small fee.`, `Fix it, get it signed off, and send the proof to the court with the small fee by your date.`, 'selfhelp')
+           + opt('Fight it', null, `Contest it like any other ticket.`, `If you don't think the ticket is right, you can contest it like any other ticket.`, 'tbd');
+    }
+    watch.push(`The court's notice goes to the address on your ticket. If that's your parents' house, check the court website yourself so you aren't surprised.`);
+    if (S.kind!=='fixit') watch.push(`Traffic school is not a free pass. You still pay the full amount, plus a court fee, plus the school.`);
+    watch.push(`The court will never text, call, or email you asking for payment. Only pay on the court's own website.`);
+    watch.push(`Grown doesn't show fine amounts. The real amount is on your court notice or the court website, and it's often much higher than the base fine because of added fees.`);
+  }
+
+  const srcList = [...used].map(k => `<li><a href="${SRC[k].u}">${SRC[k].t}</a><span>${SRC[k].b}</span></li>`).join('');
+
+  return `<div class="fade">
+  <div class="muted">Here's your plan</div><h1>You've got this. Here's what's going on.</h1>
+  ${urgent}
+  <div class="card next"><h2>Your next move</h2><div class="big">${next}</div>${nextWhy?`<details><summary>Why this step</summary><p style="margin:0">${nextWhy}</p></details>`:''}
+  ${used.has('lasc')?`<div class="row"><a class="btn" style="background:#fff;color:#35657f" href="${SRC.lasc.u}">Open the LA County court's traffic site</a></div>`:''}
+  ${used.has('lb')?`<div class="row"><a class="btn" style="background:#fff;color:#35657f" href="${SRC.lb.u}">Open the City of Long Beach site</a></div>`:''}
+  </div>
+  <div class="card"><h2>What this is</h2><div class="lead">${whatLead}</div><details><summary>Show more</summary><p style="margin:0">${what}</p></details></div>
+  ${S.date!=='passed' && S.where!=='out' ? `<div class="card"><h2>Your date</h2><p>Type the date from your ticket. Grown counts the days.</p>
+    <label for="due" class="muted">Due date or court date</label><input type="date" id="due">
+    <div id="dueout"></div></div>` : ''}
+  ${opts?`<div class="card"><h2>Your options</h2>${opts}</div>`:''}
+  ${watch.length?`<div class="card warn"><h2>Watch out for</h2><p style="margin:0;font-weight:600">${watch[0]}</p>${watch.length>1?`<details><summary>${watch.length-1} more to know</summary><ul>${watch.slice(1).map(w=>`<li>${w}</li>`).join('')}</ul></details>`:''}</div>`:''}
+  <div class="card fb"><h2>Was this clear?</h2><p class="muted">This tells us where people get stuck.</p>
+    <div class="row"><button class="btn ghost" data-fb="clear">Clear</button><button class="btn ghost" data-fb="some">Kind of</button><button class="btn ghost" data-fb="lost">Lost me</button></div>
+    <div id="fbout"></div></div>
+  <div class="card"><h2>Where this comes from</h2><p class="muted">Every rule above comes from an official source, checked Nov 22, 2026.</p><details><summary>See all ${used.size} sources</summary><ul class="src">${srcList}</ul></details></div>
+  <div class="row"><button class="btn ghost" data-go="q0">Change my answers</button><button class="btn ghost" data-restart="1">Start over</button></div>
+  </div>`;
+}
+
+async function readPhoto(file){
+  const msg = document.getElementById('picmsg');
+  msg.textContent = 'Reading your ticket…';
+  try {
+    const prompt = `You are reading a photo of a California traffic ticket or court notice for an app that helps young adults. Return ONLY JSON with these keys, using null when unsure:
+{"where":"lb"|"lac"|"ca"|"out"|null, "kind":"moving"|"fixit"|"parking"|"misd"|null, "violation":"short plain-English description or null", "printed_date":"YYYY-MM-DD or null"}
+"lb" if the city or agency is Long Beach. "misd" only if a misdemeanor box is marked or it says a court appearance is mandatory. "fixit" if it is marked as a correctable violation. Do not guess amounts.`;
+    const r = await sample(prompt, {images:[file], modelTier:'default'});
+    const j = JSON.parse((r.text.match(/\{[\s\S]*\}/)||['{}'])[0]);
+    if (j.where) S.where = j.where;
+    if (j.kind==='misd') S.sev='m'; else if (j.kind) S.kind = j.kind;
+    if (j.printed_date) S.printed = j.printed_date;
+    msg.innerHTML = `Here's what I could read${j.violation?`: <b>${esc(j.violation)}</b>`:''}. I filled in what I could. Check each answer as you go, because you know your ticket better than a photo does.`;
+    msg.insertAdjacentHTML('afterend','');
+  } catch(e) {
+    msg.textContent = e && e.code==='not_granted' ? 'Photo reading is off. The questions work the same way.' : "I couldn't read that photo clearly. No problem, just answer the questions.";
+  }
+}
+
+app.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.go) go(b.dataset.go);
+  if (b.dataset.ans) { const [k,v,i] = b.dataset.ans.split('|'); S[k]=v; go('q'+(+i+1)); }
+  if (b.dataset.restart) { for (const k in S) delete S[k]; go('home'); }
+  if (b.dataset.fb) {
+    const t = {clear:'Glad it helped.', some:'Thanks. What part was fuzzy?', lost:'Sorry about that. Where did it lose you?'}[b.dataset.fb];
+    document.getElementById('fbout').innerHTML = `<p style="margin-top:12px">${t}</p>${b.dataset.fb!=='clear'?'<textarea rows="3" aria-label="Where you got stuck" placeholder="Type here"></textarea>':''}<p class="muted">In version one, this stays on your screen. Later versions will collect it anonymously so colleges and agencies can see where these systems break.</p>`;
+  }
+});
+app.addEventListener('change', e => {
+  if (e.target.id === 'pic' && e.target.files[0]) readPhoto(e.target.files[0]);
+});
+app.addEventListener('input', e => {
+  if (e.target.id !== 'due') return;
+  const out = document.getElementById('dueout'); const v = e.target.value; if (!v) { out.innerHTML=''; return; }
+  const d = new Date(v+'T00:00:00'), now = new Date(); now.setHours(0,0,0,0);
+  const n = Math.round((d-now)/864e5);
+  out.innerHTML = n<0 ? `<div class="days" style="color:var(--red)">Passed</div><p>That date already passed. Contact the court this week.</p>`
+    : `<div class="days">${n} day${n===1?'':'s'}</div><p>until ${d.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'})}. Set a phone reminder for one week before, and don't leave it to the last day.</p>`;
+});
+
+render();
+}
+</script>
+</body>
+</html>

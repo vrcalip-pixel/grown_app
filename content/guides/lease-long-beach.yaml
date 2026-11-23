@@ -1,0 +1,22 @@
+# Preview only. This guide has no verified facts yet, so it cannot go live.
+# The schema refuses to give a preview pack questions, branches or results.
+
+id: lease-long-beach
+version: "0.1"
+status: preview
+title: { en: "Same pattern, new paper: your first lease" }
+intro: { en: "Every Grown guide asks the same six questions. Only the answers change. That's how one guide becomes many: the skeleton stays, and each place and paper gets its own verified answers." }
+rows:
+  - q: { en: "What is this paper?" }
+    a: { en: "A lease, a rental application, or a notice from your landlord. You pick it from a plain list, just like the ticket guide." }
+  - q: { en: "Where is the place?" }
+    a: { en: "Long Beach first. City rules and California law both apply, so Grown checks both layers." }
+  - q: { en: "What date matters?" }
+    a: { en: "Move-in, rent due date, or the deadline on a notice. Always taken from your paper, never guessed." }
+  - q: { en: "What could it cost you?" }
+    a: { en: "Deposit, rent, fees. Grown points to the numbers on your lease and flags anything you should ask about before signing." }
+  - q: { en: "What are your options?" }
+    a: { en: "Sign, ask questions first, negotiate, or walk away. Each one with what it means for you." }
+  - q: { en: "Your next move" }
+    a: { en: "One clear step, with the official source behind it." }
+note: { en: "The lease guide isn't live because its facts haven't been checked against official sources yet. Grown only goes live with a guide once every rule in it is verified." }

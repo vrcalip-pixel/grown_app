@@ -1,0 +1,47 @@
+# Decisions
+
+Each entry: what was chosen, and why. Newest at the bottom.
+
+## 1. Content lives in guide packs, not in code
+All questions, rules and copy sit in one YAML file per guide. The engine and the screens contain no traffic-ticket knowledge.
+**Why:** it is what lets one guide become many, and it gives the AI layer a closed set of text to speak from.
+
+## 2. Rules are written as small data expressions (`eq`, `in`, `all`, `any`, `not`, `ref`)
+**Why:** a rule written as data can be checked by the validator (does that question exist, is that a real answer) and read by a non-programmer reviewing the pack. A rule written as code can be neither.
+
+## 3. Facts are separate from copy, and copy must cite them
+A fact is one plain claim with `source`, `verified_on`, `verified_by` and `operative_date`. Every block that can state a rule lists the facts behind it, or declares `no_claim: true`. The build fails otherwise.
+**Why:** principle 1, verified facts not model facts. In testing, the agent invented a deadline, fee figures, a processing time and a penalty range. This makes an unsourced claim a build error instead of something to catch by eye.
+
+## 4. Operative dates are enforced by the engine, not by convention
+A block citing a fact whose `operative_date` is in the future is dropped until that day.
+**Why:** the agent once treated a law as in effect before its start date. A.B. 2746 (Jan 1, 2027) can be added now and will switch on by itself.
+
+## 5. Existing rules use `operative_date: in_effect_at_verification`
+**Why:** v1.1 recorded no enactment dates. Looking them up or guessing them would put unverified dates into the product. The marker says what is known: the rule was in effect on the day a person checked it.
+
+## 6. `confirm_source: true` for facts v1.1 did not tie to a page
+The pack was ported by an AI assistant. Where v1.1 did not say which source backs a claim, the assistant attached its best guess and flagged it. These show as warnings on every build until a person clears them.
+**Why:** a guessed citation that looks verified is worse than a visible gap.
+
+## 7. Parity is proven by running v1.1's own logic as a test oracle
+`src/engine/__tests__/v11-oracle.ts` is v1.1's result function, changed only to return data. The parity test compares it with the engine on every reachable answer path.
+**Why:** "must match v1.1 exactly" is a claim. This makes it a test.
+
+## 8. v1.1's quirks were ported, not fixed
+See "Known issues" in the changelog.
+**Why:** phase 1 is parity. Each fix changes what a stressed person is told, so each one is a content decision for the author, not a side effect of a port.
+
+## 9. The flow is one client screen with answers held in memory
+No per-question URLs, no storage.
+**Why:** it matches v1.1, and it keeps answers out of the address bar, browser history and server logs (principle 4).
+
+## 10. v1.1 styles carried over as plain CSS beside Tailwind
+**Why:** it gives exact visual parity today. Phase 2 redesigns the visual system, so rewriting every rule as utilities first would be work done twice.
+
+## 11. Every string is `{ en, es }` from the start
+**Why:** Spanish (phase 5) then needs no restructuring, and `es: null` makes "not reviewed by a human yet" visible in the data.
+
+## 12. Stale answers are dropped before resolving
+If a person goes back and changes an answer, replies to questions that are no longer asked are ignored.
+**Why:** v1.1 kept them. It happened to be harmless there, but a future rule could read one.

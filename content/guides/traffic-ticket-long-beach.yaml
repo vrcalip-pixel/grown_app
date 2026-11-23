@@ -1,0 +1,450 @@
+# Grown guide pack: a traffic ticket in Long Beach, CA.
+# Ported from v1.1 (legacy/grown-v1.1-index.html). The engine decides what a
+# person sees from this file alone. No fee, fine amount, day count or deadline
+# may be written here unless a fact below carries its source.
+
+id: traffic-ticket-long-beach
+version: "1.1"
+status: live
+title: { en: "I got a traffic ticket" }
+
+base_sources: [selfhelp]
+
+sources:
+  selfhelp:
+    title: "California Courts Self-Help Guide: Traffic tickets"
+    url: https://selfhelp.courts.ca.gov/traffic
+    covers: { en: "Your options, the courtesy notice that can take 30+ days, fix-it tickets, and the court-never-texts scam warning" }
+  lasc:
+    title: "Superior Court of Los Angeles County: Traffic Online Services"
+    url: https://www.lacourt.ca.gov/traffic/v1/
+    covers: { en: "Where Long Beach tickets go. Look up your ticket by citation or license number" }
+    open_label: { en: "Open the LA County court's traffic site" }
+  fta:
+    title: "California Vehicle Code § 40508"
+    url: https://law.justia.com/codes/california/code-veh/division-17/chapter-2/article-2/section-40508/
+    covers: { en: "Missing your court date on purpose can be a separate misdemeanor" }
+  tvs:
+    title: "California Rules of Court, Rule 4.104"
+    url: https://courts.ca.gov/cms/rules/index/four/rule4_104
+    covers: { en: "Who can choose traffic school, including the 18-month rule" }
+  myc:
+    title: "California Courts Self-Help Guide: Ask to lower your fine (MyCitations)"
+    url: https://selfhelp.courts.ca.gov/traffic/mycitations
+    covers: { en: "Fine reductions, payment plans, more time, community service; traffic school comes first" }
+  tbd:
+    title: "California Courts Self-Help Guide: Trial by written declaration"
+    url: https://www.selfhelp.courts.ca.gov/trial-written-declaration
+    covers: { en: "How to fight a ticket in writing without going to court" }
+  lb:
+    title: "City of Long Beach"
+    url: https://www.longbeach.gov/
+    covers: { en: "Parking tickets in Long Beach are handled by the city, not the court" }
+    open_label: { en: "Open the City of Long Beach site" }
+
+# Every fact was checked by a person against the page named in `source`.
+# confirm_source: true marks facts where v1.1 did not say which page backs the
+# claim, so the source here is a best guess that still needs a human check.
+_checked: &checked
+  verified_on: "2026-11-22"
+  verified_by: "Dr. Vincent Calip"
+  operative_date: in_effect_at_verification
+
+facts:
+  - id: infraction-deadline
+    claim: { en: "A traffic infraction is not a criminal case, but it has to be dealt with by the date on the ticket." }
+    source: selfhelp
+    <<: *checked
+  - id: lb-tickets-la-court
+    claim: { en: "Long Beach traffic tickets are handled by the Superior Court of Los Angeles County, not the City of Long Beach." }
+    source: lasc
+    <<: *checked
+  - id: lasc-lookup
+    claim: { en: "The LA County court's traffic site lets you look up a ticket by citation number or driver's license number, and shows what is owed and which options are open." }
+    source: lasc
+    <<: *checked
+  - id: fixit
+    claim: { en: "A correctable violation (fix-it ticket) can be cleared by fixing the problem, showing proof of correction, and paying a fee that is smaller than the full fine." }
+    source: selfhelp
+    <<: *checked
+  - id: fixit-signoff
+    claim: { en: "The ticket says who can sign the proof of correction. The signed proof goes to the court with the fee." }
+    source: selfhelp
+    <<: *checked
+  - id: courtesy-notice
+    claim: { en: "The court mails a courtesy notice with the amount and options. It can take 30 days or longer to arrive." }
+    source: selfhelp
+    <<: *checked
+  - id: notice-address
+    claim: { en: "The court's notice is mailed to the address on the ticket." }
+    source: selfhelp
+    confirm_source: true
+    <<: *checked
+  - id: court-never-texts
+    claim: { en: "The court never texts, calls, or emails asking for payment." }
+    source: selfhelp
+    <<: *checked
+  - id: fees-added
+    claim: { en: "The total owed is often much higher than the base fine because of added fees." }
+    source: selfhelp
+    confirm_source: true
+    <<: *checked
+  - id: pay-is-conviction
+    claim: { en: "Paying a ticket counts as a conviction and goes on your driving record." }
+    source: selfhelp
+    <<: *checked
+  - id: conviction-insurance
+    claim: { en: "A conviction on your driving record can raise your insurance." }
+    source: selfhelp
+    confirm_source: true
+    <<: *checked
+  - id: must-appear
+    claim: { en: "A ticket marked as a misdemeanor or must-appear usually can't be paid online. You have to go to court on your date." }
+    source: selfhelp
+    confirm_source: true
+    <<: *checked
+  - id: public-defender
+    claim: { en: "A person charged with a misdemeanor who can't afford a lawyer can ask the court about a public defender." }
+    source: selfhelp
+    confirm_source: true
+    <<: *checked
+  - id: fta-40508
+    claim: { en: "Willfully failing to appear in court as promised can be a separate misdemeanor (Vehicle Code § 40508)." }
+    source: fta
+    <<: *checked
+  - id: missed-date
+    claim: { en: "Missing the date does not make the ticket go away, and the court can add penalties." }
+    source: selfhelp
+    confirm_source: true
+    <<: *checked
+  - id: missed-date-school
+    claim: { en: "After a missed date, the choice of traffic school may be lost." }
+    source: tvs
+    confirm_source: true
+    <<: *checked
+  - id: tvs-18-months
+    claim: { en: "Traffic school can be chosen once every 18 months, counted from the date of the old ticket to the date of the new one." }
+    source: tvs
+    <<: *checked
+  - id: tvs-confidential
+    claim: { en: "After traffic school the ticket is kept confidential, off your public driving record." }
+    source: tvs
+    <<: *checked
+  - id: tvs-cost
+    claim: { en: "Traffic school means paying the full amount, plus a court fee, plus the school's own fee, and taking a DMV-approved class." }
+    source: tvs
+    confirm_source: true
+    <<: *checked
+  - id: tvs-commercial
+    claim: { en: "Commercial drivers usually can't use traffic school this way." }
+    source: tvs
+    <<: *checked
+  - id: myc-requests
+    claim: { en: "With MyCitations you can ask the court online for a lower amount, a payment plan, more time, or community service. You answer questions about income and expenses." }
+    source: myc
+    <<: *checked
+  - id: myc-school-first
+    claim: { en: "Ask for traffic school before asking for a reduction." }
+    source: myc
+    <<: *checked
+  - id: myc-plea
+    claim: { en: "A MyCitations request asks you to enter a plea." }
+    source: myc
+    confirm_source: true
+    <<: *checked
+  - id: contest
+    claim: { en: "You can plead not guilty and have a trial in person, or a trial by written declaration where you send your side in writing." }
+    source: tbd
+    <<: *checked
+  - id: tbd-pay-up-front
+    claim: { en: "For a trial by written declaration you usually pay the amount up front and get it back if you win." }
+    source: tbd
+    <<: *checked
+  - id: parking-is-city
+    claim: { en: "A Long Beach parking ticket is handled by the City of Long Beach, not the traffic court." }
+    source: lb
+    <<: *checked
+  - id: parking-consequences
+    claim: { en: "A parking ticket does not go on your driving record. Unpaid parking tickets can add penalties and block your car registration." }
+    source: lb
+    confirm_source: true
+    <<: *checked
+
+defs:
+  school_ok:
+    all:
+      - { q: school, eq: "no" }
+      - { not: { q: cdl, eq: "yes" } }
+  money_hard: { q: money, in: ["tight", "no"] }
+  court_path:
+    all:
+      - { not: { q: kind, in: [fixit, parking] } }
+      - { not: { q: sev, eq: m } }
+
+vars:
+  court:
+    - when: { q: where, in: [lb, lac] }
+      text: { en: "the Superior Court of Los Angeles County" }
+    - text: { en: "the superior court in the county where you got the ticket" }
+
+questions:
+  - id: where
+    text: { en: "Where did you get the ticket?" }
+    why: { en: "The place decides which court handles it. Long Beach tickets go to the LA County Superior Court." }
+    answers:
+      - { id: lb, label: { en: "In Long Beach" } }
+      - { id: lac, label: { en: "Somewhere else in LA County" } }
+      - { id: ca, label: { en: "Somewhere else in California" } }
+      - { id: out, label: { en: "Outside California" } }
+
+  - id: kind
+    text: { en: "How did you get it?" }
+    why: { en: "Parking tickets go to the City of Long Beach. Tickets an officer hands you go to the LA County court." }
+    answers:
+      - id: moving
+        label: { en: "An officer handed it to me while I was driving" }
+        sub: { en: "Speeding, red light, phone, stop sign" }
+      - id: fixit
+        label: { en: "Fix-it ticket" }
+        sub: { en: "Broken light, expired tags, no license or insurance card on you" }
+      - id: parking
+        label: { en: "It was left on my windshield" }
+        sub: { en: "A parking ticket" }
+      - id: unsure
+        label: { en: "I'm not sure" }
+        sub: { en: "That's okay. The next question helps." }
+
+  - id: sev
+    text: { en: "Look next to the violation code on your ticket. Is \"Misdemeanor\" checked, or does it say \"Must appear\"?" }
+    why: { en: "This one box decides whether you can handle it online or have to go to court in person. Most people never hear that a traffic stop can be a misdemeanor." }
+    show_when: { q: kind, in: [moving, fixit, unsure] }
+    answers:
+      - { id: m, label: { en: "Yes, it says Misdemeanor or Must appear" } }
+      - { id: i, label: { en: "No, it says Infraction" } }
+      - { id: cant, label: { en: "I can't tell" } }
+
+  - id: date
+    text: { en: "Look for a date on the ticket or a court notice. Has it passed?" }
+    why: { en: "This is the one date that matters most. Grown never guesses it. It has to come from your paper." }
+    answers:
+      - { id: future, label: { en: "Not yet, it's coming up" } }
+      - { id: passed, label: { en: "It already passed" } }
+      - { id: none, label: { en: "I can't find a date" } }
+
+  - id: school
+    text: { en: "Have you gone to traffic school for another ticket in the last 18 months?" }
+    why: { en: "Traffic school can keep a ticket off your public driving record, but only once every 18 months." }
+    show_when: { ref: court_path }
+    answers:
+      - { id: "no", label: { en: "No" } }
+      - { id: "yes", label: { en: "Yes" } }
+      - { id: unsure, label: { en: "I don't remember" } }
+
+  - id: cdl
+    text: { en: "Do you have a commercial driver's license, or were you driving a commercial vehicle?" }
+    why: { en: "Commercial drivers have different traffic school rules." }
+    show_when: { ref: court_path }
+    answers:
+      - { id: "no", label: { en: "No" } }
+      - { id: "yes", label: { en: "Yes" } }
+
+  - id: money
+    text: { en: "If you had to pay the full amount, how would that feel?" }
+    why: { en: "California courts can lower fines, set up payment plans, or allow community service. Grown never asks your income, just how it feels, so it can point you to the right option." }
+    answers:
+      - { id: ok, label: { en: "I can handle it" } }
+      - { id: tight, label: { en: "It'd be tight" } }
+      - { id: "no", label: { en: "I can't afford it" } }
+
+branches:
+  # ---------------------------------------------------------------- outside CA
+  - id: outside-ca
+    when: { q: where, eq: out }
+    show_date: false
+    what:
+      - lead: { en: "Grown only covers California tickets so far." }
+        detail: { en: "Grown version one only covers California, starting with Long Beach. Tickets are handled by the courts in the state where you got them, so the rules here may not apply to you." }
+        no_claim: true
+    next_move:
+      - text: { en: "Look up the court named on your ticket and check its due date today." }
+        no_claim: true
+
+  # ------------------------------------------------------------------- parking
+  - id: parking
+    when: { q: kind, eq: parking }
+    show_date: { not: { q: date, eq: passed } }
+    what:
+      - lead: { en: "A city parking ticket, not a court case." }
+        detail: { en: "A parking ticket is not a court case in Long Beach. It's handled by the City of Long Beach, not the traffic court. It won't go on your driving record, but unpaid parking tickets can add penalties and block your car registration." }
+        facts: [parking-is-city, parking-consequences]
+    next_move:
+      - text: { en: "Go to the City of Long Beach website and look up your parking citation by its number." }
+        why: { en: "Grown version one is built for court traffic tickets. Parking help is coming in a later version." }
+        link: lb
+        facts: [parking-is-city]
+
+  # --------------------------------------------------------------- misdemeanor
+  - id: misdemeanor
+    when: { q: sev, eq: m }
+    show_date: { not: { q: date, eq: passed } }
+    what:
+      - lead: { en: "A serious ticket. You have to go to court." }
+        detail: { en: "If the officer marked it as a misdemeanor, or the ticket says you must appear, this is more serious than a regular traffic ticket. You usually can't just pay it online. You have to go to court on your date." }
+        facts: [must-appear]
+    next_move:
+      - text: { en: "Put your court date in your phone right now, and plan to be at the courthouse in person." }
+        why: { en: "For a misdemeanor, talking to a lawyer is worth it. If you can't afford one, ask the court about a public defender when you appear." }
+        facts: [must-appear, public-defender]
+    watch_out:
+      - text: { en: "Missing a court date you promised to appear for can be its own separate misdemeanor (Vehicle Code § 40508). This is the most expensive mistake people make." }
+        facts: [fta-40508]
+
+  # ------------------------------------------- court ticket (infraction, fix-it)
+  - id: court-ticket
+    show_date: { not: { q: date, eq: passed } }
+    what:
+      - when: { q: kind, eq: fixit }
+        lead: { en: "A fix-it ticket: fix it, prove it, pay a small fee." }
+        detail: { en: "A fix-it ticket (also called a correctable violation) means the officer saw something you can fix, like a broken light or expired tags. If you fix it and show proof, you usually just pay a small fee instead of the full fine." }
+        facts: [fixit]
+      - when: { q: sev, eq: cant }
+        lead: { en: "Likely a regular ticket. Check the box first." }
+        detail: &infraction_detail
+          - text: { en: "This is a traffic infraction, the most common kind of ticket. It's handled by {court}." }
+          - when: { q: where, eq: lb }
+            text: { en: "Long Beach tickets go to the LA County court system, not the City of Long Beach." }
+          - text: { en: "You are not in criminal trouble, but you do have to deal with it by the date on your ticket." }
+        facts: [infraction-deadline, lb-tickets-la-court]
+      - lead: { en: "A regular ticket. Not criminal, but it has a deadline." }
+        detail: *infraction_detail
+        facts: [infraction-deadline, lb-tickets-la-court]
+
+    urgent:
+      - when: { q: sev, eq: cant }
+        tone: warn
+        title: { en: "Check one box before you pay." }
+        body:
+          - { en: "Until you know if it's a misdemeanor, don't assume you can pay online. Look it up on the court site, or ask the traffic clerk." }
+        facts: [must-appear]
+      - when: { q: date, eq: passed }
+        tone: urgent
+        title: { en: "Your date passed. Act this week." }
+        body:
+          - { en: "Missing your date doesn't make the ticket go away. The court can add penalties, and if you promised to appear and didn't, that can become a separate misdemeanor (Vehicle Code § 40508). The fix is still the same: contact the court as soon as you can. Courts see this all the time." }
+          - { en: "After a missed date you may lose the choice of traffic school, so ask the clerk what is still open to you." }
+        facts: [missed-date, fta-40508, missed-date-school]
+
+    next_move:
+      - when: { q: date, eq: passed }
+        text: { en: "Look up your ticket on the LA County court's traffic website today, using your citation number or driver's license number." }
+        why: { en: "It shows what you owe now and which options are still open. If it isn't online, call or visit the court's traffic clerk." }
+        link: lasc
+        facts: [lasc-lookup]
+      - when: { q: date, eq: none }
+        text: { en: "Look up your ticket on the LA County court's traffic website using your citation number or driver's license number." }
+        why: { en: "If nothing shows up yet, that's normal. The court mails a notice with your amount and options, and it can take 30 days or longer. Your ticket may also show a date to appear. Don't wait for the letter if that date is coming." }
+        link: lasc
+        facts: [lasc-lookup, courtesy-notice]
+      - when: { q: kind, eq: fixit }
+        text: { en: "Fix the problem, then get the proof of correction signed before your date." }
+        why: { en: "The back of your ticket says who can sign it off. Then you send the signed proof to the court with the fee." }
+        link: lasc
+        facts: [fixit, fixit-signoff]
+      - when: { all: [{ ref: money_hard }, { ref: school_ok }] }
+        text: { en: "First ask for traffic school. Then, if the amount is too much, ask the court to lower it with MyCitations." }
+        why: { en: "Order matters: the state's guide says to ask for traffic school before you ask for a reduction." }
+        link: lasc
+        facts: [myc-school-first, myc-requests]
+      - when: { ref: money_hard }
+        text: { en: "Ask the court to lower the amount, or for a payment plan or more time, using MyCitations." }
+        why: { en: "You'll answer questions about your income and expenses. You can also ask for community service." }
+        link: lasc
+        facts: [myc-requests]
+      - when: { ref: school_ok }
+        text: { en: "Look up your ticket and choose traffic school before your due date." }
+        why: { en: "It keeps this ticket off your public driving record, which helps keep your insurance from going up." }
+        link: lasc
+        facts: [tvs-confidential, conviction-insurance]
+      - text: { en: "Decide by your due date: pay it, or fight it if you believe you didn't do it." }
+        why: { en: "Paying counts as a conviction on your driving record." }
+        link: lasc
+        facts: [pay-is-conviction, contest]
+
+    options:
+      - id: traffic-school
+        when: { not: { q: kind, eq: fixit } }
+        title: { en: "Traffic school" }
+        fit:
+          - { when: { q: cdl, eq: "yes" }, value: "no" }
+          - { when: { q: school, eq: "yes" }, value: "no" }
+          - { when: { q: date, eq: passed }, value: none }
+          - { when: { q: school, eq: "no" }, value: good }
+        short: { en: "Keeps it off your public record. Once every 18 months." }
+        body:
+          - text: { en: "You pay the full amount plus a court fee and the school's own fee, then take a DMV-approved class. The ticket stays confidential, off your public record." }
+          - when: { q: school, eq: unsure }
+            text: { en: "You said you don't remember: the 18 months count from the date of your old ticket to the date of this one." }
+          - when: { q: cdl, eq: "yes" }
+            text: { en: "Commercial drivers usually can't use traffic school this way." }
+        source: tvs
+        facts: [tvs-18-months, tvs-confidential, tvs-cost, tvs-commercial]
+      - id: lower-amount
+        when: { not: { q: kind, eq: fixit } }
+        title: { en: "Ask to lower the amount" }
+        fit:
+          - { when: { q: money, eq: ok }, value: none }
+          - { value: good }
+        short: { en: "Ask for less, a payment plan, or more time." }
+        body: { en: "If paying would be hard, ask the court for a lower amount, a payment plan, more time, or community service. You can do it online with MyCitations. You'll be asked to enter a plea, so if you plan to fight the ticket, don't ask for a reduction first." }
+        source: myc
+        facts: [myc-requests, myc-plea]
+      - id: fight
+        when: { not: { q: kind, eq: fixit } }
+        title: { en: "Fight it" }
+        short: { en: "Plead not guilty, in person or in writing." }
+        body: { en: "If you believe you didn't do it, you can plead not guilty and have a trial in person, or a trial by written declaration, where you send your side in writing. For a written trial you usually pay the amount up front and get it back if you win." }
+        source: tbd
+        facts: [contest, tbd-pay-up-front]
+      - id: pay
+        when: { not: { q: kind, eq: fixit } }
+        title: { en: "Just pay it" }
+        fit:
+          - when:
+              all:
+                - { q: money, eq: ok }
+                - not:
+                    all:
+                      - { ref: school_ok }
+                      - { not: { q: date, eq: passed } }
+            value: good
+        short: { en: "Fastest, but it goes on your driving record." }
+        body: { en: "The fastest way to close it. It counts as a conviction, goes on your driving record, and can raise your insurance." }
+        source: selfhelp
+        facts: [pay-is-conviction, conviction-insurance]
+      - id: fixit-proof
+        when: { q: kind, eq: fixit }
+        title: { en: "Show proof and pay the fee" }
+        fit:
+          - { value: good }
+        short: { en: "Fix it, get it signed off, pay a small fee." }
+        body: { en: "Fix it, get it signed off, and send the proof to the court with the small fee by your date." }
+        source: selfhelp
+        facts: [fixit, fixit-signoff]
+      - id: fixit-fight
+        when: { q: kind, eq: fixit }
+        title: { en: "Fight it" }
+        short: { en: "Contest it like any other ticket." }
+        body: { en: "If you don't think the ticket is right, you can contest it like any other ticket." }
+        source: tbd
+        facts: [contest]
+
+    watch_out:
+      - text: { en: "The court's notice goes to the address on your ticket. If that's your parents' house, check the court website yourself so you aren't surprised." }
+        facts: [notice-address]
+      - when: { not: { q: kind, eq: fixit } }
+        text: { en: "Traffic school is not a free pass. You still pay the full amount, plus a court fee, plus the school." }
+        facts: [tvs-cost]
+      - text: { en: "The court will never text, call, or email you asking for payment. Only pay on the court's own website." }
+        facts: [court-never-texts]
+      - text: { en: "Grown doesn't show fine amounts. The real amount is on your court notice or the court website, and it's often much higher than the base fine because of added fees." }
+        facts: [fees-added]
