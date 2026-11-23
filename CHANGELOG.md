@@ -1,6 +1,6 @@
 # Changelog
 
-## Phase 3, step 3: built-in answers for Ask Grown (on branch phase-3-builtin-answers, waiting for author sign-off)
+## Phase 3, step 3: built-in answers for Ask Grown (approved by the author and live, Nov 22, 2026)
 
 Ask Grown now works with no AI key and no internet beyond loading the page.
 
@@ -19,7 +19,7 @@ Ask Grown now works with no AI key and no internet beyond loading the page.
 ### Still true
 - The AI layer has never been run against the real model. The guardrail evals have not run.
 
-## Phase 3, step 2: Ask Grown (on branch phase-3-guide, waiting for an API key and author sign-off)
+## Phase 3, step 2: Ask Grown typed questions (code is live but switched off: no API key is set, evals not run)
 
 Not yet run against the real model. Everything below is tested with stand-in replies only.
 
