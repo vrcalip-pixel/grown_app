@@ -1,5 +1,10 @@
 # Changelog
 
+## Raised buttons and a light/dark switch (live, Nov 23, 2026)
+
+- **Raised buttons.** Every button now sits on a thin solid edge with a soft shadow beneath it, so it looks like it floats above the page. Hovering lifts it slightly, and pressing pushes it down onto the page. Applies to the answer choices, the main and secondary buttons, and the Ask Grown question chips. Disabled buttons stay flat.
+- **Light and dark switch** in the header. The page starts in whatever the phone is set to; a tap flips it. The choice lasts for the visit and is not stored, in keeping with "nothing you tap is saved."
+
 ## Breathing background (live, Nov 23, 2026)
 
 - The page background now breathes: three soft pools of coastal blue, sage and warm sand slowly swell and settle together behind the content, about five breaths a minute (in for about 4 seconds, a short hold, out for about 5).

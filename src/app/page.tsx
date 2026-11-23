@@ -1,4 +1,5 @@
 import { GuideFlow } from "@/components/GuideFlow";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { loadPack } from "@/pack/load";
 
 export default function Home() {
@@ -28,7 +29,10 @@ export default function Home() {
             </svg>
             Grown
           </div>
-          <div className="tag">Version {ticket.version} · Long Beach, CA</div>
+          <div className="hright">
+            <div className="tag">Version {ticket.version} · Long Beach, CA</div>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 

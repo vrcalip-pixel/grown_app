@@ -131,3 +131,11 @@ Every built-in answer is assembled from sentences already approved elsewhere in 
 The background swells for about 4 seconds, holds briefly, and settles for about 5, roughly five breaths a minute. The out-breath is longer than the in-breath.
 **Why:** the tester asked for "a calming experience." Slow breathing with a longer exhale is a common pacing for calming exercises, and a person reading a court notice is often holding their breath. This is a design choice, not a health claim, and the app says nothing about it on screen.
 **Trade-off to watch:** the same tester said their "ADHD brain is reading everything at the same time." Movement behind text can pull attention. It is kept very faint and slow for that reason, and it is the first thing to ask the next tester about. The earlier rule "motion under 300ms" still applies to anything a person triggers; this is ambient and never blocks or delays anything.
+
+## 36. The light/dark choice is not remembered between visits
+It is held in memory and resets to the phone's setting on the next visit.
+**Why:** the home screen says "Nothing you tap is saved." Storing even a harmless preference on the device would make that sentence not literally true. If the author would rather it be remembered, the sentence needs a matching tweak.
+
+## 37. Buttons are raised; cards are not
+Buttons have an edge, a shadow and a press movement. Information cards stay flat.
+**Why:** if everything floats, nothing does. Depth now means one thing: you can press this.
