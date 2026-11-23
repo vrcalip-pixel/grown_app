@@ -251,6 +251,7 @@ questions:
   - id: money
     text: { en: "If you had to pay the full amount, how would that feel?" }
     why: { en: "California courts can lower fines, set up payment plans, or allow community service. Grown never asks your income, just how it feels, so it can point you to the right option." }
+    why_visible: true
     answers:
       - { id: ok, label: { en: "I can handle it" } }
       - { id: tight, label: { en: "It'd be tight" } }

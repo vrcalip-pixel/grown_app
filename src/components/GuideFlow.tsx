@@ -52,11 +52,20 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
   const [view, setView] = useState<View>("home");
   const [answers, setAnswers] = useState<Answers>({});
 
+  // On each new screen, go to the top and hand focus to its heading, so a
+  // screen reader announces the new question instead of staying on a button
+  // that no longer exists. Skipped on first load.
+  const [moved, setMoved] = useState(false);
   useEffect(() => {
+    if (!moved) return;
     window.scrollTo({ top: 0 });
-  }, [view]);
+    document.querySelector<HTMLElement>("#app [data-focus]")?.focus({ preventScroll: true });
+  }, [view, moved]);
 
-  const go = (v: View) => setView(v);
+  const go = (v: View) => {
+    setMoved(true);
+    setView(v);
+  };
   const restart = () => {
     setAnswers({});
     go("home");
@@ -67,16 +76,21 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
   if (view === "home") {
     screen = (
       <>
-        <p className="muted">For anyone figuring out adult life without someone who&apos;s done it before.</p>
-        <h1>A letter showed up. Let&apos;s figure out your next move.</h1>
-        <p>
-          Pick what&apos;s in your hand. Grown asks a few plain questions, then tells you what it means, what your
-          options are, and the one thing to do next.
-        </p>
-        <p className="muted">
-          Grown is not the court, the police, or immigration. No account. No name, license number, or income. No
-          trackers. Nothing you tap is saved.
-        </p>
+        <p className="eyebrow">For anyone figuring out adult life without someone who&apos;s done it before.</p>
+        <h1 data-focus tabIndex={-1}>
+          A letter showed up. Let&apos;s figure out your next move.
+        </h1>
+        <p>Pick what&apos;s in your hand. A few plain questions, then the one thing to do next.</p>
+        <div className="trust">
+          <strong>Grown is not the court, the police, or immigration.</strong>
+          <ul>
+            <li>No account</li>
+            <li>No name or license number</li>
+            <li>No income questions</li>
+            <li>No trackers</li>
+            <li>Nothing you tap is saved</li>
+          </ul>
+        </div>
         <button className="choice" onClick={() => go("q0")}>
           <Icon name="ticket" />
           <span>
@@ -107,8 +121,10 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
   } else if (view === "lease") {
     screen = (
       <>
-        <div className="muted">Preview · not live yet</div>
-        <h1>{lease.title.en}</h1>
+        <div className="eyebrow">Preview · not live yet</div>
+        <h1 data-focus tabIndex={-1}>
+          {lease.title.en}
+        </h1>
         <p>{lease.intro.en}</p>
         <div className="card">
           {lease.rows.map((r, i) => (
@@ -159,13 +175,15 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
       };
       screen = (
         <>
-          <div className="muted">
+          <div className="eyebrow">
             Question {i + 1} of {qs.length}
           </div>
-          <div className="prog">
-            <i style={{ width: `${(i / qs.length) * 100}%` }} />
+          <div className="prog" aria-hidden="true">
+            <i style={{ width: `${((i + 1) / qs.length) * 100}%` }} />
           </div>
-          <h2>{q.text.en}</h2>
+          <h2 className="qtext" data-focus tabIndex={-1}>
+            {q.text.en}
+          </h2>
           {q.answers.map((a) => (
             <button
               key={a.id}
@@ -179,9 +197,18 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
               </span>
             </button>
           ))}
-          <div className="why">
-            <b>Why Grown asks:</b> {q.why.en}
-          </div>
+          {q.why_visible ? (
+            <div className="why open">
+              <p>
+                <b>Why Grown asks:</b> {q.why.en}
+              </p>
+            </div>
+          ) : (
+            <details className="why">
+              <summary>Why Grown asks</summary>
+              <p>{q.why.en}</p>
+            </details>
+          )}
           <div className="row">
             <button className="btn ghost" onClick={() => go(i ? `q${i - 1}` : "home")}>
               Back
@@ -193,7 +220,7 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
   }
 
   return (
-    <main id="app" aria-live="polite">
+    <main id="app">
       <div className="fade" key={view}>
         {screen}
       </div>
@@ -214,22 +241,27 @@ function ResultView({
 }) {
   return (
     <>
-      <div className="muted">Here&apos;s your plan</div>
-      <h1>You&apos;ve got this. Here&apos;s what&apos;s going on.</h1>
+      <div className="eyebrow">Here&apos;s your plan</div>
+      <h1 data-focus tabIndex={-1}>
+        You&apos;ve got this. Here&apos;s what&apos;s going on.
+      </h1>
 
       {r.urgent.map((u) => (
-        <div className={`card ${u.tone}`} key={u.title}>
+        <div className={`card ${u.tone}`} key={u.title} role={u.tone === "urgent" ? "alert" : undefined}>
           <h2>{u.title}</h2>
-          {u.body.map((p, i) => (
-            <p key={i} className={i === u.body.length - 1 ? "tight" : undefined}>
-              {p}
-            </p>
-          ))}
+          <details>
+            <summary>Show more</summary>
+            {u.body.map((p, i) => (
+              <p key={i} className={i === u.body.length - 1 ? "tight" : undefined}>
+                {p}
+              </p>
+            ))}
+          </details>
         </div>
       ))}
 
       <div className="card next">
-        <h2>Your next move</h2>
+        <h2 className="label">Your next move</h2>
         <div className="big">{r.nextMove.text}</div>
         {r.nextMove.why && (
           <details>
@@ -247,7 +279,7 @@ function ResultView({
       </div>
 
       <div className="card">
-        <h2>What this is</h2>
+        <h2 className="label">What this is</h2>
         <div className="lead">{r.whatThisIs.lead}</div>
         <details>
           <summary>Show more</summary>
@@ -259,7 +291,7 @@ function ResultView({
 
       {r.options.length > 0 && (
         <div className="card">
-          <h2>Your options</h2>
+          <h2 className="label">Your options</h2>
           {r.options.map((o) => (
             <div className="opt" key={o.id}>
               <b>{o.title}</b>
@@ -282,7 +314,7 @@ function ResultView({
 
       {r.watchOut.length > 0 && (
         <div className="card warn">
-          <h2>Watch out for</h2>
+          <h2 className="label">Watch out for</h2>
           <p className="tight" style={{ fontWeight: 600 }}>
             {r.watchOut[0]}
           </p>
@@ -302,7 +334,7 @@ function ResultView({
       <Feedback />
 
       <div className="card">
-        <h2>Where this comes from</h2>
+        <h2 className="label">Where this comes from</h2>
         <p className="muted">Every rule above comes from an official source, checked {checkedOn}.</p>
         <details>
           <summary>See all {r.sources.length} sources</summary>
@@ -335,7 +367,7 @@ function DateCard() {
   const n = value ? daysUntil(value) : null;
   return (
     <div className="card">
-      <h2>Your date</h2>
+      <h2 className="label">Your date</h2>
       <p>Type the date from your ticket. Grown counts the days.</p>
       <label htmlFor="due" className="muted">
         Due date or court date
@@ -382,7 +414,7 @@ function Feedback() {
   const [picked, setPicked] = useState<keyof typeof FEEDBACK | null>(null);
   return (
     <div className="card fb">
-      <h2>Was this clear?</h2>
+      <h2 className="label">Was this clear?</h2>
       <p className="muted">This tells us where people get stuck.</p>
       <div className="row">
         <button className="btn ghost" onClick={() => setPicked("clear")}>

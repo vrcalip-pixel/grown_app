@@ -75,6 +75,8 @@ const Question = z
     id: z.string().min(1),
     text: Localized,
     why: Localized,
+    /** Show the reason without a tap. For questions that could feel intrusive. */
+    why_visible: z.boolean().optional(),
     show_when: Cond.optional(),
     answers: z
       .array(z.object({ id: z.string().min(1), label: Localized, sub: Localized.optional() }).strict())

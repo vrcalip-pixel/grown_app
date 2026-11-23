@@ -1,5 +1,21 @@
 # Changelog
 
+## Phase 2: polish from tester feedback (on branch phase-2-polish, waiting for author sign-off)
+
+Responds to the tester's two pain points: "there was a lot of words" and "a government app."
+
+### Changed
+- **Summary first, everywhere.** Each card now has a small label and one bold line. Urgent cards show their headline and keep the detail behind "Show more." "Why Grown asks" is one tap away on every question except the money question, where it stays visible.
+- **Home screen.** One sentence instead of two paragraphs. The promise "Grown is not the court, the police, or immigration" is now its own panel, with the five privacy points as a short checklist.
+- **Calmer look.** Progress bar and tags use coastal blue. Amber and red now appear only on warnings and on the keyboard focus ring.
+- **Motion.** Screens and "Show more" ease in over 200ms. Buttons give a small press response. All motion is off for people who ask their device for reduced motion.
+- **Dark mode.** "Show more" links were hard to read on dark cards. Fixed.
+- **Screen readers.** Each new screen moves focus to its heading, so the new question is announced. Urgent cards are announced as alerts.
+- The progress bar now counts the question you are on, so question 1 no longer shows an empty bar.
+
+### Not changed
+- No rule, fact or source changed. Pack is still 1.2. The only pack addition is `why_visible: true` on the money question.
+
 ## Pack 1.2 (approved by the author and live, Nov 22, 2026)
 
 ### Fixed

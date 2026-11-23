@@ -53,3 +53,18 @@ The new card and next move are built from four existing facts. They do not menti
 ## 14. Content changes go out on their own branch first
 Vercel builds a preview URL for every branch, and production only changes when the branch is merged.
 **Why:** a change to what a stressed person is told should be read by the author on a real screen before it is live.
+
+## 15. Urgent detail sits behind "Show more" too
+The urgent headline ("Your date passed. Act this week.") is always visible. The paragraph under it is one tap away.
+**Why:** the tester said their "ADHD brain is reading everything at the same time." The headline carries the action, and the next move card sits directly under it. Trade-off: the § 40508 sentence is no longer visible without a tap on this card. Worth watching in the next round of testing.
+
+## 16. "Why Grown asks" is collapsed, except where the question could feel intrusive
+A pack can set `why_visible: true` on a question. Only the money question uses it.
+**Why:** an earlier pressure test showed people need to see why money is asked before they will answer. For the other questions the reason is useful but not needed to answer, and showing all seven added to the wall of words.
+
+## 17. Amber and red are reserved for warnings
+The progress bar and fit tags moved from amber to blue.
+**Why:** if amber decorates ordinary things, it stops meaning "pay attention" on the cards where that matters.
+
+## 18. Focus moves to the heading on every screen change
+**Why:** the flow is one page, so without this a screen reader stays on a button that has just disappeared and never announces the next question (WCAG 2.4.3). It replaces v1.1's live region, which re-read the whole screen.
