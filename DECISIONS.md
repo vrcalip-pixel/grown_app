@@ -143,3 +143,12 @@ Buttons have an edge, a shadow and a press movement. Information cards stay flat
 ## 38. The animated logo is a vector animation, not a GIF, and it plays once
 **Why not a GIF:** a GIF is a fixed-size picture with a fixed background. It would blur on sharp phone screens, could not follow light and dark mode, would weigh hundreds of times more, and could not be stilled for people who ask for less motion.
 **Why once:** a logo that loops forever next to a court-notice explainer competes with the one thing the person came to read. It plays as a welcome, rests, and replays only if tapped. The breathing background is the only thing on the page that keeps moving.
+
+## 39. A more natural voice, within the on-device rule
+Read-aloud now ranks the voices a device already has and picks the best one. It still refuses voices that send text to a server.
+**Why:** the truly lifelike voices are cloud services, and using one live would send a person's plan off their device. Ranking gets the best available without breaking that promise. How good it sounds depends on the device: recent iPhones, Macs and Android phones have good on-device voices; a Windows PC with only the basic voices will still sound robotic.
+**Open option:** every sentence Grown can say is fixed text in the guide pack. A lifelike voice could read each one once, ahead of time, and the recordings could ship with the app. That would give a natural voice with nothing leaving the device. It needs a paid voice service for the one-time recording and the author's choice of voice.
+
+## 40. The logo stays a drawing
+The author asked for "hyper-realistic." A vector drawing can be shaded and detailed, and now is, but it cannot be photographic.
+**Why not a video or rendered clip:** it would need a fixed background (so it could not follow light and dark or sit on the breathing background), would be far heavier, and could not be stilled for reduced motion. A photoreal clip is possible later as a separate hero piece if the author wants one.

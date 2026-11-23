@@ -1,5 +1,13 @@
 # Changelog
 
+## Softer buttons, a fading theme switch, a better voice, a richer logo (live, Nov 23, 2026)
+
+- **Button shadows are subtler.** The hard edge under each button is gone. Buttons now float on a wide, blurred shadow, and move less on hover and press.
+- **Light and dark now fade into each other** over about a second, where before the switch was instant.
+- **Read this to me picks the most natural voice on the device.** It ranks the device's own voices and prefers the newer "natural", "enhanced" and "premium" ones, then the better standard voices, and never a novelty voice. It also reads slightly slower. It still uses on-device voices only.
+- **The logo was redrawn and slowed down** to about eight seconds. The tree now has a tapered trunk, branches and a shaded crown. The vine grows through the letters of "Grown", passing behind some strokes and in front of others, and shaded leaves with veins unfurl along it one at a time.
+- 4 new tests for the voice ranking (69 total).
+
 ## Animated logo: seed to tree (live, Nov 23, 2026)
 
 - The header logo now tells the name's story in about four seconds: a seed lands, a sprout comes up, the sprout becomes a small tree, and a vine grows from its roots and crown to wrap the word "Grown" in leaves. Then it holds still.

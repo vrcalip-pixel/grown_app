@@ -47,7 +47,25 @@ export function readableChunks(root: HTMLElement): string[] {
 /** An English voice that runs on the device, or null if there is none. */
 function localVoice(): SpeechSynthesisVoice | null {
   const voices = window.speechSynthesis.getVoices().filter((v) => v.localService && v.lang.startsWith("en"));
-  return voices.find((v) => v.lang === "en-US" && v.default) ?? voices.find((v) => v.lang === "en-US") ?? voices[0] ?? null;
+  return voices.sort((a, b) => voiceScore(b) - voiceScore(a))[0] ?? null;
+}
+
+/**
+ * Devices ship several voices of very different quality. This ranks them so the
+ * most natural one on the device is used: the newer "natural", "enhanced" and
+ * "premium" voices first, then the better standard ones, with the old robotic
+ * and novelty voices last.
+ */
+export function voiceScore(v: { name: string; lang: string; default?: boolean }): number {
+  let s = 0;
+  if (/natural|neural|premium|enhanced|siri/i.test(v.name)) s += 100;
+  if (/\b(samantha|ava|allison|susan|zoe|nicky|evan|nathan|joelle|noelle|aria|jenny|michelle|google us english)\b/i.test(v.name)) s += 40;
+  if (/\bzira\b/i.test(v.name)) s += 10;
+  if (/\b(david|mark|fred|albert|ralph|kathy|junior|espeak)\b/i.test(v.name)) s -= 30;
+  if (/bad news|good news|bahh|bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|wobble|zarvox/i.test(v.name)) s -= 200;
+  if (v.lang === "en-US") s += 20;
+  if (v.default) s += 5;
+  return s;
 }
 
 export function ReadAloud({ target, screenKey }: { target: RefObject<HTMLElement | null>; screenKey: string }) {
@@ -86,7 +104,8 @@ export function ReadAloud({ target, screenKey }: { target: RefObject<HTMLElement
       const u = new SpeechSynthesisUtterance(text);
       u.voice = voice;
       u.lang = voice.lang;
-      u.rate = 0.95;
+      // A touch slower than normal speech: calmer, and easier to follow.
+      u.rate = 0.9;
       if (i === chunks.length - 1) {
         u.onend = u.onerror = () => {
           if (run.current === mine) setSpeaking(false);

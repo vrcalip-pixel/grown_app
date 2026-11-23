@@ -160,33 +160,37 @@ details[open]>:not(summary){animation:reveal .2s var(--ease)}
 :root[data-theme=light]{color-scheme:light}
 :root[data-theme=dark]{color-scheme:dark}
 .hright{display:flex;align-items:center;gap:10px}
-.themebtn{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--ink);background:var(--card);border:1px solid var(--line);box-shadow:inset 0 1px 0 var(--shine),0 2px 0 var(--edge),0 8px 14px -8px var(--shadow);transition:transform .12s var(--ease),box-shadow .12s var(--ease)}
+.themebtn{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--ink);background:var(--card);border:1px solid var(--line);box-shadow:inset 0 1px 0 var(--shine),0 1px 0 var(--edge),0 8px 16px -12px var(--shadow);transition:transform .12s var(--ease),box-shadow .12s var(--ease)}
 .themebtn:hover{transform:translateY(-1px)}
-.themebtn:active{transform:translateY(2px);box-shadow:inset 0 1px 0 var(--shine),0 0 0 var(--edge),0 2px 4px -2px var(--shadow)}
+.themebtn:active{transform:translateY(1px);box-shadow:inset 0 1px 0 var(--shine),0 2px 4px -2px var(--shadow)}
 .themebtn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 
-/* Raised buttons. Each one sits on a thin solid edge with a soft shadow under
-   it, so it reads as floating above the page. Hover lifts it a little; a press
-   pushes it down onto the page. */
-:root{--shine:light-dark(rgba(255,255,255,.9),rgba(255,255,255,.07));--edge:light-dark(#d5c9b4,#0f1315);--shadow:light-dark(rgba(70,55,30,.38),rgba(0,0,0,.75));--action-top:#3b7d9c;--action-edge:#1e4a61}
-.choice{border-width:1px;box-shadow:inset 0 1px 0 var(--shine),0 3px 0 var(--edge),0 14px 22px -10px var(--shadow);transition:transform .12s var(--ease),box-shadow .12s var(--ease),border-color .15s var(--ease),background-color .15s var(--ease);margin:14px 0}
-.choice:hover:not(:disabled){transform:translateY(-2px);box-shadow:inset 0 1px 0 var(--shine),0 5px 0 var(--edge),0 20px 26px -12px var(--shadow)}
-.choice:active:not(:disabled){transform:translateY(3px);box-shadow:inset 0 1px 0 var(--shine),0 0 0 var(--edge),0 4px 8px -4px var(--shadow)}
-.choice.picked{box-shadow:inset 0 1px 0 var(--shine),0 3px 0 var(--action-edge),0 14px 22px -10px var(--shadow)}
+/* Raised buttons, kept soft. Each one has a faint edge and a wide, blurred
+   shadow, so it floats without a hard outline. Hover lifts it a touch; a press
+   settles it onto the page. */
+:root{--shine:light-dark(rgba(255,255,255,.75),rgba(255,255,255,.05));--edge:light-dark(rgba(120,100,70,.16),rgba(0,0,0,.4));--shadow:light-dark(rgba(70,55,30,.2),rgba(0,0,0,.5));--action-top:#3b7d9c;--action-edge:rgba(20,50,66,.35)}
+.choice{border-width:1px;box-shadow:inset 0 1px 0 var(--shine),0 1px 0 var(--edge),0 2px 6px -4px var(--shadow),0 14px 28px -18px var(--shadow);transition:transform .15s var(--ease),box-shadow .15s var(--ease),border-color .15s var(--ease),background-color .15s var(--ease);margin:12px 0}
+.choice:hover:not(:disabled){transform:translateY(-1px);box-shadow:inset 0 1px 0 var(--shine),0 1px 0 var(--edge),0 4px 10px -6px var(--shadow),0 20px 34px -20px var(--shadow)}
+.choice:active:not(:disabled){transform:translateY(1px);box-shadow:inset 0 1px 0 var(--shine),0 0 0 var(--edge),0 2px 5px -3px var(--shadow)}
 .choice:disabled{box-shadow:none}
-.btn{background:linear-gradient(180deg,var(--action-top),var(--action));box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 3px 0 var(--action-edge),0 12px 18px -8px var(--shadow);transition:transform .12s var(--ease),box-shadow .12s var(--ease),border-color .15s var(--ease)}
-.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 4px 0 var(--action-edge),0 16px 22px -10px var(--shadow)}
-.btn:active:not(:disabled){transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 0 0 var(--action-edge),0 3px 6px -3px var(--shadow)}
-.btn.ghost{background:var(--card);border:1px solid var(--line);box-shadow:inset 0 1px 0 var(--shine),0 3px 0 var(--edge),0 12px 18px -10px var(--shadow)}
-.btn.ghost:hover:not(:disabled){box-shadow:inset 0 1px 0 var(--shine),0 4px 0 var(--edge),0 16px 22px -12px var(--shadow)}
-.btn.ghost:active:not(:disabled){box-shadow:inset 0 1px 0 var(--shine),0 0 0 var(--edge),0 3px 6px -3px var(--shadow)}
-.btn.onblue{background:#fff;box-shadow:0 3px 0 rgba(0,0,0,.28),0 12px 18px -8px rgba(0,0,0,.45)}
-.btn.onblue:active{box-shadow:0 0 0 rgba(0,0,0,.28),0 3px 6px -3px rgba(0,0,0,.45)}
+.btn{background:linear-gradient(180deg,var(--action-top),var(--action));box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 1px 0 var(--action-edge),0 2px 6px -4px var(--shadow),0 12px 22px -14px var(--shadow);transition:transform .15s var(--ease),box-shadow .15s var(--ease),border-color .15s var(--ease)}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 1px 0 var(--action-edge),0 4px 10px -6px var(--shadow),0 18px 28px -16px var(--shadow)}
+.btn:active:not(:disabled){transform:translateY(1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 0 var(--action-edge),0 2px 5px -3px var(--shadow)}
+.btn.ghost{background:var(--card);border:1px solid var(--line);box-shadow:inset 0 1px 0 var(--shine),0 1px 0 var(--edge),0 2px 6px -4px var(--shadow),0 12px 22px -16px var(--shadow)}
+.btn.ghost:hover:not(:disabled){box-shadow:inset 0 1px 0 var(--shine),0 1px 0 var(--edge),0 4px 10px -6px var(--shadow),0 18px 28px -18px var(--shadow)}
+.btn.ghost:active:not(:disabled){box-shadow:inset 0 1px 0 var(--shine),0 0 0 var(--edge),0 2px 5px -3px var(--shadow)}
+.btn.onblue{background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.12),0 10px 20px -12px rgba(0,0,0,.4)}
+.btn.onblue:active{box-shadow:0 2px 5px -3px rgba(0,0,0,.4)}
 .btn:disabled{box-shadow:none;transform:none}
-.chip{background:var(--card);border:1px solid var(--line);box-shadow:inset 0 1px 0 var(--shine),0 2px 0 var(--edge),0 10px 14px -9px var(--shadow);transition:transform .12s var(--ease),box-shadow .12s var(--ease),border-color .15s var(--ease)}
+.chip{background:var(--card);border:1px solid var(--line);box-shadow:inset 0 1px 0 var(--shine),0 1px 0 var(--edge),0 10px 18px -14px var(--shadow);transition:transform .15s var(--ease),box-shadow .15s var(--ease),border-color .15s var(--ease)}
 .chip:hover{transform:translateY(-1px)}
-.chip:active{transform:translateY(2px);box-shadow:inset 0 1px 0 var(--shine),0 0 0 var(--edge),0 2px 4px -2px var(--shadow)}
+.chip:active{transform:translateY(1px);box-shadow:inset 0 1px 0 var(--shine),0 2px 4px -2px var(--shadow)}
 .row{gap:12px;margin-top:18px}
+
+/* Switching light and dark is a slow cross-fade, not a snap. */
+::view-transition-old(root),::view-transition-new(root){animation-duration:.9s;animation-timing-function:ease-in-out}
+.theme-fade,.theme-fade *,.theme-fade *::before,.theme-fade *::after{transition:background-color .9s ease-in-out,color .9s ease-in-out,border-color .9s ease-in-out,box-shadow .9s ease-in-out,fill .9s ease-in-out,stroke .9s ease-in-out!important}
+@media (prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation-duration:.01s}}
 
 /* The animated logo. Plays once on load; a tap replays it. */
 .brandbtn{display:block;padding:0;margin:-6px 0 -10px 0;border:0;background:none;color:var(--ink);cursor:pointer;border-radius:12px;flex:none}
@@ -207,3 +211,17 @@ details[open]>:not(summary){animation:reveal .2s var(--ease)}
 /* Less motion: show the finished tree and vine straight away. */
 @media (prefers-reduced-motion:reduce){.lg-draw{stroke-dashoffset:0}.lg-trunk{stroke-width:4.6}.lg-seed,.lg-sprout{opacity:0}}
 .tag{text-align:right;line-height:1.3}
+
+/* Logo, second pass: slower, with shaded leaves that unfurl one at a time. */
+.lg-seed{animation-duration:2.1s}
+.lg-sprout{animation-duration:3.4s}
+.lg-pop{animation-duration:.95s}
+.lg-rise{transform-box:fill-box;transform-origin:50% 100%;animation:lg-rise var(--d,1.6s) var(--ease) var(--t,0s) both}
+.lg-leaf{animation:lg-leaf 1.6s cubic-bezier(.2,.8,.3,1) var(--t,0s) both}
+.lg-fade{animation:lg-fade var(--d,1s) ease var(--t,0s) both}
+.lg-draw{animation-timing-function:cubic-bezier(.35,.1,.45,1)}
+@keyframes lg-rise{from{transform:scale(.45,0)}45%{transform:scale(.5,.62)}to{transform:none}}
+@keyframes lg-leaf{from{transform:scale(0) rotate(-38deg);opacity:0}35%{opacity:1}to{transform:none;opacity:1}}
+@keyframes lg-fade{from{opacity:0}}
+/* A line that has not started drawing stays fully hidden (no stray dot from its rounded tip). */
+@keyframes lg-draw{0%{stroke-dashoffset:1;opacity:0}3%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
