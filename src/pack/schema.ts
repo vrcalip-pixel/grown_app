@@ -170,7 +170,25 @@ export const LivePack = z
           .strict(),
         /** Source offered as the place to go when Grown can't answer. */
         handoff_source: z.string(),
-        suggested: z.array(Localized).max(4),
+        /**
+         * Built-in questions: tap one, get an answer the author wrote from verified
+         * facts. No AI, nothing leaves the device. Each needs its own text, or
+         * from_next_move to reuse the plan's next move word for word.
+         */
+        builtin: z
+          .array(
+            z
+              .object({
+                id: z.string().min(1),
+                when: Cond.optional(),
+                question: Localized,
+                text: Parts.optional(),
+                from_next_move: z.boolean().optional(),
+                ...cites,
+              })
+              .strict(),
+          )
+          .optional(),
       })
       .strict()
       .optional(),

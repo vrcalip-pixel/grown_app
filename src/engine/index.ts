@@ -32,6 +32,8 @@ export interface Result {
     source?: { title: string; url: string };
   }[];
   watchOut: string[];
+  /** Built-in questions that apply to this person, each with its author-written answer. */
+  faq: { id: string; question: string; text: string; sources: { title: string; url: string }[] }[];
   sources: ResultSource[];
   /** Ids of the verified facts behind what is shown. The AI layer may speak only from these. */
   facts: string[];
@@ -134,6 +136,20 @@ export function resolve(pack: LivePack, rawAnswers: Answers, opts: Options = {})
   [...urgent, ...options, ...watch].forEach(cite);
   for (const o of options) if (o.source) usedSources.add(o.source);
 
+  // Built-in questions. Their facts are not added to the plan's source list:
+  // that list covers what is on the page, and these appear only when tapped.
+  const faq = (pack.guide?.builtin ?? []).filter(live).map((b) => {
+    const cited = new Set((b.from_next_move ? next.facts ?? [] : b.facts ?? []).map((id) => factById.get(id)!.source));
+    return {
+      id: b.id,
+      question: t(b.question),
+      text: b.from_next_move ? [t(next.text), next.why ? t(next.why) : ""].filter(Boolean).join(" ") : join(b.text!),
+      sources: Object.entries(pack.sources)
+        .filter(([id]) => cited.has(id))
+        .map(([, s]) => ({ title: s.title, url: s.url })),
+    };
+  });
+
   const linkSource = next.link ? pack.sources[next.link] : undefined;
 
   return {
@@ -157,6 +173,7 @@ export function resolve(pack: LivePack, rawAnswers: Answers, opts: Options = {})
       source: o.source ? { title: pack.sources[o.source].title, url: pack.sources[o.source].url } : undefined,
     })),
     watchOut: watch.map((w) => t(w.text)),
+    faq,
     // Listed in the order the pack declares them, so the list is stable.
     sources: Object.entries(pack.sources)
       .filter(([id]) => usedSources.has(id))

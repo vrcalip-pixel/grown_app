@@ -84,6 +84,20 @@ function checkLive(pack: LivePack, name: string): Report {
     err("guide.handoff_source", `unknown source "${pack.guide.handoff_source}"`);
   }
 
+  for (const b of pack.guide?.builtin ?? []) {
+    const at = `guide.builtin.${b.id}`;
+    cond(b.when, at);
+    text(b.question, at);
+    if (b.from_next_move) {
+      if (b.text || b.facts?.length) err(at, "from_next_move takes its words and facts from the plan, so give it neither");
+    } else if (!b.text) {
+      err(at, "needs text, or from_next_move: true");
+    } else {
+      parts(b.text, at);
+      cites(b, at);
+    }
+  }
+
   Object.entries(pack.defs ?? {}).forEach(([k, c]) => cond(c, `defs.${k}`));
   Object.entries(pack.vars ?? {}).forEach(([k, list]) => {
     list.forEach((v, i) => cond(v.when, `vars.${k}[${i}]`));

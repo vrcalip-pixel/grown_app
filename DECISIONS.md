@@ -112,3 +112,14 @@ It is never written to a log, file or database.
 
 ## 30. Model: Claude Opus 5.5 at low effort. Automatic fallback to another model is off
 **Why:** chosen by the author for reliability at staying inside the given text. Fallback is off because if the model declines, the fixed "blocked" line is the right thing to show, and a second model's wording would be one more thing to evaluate.
+
+## 31. Ask Grown has a layer with no AI in it, and that layer comes first
+Built-in questions are answered from the pack by the rules engine. The typed-question AI layer sits on top and is optional.
+**Why:** three reasons. It needs no key, so the feature exists today. It sends nothing off the device, so the core privacy promise holds for everyone who never opts in. And it is the fallback at the Showcase if the venue's internet or the AI service fails.
+
+## 32. Built-in answers reuse wording the pack already had
+Every built-in answer is assembled from sentences already approved elsewhere in the pack, and cites the same facts. "What do I do first?" is not written at all: it is the next move, repeated.
+**Why:** new wording about legal consequences is where errors get in. Reuse means the author reviews it once.
+
+## 33. Built-in answers do not add to the plan's source list
+**Why:** "Where this comes from" describes what is on the page. An answer shows its own sources when it is opened.

@@ -74,7 +74,7 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
     go("home");
   };
 
-  const askPanel = <AskGrown answers={answers} suggested={(pack.guide?.suggested ?? []).map((s) => s.en)} />;
+  const askPanel = (faq: Result["faq"]) => <AskGrown answers={answers} faq={faq} />;
 
   let screen: React.ReactNode;
 
@@ -242,7 +242,7 @@ function ResultView({
   onRestart,
 }: {
   result: Result;
-  ask: React.ReactNode;
+  ask: (faq: Result["faq"]) => React.ReactNode;
   checkedOn: string;
   onChange: () => void;
   onRestart: () => void;
@@ -339,7 +339,7 @@ function ResultView({
         </div>
       )}
 
-      {ask}
+      {ask(r.faq)}
 
       <Feedback />
 

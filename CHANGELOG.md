@@ -1,5 +1,24 @@
 # Changelog
 
+## Phase 3, step 3: built-in answers for Ask Grown (on branch phase-3-builtin-answers, waiting for author sign-off)
+
+Ask Grown now works with no AI key and no internet beyond loading the page.
+
+### Added
+- **Built-in questions** on the plan page. A person taps one and the answer appears, with its sources. The answers are in the guide pack, written from facts already there, and the rules engine picks which ones apply.
+- Ten questions in the pack. A person sees between one and six, depending on their plan: "What do I do first?", what the key word on their ticket means, "What if I miss my date?", "What is traffic school?", "What is MyCitations?" and "How much will this cost?".
+- "What do I do first?" repeats the plan's next move word for word, so it can never disagree with the plan.
+- "How much will this cost?" returns the fixed line: Grown doesn't guess amounts or dates.
+- Someone with a misdemeanor is never offered the traffic school or MyCitations questions.
+- 7 new tests (65 total).
+
+### Changed
+- The typed-question box (the AI layer from step 2) now sits under the built-in questions and only appears when a key is set. Its opt-in notice is unchanged.
+- Tapping a built-in question sends nothing anywhere.
+
+### Still true
+- The AI layer has never been run against the real model. The guardrail evals have not run.
+
 ## Phase 3, step 2: Ask Grown (on branch phase-3-guide, waiting for an API key and author sign-off)
 
 Not yet run against the real model. Everything below is tested with stand-in replies only.

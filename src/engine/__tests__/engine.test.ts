@@ -231,6 +231,64 @@ describe("engine guarantees", () => {
   });
 });
 
+describe("built-in questions", () => {
+  const base: Answers = { where: "lb", kind: "moving", sev: "i", date: "future", school: "no", cdl: "no", money: "ok" };
+  const faqIds = (a: Answers) => run(a).faq.map((f) => f.id);
+
+  it("every path offers at least one, and every one has an answer", () => {
+    for (const s of allPaths()) {
+      const { faq } = run(s);
+      expect(faq.length, JSON.stringify(s)).toBeGreaterThan(0);
+      for (const f of faq) expect(f.text.length).toBeGreaterThan(20);
+    }
+  });
+
+  it("'What do I do first?' is the plan's next move, word for word", () => {
+    for (const s of allPaths()) {
+      const r = run(s);
+      const first = r.faq.find((f) => f.id === "first")!;
+      expect(first.text).toBe([r.nextMove.text, r.nextMove.why].filter(Boolean).join(" "));
+    }
+  });
+
+  it("offers only what applies to this person", () => {
+    expect(faqIds(base)).toEqual(["first", "word-infraction", "miss-date", "traffic-school", "mycitations", "cost"]);
+    expect(faqIds({ where: "lb", kind: "moving", sev: "m", date: "future", money: "ok" })).toEqual([
+      "first",
+      "word-misdemeanor",
+      "miss-date",
+      "cost",
+    ]);
+    expect(faqIds({ where: "lb", kind: "parking", date: "future", money: "ok" })).toEqual(["first", "parking-why", "cost"]);
+    expect(faqIds({ where: "lb", kind: "fixit", sev: "i", date: "future", money: "ok" })).toEqual([
+      "first",
+      "word-fixit",
+      "miss-date",
+      "cost",
+    ]);
+    expect(faqIds({ ...base, where: "out" })).toEqual(["first"]);
+  });
+
+  it("never offers traffic school or MyCitations to someone with a misdemeanor", () => {
+    for (const s of allPaths().filter((p) => p.sev === "m")) {
+      expect(faqIds(s)).not.toContain("traffic-school");
+      expect(faqIds(s)).not.toContain("mycitations");
+    }
+  });
+
+  it("does not ask 'what if I miss my date' of someone who already missed it", () => {
+    expect(faqIds({ ...base, date: "passed" })).not.toContain("miss-date");
+  });
+
+  it("the cost question gets the fixed no-amounts line", () => {
+    expect(run(base).faq.find((f) => f.id === "cost")!.text).toBe(pack.guide!.lines.no_amounts_or_dates.en);
+  });
+
+  it("built-in answers do not change the plan's source list", () => {
+    expect(run({ where: "lb", kind: "moving", sev: "i", date: "future", school: "yes", cdl: "no", money: "ok" }).sources.map((s) => s.id)).not.toContain("fta");
+  });
+});
+
 describe("pack validator", () => {
   const raw = () => structuredClone(pack) as unknown as Record<string, any>;
 

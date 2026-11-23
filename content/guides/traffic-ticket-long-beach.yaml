@@ -183,10 +183,67 @@ guide:
     unavailable:
       en: "Ask Grown isn't available right now. Your plan on this page still stands."
   handoff_source: selfhelp
-  suggested:
-    - { en: "What do I do first?" }
-    - { en: "Say it in simpler words" }
-    - { en: "Why does this step matter?" }
+
+  # Built-in questions. No AI: a person taps one and sees the answer below,
+  # written from facts already in this pack. Nothing leaves the device.
+  builtin:
+    - id: first
+      question: { en: "What do I do first?" }
+      from_next_move: true
+
+    - id: word-infraction
+      when: { all: [{ not: { q: where, eq: out } }, { q: kind, in: [moving, unsure] }, { q: sev, eq: i }] }
+      question: { en: "What does \"infraction\" mean?" }
+      text: { en: "An infraction is the most common kind of traffic ticket. It is not a criminal case. You still have to deal with it by the date on your ticket." }
+      facts: [infraction-deadline]
+
+    - id: word-misdemeanor
+      when: { all: [{ not: { q: where, eq: out } }, { q: sev, eq: m }] }
+      question: { en: "What does \"misdemeanor\" or \"must appear\" mean?" }
+      text: { en: "It means this ticket is more serious than a regular one. You usually can't pay it online. You have to go to court in person on your date." }
+      facts: [must-appear]
+
+    - id: word-cant-tell
+      when: { all: [{ not: { q: where, eq: out } }, { q: sev, eq: cant }] }
+      question: { en: "What does \"misdemeanor\" mean, and why does it matter?" }
+      text: { en: "A misdemeanor is a more serious kind of ticket. You usually can't pay it online, and you have to go to court in person. Yours may not be one. Look it up on the court site or ask the traffic clerk before you pay." }
+      facts: [must-appear]
+
+    - id: word-fixit
+      when: { all: [{ not: { q: where, eq: out } }, { q: kind, eq: fixit }, { not: { q: sev, eq: m } }] }
+      question: { en: "What is a fix-it ticket?" }
+      text: { en: "It means the officer saw something you can fix, like a broken light or expired tags. If you fix it and show proof, you usually pay a small fee instead of the full fine." }
+      facts: [fixit]
+
+    - id: parking-why
+      when: { all: [{ not: { q: where, eq: out } }, { q: kind, eq: parking }] }
+      question: { en: "Why isn't this a court ticket?" }
+      text: { en: "In Long Beach, a parking ticket is handled by the City of Long Beach, not the traffic court." }
+      facts: [parking-is-city]
+
+    - id: miss-date
+      when: { all: [{ not: { q: where, eq: out } }, { not: { q: kind, eq: parking } }, { not: { q: date, eq: passed } }] }
+      question: { en: "What if I miss my date?" }
+      text: { en: "Missing your date doesn't make the ticket go away. The court can add penalties. If you promised to appear and don't, that can become a separate misdemeanor (Vehicle Code § 40508)." }
+      facts: [missed-date, fta-40508]
+
+    - id: traffic-school
+      when: { all: [{ not: { q: where, eq: out } }, { q: kind, in: [moving, unsure] }, { not: { q: sev, eq: m } }] }
+      question: { en: "What is traffic school?" }
+      text: { en: "It's a DMV-approved class. If you finish it, the ticket is kept confidential, off your public driving record. You can choose it once every 18 months. You still pay the full amount, plus a court fee, plus the school's own fee." }
+      facts: [tvs-confidential, tvs-18-months, tvs-cost]
+
+    - id: mycitations
+      when: { all: [{ not: { q: where, eq: out } }, { q: kind, in: [moving, unsure] }, { not: { q: sev, eq: m } }] }
+      question: { en: "What is MyCitations?" }
+      text: { en: "It's the court's online tool for asking for a lower amount, a payment plan, more time, or community service. You answer questions about your income and expenses." }
+      facts: [myc-requests]
+
+    - id: cost
+      when: { not: { q: where, eq: out } }
+      question: { en: "How much will this cost?" }
+      text: { en: "Grown doesn't guess amounts or dates. Check your ticket, your court notice, or the court's website." }
+      no_claim: true
 
 defs:
   school_ok:
