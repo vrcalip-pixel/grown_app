@@ -1,6 +1,6 @@
 # Changelog
 
-## Phase 3, step 1: Read this to me (on branch phase-3-read-aloud, waiting for author sign-off)
+## Phase 3, step 1: Read this to me (approved by the author and live, Nov 22, 2026)
 
 ### Added
 - A "Read this to me" button on every screen. It speaks the words on screen with a voice built into the person's own device, and becomes "Stop reading" while it talks.
