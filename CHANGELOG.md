@@ -1,6 +1,6 @@
 # Changelog
 
-## Phase 2: polish from tester feedback (on branch phase-2-polish, waiting for author sign-off)
+## Phase 2: polish from tester feedback (approved by the author and live, Nov 22, 2026)
 
 Responds to the tester's two pain points: "there was a lot of words" and "a government app."
 
