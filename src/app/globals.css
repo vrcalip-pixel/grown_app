@@ -34,16 +34,18 @@ body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--font-ma
 /* The breathing background: three soft pools of colour behind everything that
    swell and settle together, about five breaths a minute (in for 4.4s, a short
    hold, out for 5.5s). It moves only size and opacity, which phones can do
-   cheaply. The tints stay close to the sand ground so text on top keeps its
-   contrast. People who ask their device for less motion get a still version. */
-:root{--breath-a:light-dark(#cde2ea,#21404e);--breath-b:light-dark(#d6e5d0,#27392f);--breath-c:light-dark(#f1e2cc,#2f2a24)}
+   cheaply. At rest the page is almost plain sand; at the top of the breath the
+   colours bloom. People who ask their device for less motion get a still version. */
+/* Light tints are as saturated as they can be while small grey text on top
+   still meets the 4.5:1 contrast standard at the deepest point of the breath. */
+:root{--breath-a:light-dark(#b8e0f0,#1d5068);--breath-b:light-dark(#c4e6b8,#2a5038);--breath-c:light-dark(#f6d9b0,#3d3024)}
 .breath{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:var(--bg)}
 .breath i{position:absolute;border-radius:50%;will-change:transform,opacity;animation:breathe 11s ease-in-out infinite}
-.breath i:nth-child(1){width:95vmax;height:95vmax;left:-38vmax;top:-42vmax;background:radial-gradient(closest-side,var(--breath-a),transparent)}
-.breath i:nth-child(2){width:100vmax;height:100vmax;right:-45vmax;bottom:-48vmax;background:radial-gradient(closest-side,var(--breath-b),transparent)}
-.breath i:nth-child(3){width:70vmax;height:70vmax;left:calc(50% - 35vmax);top:calc(55% - 35vmax);background:radial-gradient(closest-side,var(--breath-c),transparent);animation-name:breathe-soft}
-@keyframes breathe{0%,100%{transform:scale(.82);opacity:.5}40%,50%{transform:scale(1.14);opacity:1}}
-@keyframes breathe-soft{0%,100%{transform:scale(.9);opacity:.35}40%,50%{transform:scale(1.08);opacity:.8}}
+.breath i:nth-child(1){width:95vmax;height:95vmax;left:-38vmax;top:-42vmax;background:radial-gradient(closest-side,var(--breath-a) 30%,transparent)}
+.breath i:nth-child(2){width:100vmax;height:100vmax;right:-45vmax;bottom:-48vmax;background:radial-gradient(closest-side,var(--breath-b) 30%,transparent)}
+.breath i:nth-child(3){width:70vmax;height:70vmax;left:calc(50% - 35vmax);top:calc(55% - 35vmax);background:radial-gradient(closest-side,var(--breath-c) 25%,transparent);animation-name:breathe-soft}
+@keyframes breathe{0%,100%{transform:scale(.68);opacity:.3}40%,50%{transform:scale(1.22);opacity:1}}
+@keyframes breathe-soft{0%,100%{transform:scale(.78);opacity:.25}40%,50%{transform:scale(1.15);opacity:.95}}
 
 header{border-bottom:1px solid var(--line);padding:14px max(5vw,16px)}
 .hwrap{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:10px;justify-content:space-between}

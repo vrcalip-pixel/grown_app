@@ -3,7 +3,8 @@
 ## Breathing background (live, Nov 23, 2026)
 
 - The page background now breathes: three soft pools of coastal blue, sage and warm sand slowly swell and settle together behind the content, about five breaths a minute (in for about 4 seconds, a short hold, out for about 5).
-- The tints stay close to the sand ground, so text contrast is unchanged. Cards stay solid.
+- Strengthened the same day at the author's request: richer colours and a bigger swell. At rest the page is almost plain sand; at the top of the breath the colours bloom.
+- The light-mode tints were chosen so small grey text on top still meets the 4.5:1 contrast standard at the deepest point. Cards stay solid.
 - It is decoration only: hidden from screen readers and never in the way of a tap.
 - People who set their device to reduce motion get a still version.
 - Works in light and dark mode. No images, no libraries, nothing downloaded.
