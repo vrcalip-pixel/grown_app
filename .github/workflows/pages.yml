@@ -1,0 +1,48 @@
+# Publishes a static copy of Grown to GitHub Pages on every push to the
+# production branch: https://vrcalip-pixel.github.io/grown_app/
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches: [phase-1-parity, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # The same gates as every build: pack validation and all tests.
+      - run: npm test
+      # GitHub Pages serves files only, so the one server route is left out.
+      - run: rm -rf src/app/api
+      - run: npm run build
+        env:
+          GITHUB_PAGES: "1"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
