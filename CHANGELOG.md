@@ -1,5 +1,23 @@
 # Changelog
 
+## Phase 3, step 2: Ask Grown (on branch phase-3-guide, waiting for an API key and author sign-off)
+
+Not yet run against the real model. Everything below is tested with stand-in replies only.
+
+### Added
+- **Ask Grown** panel on the plan page. A person can ask about their own plan in their own words.
+- **Opt-in notice.** The panel stays closed until the person has read what is sent (their question and the answers they tapped, to Claude) and chosen to go ahead.
+- **Grounding.** The model is given only the facts and text the rules engine showed this person. A misdemeanor result never includes traffic school facts, so the model cannot bring them up.
+- **Reply checker** (`src/guide/check.ts`), plain code with no AI. Before a person sees a reply it must: cite at least one fact, cite only facts this person was shown, contain no money words or symbols, contain no number that is not in the verified text, contain no length of time ("a few weeks") that is not in the verified text word for word, and stay under 130 words.
+- **Fixed lines** in the pack for amounts and dates, off-topic questions, blocked replies and outages. The model never writes these.
+- **Sources under every answer**, taken from the facts the answer cited.
+- **Server route** `/api/guide`. The key stays on the server. Requests are size-limited and rate-limited, and nothing in them is logged or stored.
+- **31 new tests** that feed the checker rule-breaking replies (58 total).
+- **Guardrail eval suite** (`npm run eval`): 23 adversarial questions for 3 kinds of ticket, sent to the real model. Not run yet.
+
+### Behavior without a key
+- The panel does not appear and the rest of Grown works as before.
+
 ## Phase 3, step 1: Read this to me (approved by the author and live, Nov 22, 2026)
 
 ### Added

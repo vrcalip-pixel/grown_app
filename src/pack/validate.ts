@@ -80,6 +80,10 @@ function checkLive(pack: LivePack, name: string): Report {
     if (ids.length > 0 && b.no_claim) err(where, "has both facts and no_claim");
   };
 
+  if (pack.guide && !sources.has(pack.guide.handoff_source)) {
+    err("guide.handoff_source", `unknown source "${pack.guide.handoff_source}"`);
+  }
+
   Object.entries(pack.defs ?? {}).forEach(([k, c]) => cond(c, `defs.${k}`));
   Object.entries(pack.vars ?? {}).forEach(([k, list]) => {
     list.forEach((v, i) => cond(v.when, `vars.${k}[${i}]`));

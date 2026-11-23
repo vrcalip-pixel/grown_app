@@ -170,6 +170,24 @@ facts:
     confirm_source: true
     <<: *checked
 
+# Grown Guide (the "Ask Grown" panel). These lines are shown word for word
+# whenever the Guide can't answer from the facts above. The AI never writes them.
+guide:
+  lines:
+    no_amounts_or_dates:
+      en: "Grown doesn't guess amounts or dates. Check your ticket, your court notice, or the court's website."
+    off_pack:
+      en: "That's outside what Grown has checked, so I won't guess. The California Courts Self-Help Guide is the official place to look."
+    blocked:
+      en: "I couldn't answer that using only checked sources, so I'm not going to guess. Your plan on this page still stands."
+    unavailable:
+      en: "Ask Grown isn't available right now. Your plan on this page still stands."
+  handoff_source: selfhelp
+  suggested:
+    - { en: "What do I do first?" }
+    - { en: "Say it in simpler words" }
+    - { en: "Why does this step matter?" }
+
 defs:
   school_ok:
     all:

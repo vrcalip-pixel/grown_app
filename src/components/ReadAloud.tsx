@@ -27,7 +27,7 @@ export function readableChunks(root: HTMLElement): string[] {
     if (!(node instanceof HTMLElement)) return;
     if (node.hasAttribute("data-noread") || node.getAttribute("aria-hidden") === "true") return;
     // Navigation rows and the feedback card are controls, not content.
-    if (node.classList.contains("row") || node.classList.contains("fb")) return;
+    if (node.classList.contains("row") || node.classList.contains("fb") || node.classList.contains("ask")) return;
     if (node.tagName === "SUMMARY" || node.tagName === "INPUT" || node.tagName === "TEXTAREA") return;
     if (node.tagName === "BUTTON" && (node as HTMLButtonElement).disabled) return;
 

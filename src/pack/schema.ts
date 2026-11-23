@@ -154,6 +154,26 @@ export const LivePack = z
     base_sources: z.array(z.string()).optional(),
     sources: z.record(z.string(), Source),
     facts: z.array(Fact).min(1),
+    /**
+     * Fixed lines for the Grown Guide. When the Guide can't answer from verified
+     * facts, the person sees one of these, word for word. The model never writes them.
+     */
+    guide: z
+      .object({
+        lines: z
+          .object({
+            no_amounts_or_dates: Localized,
+            off_pack: Localized,
+            blocked: Localized,
+            unavailable: Localized,
+          })
+          .strict(),
+        /** Source offered as the place to go when Grown can't answer. */
+        handoff_source: z.string(),
+        suggested: z.array(Localized).max(4),
+      })
+      .strict()
+      .optional(),
     /** Named rules, reused with { ref: name }. */
     defs: z.record(z.string(), Cond).optional(),
     /** Text variables, used as {name} in any string. First matching entry wins. */

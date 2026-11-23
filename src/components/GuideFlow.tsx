@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { AskGrown } from "./AskGrown";
 import { ReadAloud } from "./ReadAloud";
 import { daysUntil, resolve, visibleQuestions, type Answers, type Result } from "@/engine";
 import type { LivePack, PreviewPack } from "@/pack/schema";
@@ -72,6 +73,8 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
     setAnswers({});
     go("home");
   };
+
+  const askPanel = <AskGrown answers={answers} suggested={(pack.guide?.suggested ?? []).map((s) => s.en)} />;
 
   let screen: React.ReactNode;
 
@@ -154,7 +157,7 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
   } else if (view === "result") {
     screen = (
       <ResultView
-        result={resolve(pack, answers)}
+        result={resolve(pack, answers)} ask={askPanel}
         checkedOn={checkedOn}
         onChange={() => go("q0")}
         onRestart={restart}
@@ -167,7 +170,7 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
     if (!q) {
       // Past the last question for these answers: show the plan.
       screen = (
-        <ResultView result={resolve(pack, answers)} checkedOn={checkedOn} onChange={() => go("q0")} onRestart={restart} />
+        <ResultView result={resolve(pack, answers)} ask={askPanel} checkedOn={checkedOn} onChange={() => go("q0")} onRestart={restart} />
       );
     } else {
       const pickAnswer = (id: string) => {
@@ -233,11 +236,13 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
 
 function ResultView({
   result: r,
+  ask,
   checkedOn,
   onChange,
   onRestart,
 }: {
   result: Result;
+  ask: React.ReactNode;
   checkedOn: string;
   onChange: () => void;
   onRestart: () => void;
@@ -333,6 +338,8 @@ function ResultView({
           )}
         </div>
       )}
+
+      {ask}
 
       <Feedback />
 

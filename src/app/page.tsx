@@ -41,7 +41,8 @@ export default function Home() {
           own ticket or court notice. Facts last checked against official California court sources on {checkedOn}.
         </p>
         <p>
-          Built by Dr. Vincent Calip for HDA 294/494, The Agentic Self (ASU). Version one: nothing you tap is saved.
+          Built by Dr. Vincent Calip for HDA 294/494, The Agentic Self (ASU). Version one: nothing you tap is saved. If you choose to use Ask Grown, your question and the answers you tapped
+          are sent to Claude, an AI made by Anthropic, to write a reply. Grown does not store them.
         </p>
       </footer>
     </>

@@ -105,6 +105,19 @@ input[type=date],textarea{font:17px inherit;font-family:inherit;padding:12px;bor
 .fb button{flex:1 1 120px}
 footer{max-width:640px;margin:0 auto;padding:0 max(5vw,16px) 40px;font-size:13px;color:var(--soft)}
 
+/* Ask Grown */
+.asklog{margin-top:10px}
+.askq{font-weight:700;margin:14px 0 6px;padding-left:12px;border-left:3px solid var(--line)}
+.aska{background:var(--action-soft);border-radius:14px;padding:12px 14px;margin:0;animation:reveal .2s var(--ease)}
+.aska.plain{background:transparent;border:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{min-height:44px;padding:0 14px;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--ink);font:600 15px inherit;font-family:inherit;cursor:pointer;transition:border-color .15s var(--ease)}
+.chip:hover{border-color:var(--action)}
+.chip:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.askform{display:flex;gap:10px;align-items:flex-end;margin-top:12px}
+.askform textarea{resize:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
 /* Read this to me */
 .readrow{display:flex;justify-content:flex-end;margin:-12px 0 6px}
 .readbtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;border:0;background:transparent;color:var(--action-text);font:700 15px inherit;font-family:inherit;cursor:pointer;transition:background-color .15s var(--ease)}

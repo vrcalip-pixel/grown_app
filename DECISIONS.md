@@ -76,3 +76,39 @@ The button checks each voice's `localService` flag and hides itself if no Englis
 ## 20. Read-aloud reads what is visible, nothing more
 Closed "Show more" sections, navigation buttons and the feedback card are skipped.
 **Why:** it keeps listening as summary-first as reading. A person who wants the detail opens it, then taps the button again.
+
+## 21. The Guide is one grounded model call, not an agent and not a search index
+The whole context (this person's plan and its facts) is sent with each question.
+**Why:** the pack is small enough to send whole, so there is no retrieval step to get wrong. Faculty recommended the split: rules engine decides, AI only explains.
+
+## 22. The model sees only what the engine showed this person
+Not the whole pack.
+**Why:** the engine has already decided what applies. If the model could see traffic school rules while talking to someone with a misdemeanor, it could offer an option the engine deliberately withheld.
+
+## 23. A plain-code checker stands between the model and the person
+Any reply that fails is replaced by a fixed line. The checker fails closed: when unsure, it blocks.
+**Why:** a prompt can ask a model not to invent a fee. Only code can guarantee the person never sees one. The cost is that some harmless replies get blocked (for example "you have two options", if written with a length of time). A blocked reply costs a moment. A wrong date can cost a court appearance.
+
+## 24. Known limit of the checker
+It checks that a number or length of time exists in the verified text. It cannot check that the number is used to mean the same thing. If a person's plan includes "30 days or longer" for the mailed notice, the model could misuse "30 days" as a deadline and the checker would pass it.
+**Why this is written down:** the prompt, the grounding and the evals are the defense here, not the checker. This is the first thing to look for when evals run.
+
+## 25. Refusal and handoff wording is fixed text in the pack
+**Why:** these are the moments a person is most likely to be asking something risky. The author's words, reviewed once, are safer than fresh wording each time. It also means Spanish versions can be human-reviewed.
+
+## 26. No streaming
+**Why:** text cannot be shown before it is checked. Replies are short, so the wait is a few seconds.
+
+## 27. Ask Grown is on the plan page only, not on question screens
+This is narrower than first planned.
+**Why:** before the plan exists there are no engine-chosen facts to ground on. Question screens already have "Why Grown asks."
+
+## 28. Ask Grown is opt-in, with the notice shown every visit
+**Why:** it is the only feature where something leaves the device. The home screen promise ("nothing you tap is saved") stays true, and the person learns exactly what is sent before sending anything.
+
+## 29. Rate limiting holds a visitor's network address in memory for ten minutes
+It is never written to a log, file or database.
+**Why:** a public page in front of a paid model needs a brake. This is the least data that provides one. It is weak on its own, so a spend limit in the Anthropic console is the real backstop.
+
+## 30. Model: Claude Opus 5.5 at low effort. Automatic fallback to another model is off
+**Why:** chosen by the author for reliability at staying inside the given text. Fallback is off because if the model declines, the fixed "blocked" line is the right thing to show, and a second model's wording would be one more thing to evaluate.
