@@ -1,5 +1,13 @@
 # Changelog
 
+## Phase 3, step 1: Read this to me (on branch phase-3-read-aloud, waiting for author sign-off)
+
+### Added
+- A "Read this to me" button on every screen. It speaks the words on screen with a voice built into the person's own device, and becomes "Stop reading" while it talks.
+- It reads only what is visible. Text behind a closed "Show more" is not read until the person opens it.
+- It stops by itself when the person moves to another screen.
+- No AI and no network. If a device only offers voices that send text to a server, the button does not appear.
+
 ## Phase 2: polish from tester feedback (approved by the author and live, Nov 22, 2026)
 
 Responds to the tester's two pain points: "there was a lot of words" and "a government app."

@@ -68,3 +68,11 @@ The progress bar and fit tags moved from amber to blue.
 
 ## 18. Focus moves to the heading on every screen change
 **Why:** the flow is one page, so without this a screen reader stays on a button that has just disappeared and never announces the next question (WCAG 2.4.3). It replaces v1.1's live region, which re-read the whole screen.
+
+## 19. Read-aloud uses only voices that run on the device
+The button checks each voice's `localService` flag and hides itself if no English on-device voice exists.
+**Why:** some browsers ship voices that send the text to a company's server to be spoken. Reading a person's result through one of those would break "nothing leaves your device" without anyone noticing. A missing button is better than a broken promise.
+
+## 20. Read-aloud reads what is visible, nothing more
+Closed "Show more" sections, navigation buttons and the feedback card are skipped.
+**Why:** it keeps listening as summary-first as reading. A person who wants the detail opens it, then taps the button again.

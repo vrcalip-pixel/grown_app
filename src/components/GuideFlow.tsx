@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ReadAloud } from "./ReadAloud";
 import { daysUntil, resolve, visibleQuestions, type Answers, type Result } from "@/engine";
 import type { LivePack, PreviewPack } from "@/pack/schema";
 
@@ -51,6 +52,7 @@ function Icon({ name }: { name: keyof typeof ICONS }) {
 export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: PreviewPack; checkedOn: string }) {
   const [view, setView] = useState<View>("home");
   const [answers, setAnswers] = useState<Answers>({});
+  const screenRef = useRef<HTMLDivElement>(null);
 
   // On each new screen, go to the top and hand focus to its heading, so a
   // screen reader announces the new question instead of staying on a button
@@ -221,7 +223,8 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
 
   return (
     <main id="app">
-      <div className="fade" key={view}>
+      <ReadAloud target={screenRef} screenKey={view} />
+      <div className="fade" key={view} ref={screenRef}>
         {screen}
       </div>
     </main>
