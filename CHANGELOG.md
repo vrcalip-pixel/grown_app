@@ -1,5 +1,12 @@
 # Changelog
 
+## Pack 1.2 (on branch fix/misdemeanor-missed-date, waiting for author sign-off)
+
+### Fixed
+- Misdemeanor with a date that already passed. v1.1 showed no urgent card and told the person to put the court date in their phone. Now it shows an urgent card ("Your court date passed. Act today.") and the next move is to call or go to the court today. The date counter and the repeated § 40508 warning are hidden on this path.
+- The wording uses only facts already in the pack (`missed-date`, `fta-40508`, `must-appear`, `public-defender`). No new legal claim was added. Two of those four still carry `confirm_source`.
+- 27 tests. The parity test skips this one path, which now has its own test.
+
 ## 1.2.0 (in progress): Phase 1, parity
 
 Port of v1.1 into the new stack. What a person sees is the same as v1.1, with the differences listed below.
@@ -18,7 +25,6 @@ Port of v1.1 into the new stack. What a person sees is the same as v1.1, with th
 - Manrope is served from the app itself, so a visit no longer calls Google Fonts.
 
 ### Known issues carried over from v1.1 (not fixed yet, need a decision)
-- Misdemeanor plus "my date already passed" shows no urgent card, and the next move still says to put the court date in your phone.
 - The money question is asked on the parking, misdemeanor and outside-California paths, where the answer is not used. The date question is asked on the outside-California path.
 - A fix-it ticket with a missed date is told it may lose traffic school, which does not apply to fix-it tickets.
 - Ten facts carry `confirm_source: true`: v1.1 did not say which page backs them. The validator lists them on every build.

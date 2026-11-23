@@ -4,7 +4,7 @@
 # may be written here unless a fact below carries its source.
 
 id: traffic-ticket-long-beach
-version: "1.1"
+version: "1.2"
 status: live
 title: { en: "I got a traffic ticket" }
 
@@ -291,12 +291,28 @@ branches:
       - lead: { en: "A serious ticket. You have to go to court." }
         detail: { en: "If the officer marked it as a misdemeanor, or the ticket says you must appear, this is more serious than a regular traffic ticket. You usually can't just pay it online. You have to go to court on your date." }
         facts: [must-appear]
+    # Added in pack 1.2. v1.1 had nothing for a misdemeanor whose date had passed.
+    # Wording drafted from facts already in this pack. No new legal claim.
+    urgent:
+      - when: { q: date, eq: passed }
+        tone: urgent
+        title: { en: "Your court date passed. Act today." }
+        body:
+          - { en: "Missing your date doesn't make the ticket go away. If you promised to appear and didn't, that can become its own separate misdemeanor (Vehicle Code § 40508). The fix is still the same: contact the court as soon as you can. Courts see this all the time." }
+          - { en: "This is a good time to talk to a lawyer. If you can't afford one, ask the court about a public defender." }
+        facts: [missed-date, fta-40508, public-defender]
     next_move:
+      - when: { q: date, eq: passed }
+        text: { en: "Call or go to the court named on your ticket today, and ask what to do about your missed date." }
+        why: { en: "A misdemeanor usually can't be handled online, so don't wait for a letter or try to pay on a website. The court clerk can tell you what your next step is." }
+        facts: [must-appear]
       - text: { en: "Put your court date in your phone right now, and plan to be at the courthouse in person." }
         why: { en: "For a misdemeanor, talking to a lawyer is worth it. If you can't afford one, ask the court about a public defender when you appear." }
         facts: [must-appear, public-defender]
     watch_out:
-      - text: { en: "Missing a court date you promised to appear for can be its own separate misdemeanor (Vehicle Code § 40508). This is the most expensive mistake people make." }
+      # Hidden once the date has passed: the urgent card above already says it.
+      - when: { not: { q: date, eq: passed } }
+        text: { en: "Missing a court date you promised to appear for can be its own separate misdemeanor (Vehicle Code § 40508). This is the most expensive mistake people make." }
         facts: [fta-40508]
 
   # ------------------------------------------- court ticket (infraction, fix-it)

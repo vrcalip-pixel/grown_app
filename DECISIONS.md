@@ -45,3 +45,11 @@ No per-question URLs, no storage.
 ## 12. Stale answers are dropped before resolving
 If a person goes back and changes an answer, replies to questions that are no longer asked are ignored.
 **Why:** v1.1 kept them. It happened to be harmless there, but a future rule could read one.
+
+## 13. The missed-date misdemeanor fix says nothing the pack had not already verified
+The new card and next move are built from four existing facts. They do not mention warrants, license holds or any other consequence, even though a reader might expect them.
+**Why:** those consequences have no verified source in the pack yet. A calm, true, shorter card beats a fuller one with an unsourced claim. If a source is verified later, the consequence can be added as a fact and cited.
+
+## 14. Content changes go out on their own branch first
+Vercel builds a preview URL for every branch, and production only changes when the branch is merged.
+**Why:** a change to what a stressed person is told should be read by the author on a real screen before it is live.

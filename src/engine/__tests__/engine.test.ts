@@ -42,6 +42,9 @@ describe("parity with v1.1", () => {
   it("gives the same result as v1.1 on every path", () => {
     const fit = { good: true, no: false, none: null } as const;
     for (const s of paths) {
+      // Pack 1.2 fixed one gap v1.1 had: a misdemeanor whose date already passed.
+      // That path is tested on its own below and left out of the parity check.
+      if (s.where !== "out" && s.sev === "m" && s.date === "passed") continue;
       const old = v11Result(s);
       const now = run(s);
       const at = JSON.stringify(s);
@@ -102,6 +105,20 @@ describe("branches", () => {
     expect(r.options).toEqual([]);
     expect(r.nextMove.link).toBeUndefined();
     expect(ids({ where: "lb", kind: "moving", sev: "m" })).not.toContain("school");
+  });
+
+  it("misdemeanor with a missed date: urgent card, contact the court today, no date counter", () => {
+    const r = run({ where: "lb", kind: "moving", sev: "m", date: "passed", money: "ok" });
+    expect(r.branch).toBe("misdemeanor");
+    expect(r.urgent.map((u) => u.tone)).toEqual(["urgent"]);
+    expect(r.urgent[0].body.join(" ")).toMatch(/40508/);
+    expect(r.urgent[0].body.join(" ")).toMatch(/public defender/);
+    expect(r.nextMove.text).toMatch(/court named on your ticket today/);
+    expect(r.nextMove.text).not.toMatch(/in your phone/);
+    expect(r.showDate).toBe(false);
+    expect(r.watchOut).toEqual([]);
+    expect(r.options).toEqual([]);
+    expect(r.sources.map((s) => s.id)).toEqual(["selfhelp", "fta"]);
   });
 
   it("misdemeanor check is asked even when the person is not sure how they got the ticket", () => {
