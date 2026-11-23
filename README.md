@@ -5,6 +5,8 @@ Built by Dr. Vincent Calip for ASU HDA 294/494, The Agentic Self.
 
 First guide: a traffic ticket in Long Beach, CA.
 
+**Live:** https://grown-app-iota.vercel.app (deploys from GitHub on every push)
+
 ## Run it
 
 ```
