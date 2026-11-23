@@ -139,3 +139,7 @@ It is held in memory and resets to the phone's setting on the next visit.
 ## 37. Buttons are raised; cards are not
 Buttons have an edge, a shadow and a press movement. Information cards stay flat.
 **Why:** if everything floats, nothing does. Depth now means one thing: you can press this.
+
+## 38. The animated logo is a vector animation, not a GIF, and it plays once
+**Why not a GIF:** a GIF is a fixed-size picture with a fixed background. It would blur on sharp phone screens, could not follow light and dark mode, would weigh hundreds of times more, and could not be stilled for people who ask for less motion.
+**Why once:** a logo that loops forever next to a court-notice explainer competes with the one thing the person came to read. It plays as a welcome, rests, and replays only if tapped. The breathing background is the only thing on the page that keeps moving.

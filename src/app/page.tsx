@@ -1,4 +1,5 @@
 import { GuideFlow } from "@/components/GuideFlow";
+import { GrownLogo } from "@/components/GrownLogo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { loadPack } from "@/pack/load";
 
@@ -21,14 +22,7 @@ export default function Home() {
     <>
       <header>
         <div className="hwrap">
-          <div className="brand">
-            <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
-              <path d="M16 29V15" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-              <path d="M16 16C16 9 11 5 4 5c0 7 5 11 12 11z" fill="#8fb8a6" />
-              <path d="M16 13c0-6 4-9 11-9 0 6-4 9-11 9z" fill="#f2a93b" />
-            </svg>
-            Grown
-          </div>
+          <GrownLogo />
           <div className="hright">
             <div className="tag">Version {ticket.version} · Long Beach, CA</div>
             <ThemeToggle />

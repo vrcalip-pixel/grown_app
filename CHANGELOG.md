@@ -1,5 +1,13 @@
 # Changelog
 
+## Animated logo: seed to tree (live, Nov 23, 2026)
+
+- The header logo now tells the name's story in about four seconds: a seed lands, a sprout comes up, the sprout becomes a small tree, and a vine grows from its roots and crown to wrap the word "Grown" in leaves. Then it holds still.
+- Plays once when the page loads. A tap on the logo plays it again.
+- Drawn as a vector, not a GIF: sharp at any size, follows light and dark mode, and adds almost nothing to the page weight.
+- People who set their device to reduce motion see the finished tree and vine straight away.
+- The six static logo concepts in `design/logo-options.svg` are kept for reference. None was applied.
+
 ## Raised buttons and a light/dark switch (live, Nov 23, 2026)
 
 - **Raised buttons.** Every button now sits on a thin solid edge with a soft shadow beneath it, so it looks like it floats above the page. Hovering lifts it slightly, and pressing pushes it down onto the page. Applies to the answer choices, the main and secondary buttons, and the Ask Grown question chips. Disabled buttons stay flat.
