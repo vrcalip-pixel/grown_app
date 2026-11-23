@@ -15,7 +15,15 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={manrope.variable}>
-      <body>{children}</body>
+      <body>
+        {/* The breathing background. Decoration only: hidden from screen readers, never in the way of a tap. */}
+        <div className="breath" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </div>
+        {children}
+      </body>
     </html>
   );
 }

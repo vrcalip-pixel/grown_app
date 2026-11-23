@@ -1,5 +1,13 @@
 # Changelog
 
+## Breathing background (live, Nov 23, 2026)
+
+- The page background now breathes: three soft pools of coastal blue, sage and warm sand slowly swell and settle together behind the content, about five breaths a minute (in for about 4 seconds, a short hold, out for about 5).
+- The tints stay close to the sand ground, so text contrast is unchanged. Cards stay solid.
+- It is decoration only: hidden from screen readers and never in the way of a tap.
+- People who set their device to reduce motion get a still version.
+- Works in light and dark mode. No images, no libraries, nothing downloaded.
+
 ## Publishing: GitHub Pages (live, Nov 22, 2026)
 
 - A static copy of Grown is now published from the GitHub repository at https://vrcalip-pixel.github.io/grown_app/.

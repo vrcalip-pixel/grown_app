@@ -126,3 +126,8 @@ Every built-in answer is assembled from sentences already approved elsewhere in 
 
 ## 34. Two published copies: Vercel (full) and GitHub Pages (static)
 **Why:** GitHub Pages was asked for, and it is a useful second home: it depends on nothing but GitHub, costs nothing, and cannot run the AI layer by accident because it has no server. Vercel stays as the copy that can run typed AI questions once a key is set and the evals pass. If the two ever disagree at the Showcase, the GitHub Pages copy is the safer one to show.
+
+## 35. A slow breathing background, at a resting-breath pace
+The background swells for about 4 seconds, holds briefly, and settles for about 5, roughly five breaths a minute. The out-breath is longer than the in-breath.
+**Why:** the tester asked for "a calming experience." Slow breathing with a longer exhale is a common pacing for calming exercises, and a person reading a court notice is often holding their breath. This is a design choice, not a health claim, and the app says nothing about it on screen.
+**Trade-off to watch:** the same tester said their "ADHD brain is reading everything at the same time." Movement behind text can pull attention. It is kept very faint and slow for that reason, and it is the first thing to ask the next tester about. The earlier rule "motion under 300ms" still applies to anything a person triggers; this is ambient and never blocks or delays anything.
