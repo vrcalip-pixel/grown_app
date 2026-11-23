@@ -123,3 +123,6 @@ Every built-in answer is assembled from sentences already approved elsewhere in 
 
 ## 33. Built-in answers do not add to the plan's source list
 **Why:** "Where this comes from" describes what is on the page. An answer shows its own sources when it is opened.
+
+## 34. Two published copies: Vercel (full) and GitHub Pages (static)
+**Why:** GitHub Pages was asked for, and it is a useful second home: it depends on nothing but GitHub, costs nothing, and cannot run the AI layer by accident because it has no server. Vercel stays as the copy that can run typed AI questions once a key is set and the evals pass. If the two ever disagree at the Showcase, the GitHub Pages copy is the safer one to show.

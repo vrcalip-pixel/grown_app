@@ -1,5 +1,12 @@
 # Changelog
 
+## Publishing: GitHub Pages (live, Nov 22, 2026)
+
+- A static copy of Grown is now published from the GitHub repository at https://vrcalip-pixel.github.io/grown_app/.
+- A GitHub Actions workflow validates the guide packs, runs all tests, and republishes on every push to the production branch. A failed test or an unsourced rule stops the publish.
+- The static copy has no server. Everything works except typed AI questions, which were already switched off.
+- The Vercel site is unchanged.
+
 ## Phase 3, step 3: built-in answers for Ask Grown (approved by the author and live, Nov 22, 2026)
 
 Ask Grown now works with no AI key and no internet beyond loading the page.
