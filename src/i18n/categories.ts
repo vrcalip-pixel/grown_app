@@ -1,9 +1,9 @@
 /**
- * The preview categories: housing, medical, and work and money. Each has a
+ * The preview categories: housing, medical, and finance. Each has a
  * page listing its previews. Plain data only, so both the server (to build the
  * pages) and the browser (to show them) can read it.
  *
- * Medical and Work & Money were written during the build, in English and
+ * Medical and Finance were written during the build, in English and
  * Spanish. They have no Khmer yet, so Khmer falls back to English. None of the
  * Spanish or Khmer has had a human review.
  */
@@ -14,7 +14,7 @@ export interface PreviewCategory {
   /** Preview guide ids, in the order they are listed. */
   order: string[];
   tone: "green" | "rose" | "gold";
-  icon: "home" | "medical" | "work";
+  icon: "home" | "medical" | "dollar";
   name: Text;
   blurb: Text;
   eyebrow: Text;
@@ -61,22 +61,22 @@ export const PREVIEW_CATEGORIES: Record<string, PreviewCategory> = {
     },
     allPreviews: { en: "All Medical previews", es: "Todas las vistas previas de Salud" },
   },
-  "work-money": {
+  finance: {
     order: ["tax-forms", "paycheck", "benefits-letter"],
     tone: "gold",
-    icon: "work",
-    name: { en: "Work & Money", es: "Trabajo y dinero", km: "ការងារ និងប្រាក់" },
+    icon: "dollar",
+    name: { en: "Finance", es: "Finanzas", km: "ហិរញ្ញវត្ថុ" },
     blurb: {
       en: "Tax forms, paycheck deductions, and benefits letters.",
       es: "Formularios de impuestos, descuentos del cheque y cartas de beneficios.",
       km: "ទម្រង់ពន្ធ ការកាត់ប្រាក់ខែ និងលិខិតអត្ថប្រយោជន៍។",
     },
-    eyebrow: { en: "WORK & MONEY", es: "TRABAJO Y DINERO", km: "ការងារ និងប្រាក់" },
-    title: { en: "Work and money paperwork, made plain.", es: "Papeles de trabajo y dinero, en claro." },
+    eyebrow: { en: "FINANCE", es: "FINANZAS", km: "ហិរញ្ញវត្ថុ" },
+    title: { en: "Finance paperwork, made plain.", es: "Papeles de finanzas, en claro." },
     intro: {
       en: "Preview how Grown will break down tax forms, paychecks, and benefits letters.",
       es: "Mira cómo Grown explicará formularios de impuestos, cheques de pago y cartas de beneficios.",
     },
-    allPreviews: { en: "All Work & Money previews", es: "Todas las vistas previas de Trabajo y dinero" },
+    allPreviews: { en: "All Finance previews", es: "Todas las vistas previas de Finanzas" },
   },
 };

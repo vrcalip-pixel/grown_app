@@ -6,7 +6,7 @@
 id: paycheck
 version: "0.1"
 status: preview
-category: work-money
+category: finance
 title:
   en: "Same pattern, new paper: your pay stub."
   es: "Mismo patrón, nuevo papel: tu talón de pago."

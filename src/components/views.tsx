@@ -41,10 +41,11 @@ export const ICON = {
       <path d="M8 12h2l1-2 2 4 1-2h2" />
     </>
   ),
-  work: (
+  // A dollar sign.
+  dollar: (
     <>
-      <rect x="3" y="7" width="18" height="13" rx="2" />
-      <path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+      <path d="M12 2v20" />
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
     </>
   ),
   doc: (
@@ -183,7 +184,7 @@ export function GuideLanguageNote() {
   );
 }
 
-/** A category of previews: housing, medical, or work and money. */
+/** A category of previews: housing, medical, or finance. */
 export function CategoryView({ category, previews }: { category: string; previews: PreviewPack[] }) {
   const { t, tr } = useLanguage();
   const cat = PREVIEW_CATEGORIES[category];

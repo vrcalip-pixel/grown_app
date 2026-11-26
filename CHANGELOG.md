@@ -1,5 +1,10 @@
 # Changelog
 
+## Work & Money becomes Finance (live, Nov 26, 2026)
+
+- The **Work & Money** section is now called **Finance** ("Finanzas" in Spanish, "ហិរញ្ញវត្ថុ" in Khmer), with a dollar sign as its icon.
+- Its address changed from `/work-money` to `/finance`. The three previews inside it are unchanged.
+
 ## Home page tidy-up and two new preview sections (live, Nov 26, 2026)
 
 - **Auto icon** is now a recognisable car, on the home card, the Auto page and the header.

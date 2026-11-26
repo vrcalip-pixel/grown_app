@@ -67,7 +67,7 @@ export const STRINGS = {
     es: "Facturas de hospital, cartas del seguro y cobros detallados.",
     km: "វិក្កយបត្រមន្ទីរពេទ្យ លិខិតធានារ៉ាប់រង និងបញ្ជីចំណាយលម្អិត។",
   },
-  catWork: { en: "Work & Money", es: "Trabajo y dinero", km: "ការងារ និងប្រាក់" },
+  catWork: { en: "Finance", es: "Finanzas", km: "ហិរញ្ញវត្ថុ" },
   catWorkBlurb: {
     en: "Tax forms, paycheck deductions, and benefits letters.",
     es: "Formularios de impuestos, descuentos del cheque y cartas de beneficios.",
