@@ -1,6 +1,6 @@
 # Changelog
 
-## Merge of the author's FYI build (on branch merge-fyi-structure, waiting for author sign-off)
+## Merge of the author's FYI build (approved by the author and live, Nov 26, 2026)
 
 The author built a second version of Grown on the FYI platform. This brings its structure, pages and languages into this version, on top of this version's verified rules.
 
@@ -24,7 +24,7 @@ The author built a second version of Grown on the FYI platform. This brings its 
 
 ### Not finished
 - **The ticket guide itself is English only.** In Spanish or Khmer it shows a short note saying so. Its rules need a human-reviewed translation.
-- **No Spanish or Khmer text has had a human review.** It came from the FYI build, plus about ten Spanish lines written during the merge (the trust promise, read-aloud labels, the English-only note). A few lines have no Khmer yet and fall back to English.
+- **No Spanish or Khmer text has had a human review.** The author chose to go live with it on Nov 26, 2026, as it was already public on the FYI site. It came from the FYI build, plus about ten Spanish lines written during the merge (the trust promise, read-aloud labels, the English-only note). A few lines have no Khmer yet and fall back to English.
 - **Read this to me** follows the page language and hides when the device has no on-device voice for it, which is likely for Khmer.
 
 ## Dawn-horizon background and tap vibration (live, Nov 26, 2026)
