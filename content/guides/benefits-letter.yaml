@@ -1,0 +1,35 @@
+# Preview only. No verified facts yet, so this guide cannot go live.
+# Written during the build in English and Spanish. No Khmer yet (falls back to English).
+# It describes what the guide will cover and states no rules, amounts or deadlines.
+# The Spanish has not had a human review.
+
+id: benefits-letter
+version: "0.1"
+status: preview
+category: work-money
+title:
+  en: "Same pattern, new paper: a benefits letter."
+  es: "Mismo patrón, nuevo papel: una carta de beneficios."
+card:
+  title:
+    en: A benefits letter
+    es: Una carta de beneficios
+  blurb:
+    en: Approvals, renewals, and requests for more information.
+    es: Aprobaciones, renovaciones y solicitudes de más información.
+intro:
+  en: Letters about benefits can ask for a lot at once. Grown will help you see what the letter is asking for.
+  es: Las cartas sobre beneficios pueden pedir muchas cosas a la vez. Grown te ayudará a ver qué pide la carta.
+answers:
+  - en: An approval, a denial, a renewal notice, or a request for documents, from a job, a school, or a public program.
+    es: Una aprobación, una negación, un aviso de renovación o una solicitud de documentos, de un trabajo, una escuela o un programa público.
+  - en: "The office that sent it: your employer, your school's financial aid office, or a county or state agency."
+    es: "La oficina que la envió: tu empleador, la oficina de ayuda financiera de tu escuela o una agencia del condado o del estado."
+  - en: The date on the letter and any deadline it gives to respond.
+    es: La fecha de la carta y cualquier plazo que dé para responder.
+  - en: The benefit amount or change the letter describes. Grown points to it and never estimates it.
+    es: La cantidad del beneficio o el cambio que describe la carta. Grown lo señala y nunca lo calcula.
+  - en: Send what is asked for, ask for more time or help, or ask how to appeal a decision.
+    es: Enviar lo que se pide, pedir más tiempo o ayuda, o preguntar cómo apelar una decisión.
+  - en: Find the deadline and the case or ID number on the letter first.
+    es: Primero busca en la carta el plazo y el número de caso o de identificación.

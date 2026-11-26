@@ -181,3 +181,16 @@ The home, category, preview and sources pages switch between English, Spanish an
 ## 47. The language choice is not stored
 It starts from the phone's own language and lasts for the visit.
 **Why:** same reason as the light and dark choice: "Nothing you tap is saved" stays literally true.
+
+## 48. The trust promise moved to the foot of the home page
+The author asked for title, subtitle, section cards, then the "Grown is not the court, the police, or immigration" panel, just above the fine print.
+**Trade-off:** the original handoff said to "say the quiet part on screen one," and an earlier pressure test asked for a privacy promise on the first screen. On a phone the panel is now below the first screenful. It is still on the home page and still reached before anything is asked. Worth watching with the next tester: do people who worry about who is behind the app still find it?
+
+## 49. Medical and Work & Money previews are outlines, not content
+They were written during the build, not carried over from a verified source. Each line says what the guide will cover ("the due date printed on the bill") and none says what the rule is.
+**Why:** it lets people click around all four sections at the Showcase without putting a single unverified rule in front of them. The line "Grown points to the numbers and never estimates them" is repeated on each cost question on purpose.
+**One tension to resolve before these go live as real guides:** the handoff ruled out income and benefits questions. A paycheck or benefits-letter guide will have to work from what is printed on the paper, without asking the person about either.
+
+## 50. The animated logo was retired
+It was built at the author's request and removed at the author's request, because the tree and vine made the name hard to read at header size.
+**Why keep a note:** a plain wordmark is the right call for a header. If the animation returns, it belongs somewhere with room, such as a splash screen, not beside the navigation.

@@ -47,7 +47,7 @@ sources:
 # claim, so the source here is a best guess that still needs a human check.
 _checked: &checked
   verified_on: "2026-11-22"
-  verified_by: "Dr. Vincent Calip"
+  verified_by: "Vincent Calip"
   operative_date: in_effect_at_verification
 
 facts:

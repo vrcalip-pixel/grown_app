@@ -1,7 +1,7 @@
 # Grown
 
 Start from the paper in your hand, answer a few plain questions, get one calm plan.
-Built by Dr. Vincent Calip for ASU HDA 294/494, The Agentic Self.
+Built by Vincent Calip for ASU HDA 294/494, The Agentic Self.
 
 First guide: a traffic ticket in Long Beach, CA.
 

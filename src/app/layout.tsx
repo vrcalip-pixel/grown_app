@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {checkedOn(ticket)}.
           </p>
           <p>
-            Built by Dr. Vincent Calip for HDA 294/494, The Agentic Self (ASU). Version {ticket.version} · Long Beach,
+            Built by Vincent Calip for HDA 294/494, The Agentic Self (ASU). Version {ticket.version} · Long Beach,
             CA. Nothing you tap is saved. If you choose to use Ask Grown, your question and the answers you tapped are
             sent to Claude, an AI made by Anthropic, to write a reply. Grown does not store them.
           </p>

@@ -1,0 +1,35 @@
+# Preview only. No verified facts yet, so this guide cannot go live.
+# Written during the build in English and Spanish. No Khmer yet (falls back to English).
+# It describes what the guide will cover and states no rules, amounts or deadlines.
+# The Spanish has not had a human review.
+
+id: itemized-statement
+version: "0.1"
+status: preview
+category: medical
+title:
+  en: "Same pattern, new paper: an itemized statement."
+  es: "Mismo patrón, nuevo papel: un estado de cuenta detallado."
+card:
+  title:
+    en: An itemized statement
+    es: Un estado de cuenta detallado
+  blurb:
+    en: Line-by-line charges, codes, and what to ask about.
+    es: Cobros línea por línea, códigos y qué preguntar.
+intro:
+  en: An itemized statement lists every charge one by one. Grown will show you how to read the lines and what to ask about.
+  es: Un estado de cuenta detallado muestra cada cobro uno por uno. Grown te enseñará a leer las líneas y qué preguntar.
+answers:
+  - en: A summary bill or an itemized statement, and how to ask for the itemized one.
+    es: Una factura resumida o un estado de cuenta detallado, y cómo pedir el detallado.
+  - en: The hospital or clinic billing office that issued it.
+    es: La oficina de cobros del hospital o la clínica que lo emitió.
+  - en: The date of service on each line and the statement date.
+    es: La fecha del servicio en cada línea y la fecha del estado de cuenta.
+  - en: Each charge, any adjustments or insurance payments, and the balance. Grown reads the numbers on your statement and never guesses them.
+    es: Cada cobro, cualquier ajuste o pago del seguro y el saldo. Grown lee los números de tu estado de cuenta y nunca los adivina.
+  - en: Ask what a line means, point out a service you did not receive, or ask for a corrected bill.
+    es: Preguntar qué significa una línea, señalar un servicio que no recibiste o pedir una factura corregida.
+  - en: Mark any line you do not recognize and write down your questions before you call.
+    es: Marca cualquier línea que no reconozcas y anota tus preguntas antes de llamar.

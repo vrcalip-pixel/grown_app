@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { PREVIEW_CATEGORIES } from "@/i18n/categories";
 import { useLanguage } from "@/i18n/LanguageProvider";
-import type { StringKey } from "@/i18n/strings";
+import type { Lang, StringKey } from "@/i18n/strings";
 import type { PreviewPack } from "@/pack/schema";
 import { Page } from "./Page";
 
 /**
- * The pages around the guides: home, the category pages, the housing previews
- * and the sources page. Layout and wording follow the author's FYI build.
+ * The pages around the guides: home, the category pages, the previews and the
+ * sources page. Layout and wording follow the author's FYI build.
  */
 
 const svg = (d: ReactNode, size = 22) => (
@@ -18,11 +19,14 @@ const svg = (d: ReactNode, size = 22) => (
   </svg>
 );
 
-const ICON = {
+export const ICON = {
+  // A car seen from the side: body, roof line and two wheels.
   car: (
     <>
-      <path d="M5 16l1.5-5h11L19 16" />
-      <rect x="3" y="16" width="18" height="3" rx="1" />
+      <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.800-.7H5c-.6 0-1.100.4-1.400.9l-1.400 2.900A3.700 3.700 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+      <circle cx="7" cy="17" r="2" />
+      <path d="M9 17h6" />
+      <circle cx="17" cy="17" r="2" />
     </>
   ),
   home: (
@@ -33,7 +37,7 @@ const ICON = {
   ),
   medical: (
     <>
-      <path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.600-7 10-7 10z" />
+      <path d="M12 20s-7-4.400-7-10a4 4 0 0 1 7-2.500A4 4 0 0 1 19 10c0 5.600-7 10-7 10z" />
       <path d="M8 12h2l1-2 2 4 1-2h2" />
     </>
   ),
@@ -59,6 +63,9 @@ const ICON = {
   arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
 };
 
+const KHMER_DIGITS = "០១២៣៤៥៦៧៨៩";
+const count = (n: number, lang: Lang) => (lang === "km" ? String(n).replace(/\d/g, (d) => KHMER_DIGITS[Number(d)]) : String(n));
+
 function Crumb({ href, label }: { href: string; label: string }) {
   return (
     <Link className="crumb" href={href}>
@@ -68,63 +75,49 @@ function Crumb({ href, label }: { href: string; label: string }) {
   );
 }
 
-function CatCard({
-  href,
-  icon,
-  tone,
-  badge,
-  title,
-  blurb,
-}: {
-  href?: string;
-  icon: ReactNode;
-  tone: string;
-  badge: string;
-  title: string;
-  blurb: string;
-}) {
-  const inner = (
-    <>
+function CatCard({ href, icon, tone, badge, title, blurb }: { href: string; icon: ReactNode; tone: string; badge: string; title: string; blurb: string }) {
+  return (
+    <Link className="catcard" href={href}>
       <span className="cattop">
-        <span className={`cattile ${tone}`}>{svg(icon, 24)}</span>
+        <span className={`cattile ${tone}`}>{svg(icon, 38)}</span>
         <span className="badge">{badge}</span>
       </span>
       <strong>{title}</strong>
       <span className="catblurb">{blurb}</span>
-    </>
-  );
-  return href ? (
-    <Link className="catcard" href={href}>
-      {inner}
     </Link>
-  ) : (
-    <div className="catcard off" aria-disabled="true">
-      {inner}
-    </div>
   );
 }
 
 export function HomeView() {
-  const { t } = useLanguage();
+  const { lang, t, tr } = useLanguage();
   return (
     <Page>
       <h1 data-focus tabIndex={-1}>
         {t("homeTitle")}
       </h1>
       <p>{t("homeIntro")}</p>
-      <div className="trust">
+      <div className="catgrid">
+        <CatCard href="/auto" icon={ICON.car} tone="blue" badge={t("badgeLive")} title={t("catAuto")} blurb={t("catAutoBlurb")} />
+        {Object.entries(PREVIEW_CATEGORIES).map(([id, c]) => (
+          <CatCard
+            key={id}
+            href={`/${id}`}
+            icon={ICON[c.icon]}
+            tone={c.tone}
+            badge={t("badgePreviews", { n: count(c.order.length, lang) })}
+            title={tr(c.name)}
+            blurb={tr(c.blurb)}
+          />
+        ))}
+      </div>
+      {/* The trust promise sits at the foot of the home page, just above the fine print. */}
+      <div className="trust atfoot">
         <strong>{t("trustLead")}</strong>
         <ul>
           {(["trust1", "trust2", "trust3", "trust4", "trust5"] as StringKey[]).map((k) => (
             <li key={k}>{t(k)}</li>
           ))}
         </ul>
-      </div>
-      <div className="catgrid">
-        <CatCard href="/auto" icon={ICON.car} tone="blue" badge={t("badgeLive")} title={t("catAuto")} blurb={t("catAutoBlurb")} />
-        <CatCard href="/residences" icon={ICON.home} tone="green" badge={t("badgePreviews")} title={t("catResidences")} blurb={t("catResidencesBlurb")} />
-        <CatCard icon={ICON.medical} tone="grey" badge={t("comingNext")} title={t("catMedical")} blurb={t("catMedicalBlurb")} />
-        <CatCard icon={ICON.work} tone="grey" badge={t("comingNext")} title={t("catWork")} blurb={t("catWorkBlurb")} />
       </div>
     </Page>
   );
@@ -143,7 +136,7 @@ export function AutoView() {
 
       <Link className="listcard live" href="/auto/traffic-ticket">
         <span className="listtop">
-          <span className="cattile blue small">{svg(ICON.car)}</span>
+          <span className="cattile blue small">{svg(ICON.car, 32)}</span>
           <span>
             <span className="badge">{t("liveGuide")}</span>
             <strong>{t("ticketTitle")}</strong>
@@ -166,7 +159,7 @@ export function AutoView() {
       ).map(([title, blurb, icon]) => (
         <div className="listcard off" aria-disabled="true" key={title}>
           <span className="listtop">
-            <span className="cattile grey small">{svg(icon)}</span>
+            <span className="cattile grey small">{svg(icon, 32)}</span>
             <span>
               <span className="badge">{t("comingNext")}</span>
               <strong>{t(title)}</strong>
@@ -190,22 +183,24 @@ export function GuideLanguageNote() {
   );
 }
 
-export function ResidencesView({ previews }: { previews: PreviewPack[] }) {
+/** A category of previews: housing, medical, or work and money. */
+export function CategoryView({ category, previews }: { category: string; previews: PreviewPack[] }) {
   const { t, tr } = useLanguage();
+  const cat = PREVIEW_CATEGORIES[category];
   return (
     <Page>
       <Crumb href="/" label={t("home")} />
-      <div className="eyebrow caps">{t("resEyebrow")}</div>
+      <div className="eyebrow caps">{tr(cat.eyebrow)}</div>
       <span className="badge warm">{t("previewTag")}</span>
       <h1 data-focus tabIndex={-1}>
-        {t("resTitle")}
+        {tr(cat.title)}
       </h1>
-      <p>{t("resIntro")}</p>
+      <p>{tr(cat.intro)}</p>
       <p className="muted">{t("resNote")}</p>
       {previews.map((p) => (
-        <Link className="listcard" href={`/residences/${p.id}`} key={p.id}>
+        <Link className="listcard" href={`/${category}/${p.id}`} key={p.id}>
           <span className="listtop">
-            <span className="cattile green small">{svg(ICON.home)}</span>
+            <span className={`cattile ${cat.tone} small`}>{svg(ICON[cat.icon], 32)}</span>
             <span>
               <span className="badge warm">{t("previewTag")}</span>
               <strong>{tr(p.card.title)}</strong>
@@ -218,12 +213,13 @@ export function ResidencesView({ previews }: { previews: PreviewPack[] }) {
   );
 }
 
-export function PreviewView({ preview }: { preview: PreviewPack }) {
+export function PreviewView({ category, preview }: { category: string; preview: PreviewPack }) {
   const { t, tr } = useLanguage();
+  const cat = PREVIEW_CATEGORIES[category];
   const questions: StringKey[] = ["q1", "q2", "q3", "q4", "q5", "q6"];
   return (
     <Page>
-      <Crumb href="/residences" label={t("allPreviews")} />
+      <Crumb href={`/${category}`} label={tr(cat.allPreviews)} />
       <span className="badge warm">{t("previewTag")}</span>
       <h1 data-focus tabIndex={-1}>
         {tr(preview.title)}

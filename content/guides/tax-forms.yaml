@@ -1,0 +1,35 @@
+# Preview only. No verified facts yet, so this guide cannot go live.
+# Written during the build in English and Spanish. No Khmer yet (falls back to English).
+# It describes what the guide will cover and states no rules, amounts or deadlines.
+# The Spanish has not had a human review.
+
+id: tax-forms
+version: "0.1"
+status: preview
+category: work-money
+title:
+  en: "Same pattern, new paper: a tax form in the mail."
+  es: "Mismo patrón, nuevo papel: un formulario de impuestos en el correo."
+card:
+  title:
+    en: A tax form in the mail
+    es: Un formulario de impuestos en el correo
+  blurb:
+    en: W-2, 1099, 1098-T, and what each one is for.
+    es: W-2, 1099, 1098-T y para qué sirve cada uno.
+intro:
+  en: Tax forms arrive with numbers and boxes but few instructions. Grown will help you tell which form you have and what it is for.
+  es: Los formularios de impuestos llegan con números y casillas, pero con pocas instrucciones. Grown te ayudará a saber qué formulario tienes y para qué sirve.
+answers:
+  - en: A W-2 from an employer, a 1099 for other income, a 1098-T from a school, or a letter from the IRS or the California Franchise Tax Board.
+    es: Un W-2 de un empleador, un 1099 por otros ingresos, un 1098-T de una escuela o una carta del IRS o del Franchise Tax Board de California.
+  - en: Federal taxes and California state taxes, and which employer, school, or agency sent the form.
+    es: Impuestos federales e impuestos estatales de California, y qué empleador, escuela o agencia envió el formulario.
+  - en: The tax year printed on the form and the filing deadline for that year.
+    es: El año fiscal impreso en el formulario y la fecha límite para declarar ese año.
+  - en: The amounts printed in the boxes. Grown points to them and never estimates what you owe or get back.
+    es: Las cantidades impresas en las casillas. Grown las señala y nunca calcula cuánto debes ni cuánto te devuelven.
+  - en: File on your own, look for free tax help, or work with a tax preparer.
+    es: Declarar por tu cuenta, buscar ayuda gratuita con los impuestos o trabajar con un preparador de impuestos.
+  - en: Gather every form for the same tax year in one place before you start.
+    es: Junta todos los formularios del mismo año fiscal en un solo lugar antes de empezar.

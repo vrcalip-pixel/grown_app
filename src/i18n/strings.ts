@@ -74,7 +74,7 @@ export const STRINGS = {
     km: "ទម្រង់ពន្ធ ការកាត់ប្រាក់ខែ និងលិខិតអត្ថប្រយោជន៍។",
   },
   badgeLive: { en: "1 live", es: "1 activa", km: "១ កំពុងដំណើរការ" },
-  badgePreviews: { en: "5 previews", es: "5 vistas previas", km: "៥ មើលជាមុន" },
+  badgePreviews: { en: "{n} previews", es: "{n} vistas previas", km: "{n} មើលជាមុន" },
   comingNext: { en: "Coming next", es: "Próximamente", km: "មកដល់ឆាប់ៗ" },
 
   // Auto

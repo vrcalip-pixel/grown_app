@@ -278,3 +278,15 @@ a.catcard:active,a.listcard:active{transform:translateY(1px)}
 .caps{letter-spacing:.08em;font-weight:800;font-size:13px;color:var(--action-text);margin-bottom:4px}
 .langnote{max-width:640px;margin:16px auto -8px;padding:10px 14px;border-radius:12px;background:var(--amber-soft);border:1px solid var(--amber);font-size:14px;width:calc(100% - 2*max(5vw,16px))}
 h1+.badge,.badge+h1{margin-top:8px}
+
+/* Plain wordmark in the header. */
+.wordmark{display:block;font-weight:800;font-size:28px;letter-spacing:-.02em;line-height:1;padding:8px 2px}
+/* Bigger icons on the cards, so each section is easy to spot. */
+.cattile{width:76px;height:76px;border-radius:22px}
+.cattile.small{width:60px;height:60px;border-radius:18px}
+.cattop{margin-bottom:12px}
+.cattile.rose{background:linear-gradient(180deg,#c98a8a,#a96a6c)}
+.cattile.gold{background:linear-gradient(180deg,#c9a56a,#a8834a)}
+.listtop{gap:14px}
+/* The trust promise at the foot of the home page. */
+.trust.atfoot{margin:28px 0 0}

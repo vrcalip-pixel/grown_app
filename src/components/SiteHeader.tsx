@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { LANGS } from "@/i18n/strings";
-import { GrownLogo } from "./GrownLogo";
 import { ThemeToggle } from "./ThemeToggle";
 
 /** The bar at the top of every page: logo, the three sections, language, and light or dark. */
@@ -15,8 +14,10 @@ const NAV = [
     label: "navAuto" as const,
     icon: (
       <>
-        <path d="M5 16l1.5-5h11L19 16" />
-        <rect x="3" y="16" width="18" height="3" rx="1" />
+        <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+        <circle cx="7" cy="17" r="2" />
+        <path d="M9 17h6" />
+        <circle cx="17" cy="17" r="2" />
       </>
     ),
   },
@@ -50,7 +51,7 @@ export function SiteHeader() {
     <header>
       <div className="hwrap">
         <Link href="/" className="brandlink" aria-label={t("navHome")}>
-          <GrownLogo />
+          <span className="wordmark">Grown</span>
         </Link>
         <div className="hright">
           <nav className="hnav" aria-label="Sections">

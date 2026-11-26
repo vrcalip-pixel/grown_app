@@ -1,5 +1,17 @@
 # Changelog
 
+## Home page tidy-up and two new preview sections (live, Nov 26, 2026)
+
+- **Auto icon** is now a recognisable car, on the home card, the Auto page and the header.
+- **Bigger icons** on every card, so each section is easier to spot.
+- **Home page order** is now title, subtitle, the four section cards, then the "Grown is not the court, the police, or immigration" panel at the bottom, just above the fine print.
+- **Header logo** is a plain "Grown" wordmark. The tree and vine animation was removed because it made the name hard to read.
+- **Credit line** now reads "Built by Vincent Calip."
+- **Medical** and **Work & Money** are no longer "Coming next." Each has its own page and three previews with their own pages:
+  - Medical: a hospital or clinic bill, a letter from your health insurance, an itemized statement.
+  - Work & Money: a tax form in the mail, paycheck and deductions, a benefits letter.
+- The six new previews were written during the build in English and Spanish. They describe what each guide will cover and state no rules, amounts or deadlines. They have no Khmer yet and fall back to English. The Spanish has not had a human review.
+
 ## Merge of the author's FYI build (approved by the author and live, Nov 26, 2026)
 
 The author built a second version of Grown on the FYI platform. This brings its structure, pages and languages into this version, on top of this version's verified rules.

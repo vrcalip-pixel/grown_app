@@ -294,7 +294,7 @@ describe("pack validator", () => {
 
   it("passes the shipped packs", () => {
     expect(validatePack(raw(), "t").errors).toEqual([]);
-    for (const id of ["first-lease", "security-deposit", "repairs", "notices-rent", "roommates"]) {
+    for (const id of ["first-lease", "security-deposit", "repairs", "notices-rent", "roommates", "hospital-bill", "insurance-letter", "itemized-statement", "tax-forms", "paycheck", "benefits-letter"]) {
       expect(loadPack(id).status, id).toBe("preview");
     }
   });
