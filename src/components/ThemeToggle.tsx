@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 /**
  * Light and dark switch. The page starts in whatever the phone is set to. A tap
@@ -10,6 +11,7 @@ import { flushSync } from "react-dom";
  */
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark" | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setTheme(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -42,7 +44,7 @@ export function ThemeToggle() {
   };
 
   return (
-    <button className="themebtn" aria-label={`Switch to ${next} mode`} title={`Switch to ${next} mode`} onClick={flip}>
+    <button className="themebtn" aria-label={t(next === "dark" ? "toDark" : "toLight")} title={t(next === "dark" ? "toDark" : "toLight")} onClick={flip}>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         {theme === "dark" ? (
           <>

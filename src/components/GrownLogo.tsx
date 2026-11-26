@@ -7,7 +7,7 @@ import { useState, type CSSProperties } from "react";
  * a seed lands, a sprout comes up, the sprout becomes a small tree, and then a
  * vine grows slowly out of its roots and through the letters of "Grown",
  * passing behind some strokes and in front of others, with leaves unfurling
- * along it one at a time. Then it holds still. A tap plays it again.
+ * along it one at a time. Then it holds still. It sits inside the link to the home page, and a tap plays it again.
  *
  * It is drawn as a vector, not a GIF: sharp at any size, light and dark aware,
  * almost weightless, and shown finished at once for people who ask for less motion.
@@ -54,7 +54,7 @@ export function GrownLogo() {
   const [run, setRun] = useState(0);
 
   return (
-    <button className="brandbtn" onClick={() => setRun((n) => n + 1)} aria-label="Grown. Tap to replay the logo animation.">
+    <span className="brandbtn" onClick={() => setRun((n) => n + 1)}>
       <svg key={run} className="logo" viewBox="0 0 176 66" aria-hidden="true">
         <defs>
           <linearGradient id="lg-leaf-a" x1="0" y1="0" x2="1" y2="0">
@@ -143,6 +143,6 @@ export function GrownLogo() {
         <circle className="lg-pop c" style={at(3.15)} cx="26" cy="11" r="8.4" fill="url(#lg-crown)" />
         <circle className="lg-pop c" style={at(3.4)} cx="22.5" cy="9.5" r="3.4" fill="#d6f0e0" opacity=".55" />
       </svg>
-    </button>
+    </span>
   );
 }

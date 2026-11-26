@@ -1,0 +1,43 @@
+# Preview only. No verified facts yet, so this guide cannot go live.
+# Text brought over from the author's FYI build. Spanish and Khmer still need a human review.
+
+id: notices-rent
+version: "0.1"
+status: preview
+category: residences
+title:
+  en: "Same pattern, new paper: a notice on your door."
+  es: "Mismo patrón, nuevo papel: un aviso en tu puerta."
+  km: "លំនាំដូចគ្នា ឯកសារថ្មី៖ លិខិតជូនដំណឹងនៅមាត់ទ្វារ។"
+card:
+  title:
+    en: "Notices and rent increases"
+    es: "Avisos y aumentos de renta"
+    km: "សេចក្តីជូនដំណឹង និងការឡើងថ្លៃឈ្នួល"
+  blurb:
+    en: "Tell a 3-day notice, rent hike, or non-renewal from a court paper."
+    es: "Distingue un aviso de 3 días o aumento de renta de una citación de corte."
+    km: "បែងចែកលិខិតជូនដំណឹង ៣ ថ្ងៃ ឬការឡើងថ្លៃ ពីលិខិតកោះហៅតុលាការ។"
+intro:
+  en: "A paper taped to your door feels scary fast. The first step is knowing whether it's from your landlord or a court."
+  es: "Ver un papel pegado en la puerta asusta rápido. Lo primero es saber si viene del dueño o de una corte."
+  km: "ការឃើញក្រដាសបិទនៅទ្វារអាចធ្វើឱ្យភ័យ ជំហានដំបូងគឺដឹងថាមកពីម្ចាស់ផ្ទះ ឬមកពីតុលាការ។"
+answers:
+  - en: "Pay-or-quit notice, rent increase letter, 30/60-day notice, or an actual court Summons."
+    es: "Aviso de pago o desalojo, carta de aumento, aviso de 30/60 días o citación judicial."
+    km: "លិខិតឱ្យបង់ប្រាក់ ឬចេញ លិខិតឡើងថ្លៃឈ្នួល លិខិត 30/60 ថ្ងៃ ឬដីកាកោះតុលាការ។"
+  - en: "California statewide caps vs. Long Beach and LA County local rent rules."
+    es: "Límites estatales de California vs. reglas locales de Long Beach y Condado de LA."
+    km: "ដែនកំណត់រដ្ឋ California ធៀបនឹងវិធានទីក្រុង Long Beach និងខោនធី LA។"
+  - en: "Exact day count on the notice, and whether weekends count under court vs. landlord timelines."
+    es: "Los días exactos del aviso y cómo se cuentan según quién lo envió."
+    km: "ចំនួនថ្ងៃជាក់លាក់លើលិខិត និងរបៀបរាប់ថ្ងៃតាមច្បាប់។"
+  - en: "Missing a real court deadline vs. paying an unlawful increase without checking."
+    es: "Perder una fecha real de la corte vs. pagar un aumento fuera de regla."
+    km: "ការខកខានថ្ងៃតុលាការពិត ធៀបនឹងការបង់ថ្លៃឡើងលើសកំណត់ច្បាប់។"
+  - en: "Verify if the notice meets state rules, talk to legal aid immediately for court papers, or respond in writing."
+    es: "Revisar si cumple la ley, contactar ayuda legal si es corte o responder por escrito."
+    km: "ផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវនៃលិខិត រកជំនួយច្បាប់ភ្លាមៗបើជាលិខិតតុលាការ ឬឆ្លើយតបជាលាយលក្ខណ៍អក្សរ។"
+  - en: "Check who sent the paper (landlord vs. Superior Court) before doing anything else."
+    es: "Mira quién envió el papel (el dueño vs. la Corte Superior) antes de actuar."
+    km: "ពិនិត្យអ្នកផ្ញើឯកសារ (ម្ចាស់ផ្ទះ ឬតុលាការកំពូល) មុននឹងធ្វើអ្វីផ្សេង។"

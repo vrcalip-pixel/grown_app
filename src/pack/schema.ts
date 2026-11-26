@@ -8,9 +8,13 @@ import { z } from "zod";
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "use YYYY-MM-DD");
 
-/** Every user-facing string. Spanish may be null until a human has reviewed it. */
+/** Every user-facing string. Spanish (es) and Khmer (km) may be missing until written and reviewed. */
 export const Localized = z
-  .object({ en: z.string().min(1), es: z.string().min(1).nullable().optional() })
+  .object({
+    en: z.string().min(1),
+    es: z.string().min(1).nullable().optional(),
+    km: z.string().min(1).nullable().optional(),
+  })
   .strict();
 export type Localized = z.infer<typeof Localized>;
 
@@ -204,14 +208,20 @@ export const LivePack = z
   .strict();
 export type LivePack = z.infer<typeof LivePack>;
 
-/** A guide whose facts are not verified yet. It can show its outline and nothing else. */
+/**
+ * A guide whose facts are not verified yet. It can show its outline and nothing
+ * else: a card for the category page, and one line under each of the six
+ * questions every Grown guide asks. It has no rules, branches or results.
+ */
 export const PreviewPack = z
   .object({
     ...base,
     status: z.literal("preview"),
+    category: z.string().min(1),
+    card: z.object({ title: Localized, blurb: Localized }).strict(),
     intro: Localized,
-    rows: z.array(z.object({ q: Localized, a: Localized }).strict()).min(1),
-    note: Localized,
+    /** One line for each of the six shared questions, in order. */
+    answers: z.array(Localized).length(6),
   })
   .strict();
 export type PreviewPack = z.infer<typeof PreviewPack>;

@@ -1,0 +1,43 @@
+# Preview only. No verified facts yet, so this guide cannot go live.
+# Text brought over from the author's FYI build. Spanish and Khmer still need a human review.
+
+id: repairs
+version: "0.1"
+status: preview
+category: residences
+title:
+  en: "Same pattern, new paper: repair requests."
+  es: "Mismo patrón, nuevo papel: pedir reparaciones."
+  km: "លំនាំដូចគ្នា ឯកសារថ្មី៖ សំណើជួសជុល។"
+card:
+  title:
+    en: "Repairs and unsafe conditions"
+    es: "Reparaciones y condiciones inseguras"
+    km: "ការជួសជុល និងស្ថានភាពគ្មានសុវត្ថិភាព"
+  blurb:
+    en: "Leaks, heat, mold, or pests and putting requests in writing."
+    es: "Goteras, calefacción, moho o plagas, y cómo pedirlo por escrito."
+    km: "លេចធ្លាយ ម៉ាស៊ីនកំដៅ ផ្សិត ឬសត្វល្អិត និងការស្នើសុំជាលាយលក្ខណ៍អក្សរ។"
+intro:
+  en: "When something essential breaks, how you document the problem matters just as much as telling someone."
+  es: "Cuando falla algo esencial, dejar registro por escrito importa tanto como avisar verbalmente."
+  km: "ពេលមានបញ្ហាសំខាន់ខូច ការកត់ត្រាជាលាយលក្ខណ៍អក្សរមានសារៈសំខាន់ដូចការប្រាប់ផ្ទាល់មាត់ដែរ។"
+answers:
+  - en: "A maintenance request, code enforcement report, or landlord response about habitability."
+    es: "Solicitud de mantenimiento, reporte de inspección o respuesta del dueño."
+    km: "សំណើជួសជុល របាយការណ៍ត្រួតពិនិត្យទីក្រុង ឬការឆ្លើយតបរបស់ម្ចាស់ផ្ទះ។"
+  - en: "Long Beach Housing & Code Enforcement or local county health rules."
+    es: "Inspección de vivienda de Long Beach o reglas de salud del condado."
+    km: "ផ្នែកត្រួតពិនិត្យលំនៅដ្ឋានទីក្រុង Long Beach ឬវិធានសុខភាពខោនធី។"
+  - en: "The day you first reported the problem in writing and how long it has gone unfixed."
+    es: "El día en que reportaste la falla por escrito y cuántos días han pasado."
+    km: "ថ្ងៃដំបូងដែលអ្នករាយការណ៍ជាលាយលក្ខណ៍អក្សរ និងរយៈពេលមិនទាន់ជួសជុល។"
+  - en: "Why withholding rent on your own carries big risk without verified legal steps."
+    es: "Por qué dejar de pagar la renta sin asesoría legal verificada trae riesgo."
+    km: "ហេតុអ្វីបានជាការឈប់បង់ថ្លៃជួលដោយខ្លួនឯងមានហានិភ័យខ្ពស់។"
+  - en: "Put it in writing with photos, follow up on a clear timeline, or contact local code enforcement."
+    es: "Enviar reporte por escrito con fotos, dar seguimiento o acudir a inspectores locales."
+    km: "ផ្ញើសំណើជាលាយលក្ខណ៍អក្សរភ្ជាប់រូបថត តាមដាន ឬទាក់ទងអធិការកិច្ចលំនៅដ្ឋាន។"
+  - en: "Send one dated written message with photos so there is a clear record."
+    es: "Manda un mensaje escrito con fecha y fotos para tener prueba clara."
+    km: "ផ្ញើសារជាលាយលក្ខណ៍អក្សរមានកាលបរិច្ឆេទ និងរូបថតដើម្បីទុកជាភស្តុតាង។"

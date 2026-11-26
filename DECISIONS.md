@@ -161,3 +161,23 @@ The author shared the Artie app's background (a glowing planet rim on a night sk
 ## 42. A light vibration on every button tap
 **Why:** the author felt it in the reference app and it makes a web page feel like a real app in the hand.
 **Limits, stated plainly:** web pages can vibrate Android phones through a standard feature. iPhones do not offer that to web pages; Grown uses a workaround (flipping a hidden switch, which recent iPhone Safari ticks for). It is harmless if it fails, but it is not guaranteed, and only testing on a real iPhone will tell. A guaranteed vibration on iPhone needs a real App Store app, not a web page.
+
+## 43. Merge the FYI build's shape onto this version's rules, not the other way round
+The author built a second Grown on the FYI platform with a category home, real pages, three languages and five housing previews. Those were brought in. The ticket guide's engine, verified pack and tests stayed as they were.
+**Why:** the FYI build had the better structure; this build has the checked facts and the proof (tests, validator) that nothing unsourced ships. Replacing one with the other would lose one of those.
+
+## 44. The FYI build's new legal wording was left out
+Its misdemeanor plan said a missed date "can trigger a warrant," called the ticket "a criminal court charge," and said court staff are "free." None of that is in the verified facts.
+**Why:** this is the exact failure the project was built to prevent: plausible legal statements with no source. They can come in as facts once the author attaches a source to each.
+
+## 45. Pages have real addresses now
+Each section and preview is its own page, built ahead of time.
+**Why:** the FYI build showed a blank page when the ticket guide or a preview was opened by direct link or refreshed. Pages built ahead of time cannot do that. Answers inside the guide are still held in memory only and never appear in the address.
+
+## 46. Languages: the shell is translated, the guide is not yet
+The home, category, preview and sources pages switch between English, Spanish and Khmer. The ticket guide stays in English and says so.
+**Why:** the author's own rule is that translations get a human review before going live, and a mistranslated rule is worse than an English one. The pages around the guide state no rules, so they carry less risk. Khmer was added because Long Beach has a large Cambodian community.
+
+## 47. The language choice is not stored
+It starts from the phone's own language and lasts for the visit.
+**Why:** same reason as the light and dark choice: "Nothing you tap is saved" stays literally true.

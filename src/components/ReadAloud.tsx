@@ -45,8 +45,8 @@ export function readableChunks(root: HTMLElement): string[] {
 }
 
 /** An English voice that runs on the device, or null if there is none. */
-function localVoice(): SpeechSynthesisVoice | null {
-  const voices = window.speechSynthesis.getVoices().filter((v) => v.localService && v.lang.startsWith("en"));
+function localVoice(lang: string): SpeechSynthesisVoice | null {
+  const voices = window.speechSynthesis.getVoices().filter((v) => v.localService && v.lang.toLowerCase().startsWith(lang));
   return voices.sort((a, b) => voiceScore(b) - voiceScore(a))[0] ?? null;
 }
 
@@ -68,7 +68,20 @@ export function voiceScore(v: { name: string; lang: string; default?: boolean })
   return s;
 }
 
-export function ReadAloud({ target, screenKey }: { target: RefObject<HTMLElement | null>; screenKey: string }) {
+export function ReadAloud({
+  target,
+  screenKey,
+  lang = "en",
+  startLabel = "Read this to me",
+  stopLabel = "Stop reading",
+}: {
+  target: RefObject<HTMLElement | null>;
+  screenKey: string;
+  /** The language of the words on screen. The button hides if the device has no on-device voice for it. */
+  lang?: string;
+  startLabel?: string;
+  stopLabel?: string;
+}) {
   const [available, setAvailable] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const run = useRef(0);
@@ -76,11 +89,11 @@ export function ReadAloud({ target, screenKey }: { target: RefObject<HTMLElement
   // Voices load after the page does, so check now and again when they arrive.
   useEffect(() => {
     if (!("speechSynthesis" in window)) return;
-    const check = () => setAvailable(localVoice() !== null);
+    const check = () => setAvailable(localVoice(lang) !== null);
     check();
     window.speechSynthesis.addEventListener("voiceschanged", check);
     return () => window.speechSynthesis.removeEventListener("voiceschanged", check);
-  }, []);
+  }, [lang]);
 
   const stop = () => {
     run.current++;
@@ -92,7 +105,7 @@ export function ReadAloud({ target, screenKey }: { target: RefObject<HTMLElement
   useEffect(() => stop, [screenKey]);
 
   const start = () => {
-    const voice = localVoice();
+    const voice = localVoice(lang);
     if (!target.current || !voice) return;
     const chunks = readableChunks(target.current);
     if (!chunks.length) return;
@@ -129,7 +142,7 @@ export function ReadAloud({ target, screenKey }: { target: RefObject<HTMLElement
             </>
           )}
         </svg>
-        {speaking ? "Stop reading" : "Read this to me"}
+        {speaking ? stopLabel : startLabel}
       </button>
     </div>
   );

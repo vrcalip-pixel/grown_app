@@ -1,0 +1,43 @@
+# Preview only. No verified facts yet, so this guide cannot go live.
+# Text brought over from the author's FYI build. Spanish and Khmer still need a human review.
+
+id: roommates
+version: "0.1"
+status: preview
+category: residences
+title:
+  en: "Same pattern, new paper: shared leases & sublets."
+  es: "Mismo patrón, nuevo papel: contratos compartidos."
+  km: "លំនាំដូចគ្នា ឯកសារថ្មី៖ កិច្ចសន្យារួមគ្នា។"
+card:
+  title:
+    en: "Roommates and subleasing"
+    es: "Compañeros de cuarto y subarriendo"
+    km: "អ្នករួមបន្ទប់ និងការជួលបន្ត"
+  blurb:
+    en: "Shared leases, someone moving out early, and splitting bills."
+    es: "Contratos compartidos, mudarse antes de tiempo y dividir gastos."
+    km: "កិច្ចសន្យារួមគ្នា ការរើចេញមុនកំណត់ និងការបែងចែកថ្លៃឈ្នួល។"
+intro:
+  en: "Sharing rent gets complicated fast when one person wants to leave mid-lease or stops paying their share."
+  es: "Compartir renta se complica cuando alguien quiere irse antes o deja de pagar su parte."
+  km: "ការចែករំលែកថ្លៃជួលអាចស្មុគស្មាញភ្លាម ពេលមានម្នាក់ចង់ចេញមុនកំណត់ ឬឈប់បង់ចំណែកខ្លួន។"
+answers:
+  - en: "Co-signer agreement, joint lease, sublease addendum, or roommate release form."
+    es: "Acuerdo de co-firmante, contrato conjunto, permiso de subarriendo o salida de inquilino."
+    km: "កិច្ចព្រមព្រៀងអ្នកធានា កិច្ចសន្យារួម ឯកសារបន្ថែមជួលបន្ត ឬការដកឈ្មោះចេញ។"
+  - en: "California contract rules plus whatever your written lease says about subletting."
+    es: "Reglas de contratos en California y lo que dice tu contrato firmado."
+    km: "វិធានកិច្ចសន្យារដ្ឋ California និងលក្ខខណ្ឌក្នុងកិច្ចសន្យាដែលអ្នកបានចុះហត្ថលេខា។"
+  - en: "Notice date to the landlord, move-out date, and monthly rent due dates."
+    es: "Fecha de aviso al dueño, salida y vencimiento mensual de la renta."
+    km: "ថ្ងៃជូនដំណឹងដល់ម្ចាស់ផ្ទះ ថ្ងៃរើចេញ និងថ្ងៃដល់កំណត់បង់ថ្លៃឈ្នួលប្រចាំខែ។"
+  - en: "Joint liability, meaning the landlord can hold one roommate responsible for the full rent."
+    es: "Responsabilidad conjunta: el dueño puede cobrar toda la renta a una sola persona."
+    km: "ការទទួលខុសត្រូវរួម មានន័យថាម៉្ចាស់ផ្ទះអាចទារថ្លៃជួលទាំងមូលពីអ្នកណាម្នាក់បាន។"
+  - en: "Get landlord approval in writing, put roommate splits in writing, or negotiate an official lease addendum."
+    es: "Pedir permiso por escrito al dueño, acordar pagos por escrito o firmar un anexo."
+    km: "សុំការអនុញ្ញាតជាលាយលក្ខណ៍អក្សរពីម្ចាស់ផ្ទះ ឬធ្វើកិច្ចព្រមព្រៀងជាលាយលក្ខណ៍អក្សររវាងអ្នករួមបន្ទប់។"
+  - en: "Check the sublease clause in your signed lease before promising a room to someone else."
+    es: "Lee la cláusula de subarriendo en tu contrato antes de prometer el cuarto."
+    km: "អានលក្ខខណ្ឌជួលបន្តក្នុងកិច្ចសន្យារបស់អ្នក មុននឹងសន្យាបន្ទប់ឱ្យអ្នកផ្សេង។"

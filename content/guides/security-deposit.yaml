@@ -1,0 +1,43 @@
+# Preview only. No verified facts yet, so this guide cannot go live.
+# Text brought over from the author's FYI build. Spanish and Khmer still need a human review.
+
+id: security-deposit
+version: "0.1"
+status: preview
+category: residences
+title:
+  en: "Same pattern, new paper: your security deposit."
+  es: "Mismo patrón, nuevo papel: tu depósito de seguridad."
+  km: "លំនាំដូចគ្នា ឯកសារថ្មី៖ ប្រាក់កក់សុវត្ថិភាពរបស់អ្នក។"
+card:
+  title:
+    en: "Security deposit and moving out"
+    es: "Depósito de seguridad y mudanza"
+    km: "ប្រាក់កក់ និងការរើចេញ"
+  blurb:
+    en: "Walkthroughs, itemized deductions, and getting money back."
+    es: "Inspección final, descuentos detallados y cómo recuperar tu dinero."
+    km: "ការត្រួតពិនិត្យបន្ទប់ បញ្ជីកាត់ប្រាក់ និងការទទួលប្រាក់វិញ។"
+intro:
+  en: "Moving out comes with strict timelines for both you and the landlord. Grown will keep the steps clear."
+  es: "Al mudarte hay plazos estrictos para ti y para el dueño. Grown mantendrá los pasos claros."
+  km: "ពេលរើចេញ មានកាលកំណត់តឹងរឹងសម្រាប់ទាំងអ្នក និងម្ចាស់ផ្ទះ។ Grown នឹងបង្ហាញជំហានច្បាស់លាស់។"
+answers:
+  - en: "Move-out inspection notice, itemized deduction list, or a check for less than you paid."
+    es: "Aviso de inspección, lista detallada de cobros o un cheque menor al que pagaste."
+    km: "សេចក្តីជូនដំណឹងត្រួតពិនិត្យពេលរើចេញ បញ្ជីកាត់ប្រាក់ ឬមូលប្បទានប័ត្រតិចជាងប្រាក់កក់។"
+  - en: "California state deposit laws apply everywhere, with specific local housing resources."
+    es: "Leyes estatales de California más recursos locales de vivienda."
+    km: "ច្បាប់ប្រាក់កក់រដ្ឋ California រួមជាមួយធនធានលំនៅដ្ឋានក្នុងតំបន់។"
+  - en: "Your move-out date, pre-inspection request window, and the legal deadline to return your deposit."
+    es: "Fecha de salida, cuándo pedir pre-inspección y el plazo legal para devolver el depósito."
+    km: "ថ្ងៃរើចេញ ពេលសុំត្រួតពិនិត្យមុនចេញ និងកាលកំណត់ច្បាប់សម្រាប់សងប្រាក់កក់។"
+  - en: "Normal wear and tear vs. actual damage, cleaning charges, and unpaid rent deductions."
+    es: "Desgaste normal vs. daños reales, cobros de limpieza y renta pendiente."
+    km: "ការសឹករិចរិលធម្មតា ធៀបនឹងការខូចខាតពិតប្រាកដ និងថ្លៃសម្អាត។"
+  - en: "Request an initial walkthrough, send a polite written follow-up, or check small claims self-help."
+    es: "Pedir inspección previa, enviar carta de seguimiento o revisar reclamos menores."
+    km: "ស្នើសុំត្រួតពិនិត្យមុនរើចេញ ផ្ញើលិខិតតាមដាន ឬពិនិត្យតុលាការទាមទារប្រាក់តិចតួច។"
+  - en: "Save timestamped photos and give a forwarding address in writing."
+    es: "Guarda fotos con fecha y da por escrito tu nueva dirección postal."
+    km: "រក្សាទុករូបថតមានកាលបរិច្ឆេទ និងផ្តល់អាសយដ្ឋានថ្មីជាលាយលក្ខណ៍អក្សរ។"

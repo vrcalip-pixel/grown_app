@@ -1,5 +1,32 @@
 # Changelog
 
+## Merge of the author's FYI build (on branch merge-fyi-structure, waiting for author sign-off)
+
+The author built a second version of Grown on the FYI platform. This brings its structure, pages and languages into this version, on top of this version's verified rules.
+
+### Brought over from the FYI build
+- **Category home screen:** Auto, Residences, Medical, Work & Money, with the headline "Nobody hands you a manual for this. We got you."
+- **Real pages with their own addresses:** Home, Auto, the ticket guide, Residences, five housing previews, and Sources. A direct link or a refresh works on every one.
+- **Header navigation** with icons for Auto, Residences and Sources.
+- **Three languages:** English, Spanish and Khmer, with a switch on every page. The page also starts in Spanish or Khmer if that is the phone's language.
+- **Five housing previews:** first lease, security deposit, repairs, notices and rent increases, roommates. They replace the single lease preview.
+- **Sources page** listing the seven official sources.
+
+### Kept from this version
+- The ticket guide's rules engine, verified guide pack and all tests. The guide asks the same questions and gives the same plans as before.
+- The promise "Grown is not the court, the police, or immigration" stays on the home screen. The FYI build had dropped it.
+- Read this to me, Ask Grown, the dawn background, the animated logo, the light and dark fade and tap vibration.
+
+### Deliberately not brought over
+- **New legal wording on the FYI plan pages,** such as "can trigger a warrant" and "free court staff." These have no source in the verified facts and need the author to source them first.
+- **Em dashes** in the FYI copy were replaced with periods and commas.
+- **Translated source titles.** Official source names stay in English.
+
+### Not finished
+- **The ticket guide itself is English only.** In Spanish or Khmer it shows a short note saying so. Its rules need a human-reviewed translation.
+- **No Spanish or Khmer text has had a human review.** It came from the FYI build, plus about ten Spanish lines written during the merge (the trust promise, read-aloud labels, the English-only note). A few lines have no Khmer yet and fall back to English.
+- **Read this to me** follows the page language and hides when the device has no on-device voice for it, which is likely for Khmer.
+
 ## Dawn-horizon background and tap vibration (live, Nov 26, 2026)
 
 - **New background.** A wide, curved rim of warm light sits low on the page, like first light coming over the edge of a world, with slow motes of light drifting above it and one small star. In dark mode it is a night sky; in light mode a pale dawn. It replaces the three color pools.

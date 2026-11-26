@@ -4,14 +4,15 @@ import { useEffect, useRef, useState } from "react";
 import { AskGrown } from "./AskGrown";
 import { ReadAloud } from "./ReadAloud";
 import { daysUntil, resolve, visibleQuestions, type Answers, type Result } from "@/engine";
-import type { LivePack, PreviewPack } from "@/pack/schema";
+import Link from "next/link";
+import type { LivePack } from "@/pack/schema";
 
 /**
- * The whole flow on one screen, as in v1.1: home, one question at a time, result.
+ * One guide, start to finish: one question at a time, then the plan.
  * Answers live in this component's memory only. Nothing is stored or sent.
  */
 
-type View = "home" | "lease" | "result" | `q${number}`;
+type View = "result" | `q${number}`;
 
 const ICONS = {
   ticket: (
@@ -50,8 +51,8 @@ function Icon({ name }: { name: keyof typeof ICONS }) {
   );
 }
 
-export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: PreviewPack; checkedOn: string }) {
-  const [view, setView] = useState<View>("home");
+export function GuideFlow({ pack, checkedOn, backHref }: { pack: LivePack; checkedOn: string; backHref: string }) {
+  const [view, setView] = useState<View>("q0");
   const [answers, setAnswers] = useState<Answers>({});
   const screenRef = useRef<HTMLDivElement>(null);
 
@@ -71,90 +72,14 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
   };
   const restart = () => {
     setAnswers({});
-    go("home");
+    go("q0");
   };
 
   const askPanel = (faq: Result["faq"]) => <AskGrown answers={answers} faq={faq} />;
 
   let screen: React.ReactNode;
 
-  if (view === "home") {
-    screen = (
-      <>
-        <p className="eyebrow">For anyone figuring out adult life without someone who&apos;s done it before.</p>
-        <h1 data-focus tabIndex={-1}>
-          A letter showed up. Let&apos;s figure out your next move.
-        </h1>
-        <p>Pick what&apos;s in your hand. A few plain questions, then the one thing to do next.</p>
-        <div className="trust">
-          <strong>Grown is not the court, the police, or immigration.</strong>
-          <ul>
-            <li>No account</li>
-            <li>No name or license number</li>
-            <li>No income questions</li>
-            <li>No trackers</li>
-            <li>Nothing you tap is saved</li>
-          </ul>
-        </div>
-        <button className="choice" onClick={() => go("q0")}>
-          <Icon name="ticket" />
-          <span>
-            {pack.title.en}
-            <small>Long Beach, CA · about 2 minutes</small>
-          </span>
-        </button>
-        <button className="choice" onClick={() => go("lease")}>
-          <Icon name="home" />
-          <span>
-            My first lease<small>Preview: see how the next guide will work</small>
-          </span>
-        </button>
-        <button className="choice" disabled>
-          <Icon name="med" />
-          <span>
-            A medical bill I don&apos;t understand<small>Coming next</small>
-          </span>
-        </button>
-        <button className="choice" disabled>
-          <Icon name="car" />
-          <span>
-            A letter from the DMV<small>Coming next</small>
-          </span>
-        </button>
-      </>
-    );
-  } else if (view === "lease") {
-    screen = (
-      <>
-        <div className="eyebrow">Preview · not live yet</div>
-        <h1 data-focus tabIndex={-1}>
-          {lease.title.en}
-        </h1>
-        <p>{lease.intro.en}</p>
-        <div className="card">
-          {lease.rows.map((r, i) => (
-            <div className="opt" key={i}>
-              <b>
-                {i + 1}. {r.q.en}
-              </b>
-              <p style={{ margin: "6px 0 0" }}>{r.a.en}</p>
-            </div>
-          ))}
-        </div>
-        <div className="card warn">
-          <p className="tight">{lease.note.en}</p>
-        </div>
-        <div className="row">
-          <button className="btn" onClick={() => go("q0")}>
-            Try the live ticket guide
-          </button>
-          <button className="btn ghost" onClick={() => go("home")}>
-            Back
-          </button>
-        </div>
-      </>
-    );
-  } else if (view === "result") {
+  if (view === "result") {
     screen = (
       <ResultView
         result={resolve(pack, answers)} ask={askPanel}
@@ -215,9 +140,15 @@ export function GuideFlow({ pack, lease, checkedOn }: { pack: LivePack; lease: P
             </details>
           )}
           <div className="row">
-            <button className="btn ghost" onClick={() => go(i ? `q${i - 1}` : "home")}>
-              Back
-            </button>
+            {i ? (
+              <button className="btn ghost" onClick={() => go(`q${i - 1}`)}>
+                Back
+              </button>
+            ) : (
+              <Link className="btn ghost" href={backHref}>
+                Back
+              </Link>
+            )}
           </div>
         </>
       );

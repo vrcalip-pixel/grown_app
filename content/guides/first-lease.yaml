@@ -1,0 +1,44 @@
+# Preview only. No verified facts yet, so this guide cannot go live.
+# Text brought over from the author's FYI build. Spanish and Khmer are
+# machine-written there and still need a human review.
+
+id: first-lease
+version: "0.1"
+status: preview
+category: residences
+title:
+  en: "Same pattern, new paper: your first lease."
+  es: "Mismo patrón, nuevo papel: tu primer contrato."
+  km: "លំនាំដូចគ្នា ឯកសារថ្មី៖ កិច្ចសន្យាជួលដំបូងរបស់អ្នក។"
+card:
+  title:
+    en: "First lease or rental agreement"
+    es: "Primer contrato de renta"
+    km: "កិច្ចសន្យាជួលផ្ទះដំបូង"
+  blurb:
+    en: "Check what you're signing before you hand over money."
+    es: "Revisa qué estás firmando antes de entregar dinero."
+    km: "ពិនិត្យអ្វីដែលអ្នកកំពុងចុះហត្ថលេខា មុនពេលប្រគល់ប្រាក់។"
+intro:
+  en: "A lease is a binding contract. Here is how Grown will walk you through every key line before you sign."
+  es: "Un contrato de renta es un acuerdo serio. Así es como Grown te guiará línea por línea antes de firmar."
+  km: "កិច្ចសន្យាជួលគឺជាកិច្ចព្រមព្រៀងផ្លូវច្បាប់ នេះជារបៀបដែល Grown នឹងនាំអ្នកពិនិត្យមុនចុះហត្ថលេខា។"
+answers:
+  - en: "Fixed-term lease vs. month-to-month rental agreement, and who is actually on the contract."
+    es: "Contrato a plazo fijo vs. mes a mes, y quién aparece realmente en el contrato."
+    km: "កិច្ចសន្យាកំណត់រយៈពេល ឬជួលប្រចាំខែ និងអ្នកណាខ្លះមានឈ្មោះក្នុងកិច្ចសន្យា។"
+  - en: "Long Beach, LA County, or elsewhere in California. City rules affect tenant protections."
+    es: "Long Beach, Condado de LA o el resto de California. Las reglas locales importan."
+    km: "ទីក្រុង Long Beach ខោនធី LA ឬកន្លែងផ្សេងទៀតក្នុង California ច្បាប់ទីក្រុងប៉ះពាល់សិទ្ធិអ្នកជួល។"
+  - en: "Move-in date, lease end date, and when automatic renewal or notice windows kick in."
+    es: "Fecha de mudanza, fin del contrato y cuándo empiezan las ventanas de aviso."
+    km: "ថ្ងៃចូលស្នាក់នៅ ថ្ងៃផុតកំណត់កិច្ចសន្យា និងពេលវេលាត្រូវជូនដំណឹងជាមុន។"
+  - en: "Monthly rent, security deposit limits, late fee wording, and which utilities you pay."
+    es: "Renta mensual, límites del depósito, recargos por retraso y qué servicios pagas."
+    km: "ថ្លៃជួលប្រចាំខែ ដែនកំណត់ប្រាក់កក់ ថ្លៃពិន័យបង់យឺត និងថ្លៃទឹកភ្លើងដែលអ្នកត្រូវបង់។"
+  - en: "Ask for unclear terms in writing, document move-in condition with photos, or walk away before signing."
+    es: "Pedir cambios por escrito, tomar fotos al entrar o decidir no firmar todavía."
+    km: "ស្នើសុំបញ្ជាក់ជាលាយលក្ខណ៍អក្សរ ថតរូបស្ថានភាពបន្ទប់ពេលចូល ឬមិនទាន់ចុះហត្ថលេខា។"
+  - en: "One clear check to do before you sign or send your first deposit."
+    es: "Una revisión clara antes de firmar o enviar tu primer depósito."
+    km: "ការត្រួតពិនិត្យច្បាស់មួយមុនពេលអ្នកចុះហត្ថលេខា ឬផ្ញើប្រាក់កក់ដំបូង។"
