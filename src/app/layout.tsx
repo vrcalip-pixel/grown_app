@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
+import { Haptics } from "@/components/Haptics";
 import "./globals.css";
 
 // Self-hosted at build time, so a visit never calls Google.
@@ -18,10 +19,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {/* The breathing background. Decoration only: hidden from screen readers, never in the way of a tap. */}
         <div className="breath" aria-hidden="true">
-          <i />
-          <i />
-          <i />
+          <span className="motes" />
+          <span className="motes b" />
+          <span className="spark" />
+          <span className="horizon" />
         </div>
+        <Haptics />
         {children}
       </body>
     </html>

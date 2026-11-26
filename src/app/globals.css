@@ -31,21 +31,27 @@
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--font-manrope),system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
 
-/* The breathing background: three soft pools of colour behind everything that
-   swell and settle together, about five breaths a minute (in for 4.4s, a short
-   hold, out for 5.5s). It moves only size and opacity, which phones can do
-   cheaply. At rest the page is almost plain sand; at the top of the breath the
-   colours bloom. People who ask their device for less motion get a still version. */
-/* Light tints are as saturated as they can be while small grey text on top
-   still meets the 4.5:1 contrast standard at the deepest point of the breath. */
-:root{--breath-a:light-dark(#b8e0f0,#1d5068);--breath-b:light-dark(#c4e6b8,#2a5038);--breath-c:light-dark(#f6d9b0,#3d3024)}
-.breath{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:var(--bg)}
-.breath i{position:absolute;border-radius:50%;will-change:transform,opacity;animation:breathe 11s ease-in-out infinite}
-.breath i:nth-child(1){width:95vmax;height:95vmax;left:-38vmax;top:-42vmax;background:radial-gradient(closest-side,var(--breath-a) 30%,transparent)}
-.breath i:nth-child(2){width:100vmax;height:100vmax;right:-45vmax;bottom:-48vmax;background:radial-gradient(closest-side,var(--breath-b) 30%,transparent)}
-.breath i:nth-child(3){width:70vmax;height:70vmax;left:calc(50% - 35vmax);top:calc(55% - 35vmax);background:radial-gradient(closest-side,var(--breath-c) 25%,transparent);animation-name:breathe-soft}
-@keyframes breathe{0%,100%{transform:scale(.68);opacity:.3}40%,50%{transform:scale(1.22);opacity:1}}
-@keyframes breathe-soft{0%,100%{transform:scale(.78);opacity:.25}40%,50%{transform:scale(1.15);opacity:.95}}
+/* The background: a horizon at first light. A wide, curved rim of warm light
+   sits low on the page, like dawn coming over the edge of a world, with a few
+   slow motes of light drifting above it and one small star. The glow swells
+   and settles at a resting-breath pace (in about 4s, a short hold, out about
+   5s). Light mode is a pale dawn; dark mode is a night sky. Everything here is
+   drawn with styles, moves only size and opacity, and holds still for people
+   who ask their device for less motion. */
+:root{--sky-top:light-dark(#f5f0e7,#090b0e);--sky-low:light-dark(#fbe6cb,#170f0a);--rim:light-dark(#fffaf0,#ffe2b4);--glow:light-dark(#f0a85a,#ee8436);--glow-deep:light-dark(#f2c88f,#a04618);--glow-soft:light-dark(rgba(238,165,85,.38),rgba(205,92,30,.42));--mote:light-dark(rgba(186,124,54,.5),rgba(255,172,96,.8))}
+.breath{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:linear-gradient(var(--sky-top) 40%,var(--sky-low))}
+.horizon{position:absolute;left:50%;top:85%;width:220vw;height:220vw;margin-left:-110vw;border-radius:50%;filter:blur(.6px);background:radial-gradient(ellipse 50% 8% at 50% 0,var(--glow) 0,var(--glow-deep) 42%,transparent 100%);box-shadow:inset 0 3px 5px -1px var(--rim),0 -5px 16px -4px var(--glow),0 -22px 64px -18px var(--glow-soft)}
+.horizon::after{content:"";position:absolute;inset:0;border-radius:50%;opacity:.6;box-shadow:inset 0 7px 16px -3px var(--rim),0 -10px 36px -4px var(--glow),0 -44px 130px -22px var(--glow-soft);animation:breathe-glow 11s ease-in-out infinite}
+.motes{position:absolute;left:0;top:0;width:2px;height:2px;border-radius:50%;box-shadow:92.1vw 27.8vh 0 0 var(--mote),72.9vw 51.1vh 0 0 var(--mote),75.2vw 72.5vh 0 0 var(--mote),68.5vw 61.0vh 0 0 var(--mote),24.2vw 35.9vh 0 .6px var(--mote),69.8vw 5.2vh 0 0 var(--mote),46.8vw 88.6vh 0 0 var(--mote),12.3vw 49.3vh 0 .6px var(--mote),68.9vw 61.8vh 0 .6px var(--mote),91.2vw 87.2vh 0 0 var(--mote),33.5vw 80.4vh 0 0 var(--mote),15.3vw 28.6vh 0 0 var(--mote),29.5vw 90.0vh 0 0 var(--mote),72.9vw 84.3vh 0 0 var(--mote),27.3vw 53.8vh 0 0 var(--mote),42.1vw 18.5vh 0 0 var(--mote),5.5vw 35.1vh 0 .6px var(--mote),66.4vw 88.7vh 0 0 var(--mote),16.6vw 38.9vh 0 0 var(--mote),36.4vw 40.7vh 0 0 var(--mote),53.2vw 58.9vh 0 0 var(--mote),90.6vw 44.0vh 0 0 var(--mote);animation:drift 17s ease-in-out infinite alternate}
+.motes.b{box-shadow:63.5vw 60.9vh 0 .6px var(--mote),50.5vw 66.1vh 0 0 var(--mote),39.7vw 68.0vh 0 .6px var(--mote),58.7vw 33.7vh 0 0 var(--mote),39.1vw 76.3vh 0 0 var(--mote),11.1vw 78.6vh 0 .6px var(--mote),40.7vw 14.7vh 0 0 var(--mote),99.6vw 21.1vh 0 0 var(--mote),14.4vw 43.9vh 0 0 var(--mote),13.8vw 88.5vh 0 0 var(--mote),89.1vw 85.0vh 0 .6px var(--mote),76.1vw 26.4vh 0 .6px var(--mote),24.8vw 7.3vh 0 0 var(--mote),61.7vw 22.2vh 0 0 var(--mote),48.9vw 66.0vh 0 0 var(--mote),88.2vw 22.6vh 0 0 var(--mote);animation-duration:25s;animation-direction:alternate-reverse}
+.spark{position:absolute;left:8%;top:94px;width:20px;height:20px;background:var(--glow);clip-path:polygon(50% 0,57% 43%,100% 50%,57% 57%,50% 100%,43% 57%,0 50%,43% 43%);animation:twinkle 6s ease-in-out infinite}
+@keyframes breathe-glow{0%,100%{opacity:.12}40%,50%{opacity:1}}
+@keyframes drift{from{transform:translateY(0);opacity:.5}to{transform:translateY(-28px);opacity:1}}
+@keyframes twinkle{0%,100%{transform:scale(.7);opacity:.4}50%{transform:scale(1.1) rotate(8deg);opacity:1}}
+/* Words that sit straight on the sky get a soft halo of sky colour, so they stay
+   readable while the glow passes behind them. Words on cards and buttons do not. */
+main,footer{text-shadow:0 0 10px var(--sky-top),0 0 3px var(--sky-top)}
+.card,.choice,.btn,.chip,.trust,.why,.readbtn{text-shadow:none}
 
 header{border-bottom:1px solid var(--line);padding:14px max(5vw,16px)}
 .hwrap{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:10px;justify-content:space-between}
@@ -225,3 +231,5 @@ details[open]>:not(summary){animation:reveal .2s var(--ease)}
 @keyframes lg-fade{from{opacity:0}}
 /* A line that has not started drawing stays fully hidden (no stray dot from its rounded tip). */
 @keyframes lg-draw{0%{stroke-dashoffset:1;opacity:0}3%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+/* The page ends above the horizon, so the last words never sit on the bright rim. */
+footer{padding-bottom:calc(18vh + 40px)}

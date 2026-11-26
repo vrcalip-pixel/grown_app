@@ -152,3 +152,12 @@ Read-aloud now ranks the voices a device already has and picks the best one. It 
 ## 40. The logo stays a drawing
 The author asked for "hyper-realistic." A vector drawing can be shaded and detailed, and now is, but it cannot be photographic.
 **Why not a video or rendered clip:** it would need a fixed background (so it could not follow light and dark or sit on the breathing background), would be far heavier, and could not be stilled for reduced motion. A photoreal clip is possible later as a separate hero piece if the author wants one.
+
+## 41. The background is a dawn horizon, and the warm glow now belongs to it
+The author shared the Artie app's background (a glowing planet rim on a night sky) as the look to aim for. Grown's version is an original drawing in the same spirit: first light on a horizon, which also fits the name.
+**What this overrides:** decision 17 reserved amber for warnings. The horizon is warm amber and orange, so that rule no longer holds for the background. Warnings are still set apart by their bordered cards and their place at the top of the plan, but amber alone no longer means "pay attention." Worth watching with the next tester.
+**What was not copied:** no image, artwork or code from the reference app. Only the idea of a glowing horizon with drifting points of light.
+
+## 42. A light vibration on every button tap
+**Why:** the author felt it in the reference app and it makes a web page feel like a real app in the hand.
+**Limits, stated plainly:** web pages can vibrate Android phones through a standard feature. iPhones do not offer that to web pages; Grown uses a workaround (flipping a hidden switch, which recent iPhone Safari ticks for). It is harmless if it fails, but it is not guaranteed, and only testing on a real iPhone will tell. A guaranteed vibration on iPhone needs a real App Store app, not a web page.

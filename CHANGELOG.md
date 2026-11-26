@@ -1,5 +1,14 @@
 # Changelog
 
+## Dawn-horizon background and tap vibration (live, Nov 26, 2026)
+
+- **New background.** A wide, curved rim of warm light sits low on the page, like first light coming over the edge of a world, with slow motes of light drifting above it and one small star. In dark mode it is a night sky; in light mode a pale dawn. It replaces the three color pools.
+- **It still breathes.** The glow along the horizon swells and settles at the same resting-breath pace as before.
+- **Inspired by, not copied from,** the background of the Artie app, which the author shared as a reference. Nothing from that app is used: the scene is drawn from scratch in styles, with no images.
+- **Text stays readable.** Words that sit directly on the sky get a soft halo of sky color, and the page now ends above the horizon so the last lines never rest on the bright rim.
+- **Tap vibration.** Buttons give a light tick of vibration on phones that allow it. Android uses the standard vibration feature. iPhone Safari has none for web pages, so a known workaround is used there; it may not work on every iPhone, and if it doesn't the tap is simply silent. Desktops do nothing.
+- People who set their device to reduce motion get a still scene.
+
 ## Softer buttons, a fading theme switch, a better voice, a richer logo (live, Nov 23, 2026)
 
 - **Button shadows are subtler.** The hard edge under each button is gone. Buttons now float on a wide, blurred shadow, and move less on hover and press.
