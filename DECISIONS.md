@@ -211,3 +211,9 @@ The author chose the dark look as the one look, for its contrast, and removed th
 The author asked to simplify the home page by folding the "Grown is not the court, the police, or immigration" panel into the footer text, without repeating anything. It now opens the fine print on every page, with that first sentence in bold.
 **What was gained:** a simpler home page, and the promise now appears on every page, including inside the ticket guide, where before it was on the home page only.
 **Trade-off:** this is the second step away from the handoff's rule to "say the quiet part on screen one" (see decision 48). The promise went from a panel at the top, to a panel at the bottom, to small print. A first-time visitor who is wary of who is behind the app is now less likely to see it before they start. Worth testing with the next few people: after using Grown, can they say who it is not?
+
+## 54. No category sorter on the home page, for now
+The author asked whether the home page needs a quiz or other wayfinding aid to help people pick a category. Decided on Nov 26, 2026 to hold off.
+**Why:** with four cards, each showing a plain name and three examples, the grid is already the wayfinder. A quiz in front of it adds a step, and the home page had just been simplified.
+**What to watch for:** testers hesitating over which card to tap.
+**What to build if they do:** one question under the intro, "Not sure where your paper goes? Who sent it?", with one-tap answers (a court or the police, the DMV, a landlord, a hospital or insurer, an employer or tax office) that lead to the right category. No typing, nothing stored. Ruled out: a multi-question quiz, a search box, and sorting from a photo (it would need AI to read a personal document).
