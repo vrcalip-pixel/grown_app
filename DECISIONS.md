@@ -201,3 +201,8 @@ The device voices sounded robotic, so the speaker button now plays clips in Vinc
 **How it keeps the facts rule:** the voice only reads lines that are already on screen, word for word. The list of lines (`content/voice/lines.json`) was collected by walking every page and all 1,080 answer paths of the ticket guide.
 **What falls back to the device voice:** a line with no clip, such as the sentence built from a date the person types, and all Khmer. If a wording change is published without running `npm run voice` again, the new line is read by the device voice until the clips are remade.
 **Not yet done:** nobody has listened to all 500 clips. A cloned voice can mispronounce a word or a court name, so the ticket guide clips need a listen before the Showcase.
+
+## 52. Dark only, with a livelier background
+The author chose the dark look as the one look, for its contrast, and removed the light/dark switch. The background gained rising embers and every tap now sends a ripple across the page.
+**Why it is safe to do:** the embers and ripple are decoration behind and above the page. They never take a tap, they stop for people who ask their device for less motion, and the embers pause in a background tab to save battery.
+**Trade-offs to watch:** an earlier rule said motion should be "gentle and fast, 250ms or less" and the app should feel calm. The embers move constantly and the ripple lasts about a second. Someone reading a stressful notice in bright sunlight may also find a dark screen harder to read than a light one, and there is no longer a way to switch. Worth asking the next testers about both.

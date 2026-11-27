@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
+import { Embers } from "@/components/Embers";
 import { Haptics } from "@/components/Haptics";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -22,13 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   if (ticket.status !== "live") throw new Error("The ticket guide must be live");
 
   return (
-    <html lang="en" className={manrope.variable}>
+    <html lang="en" className={manrope.variable} style={{ colorScheme: "dark" }}>
       <body>
         {/* The background scene. Decoration only: hidden from screen readers, never in the way of a tap. */}
         <div className="breath" aria-hidden="true">
-          <span className="motes" />
-          <span className="motes b" />
-          <span className="spark" />
+          <Embers />
           <span className="horizon" />
         </div>
         <Haptics />

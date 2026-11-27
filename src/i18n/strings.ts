@@ -24,8 +24,6 @@ export const STRINGS = {
   navResidences: { en: "Residences and housing", es: "Vivienda y contratos", km: "លំនៅដ្ឋាន និងកិច្ចសន្យាជួល" },
   navSources: { en: "Official court sources", es: "Fuentes oficiales de la corte", km: "ប្រភពផ្លូវការរបស់តុលាការ" },
   langSwitcher: { en: "Language", es: "Idioma", km: "ភាសា" },
-  toDark: { en: "Switch to dark mode", es: "Cambiar a modo oscuro", km: "ប្តូរទៅផ្ទៃងងឹត" },
-  toLight: { en: "Switch to light mode", es: "Cambiar a modo claro", km: "ប្តូរទៅផ្ទៃភ្លឺ" },
   menuAll: { en: "All sections", es: "Todas las secciones", km: "ផ្នែកទាំងអស់" },
   menuSources: { en: "Sources", es: "Fuentes", km: "ប្រភព" },
   home: { en: "Home", es: "Inicio", km: "ទំព័រដើម" },

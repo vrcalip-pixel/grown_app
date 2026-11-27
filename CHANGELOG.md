@@ -1,5 +1,13 @@
 # Changelog
 
+## Always dark, embers, a ripple on every tap (live, Nov 26, 2026)
+
+- **Dark only.** Grown now always shows its dark look. The light/dark switch is gone from the header.
+- **Embers.** The background's drifting specks are now embers: they lift off near the glow at the bottom, rise, sway, flicker and fade, all the time the page is open. The glowing horizon stays.
+- **Ripple.** Tapping any button or card sends a ring of light across the whole page from the spot that was tapped.
+- **Language switch.** The highlight now slides from one language to the next instead of jumping.
+- Embers and the ripple hold still for anyone whose device is set to reduce motion, and the embers pause while the tab is in the background.
+
 ## Grid menu and a quieter speaker (live, Nov 26, 2026)
 
 - The header's separate Auto, Residences and Sources buttons are replaced by one grid button. It opens a panel with every section: Auto, Residences, Medical, Finance and Sources. A new section added later appears there by itself.

@@ -7,7 +7,8 @@
    WORDS:  every section leads with one short line. The rest sits behind "Show more".
    MOTION: gentle and fast (250ms or less), and off when the person asks for less motion.
    LAYOUT: one column, max 640px, tap targets 44px or taller, phone first. */
-:root{color-scheme:light dark;
+/* Grown is always in its dark look: a night sky with embers. */
+:root{color-scheme:dark;
 --bg:light-dark(#f6f1e7,#191d20);--card:light-dark(#fffdf8,#22282c);--ink:light-dark(#2a2d2f,#eef0f1);
 --soft:light-dark(#5a5f63,#aab2b8);--line:light-dark(#e7dfd1,#343c42);
 --action:#2f6884;--action-text:light-dark(#2a6180,#8fc6de);--action-soft:light-dark(#e4eef2,#27363f);
@@ -31,23 +32,17 @@
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--font-manrope),system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
 
-/* The background: a horizon at first light. A wide, curved rim of warm light
-   sits low on the page, like dawn coming over the edge of a world, with a few
-   slow motes of light drifting above it and one small star. The glow swells
+/* The background: a night sky with a wide, curved rim of warm light low on the
+   page, like a fire just over the edge of a world. Embers rise from it and
+   drift up through the dark (drawn by the Embers component). The glow swells
    and settles at a resting-breath pace (in about 4s, a short hold, out about
-   5s). Light mode is a pale dawn; dark mode is a night sky. Everything here is
-   drawn with styles, moves only size and opacity, and holds still for people
-   who ask their device for less motion. */
+   5s). All of it holds still for people who ask their device for less motion. */
 :root{--sky-top:light-dark(#f5f0e7,#090b0e);--sky-low:light-dark(#fbe6cb,#170f0a);--rim:light-dark(#fffaf0,#ffe2b4);--glow:light-dark(#f0a85a,#ee8436);--glow-deep:light-dark(#f2c88f,#a04618);--glow-soft:light-dark(rgba(238,165,85,.38),rgba(205,92,30,.42));--mote:light-dark(rgba(186,124,54,.5),rgba(255,172,96,.8))}
 .breath{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:linear-gradient(var(--sky-top) 40%,var(--sky-low))}
 .horizon{position:absolute;left:50%;top:85%;width:220vw;height:220vw;margin-left:-110vw;border-radius:50%;filter:blur(.6px);background:radial-gradient(ellipse 50% 8% at 50% 0,var(--glow) 0,var(--glow-deep) 42%,transparent 100%);box-shadow:inset 0 3px 5px -1px var(--rim),0 -5px 16px -4px var(--glow),0 -22px 64px -18px var(--glow-soft)}
 .horizon::after{content:"";position:absolute;inset:0;border-radius:50%;opacity:.6;box-shadow:inset 0 7px 16px -3px var(--rim),0 -10px 36px -4px var(--glow),0 -44px 130px -22px var(--glow-soft);animation:breathe-glow 11s ease-in-out infinite}
-.motes{position:absolute;left:0;top:0;width:2px;height:2px;border-radius:50%;box-shadow:92.1vw 27.8vh 0 0 var(--mote),72.9vw 51.1vh 0 0 var(--mote),75.2vw 72.5vh 0 0 var(--mote),68.5vw 61.0vh 0 0 var(--mote),24.2vw 35.9vh 0 .6px var(--mote),69.8vw 5.2vh 0 0 var(--mote),46.8vw 88.6vh 0 0 var(--mote),12.3vw 49.3vh 0 .6px var(--mote),68.9vw 61.8vh 0 .6px var(--mote),91.2vw 87.2vh 0 0 var(--mote),33.5vw 80.4vh 0 0 var(--mote),15.3vw 28.6vh 0 0 var(--mote),29.5vw 90.0vh 0 0 var(--mote),72.9vw 84.3vh 0 0 var(--mote),27.3vw 53.8vh 0 0 var(--mote),42.1vw 18.5vh 0 0 var(--mote),5.5vw 35.1vh 0 .6px var(--mote),66.4vw 88.7vh 0 0 var(--mote),16.6vw 38.9vh 0 0 var(--mote),36.4vw 40.7vh 0 0 var(--mote),53.2vw 58.9vh 0 0 var(--mote),90.6vw 44.0vh 0 0 var(--mote);animation:drift 17s ease-in-out infinite alternate}
-.motes.b{box-shadow:63.5vw 60.9vh 0 .6px var(--mote),50.5vw 66.1vh 0 0 var(--mote),39.7vw 68.0vh 0 .6px var(--mote),58.7vw 33.7vh 0 0 var(--mote),39.1vw 76.3vh 0 0 var(--mote),11.1vw 78.6vh 0 .6px var(--mote),40.7vw 14.7vh 0 0 var(--mote),99.6vw 21.1vh 0 0 var(--mote),14.4vw 43.9vh 0 0 var(--mote),13.8vw 88.5vh 0 0 var(--mote),89.1vw 85.0vh 0 .6px var(--mote),76.1vw 26.4vh 0 .6px var(--mote),24.8vw 7.3vh 0 0 var(--mote),61.7vw 22.2vh 0 0 var(--mote),48.9vw 66.0vh 0 0 var(--mote),88.2vw 22.6vh 0 0 var(--mote);animation-duration:25s;animation-direction:alternate-reverse}
-.spark{position:absolute;left:8%;top:94px;width:20px;height:20px;background:var(--glow);clip-path:polygon(50% 0,57% 43%,100% 50%,57% 57%,50% 100%,43% 57%,0 50%,43% 43%);animation:twinkle 6s ease-in-out infinite}
+.embers{position:absolute;inset:0;width:100%;height:100%}
 @keyframes breathe-glow{0%,100%{opacity:.12}40%,50%{opacity:1}}
-@keyframes drift{from{transform:translateY(0);opacity:.5}to{transform:translateY(-28px);opacity:1}}
-@keyframes twinkle{0%,100%{transform:scale(.7);opacity:.4}50%{transform:scale(1.1) rotate(8deg);opacity:1}}
 /* Words that sit straight on the sky get a soft halo of sky colour, so they stay
    readable while the glow passes behind them. Words on cards and buttons do not. */
 main,footer{text-shadow:0 0 10px var(--sky-top),0 0 3px var(--sky-top)}
@@ -171,14 +166,7 @@ details[open]>:not(summary){animation:reveal .2s var(--ease)}
 @keyframes reveal{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
-/* Light and dark switch. With no choice made, the page follows the phone. */
-:root[data-theme=light]{color-scheme:light}
-:root[data-theme=dark]{color-scheme:dark}
 .hright{display:flex;align-items:center;gap:10px}
-.themebtn{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--ink);background:var(--card);border:1px solid var(--line);box-shadow:inset 0 1px 0 var(--shine),0 1px 0 var(--edge),0 8px 16px -12px var(--shadow);transition:transform .12s var(--ease),box-shadow .12s var(--ease)}
-.themebtn:hover{transform:translateY(-1px)}
-.themebtn:active{transform:translateY(1px);box-shadow:inset 0 1px 0 var(--shine),0 2px 4px -2px var(--shadow)}
-.themebtn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 
 /* Raised buttons, kept soft. Each one has a faint edge and a wide, blurred
    shadow, so it floats without a hard outline. Hover lifts it a touch; a press
@@ -202,10 +190,6 @@ details[open]>:not(summary){animation:reveal .2s var(--ease)}
 .chip:active{transform:translateY(1px);box-shadow:inset 0 1px 0 var(--shine),0 2px 4px -2px var(--shadow)}
 .row{gap:12px;margin-top:18px}
 
-/* Switching light and dark is a slow cross-fade, not a snap. */
-::view-transition-old(root),::view-transition-new(root){animation-duration:.9s;animation-timing-function:ease-in-out}
-.theme-fade,.theme-fade *,.theme-fade *::before,.theme-fade *::after{transition:background-color .9s ease-in-out,color .9s ease-in-out,border-color .9s ease-in-out,box-shadow .9s ease-in-out,fill .9s ease-in-out,stroke .9s ease-in-out!important}
-@media (prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation-duration:.01s}}
 
 /* The animated logo. Plays once on load; a tap replays it. */
 .brandbtn{display:block;padding:0;margin:-6px 0 -10px 0;border:0;background:none;color:var(--ink);cursor:pointer;border-radius:12px;flex:none}
@@ -254,9 +238,11 @@ footer{padding-bottom:calc(18vh + 40px)}
 .navbtn:hover{transform:translateY(-1px)}
 .navbtn.on{background:var(--action-soft);color:var(--action-text);border-color:var(--action)}
 .navbtn:focus-visible,.langs button:focus-visible,.catcard:focus-visible,.listcard:focus-visible,.crumb:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
-.langs{display:flex;padding:3px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
-.langs button{min-width:38px;height:36px;padding:0 8px;border:0;border-radius:11px;background:transparent;color:var(--soft);font:800 12px inherit;font-family:inherit;cursor:pointer}
-.langs button.on{background:var(--action-soft);color:var(--action-text)}
+.langs{position:relative;display:flex;padding:3px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+/* The highlight behind the chosen language. It slides to the new one instead of jumping. */
+.langpill{position:absolute;top:3px;bottom:3px;left:0;border-radius:11px;background:var(--action-soft);transition:transform .32s var(--ease),width .32s var(--ease)}
+.langs button{position:relative;min-width:38px;height:36px;padding:0 8px;border:0;border-radius:11px;background:transparent;color:var(--soft);font:800 12px inherit;font-family:inherit;cursor:pointer;transition:color .32s var(--ease)}
+.langs button.on{color:var(--action-text)}
 
 /* Category cards on the home page. */
 .catgrid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px}
@@ -299,3 +285,13 @@ h1+.badge,.badge+h1{margin-top:8px}
 .listtop{gap:14px}
 /* The trust promise at the foot of the home page. */
 .trust.atfoot{margin:28px 0 0}
+
+/* The ripple from a tap: two rings of light that spread from the tap to the far
+   corner of the screen, brightening what they pass over, then fade. */
+.ripple{position:fixed;z-index:60;pointer-events:none;border-radius:50%;
+  background:radial-gradient(circle closest-side,transparent 60%,rgba(255,196,130,.10) 68%,rgba(255,222,176,.30) 78%,rgba(255,196,130,.10) 84%,transparent 88%,rgba(255,196,130,.12) 95%,transparent 100%);
+  -webkit-mask:radial-gradient(circle closest-side,transparent 60%,#000 72%,#000 82%,transparent 88%,#000 95%,transparent 100%);
+  mask:radial-gradient(circle closest-side,transparent 60%,#000 72%,#000 82%,transparent 88%,#000 95%,transparent 100%);
+  -webkit-backdrop-filter:brightness(1.4) blur(1.5px);backdrop-filter:brightness(1.4) blur(1.5px);
+  animation:ripple 1.1s cubic-bezier(.16,.6,.3,1) forwards;will-change:transform,opacity}
+@keyframes ripple{from{transform:scale(.03);opacity:1}60%{opacity:.75}to{transform:scale(1);opacity:0}}

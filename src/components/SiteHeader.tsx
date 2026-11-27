@@ -2,17 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { PREVIEW_CATEGORIES } from "@/i18n/categories";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { LANGS } from "@/i18n/strings";
 import { ReadAloud } from "./ReadAloud";
-import { ThemeToggle } from "./ThemeToggle";
 import { ICON } from "./views";
 
 /**
  * The bar at the top of every page: logo, read aloud, the grid menu of every
- * section, language, and light or dark.
+ * section, and language.
  */
 
 const icon = (d: ReactNode, size: number) => (
@@ -40,6 +39,23 @@ export function SiteHeader() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
   const menu = useRef<HTMLDivElement>(null);
+
+  // The highlight behind the chosen language slides to wherever that button is.
+  const langs = useRef<HTMLDivElement>(null);
+  const [pill, setPill] = useState<{ x: number; w: number } | null>(null);
+  useLayoutEffect(() => {
+    const box = langs.current;
+    if (!box) return;
+    const place = () => {
+      const on = box.querySelector<HTMLElement>("button.on");
+      if (on) setPill({ x: on.offsetLeft, w: on.offsetWidth });
+    };
+    place();
+    // Button widths change when the font finishes loading or the window is resized.
+    const watch = new ResizeObserver(place);
+    watch.observe(box);
+    return () => watch.disconnect();
+  }, [lang]);
 
   // Every section, in one place. A new section added to the app shows up here by itself.
   const sections = [
@@ -101,14 +117,14 @@ export function SiteHeader() {
               </nav>
             )}
           </div>
-          <div className="langs" role="group" aria-label={t("langSwitcher")}>
+          <div className="langs" role="group" aria-label={t("langSwitcher")} ref={langs}>
+            {pill && <span className="langpill" aria-hidden="true" style={{ width: pill.w, transform: `translateX(${pill.x}px)` }} />}
             {LANGS.map((l) => (
               <button key={l.id} className={lang === l.id ? "on" : ""} aria-pressed={lang === l.id} aria-label={l.name} lang={l.id} onClick={() => setLang(l.id)}>
                 {l.label}
               </button>
             ))}
           </div>
-          <ThemeToggle />
         </div>
       </div>
     </header>
