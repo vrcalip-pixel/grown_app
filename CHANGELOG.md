@@ -1,5 +1,10 @@
 # Changelog
 
+## Slower language glide; ripple only on the page (live, Nov 26, 2026)
+
+- The highlight in the language switch now glides across in about two thirds of a second, easing in and out.
+- The ripple starts only from taps on the page itself. Taps in the header (menu, languages, speaker) or the footer no longer start one.
+
 ## A slower, quieter ripple (live, Nov 26, 2026)
 
 - The tap ripple is now three thin rings that spread slowly, like a pebble dropped in still water, over about three seconds. The glow is gone; each ring only softly bends what it passes over.

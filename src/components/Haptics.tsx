@@ -15,8 +15,10 @@ import { useEffect } from "react";
  * - Desktop computers have no vibration motor, so nothing happens there.
  *
  * Ripple: slow, faint rings, like a pebble dropped in still water, that grow
- * from the tap to the far corner of the screen and fade. It sits above the page, never takes a tap, and is skipped
- * for people who ask their device for less motion.
+ * from the tap to the far corner of the screen and fade. It starts only
+ * from taps on the page itself, not the header or footer. It sits above the
+ * page, never takes a tap, and is skipped for people who ask their device for
+ * less motion.
  */
 export function Haptics() {
   useEffect(() => {
@@ -60,6 +62,8 @@ export function Haptics() {
       // The hidden switch's own click must not start another tick.
       if (label && e.target instanceof Node && label.contains(e.target)) return;
       tick();
+      // The ripple belongs to the page itself. Taps in the header or the footer do not start one.
+      if (!el.closest("main")) return;
       // A press from the keyboard has no position, so the ripple starts at the button's centre.
       if (e.detail === 0 || (e.clientX === 0 && e.clientY === 0)) {
         const box = el.getBoundingClientRect();
