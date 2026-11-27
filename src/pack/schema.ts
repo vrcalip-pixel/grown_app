@@ -164,7 +164,7 @@ export const LivePack = z
     sources: z.record(z.string(), Source),
     facts: z.array(Fact).min(1),
     /**
-     * Fixed lines for the Grown Guide. When the Guide can't answer from verified
+     * Fixed lines for the Explainer Guide. When the Guide can't answer from verified
      * facts, the person sees one of these, word for word. The model never writes them.
      */
     guide: z
@@ -177,7 +177,7 @@ export const LivePack = z
             unavailable: Localized,
           })
           .strict(),
-        /** Source offered as the place to go when Grown can't answer. */
+        /** Source offered as the place to go when Explainer can't answer. */
         handoff_source: z.string(),
         /**
          * Built-in questions: tap one, get an answer the author wrote from verified
@@ -216,7 +216,7 @@ export type LivePack = z.infer<typeof LivePack>;
 /**
  * A guide whose facts are not verified yet. It can show its outline and nothing
  * else: a card for the category page, and one line under each of the six
- * questions every Grown guide asks. It has no rules, branches or results.
+ * questions every Explainer guide asks. It has no rules, branches or results.
  */
 export const PreviewPack = z
   .object({

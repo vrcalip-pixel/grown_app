@@ -40,15 +40,15 @@ export function v11Result(S: S): OracleResult {
   const court = S.where === "lb" || S.where === "lac" ? "the Superior Court of Los Angeles County" : "the superior court in the county where you got the ticket";
 
   if (S.where === "out") {
-    whatLead = `Grown only covers California tickets so far.`;
-    what = `Grown version one only covers California, starting with Long Beach. Tickets are handled by the courts in the state where you got them, so the rules here may not apply to you.`;
+    whatLead = `Explainer only covers California tickets so far.`;
+    what = `Explainer version one only covers California, starting with Long Beach. Tickets are handled by the courts in the state where you got them, so the rules here may not apply to you.`;
     next = `Look up the court named on your ticket and check its due date today.`;
   } else if (S.kind === "parking") {
     used.add("lb");
     whatLead = `A city parking ticket, not a court case.`;
     what = `A parking ticket is not a court case in Long Beach. It's handled by the City of Long Beach, not the traffic court. It won't go on your driving record, but unpaid parking tickets can add penalties and block your car registration.`;
     next = `Go to the City of Long Beach website and look up your parking citation by its number.`;
-    nextWhy = `Grown version one is built for court traffic tickets. Parking help is coming in a later version.`;
+    nextWhy = `Explainer version one is built for court traffic tickets. Parking help is coming in a later version.`;
   } else if (S.sev === "m") {
     used.add("fta");
     whatLead = `A serious ticket. You have to go to court.`;
@@ -108,7 +108,7 @@ export function v11Result(S: S): OracleResult {
     watch.push(`The court's notice goes to the address on your ticket. If that's your parents' house, check the court website yourself so you aren't surprised.`);
     if (S.kind !== "fixit") watch.push(`Traffic school is not a free pass. You still pay the full amount, plus a court fee, plus the school.`);
     watch.push(`The court will never text, call, or email you asking for payment. Only pay on the court's own website.`);
-    watch.push(`Grown doesn't show fine amounts. The real amount is on your court notice or the court website, and it's often much higher than the base fine because of added fees.`);
+    watch.push(`Explainer doesn't show fine amounts. The real amount is on your court notice or the court website, and it's often much higher than the base fine because of added fees.`);
   }
 
   return { whatLead, what, next, nextWhy, urgent, opts, watch, used: [...used], showDate: S.date !== "passed" && S.where !== "out" };

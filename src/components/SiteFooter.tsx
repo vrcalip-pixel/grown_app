@@ -4,7 +4,7 @@ import { useLanguage } from "@/i18n/LanguageProvider";
 
 /**
  * The fine print at the foot of every page, in the language the visitor picked.
- * It opens with the trust promise: who Grown is not, and what it never asks for or keeps.
+ * It opens with the trust promise: who Explainer is not, and what it never asks for or keeps.
  */
 export function SiteFooter({ checkedIso, version }: { checkedIso: string; version: string }) {
   const { lang, t } = useLanguage();

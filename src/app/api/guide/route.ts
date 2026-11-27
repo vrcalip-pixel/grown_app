@@ -4,7 +4,7 @@ import { callClaude, guideAvailable } from "@/guide/model";
 import { loadPack } from "@/pack/load";
 
 /**
- * The only server endpoint in Grown. It receives a person's answers and their
+ * The only server endpoint in Explainer. It receives a person's answers and their
  * question, asks the model, checks the reply, and returns it. Nothing in the
  * request is written to a log, a file or a database.
  */
@@ -33,7 +33,7 @@ function allowed(key: string): boolean {
   return true;
 }
 
-/** Lets the page hide "Ask Grown" when no key is set, without revealing anything else. */
+/** Lets the page hide "Ask Explainer" when no key is set, without revealing anything else. */
 export function GET() {
   return NextResponse.json({ available: guideAvailable() });
 }

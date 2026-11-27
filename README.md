@@ -1,4 +1,4 @@
-# Grown
+# Explainer
 
 Start from the paper in your hand, answer a few plain questions, get one calm plan.
 Built by Vincent Calip for ASU HDA 294/494, The Agentic Self.
@@ -9,7 +9,7 @@ First guide: a traffic ticket in Long Beach, CA.
 
 **Live (GitHub Pages, static copy):** https://vrcalip-pixel.github.io/grown_app/
 
-Both update on every push to the production branch. The GitHub Pages copy has no server, so Ask Grown there offers the built-in answers only.
+Both update on every push to the production branch. The GitHub Pages copy has no server, so Ask Explainer there offers the built-in answers only.
 
 ## Run it
 

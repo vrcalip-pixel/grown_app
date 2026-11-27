@@ -18,8 +18,8 @@ card:
     en: W-2, 1099, 1098-T, and what each one is for.
     es: W-2, 1099, 1098-T y para qué sirve cada uno.
 intro:
-  en: Tax forms arrive with numbers and boxes but few instructions. Grown will help you tell which form you have and what it is for.
-  es: Los formularios de impuestos llegan con números y casillas, pero con pocas instrucciones. Grown te ayudará a saber qué formulario tienes y para qué sirve.
+  en: Tax forms arrive with numbers and boxes but few instructions. Explainer will help you tell which form you have and what it is for.
+  es: Los formularios de impuestos llegan con números y casillas, pero con pocas instrucciones. Explainer te ayudará a saber qué formulario tienes y para qué sirve.
 answers:
   - en: A W-2 from an employer, a 1099 for other income, a 1098-T from a school, or a letter from the IRS or the California Franchise Tax Board.
     es: Un W-2 de un empleador, un 1099 por otros ingresos, un 1098-T de una escuela o una carta del IRS o del Franchise Tax Board de California.
@@ -27,8 +27,8 @@ answers:
     es: Impuestos federales e impuestos estatales de California, y qué empleador, escuela o agencia envió el formulario.
   - en: The tax year printed on the form and the filing deadline for that year.
     es: El año fiscal impreso en el formulario y la fecha límite para declarar ese año.
-  - en: The amounts printed in the boxes. Grown points to them and never estimates what you owe or get back.
-    es: Las cantidades impresas en las casillas. Grown las señala y nunca calcula cuánto debes ni cuánto te devuelven.
+  - en: The amounts printed in the boxes. Explainer points to them and never estimates what you owe or get back.
+    es: Las cantidades impresas en las casillas. Explainer las señala y nunca calcula cuánto debes ni cuánto te devuelven.
   - en: File on your own, look for free tax help, or work with a tax preparer.
     es: Declarar por tu cuenta, buscar ayuda gratuita con los impuestos o trabajar con un preparador de impuestos.
   - en: Gather every form for the same tax year in one place before you start.

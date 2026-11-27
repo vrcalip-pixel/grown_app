@@ -18,8 +18,8 @@ card:
     en: An explanation of benefits, a denial, or a request for more information.
     es: Una explicación de beneficios, una negación o una solicitud de más información.
 intro:
-  en: Insurance letters often list amounts even when they are not bills. Grown will help you tell what the letter is asking of you.
-  es: Las cartas del seguro muchas veces muestran cantidades aunque no sean facturas. Grown te ayudará a saber qué te pide la carta.
+  en: Insurance letters often list amounts even when they are not bills. Explainer will help you tell what the letter is asking of you.
+  es: Las cartas del seguro muchas veces muestran cantidades aunque no sean facturas. Explainer te ayudará a saber qué te pide la carta.
 answers:
   - en: An explanation of benefits (EOB), a denial letter, an approval, or a request for information.
     es: Una explicación de beneficios (EOB), una carta de negación, una aprobación o una solicitud de información.
@@ -27,8 +27,8 @@ answers:
     es: "Qué plan la envió: un plan del trabajo, Covered California, Medi-Cal o un plan escolar."
   - en: The date of service, the date on the letter, and any deadline the letter gives to respond.
     es: La fecha del servicio, la fecha de la carta y cualquier plazo que la carta dé para responder.
-  - en: What the plan paid, what it did not cover, and the amount it says you may owe. Grown points to the numbers and never estimates them.
-    es: Lo que pagó el plan, lo que no cubrió y la cantidad que dice que podrías deber. Grown señala los números y nunca los calcula.
+  - en: What the plan paid, what it did not cover, and the amount it says you may owe. Explainer points to the numbers and never estimates them.
+    es: Lo que pagó el plan, lo que no cubrió y la cantidad que dice que podrías deber. Explainer señala los números y nunca los calcula.
   - en: Compare it with the provider's bill, call the member number on your insurance card, or ask how to appeal.
     es: Compararla con la factura del proveedor, llamar al número para miembros de tu tarjeta del seguro o preguntar cómo apelar.
   - en: Match the claim on the letter to the bill it belongs to before paying anything.

@@ -1,4 +1,4 @@
-# Grown guide pack: a traffic ticket in Long Beach, CA.
+# Explainer guide pack: a traffic ticket in Long Beach, CA.
 # Ported from v1.1 (legacy/grown-v1.1-index.html). The engine decides what a
 # person sees from this file alone. No fee, fine amount, day count or deadline
 # may be written here unless a fact below carries its source.
@@ -170,18 +170,18 @@ facts:
     confirm_source: true
     <<: *checked
 
-# Grown Guide (the "Ask Grown" panel). These lines are shown word for word
+# Explainer Guide (the "Ask Explainer" panel). These lines are shown word for word
 # whenever the Guide can't answer from the facts above. The AI never writes them.
 guide:
   lines:
     no_amounts_or_dates:
-      en: "Grown doesn't guess amounts or dates. Check your ticket, your court notice, or the court's website."
+      en: "Explainer doesn't guess amounts or dates. Check your ticket, your court notice, or the court's website."
     off_pack:
-      en: "That's outside what Grown has checked, so I won't guess. The California Courts Self-Help Guide is the official place to look."
+      en: "That's outside what Explainer has checked, so I won't guess. The California Courts Self-Help Guide is the official place to look."
     blocked:
       en: "I couldn't answer that using only checked sources, so I'm not going to guess. Your plan on this page still stands."
     unavailable:
-      en: "Ask Grown isn't available right now. Your plan on this page still stands."
+      en: "Ask Explainer isn't available right now. Your plan on this page still stands."
   handoff_source: selfhelp
 
   # Built-in questions. No AI: a person taps one and sees the answer below,
@@ -242,7 +242,7 @@ guide:
     - id: cost
       when: { not: { q: where, eq: out } }
       question: { en: "How much will this cost?" }
-      text: { en: "Grown doesn't guess amounts or dates. Check your ticket, your court notice, or the court's website." }
+      text: { en: "Explainer doesn't guess amounts or dates. Check your ticket, your court notice, or the court's website." }
       no_claim: true
 
 defs:
@@ -300,7 +300,7 @@ questions:
 
   - id: date
     text: { en: "Look for a date on the ticket or a court notice. Has it passed?" }
-    why: { en: "This is the one date that matters most. Grown never guesses it. It has to come from your paper." }
+    why: { en: "This is the one date that matters most. Explainer never guesses it. It has to come from your paper." }
     answers:
       - { id: future, label: { en: "Not yet, it's coming up" } }
       - { id: passed, label: { en: "It already passed" } }
@@ -325,7 +325,7 @@ questions:
 
   - id: money
     text: { en: "If you had to pay the full amount, how would that feel?" }
-    why: { en: "California courts can lower fines, set up payment plans, or allow community service. Grown never asks your income, just how it feels, so it can point you to the right option." }
+    why: { en: "California courts can lower fines, set up payment plans, or allow community service. Explainer never asks your income, just how it feels, so it can point you to the right option." }
     why_visible: true
     answers:
       - { id: ok, label: { en: "I can handle it" } }
@@ -338,8 +338,8 @@ branches:
     when: { q: where, eq: out }
     show_date: false
     what:
-      - lead: { en: "Grown only covers California tickets so far." }
-        detail: { en: "Grown version one only covers California, starting with Long Beach. Tickets are handled by the courts in the state where you got them, so the rules here may not apply to you." }
+      - lead: { en: "Explainer only covers California tickets so far." }
+        detail: { en: "Explainer version one only covers California, starting with Long Beach. Tickets are handled by the courts in the state where you got them, so the rules here may not apply to you." }
         no_claim: true
     next_move:
       - text: { en: "Look up the court named on your ticket and check its due date today." }
@@ -355,7 +355,7 @@ branches:
         facts: [parking-is-city, parking-consequences]
     next_move:
       - text: { en: "Go to the City of Long Beach website and look up your parking citation by its number." }
-        why: { en: "Grown version one is built for court traffic tickets. Parking help is coming in a later version." }
+        why: { en: "Explainer version one is built for court traffic tickets. Parking help is coming in a later version." }
         link: lb
         facts: [parking-is-city]
 
@@ -538,5 +538,5 @@ branches:
         facts: [tvs-cost]
       - text: { en: "The court will never text, call, or email you asking for payment. Only pay on the court's own website." }
         facts: [court-never-texts]
-      - text: { en: "Grown doesn't show fine amounts. The real amount is on your court notice or the court website, and it's often much higher than the base fine because of added fees." }
+      - text: { en: "Explainer doesn't show fine amounts. The real amount is on your court notice or the court website, and it's often much higher than the base fine because of added fees." }
         facts: [fees-added]

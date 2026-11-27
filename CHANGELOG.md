@@ -1,5 +1,14 @@
 # Changelog
 
+## Grown is now Explainer (live, Nov 26, 2026)
+
+- The app is renamed **Explainer**, and its address is **explainer.guide**. The author wanted a name that says what the app does, in place of one that was a little tongue-in-cheek.
+- Every "Grown" in the app now reads "Explainer," in all three languages: the header, page titles, the fine print, "Ask Explainer," "Why Explainer asks," and the guides' own wording.
+- The header has a new mark beside the name: a four-point compass star, for finding your way. It avoids a compass dial and needle so it does not resemble the Safari icon.
+- Voice clips that said "Grown" were remade.
+- The older addresses (grown-app-iota.vercel.app and the GitHub copy) still work. The project folder and code repository keep their old names; that is invisible to visitors.
+- Entries below this one use the old name, because that is what the app was called when they were written.
+
 ## Cards open into their pages; Sources is one list per category (live, Nov 26, 2026)
 
 - Tapping a card on the home page or a category page now opens it: the card grows to fill the screen and the new page fades in inside it. Browsers without this feature, and devices set to reduce motion, open the page the usual way.

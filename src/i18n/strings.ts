@@ -19,7 +19,7 @@ type Entry = { en: string; es?: string; km?: string };
 
 export const STRINGS = {
   // Header
-  navHome: { en: "Grown home", es: "Inicio de Grown", km: "ទំព័រដើម Grown" },
+  navHome: { en: "Explainer home", es: "Inicio de Explainer", km: "ទំព័រដើម Explainer" },
   navAuto: { en: "Car and traffic tickets", es: "Carro y multas de tráfico", km: "រថយន្ត និងសំបុត្រផាកពិន័យចរាចរណ៍" },
   navHousing: { en: "Housing", es: "Vivienda y contratos", km: "លំនៅដ្ឋាន និងកិច្ចសន្យាជួល" },
   navSources: { en: "Official court sources", es: "Fuentes oficiales de la corte", km: "ប្រភពផ្លូវការរបស់តុលាការ" },
@@ -44,9 +44,9 @@ export const STRINGS = {
   // The fine print at the foot of every page. It carries the trust promise that used to be a
   // panel on the home page. Spanish and Khmer added here, not yet reviewed by a person.
   footTrust: {
-    en: "Grown is not the court, the police, or immigration.",
-    es: "Grown no es la corte, la policía ni inmigración.",
-    km: "Grown មិនមែនជាតុលាការ ប៉ូលិស ឬអន្តោប្រវេសន៍ទេ។",
+    en: "Explainer is not the court, the police, or immigration.",
+    es: "Explainer no es la corte, la policía ni inmigración.",
+    km: "Explainer មិនមែនជាតុលាការ ប៉ូលិស ឬអន្តោប្រវេសន៍ទេ។",
   },
   footRole: {
     en: "It is not a lawyer and doesn't give legal advice. It explains what a document means and what your options are.",
@@ -54,14 +54,14 @@ export const STRINGS = {
     km: "វាមិនមែនជាមេធាវី ហើយមិនផ្តល់ដំបូន្មានផ្លូវច្បាប់ទេ។ វាពន្យល់ថាឯកសារមួយមានន័យយ៉ាងណា និងអ្នកមានជម្រើសអ្វីខ្លះ។",
   },
   footPrivacy: {
-    en: "No account, no name or license number, no income questions, and no trackers. Nothing you tap is saved. If you choose to use Ask Grown, your question and the answers you tapped are sent to Claude, an AI made by Anthropic, to write a reply. Grown does not store them.",
-    es: "Sin cuenta, sin nombre ni número de licencia, sin preguntas sobre ingresos y sin rastreadores. No se guarda nada de lo que tocas. Si decides usar Ask Grown, tu pregunta y las respuestas que tocaste se envían a Claude, una IA creada por Anthropic, para escribir una respuesta. Grown no las guarda.",
-    km: "មិនចាំបាច់មានគណនី មិនសួរឈ្មោះ ឬលេខប័ណ្ណបើកបរ មិនសួរអំពីប្រាក់ចំណូល និងគ្មានកម្មវិធីតាមដាន។ អ្វីដែលអ្នកចុច មិនត្រូវបានរក្សាទុកទេ។ ប្រសិនបើអ្នកជ្រើសប្រើ Ask Grown សំណួររបស់អ្នក និងចម្លើយដែលអ្នកបានចុច នឹងត្រូវបញ្ជូនទៅ Claude ដែលជា AI បង្កើតដោយ Anthropic ដើម្បីសរសេរចម្លើយ។ Grown មិនរក្សាទុកពួកវាទេ។",
+    en: "No account, no name or license number, no income questions, and no trackers. Nothing you tap is saved. If you choose to use Ask Explainer, your question and the answers you tapped are sent to Claude, an AI made by Anthropic, to write a reply. Explainer does not store them.",
+    es: "Sin cuenta, sin nombre ni número de licencia, sin preguntas sobre ingresos y sin rastreadores. No se guarda nada de lo que tocas. Si decides usar Ask Explainer, tu pregunta y las respuestas que tocaste se envían a Claude, una IA creada por Anthropic, para escribir una respuesta. Explainer no las guarda.",
+    km: "មិនចាំបាច់មានគណនី មិនសួរឈ្មោះ ឬលេខប័ណ្ណបើកបរ មិនសួរអំពីប្រាក់ចំណូល និងគ្មានកម្មវិធីតាមដាន។ អ្វីដែលអ្នកចុច មិនត្រូវបានរក្សាទុកទេ។ ប្រសិនបើអ្នកជ្រើសប្រើ Ask Explainer សំណួររបស់អ្នក និងចម្លើយដែលអ្នកបានចុច នឹងត្រូវបញ្ជូនទៅ Claude ដែលជា AI បង្កើតដោយ Anthropic ដើម្បីសរសេរចម្លើយ។ Explainer មិនរក្សាទុកពួកវាទេ។",
   },
   footFacts: {
-    en: "Grown never makes up fees or dates. It points you to the amount and due date printed on your own paper. Facts last checked against official California sources on {date}.",
-    es: "Grown nunca inventa cobros ni fechas. Te señala la cantidad y la fecha límite impresas en tu propio documento. Datos revisados por última vez con fuentes oficiales de California el {date}.",
-    km: "Grown មិនដែលបង្កើតតម្លៃ ឬកាលបរិច្ឆេទដោយខ្លួនឯងឡើយ។ វាចង្អុលអ្នកទៅចំនួនទឹកប្រាក់ និងថ្ងៃផុតកំណត់ ដែលបោះពុម្ពលើឯកសាររបស់អ្នកផ្ទាល់។ ព័ត៌មានត្រូវបានពិនិត្យចុងក្រោយជាមួយប្រភពផ្លូវការរបស់រដ្ឋកាលីហ្វ័រញ៉ា នៅថ្ងៃ {date}។",
+    en: "Explainer never makes up fees or dates. It points you to the amount and due date printed on your own paper. Facts last checked against official California sources on {date}.",
+    es: "Explainer nunca inventa cobros ni fechas. Te señala la cantidad y la fecha límite impresas en tu propio documento. Datos revisados por última vez con fuentes oficiales de California el {date}.",
+    km: "Explainer មិនដែលបង្កើតតម្លៃ ឬកាលបរិច្ឆេទដោយខ្លួនឯងឡើយ។ វាចង្អុលអ្នកទៅចំនួនទឹកប្រាក់ និងថ្ងៃផុតកំណត់ ដែលបោះពុម្ពលើឯកសាររបស់អ្នកផ្ទាល់។ ព័ត៌មានត្រូវបានពិនិត្យចុងក្រោយជាមួយប្រភពផ្លូវការរបស់រដ្ឋកាលីហ្វ័រញ៉ា នៅថ្ងៃ {date}។",
   },
   footBuilt: {
     en: "Built by Vincent Calip for HDA 294/494, The Agentic Self (ASU). Version {version} · Long Beach, CA.",
@@ -145,9 +145,9 @@ export const STRINGS = {
   previewTag: { en: "Preview · not live yet", es: "Vista previa · aún no está activa", km: "មើលជាមុន · មិនទាន់ដំណើរការពេញលេញទេ" },
   resTitle: { en: "Housing paperwork without the guesswork.", es: "Papeles de vivienda sin andar adivinando.", km: "ឯកសារជួលផ្ទះ ដោយមិនបាច់ស្មានទុកមុន។" },
   resIntro: {
-    en: "Preview how Grown breaks down leases, deposits, repairs, notices, and roommates.",
-    es: "Mira cómo Grown explica contratos, depósitos, reparaciones, avisos y compañeros.",
-    km: "មើលជាមុនពីរបៀបដែល Grown បំបែកកិច្ចសន្យា ប្រាក់កក់ ការជួសជុល សេចក្តីជូនដំណឹង និងអ្នករួមបន្ទប់។",
+    en: "Preview how Explainer breaks down leases, deposits, repairs, notices, and roommates.",
+    es: "Mira cómo Explainer explica contratos, depósitos, reparaciones, avisos y compañeros.",
+    km: "មើលជាមុនពីរបៀបដែល Explainer បំបែកកិច្ចសន្យា ប្រាក់កក់ ការជួសជុល សេចក្តីជូនដំណឹង និងអ្នករួមបន្ទប់។",
   },
   resNote: {
     en: "Every card below opens a preview of our six-question pattern. None of these guides are live yet.",
@@ -155,11 +155,11 @@ export const STRINGS = {
     km: "កាតនីមួយៗខាងក្រោមបើកការមើលជាមុននៃលំនាំសំណួរ ៦ ចំណុចរបស់យើង។ មគ្គុទ្ទេសក៍ទាំងនេះមិនទាន់ដំណើរការពេញលេញទេ។",
   },
   allPreviews: { en: "All Housing previews", es: "Todas las vistas previas de Vivienda", km: "ការមើលជាមុនផ្នែកលំនៅដ្ឋានទាំងអស់" },
-  howItWorks: { en: "How this Grown guide will work", es: "Cómo funcionará esta guía de Grown", km: "របៀបដែលមគ្គុទ្ទេសក៍ Grown នេះនឹងដំណើរការ" },
+  howItWorks: { en: "How this Explainer guide will work", es: "Cómo funcionará esta guía de Explainer", km: "របៀបដែលមគ្គុទ្ទេសក៍ Explainer នេះនឹងដំណើរការ" },
   sixQuestions: {
-    en: "Every Grown guide asks the same six core questions. Only the rules and options change.",
-    es: "Cada guía de Grown hace las mismas seis preguntas clave. Solo cambian las reglas y opciones.",
-    km: "មគ្គុទ្ទេសក៍ Grown នីមួយៗសួរសំណួរស្នូល ៦ ដូចគ្នា ផ្លាស់ប្តូរតែវិធាន និងជម្រើសប៉ុណ្ណោះ។",
+    en: "Every Explainer guide asks the same six core questions. Only the rules and options change.",
+    es: "Cada guía de Explainer hace las mismas seis preguntas clave. Solo cambian las reglas y opciones.",
+    km: "មគ្គុទ្ទេសក៍ Explainer នីមួយៗសួរសំណួរស្នូល ៦ ដូចគ្នា ផ្លាស់ប្តូរតែវិធាន និងជម្រើសប៉ុណ្ណោះ។",
   },
   q1: { en: "What is this paper?", es: "¿Qué es este papel?", km: "តើឯកសារនេះជាអ្វី?" },
   q2: { en: "Where is the place?", es: "¿Dónde queda el lugar?", km: "តើទីកន្លែងនៅឯណា?" },
@@ -175,7 +175,7 @@ export const STRINGS = {
 
   // Sources
   srcEyebrow: { en: "SOURCES", es: "FUENTES", km: "ប្រភព" },
-  srcTitle: { en: "Where every Grown answer comes from.", es: "De dónde sale cada respuesta de Grown.", km: "កន្លែងដែលចម្លើយរបស់ Grown មកពី។" },
+  srcTitle: { en: "Where every Explainer answer comes from.", es: "De dónde sale cada respuesta de Explainer.", km: "កន្លែងដែលចម្លើយរបស់ Explainer មកពី។" },
   srcIntro: {
     en: "Only official California state, court and city sources. Never guesswork or ads.",
     es: "Solo fuentes oficiales del estado de California, sus cortes y la ciudad. Sin adivinanzas.",
@@ -187,9 +187,9 @@ export const STRINGS = {
     km: "ព័ត៌មានត្រូវបានផ្ទៀងផ្ទាត់ជាមួយប្រភពផ្លូវការរបស់តុលាការរដ្ឋ California នៅថ្ងៃទី {date}",
   },
   srcBody: {
-    en: "Grown checks every rule against public California court, state agency and city pages before a guide goes live. Grown never links to paid traffic schools, ticket lawyers, or referral sites.",
-    es: "Grown revisa cada regla en páginas públicas de las cortes, las agencias estatales y la ciudad antes de publicar una guía. Nunca enlaza a escuelas de tráfico pagadas ni anuncios de abogados.",
-    km: "Grown ផ្ទៀងផ្ទាត់វិធាននីមួយៗជាមួយគេហទំព័រជំនួយខ្លួនឯងសាធារណៈរបស់តុលាការ California និងច្បាប់រដ្ឋ មុនពេលបើកដំណើរការ។ Grown មិនដាក់តំណទៅសាលាចរាចរណ៍បង់ប្រាក់ ឬមេធាវីឡើយ។",
+    en: "Explainer checks every rule against public California court, state agency and city pages before a guide goes live. Explainer never links to paid traffic schools, ticket lawyers, or referral sites.",
+    es: "Explainer revisa cada regla en páginas públicas de las cortes, las agencias estatales y la ciudad antes de publicar una guía. Nunca enlaza a escuelas de tráfico pagadas ni anuncios de abogados.",
+    km: "Explainer ផ្ទៀងផ្ទាត់វិធាននីមួយៗជាមួយគេហទំព័រជំនួយខ្លួនឯងសាធារណៈរបស់តុលាការ California និងច្បាប់រដ្ឋ មុនពេលបើកដំណើរការ។ Explainer មិនដាក់តំណទៅសាលាចរាចរណ៍បង់ប្រាក់ ឬមេធាវីឡើយ។",
   },
 } satisfies Record<string, Entry>;
 

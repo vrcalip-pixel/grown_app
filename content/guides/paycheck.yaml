@@ -18,8 +18,8 @@ card:
     en: Gross pay, net pay, and where the difference went.
     es: Pago bruto, pago neto y a dónde se fue la diferencia.
 intro:
-  en: A paycheck is often smaller than you expected. Grown will walk you through each line of the pay stub.
-  es: Un cheque de pago muchas veces es menor de lo que esperabas. Grown te explicará cada línea del talón de pago.
+  en: A paycheck is often smaller than you expected. Explainer will walk you through each line of the pay stub.
+  es: Un cheque de pago muchas veces es menor de lo que esperabas. Explainer te explicará cada línea del talón de pago.
 answers:
   - en: A pay stub, a direct deposit notice, or a form your employer asked you to fill out, such as a W-4.
     es: Un talón de pago, un aviso de depósito directo o un formulario que tu empleador te pidió llenar, como el W-4.
@@ -27,8 +27,8 @@ answers:
     es: La oficina de nómina de tu empleador, y las reglas federales y de California detrás de cada descuento.
   - en: The pay period dates and the pay date on the stub.
     es: Las fechas del periodo de pago y la fecha de pago en el talón.
-  - en: Gross pay, each deduction, and net pay. Grown reads the numbers on your stub and never guesses them.
-    es: Pago bruto, cada descuento y pago neto. Grown lee los números de tu talón y nunca los adivina.
+  - en: Gross pay, each deduction, and net pay. Explainer reads the numbers on your stub and never guesses them.
+    es: Pago bruto, cada descuento y pago neto. Explainer lee los números de tu talón y nunca los adivina.
   - en: Ask payroll what a deduction is, update your withholding form, or check your hours against the stub.
     es: Preguntar a nómina qué es un descuento, actualizar tu formulario de retención o comparar tus horas con el talón.
   - en: Compare the hours and pay rate on the stub with what you actually worked.

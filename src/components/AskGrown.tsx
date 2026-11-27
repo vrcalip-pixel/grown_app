@@ -6,14 +6,14 @@ import type { GuideReply, Turn } from "@/guide/ask";
 import { LIMITS } from "@/guide/ask";
 
 /**
- * "Ask Grown", on the plan page. Two layers:
+ * "Ask Explainer", on the plan page. Two layers:
  *
  * 1. Built-in questions. Tap one and the answer appears. The answers were
  *    written by the author from verified facts and chosen by the rules engine.
  *    No AI is involved and nothing leaves the device. This layer always works.
  *
  * 2. Ask in your own words. Only offered when the server has an AI key. It is
- *    the one place in Grown where something leaves the device, so it stays
+ *    the one place in Explainer where something leaves the device, so it stays
  *    closed until the person has read what is sent and chosen to go ahead.
  *
  * The conversation lives in this component's memory and is gone when the page closes.
@@ -27,7 +27,7 @@ interface Exchange {
 
 const UNAVAILABLE: GuideReply = {
   kind: "unavailable",
-  text: "Ask Grown isn't available right now. Your plan on this page still stands.",
+  text: "Ask Explainer isn't available right now. Your plan on this page still stands.",
   sources: [],
 };
 
@@ -97,7 +97,7 @@ export function AskGrown({ answers, faq }: { answers: Answers; faq: Result["faq"
 
   return (
     <div className="card ask">
-      <h2 className="label">Ask Grown</h2>
+      <h2 className="label">Ask Explainer</h2>
       <div className="lead">Stuck on a word or a step?</div>
 
       <div className="asklog" aria-live="polite">
@@ -140,7 +140,7 @@ export function AskGrown({ answers, faq }: { answers: Answers; faq: Result["faq"
         <div className="askown">
           <p className="muted tight">
             <b>Want to ask in your own words?</b> That sends your question and the answers you tapped to Claude, an AI
-            made by Anthropic, to write a reply. Grown doesn&apos;t save it. Please don&apos;t type your name, license
+            made by Anthropic, to write a reply. Explainer doesn&apos;t save it. Please don&apos;t type your name, license
             number, or citation number.
           </p>
           <div className="row">
@@ -155,7 +155,7 @@ export function AskGrown({ answers, faq }: { answers: Answers; faq: Result["faq"
         <>
           {full ? (
             <p className="muted" style={{ margin: "10px 0 0" }}>
-              That&apos;s the most typed questions Grown takes in one sitting. Your plan on this page still stands.
+              That&apos;s the most typed questions Explainer takes in one sitting. Your plan on this page still stands.
             </p>
           ) : (
             <form
@@ -189,7 +189,7 @@ export function AskGrown({ answers, faq }: { answers: Answers; faq: Result["faq"
       )}
 
       <p className="muted" style={{ margin: "12px 0 0", fontSize: 13 }}>
-        Grown answers only from sources it has checked, and never guesses amounts or dates. It is not a lawyer.
+        Explainer answers only from sources it has checked, and never guesses amounts or dates. It is not a lawyer.
       </p>
     </div>
   );

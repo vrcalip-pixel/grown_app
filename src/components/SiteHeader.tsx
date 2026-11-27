@@ -87,7 +87,13 @@ export function SiteHeader() {
       <div className="hwrap">
         <div className="hleft">
           <Link href="/" className="brandlink" aria-label={t("navHome")}>
-            <span className="wordmark">Grown</span>
+            <span className="wordmark">
+              {/* A four-point compass star: the mark at the centre of a compass rose. */}
+              <svg className="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 1.5 14.3 9.7 22.5 12 14.3 14.3 12 22.5 9.7 14.3 1.5 12 9.7 9.7Z" fill="currentColor" />
+              </svg>
+              Explainer
+            </span>
           </Link>
           <ReadAloud lang={lang} startLabel={t("readAloud")} stopLabel={t("stopReading")} />
         </div>

@@ -225,3 +225,10 @@ The author asked for a live Housing guide so testers can see the pattern work on
 **Left out on purpose:** roommate and co-signer liability, the screening-fee dollar limit, and local rent control, because the pages read did not support a plain statement. A guide that says less is better than one that guesses.
 **Privacy check:** the guide asks how the up-front total compares to one month's rent. It does not ask what the rent is or what the person earns, and it says so on that screen.
 **Known gap:** typed questions in Ask Grown (the AI layer, still switched off) are wired to the ticket guide only. They must be pointed at the right guide before that layer is ever turned on.
+
+## 56. The name changed from Grown to Explainer
+"Grown" came from the feeling of being grown after handling adult paperwork. The author decided it read as tongue-in-cheek and aimed too narrowly at young people, when the real subject is navigation: finding your way through procedures nobody teaches.
+**How the name was chosen:** several rounds of options (Bearings, Signpost, Paper Compass, Made Plain, Simplify) were set aside as ambiguous or already in use. "Explainer" says what the app does in one word, and explainer.guide was available.
+**One limit of the name, noted on purpose:** the app does two things. It explains the paper, and it gives one next move. "Explainer" names only the first, so taglines and the pitch should say the second out loud.
+**The mark:** a four-point compass star, keeping the wayfinding idea the author liked without a dial and needle.
+**Not renamed:** the code repository, the project folder and the older web addresses. Renaming them would break links for no visible gain.

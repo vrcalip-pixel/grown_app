@@ -13,8 +13,8 @@ import "./globals.css";
 const manrope = Manrope({ subsets: ["latin"], weight: ["400", "600", "800"], variable: "--font-manrope" });
 
 export const metadata: Metadata = {
-  title: "Grown: clear steps for adult paperwork",
-  description: "Nobody hands you a manual for this. Grown asks a few plain questions and tells you your next move.",
+  title: "Explainer: clear steps for adult paperwork",
+  description: "Nobody hands you a manual for this. Explainer asks a few plain questions and tells you your next move.",
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };

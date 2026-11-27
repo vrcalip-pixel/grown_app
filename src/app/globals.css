@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
-/* Grown visual system, phase 2.
+/* Explainer visual system, phase 2.
    VOICE:  calm, warm, frank. A friend who has done this before.
    COLOUR: warm sand ground, charcoal text, coastal blue for actions.
            Amber and red appear only on real warnings.
    WORDS:  every section leads with one short line. The rest sits behind "Show more".
    MOTION: gentle and fast (250ms or less), and off when the person asks for less motion.
    LAYOUT: one column, max 640px, tap targets 44px or taller, phone first. */
-/* Grown is always in its dark look: a night sky with embers. */
+/* Explainer is always in its dark look: a night sky with embers. */
 :root{color-scheme:dark;
 --bg:light-dark(#f6f1e7,#191d20);--card:light-dark(#fffdf8,#22282c);--ink:light-dark(#2a2d2f,#eef0f1);
 --soft:light-dark(#5a5f63,#aab2b8);--line:light-dark(#e7dfd1,#343c42);
@@ -125,7 +125,7 @@ input[type=date],textarea{font:17px inherit;font-family:inherit;padding:12px;bor
 footer{max-width:640px;margin:0 auto;padding:0 max(5vw,16px) 40px;font-size:13px;color:var(--soft)}
 footer strong{color:var(--ink);font-weight:800}
 
-/* Ask Grown */
+/* Ask Explainer */
 .asklog{margin-top:10px}
 .askq{font-weight:700;margin:14px 0 6px;padding-left:12px;border-left:3px solid var(--line)}
 .aska{background:var(--action-soft);border-radius:14px;padding:12px 14px;margin:0;animation:reveal .2s var(--ease)}
@@ -280,7 +280,8 @@ a.catcard:active,a.listcard:active{transform:translateY(1px)}
 h1+.badge,.badge+h1{margin-top:8px}
 
 /* Plain wordmark in the header. */
-.wordmark{display:block;font-weight:800;font-size:28px;letter-spacing:-.02em;line-height:1;padding:8px 2px}
+.wordmark{display:flex;align-items:center;gap:8px;font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1;padding:8px 2px}
+.wordmark .mark{flex:none;color:var(--action-text)}
 /* Bigger icons on the cards, so each section is easy to spot. */
 .cattile{width:76px;height:76px;border-radius:22px}
 .cattile.small{width:60px;height:60px;border-radius:18px}

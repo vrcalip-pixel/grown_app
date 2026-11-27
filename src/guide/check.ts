@@ -48,7 +48,7 @@ export function checkReply(reply: RawReply, ctx: CheckContext): Verdict {
     if (!ctx.allowedFacts.has(id)) return fail(`cites a fact this person was not shown: ${id}`);
   }
 
-  // 2. No money, ever. Grown doesn't show amounts.
+  // 2. No money, ever. Explainer doesn't show amounts.
   if (MONEY.test(text)) return fail("mentions money");
 
   // 3. Any number has to be one the verified text already contains.

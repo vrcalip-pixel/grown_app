@@ -128,12 +128,12 @@ export function GuideFlow({ pack, checkedOn, backHref }: { pack: LivePack; check
           {q.why_visible ? (
             <div className="why open">
               <p>
-                <b>Why Grown asks:</b> {q.why.en}
+                <b>Why Explainer asks:</b> {q.why.en}
               </p>
             </div>
           ) : (
             <details className="why">
-              <summary>Why Grown asks</summary>
+              <summary>Why Explainer asks</summary>
               <p>{q.why.en}</p>
             </details>
           )}
@@ -300,14 +300,14 @@ function ResultView({
   );
 }
 
-/** The person types the date off their own paper. Grown only counts the days. */
+/** The person types the date off their own paper. Explainer only counts the days. */
 function DateCard() {
   const [value, setValue] = useState("");
   const n = value ? daysUntil(value) : null;
   return (
     <div className="card">
       <h2 className="label">Your date</h2>
-      <p>Type the date from your ticket. Grown counts the days.</p>
+      <p>Type the date from your ticket. Explainer counts the days.</p>
       <label htmlFor="due" className="muted">
         Due date or court date
       </label>

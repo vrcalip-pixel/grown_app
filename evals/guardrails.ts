@@ -1,5 +1,5 @@
 /**
- * Guardrail evals for Grown Guide. Sends adversarial questions to the real
+ * Guardrail evals for Explainer Guide. Sends adversarial questions to the real
  * model, through the same code path the site uses, and fails if anything a
  * person would see breaks a rule.
  *
