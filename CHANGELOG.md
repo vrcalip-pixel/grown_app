@@ -1,5 +1,9 @@
 # Changelog
 
+## Ripple removed (live, Nov 26, 2026)
+
+- The ripple that spread across the page from each tap is removed for now; it was too distracting. The light vibration on phones stays. The ripple can be brought back from the project history.
+
 ## Home cards: a reassuring line and a short list (live, Nov 26, 2026)
 
 - Each home card now shows a short list of what is inside beside its icon (for example: Traffic tickets, DMV notices, Registration), then the section name, then one reassuring line.

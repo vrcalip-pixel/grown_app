@@ -3,10 +3,8 @@
 import { useEffect } from "react";
 
 /**
- * What a tap feels like: a light vibration, and a ripple that spreads across
- * the whole page from the spot that was pressed.
+ * A light tap of vibration when a button is pressed, on phones that allow it.
  *
- * Vibration, on phones that allow it:
  * - Android browsers: the standard vibration call.
  * - iPhone Safari has no vibration call for web pages. Recent versions do give
  *   a small tick when a switch control is flipped, so this flips a hidden one.
@@ -14,11 +12,8 @@ import { useEffect } from "react";
  *   breaks, the tap is simply silent.
  * - Desktop computers have no vibration motor, so nothing happens there.
  *
- * Ripple: slow, faint rings, like a pebble dropped in still water, that grow
- * from the tap to the far corner of the screen and fade. It starts only
- * from taps on the page itself, not the header or footer. It sits above the
- * page, never takes a tap, and is skipped for people who ask their device for
- * less motion.
+ * (A ripple that spread across the page from each tap was tried and removed on
+ * Nov 26, 2026 as too distracting. It is in the git history if it is wanted again.)
  */
 export function Haptics() {
   useEffect(() => {
@@ -44,33 +39,12 @@ export function Haptics() {
       }
     };
 
-    const ripple = (x: number, y: number) => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      // Big enough to reach the farthest corner of the screen from the tap.
-      const r = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
-      const ring = document.createElement("span");
-      ring.className = "ripple";
-      ring.setAttribute("aria-hidden", "true");
-      ring.style.cssText = `left:${x - r}px;top:${y - r}px;width:${2 * r}px;height:${2 * r}px`;
-      document.body.appendChild(ring);
-      window.setTimeout(() => ring.remove(), 3400);
-    };
-
     const onClick = (e: MouseEvent) => {
       const el = e.target instanceof Element ? e.target.closest("button, summary, a.btn, a.catcard, a.listcard, a.menuitem, a.crumb") : null;
       if (!el || (el instanceof HTMLButtonElement && el.disabled)) return;
       // The hidden switch's own click must not start another tick.
       if (label && e.target instanceof Node && label.contains(e.target)) return;
       tick();
-      // The ripple belongs to the page itself. Taps in the header or the footer do not start one.
-      if (!el.closest("main")) return;
-      // A press from the keyboard has no position, so the ripple starts at the button's centre.
-      if (e.detail === 0 || (e.clientX === 0 && e.clientY === 0)) {
-        const box = el.getBoundingClientRect();
-        ripple(box.left + box.width / 2, box.top + box.height / 2);
-      } else {
-        ripple(e.clientX, e.clientY);
-      }
     };
 
     document.addEventListener("click", onClick, true);
