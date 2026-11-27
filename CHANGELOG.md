@@ -1,5 +1,9 @@
 # Changelog
 
+## A slower, quieter ripple (live, Nov 26, 2026)
+
+- The tap ripple is now three thin rings that spread slowly, like a pebble dropped in still water, over about three seconds. The glow is gone; each ring only softly bends what it passes over.
+
 ## Always dark, embers, a ripple on every tap (live, Nov 26, 2026)
 
 - **Dark only.** Grown now always shows its dark look. The light/dark switch is gone from the header.

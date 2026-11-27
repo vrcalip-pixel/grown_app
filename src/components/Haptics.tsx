@@ -14,8 +14,8 @@ import { useEffect } from "react";
  *   breaks, the tap is simply silent.
  * - Desktop computers have no vibration motor, so nothing happens there.
  *
- * Ripple: a ring of light that grows from the tap to the far corner of the
- * screen and fades. It sits above the page, never takes a tap, and is skipped
+ * Ripple: slow, faint rings, like a pebble dropped in still water, that grow
+ * from the tap to the far corner of the screen and fade. It sits above the page, never takes a tap, and is skipped
  * for people who ask their device for less motion.
  */
 export function Haptics() {
@@ -51,7 +51,7 @@ export function Haptics() {
       ring.setAttribute("aria-hidden", "true");
       ring.style.cssText = `left:${x - r}px;top:${y - r}px;width:${2 * r}px;height:${2 * r}px`;
       document.body.appendChild(ring);
-      window.setTimeout(() => ring.remove(), 1300);
+      window.setTimeout(() => ring.remove(), 3400);
     };
 
     const onClick = (e: MouseEvent) => {
