@@ -1,5 +1,9 @@
 # Changelog
 
+## The globe is now the Earth (live, Nov 26, 2026)
+
+- The mark beside the name shows the Earth: blue oceans, green continents, and a highlight and shadow that make it look round. The continents drift slowly past, one full turn about every 40 seconds.
+
 ## Globe mark, and no status tags on the home cards (live, Nov 26, 2026)
 
 - The mark beside the name is now a small shaded globe that turns slowly, about one turn every 14 seconds. It replaces the shooting star.

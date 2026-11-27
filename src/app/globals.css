@@ -281,15 +281,13 @@ h1+.badge,.badge+h1{margin-top:8px}
 
 /* Plain wordmark in the header. */
 .wordmark{display:flex;align-items:center;gap:6px;font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1;padding:8px 2px}
-/* The globe mark. The ball is shaded so it looks round, and three meridian lines sweep
-   across it one after another, which reads as the globe turning. One full turn takes
-   about 14 seconds. Drawn as a vector, so it looks the same on every phone, and it
+/* The Earth mark. The continents drift from left to right behind a round window, and a
+   soft highlight and shadow on top make it read as a ball turning. One full turn takes
+   about 40 seconds. Drawn as a vector, so it looks the same on every phone, and it
    holds still for people who ask for less motion. */
-.wordmark .mark{flex:none;overflow:visible;filter:drop-shadow(0 0 5px rgba(90,170,220,.35))}
-.mark-m{transform-box:fill-box;transform-origin:center;animation:mark-turn 7s cubic-bezier(.37,0,.63,1) infinite alternate}
-.mark-m.m2{animation-delay:-2.33s}
-.mark-m.m3{animation-delay:-4.67s}
-@keyframes mark-turn{from{transform:scaleX(1)}to{transform:scaleX(-1)}}
+.wordmark .mark{flex:none;overflow:visible;filter:drop-shadow(0 0 5px rgba(90,170,220,.4))}
+.mark-land{animation:mark-turn 40s linear infinite}
+@keyframes mark-turn{from{transform:translateX(-64px)}to{transform:translateX(0)}}
 /* Bigger icons on the cards, so each section is easy to spot. */
 .cattile{width:76px;height:76px;border-radius:22px}
 .cattile.small{width:60px;height:60px;border-radius:18px}

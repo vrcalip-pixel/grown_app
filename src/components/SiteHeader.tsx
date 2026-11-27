@@ -27,6 +27,14 @@ const BOOK = (
   </>
 );
 
+/**
+ * The continents, much simplified, on a flat strip 64 units wide (a whole trip
+ * round the world) and 26 tall. The header's globe slides this strip behind a
+ * round window to make the Earth turn.
+ */
+const EARTH =
+  "M2.7 6.6L7.1 5.9L15.1 5.6L18.7 7.0L21.3 8.8L18.1 10.9L17.4 12.4L14.8 13.4L13.3 12.8L10.7 11.1L9.8 9.1L5.3 7.6ZM14.8 13.4L17.8 14.8L18.7 14.6L23.1 16.0L25.8 17.0L24.9 19.2L21.7 21.5L19.9 23.8L19.0 22.5L19.6 18.6L17.6 16.7ZM22.2 7.3L24.0 4.2L28.4 4.7L27.6 6.2L24.5 7.3ZM29.0 13.8L31.1 10.9L33.8 10.7L37.7 11.5L39.6 14.3L41.1 14.4L39.1 18.2L37.7 20.0L35.6 20.9L34.1 18.5L33.6 15.4L30.6 15.3ZM30.2 10.7L30.4 9.8L32.0 8.8L32.9 7.6L34.1 6.5L37.0 5.9L39.1 6.5L39.1 9.2L36.8 10.2L34.7 10.5L32.5 9.8ZM39.1 6.5L44.4 5.6L50.7 5.0L56.9 5.6L62.2 6.5L60.4 7.6L56.9 8.8L54.8 10.5L53.3 12.4L51.2 14.3L49.8 15.3L48.9 13.4L46.2 14.8L44.8 13.1L42.7 12.4L40.9 12.0L39.1 10.8ZM52.3 19.2L55.1 17.7L57.2 17.6L59.2 19.9L58.0 21.5L55.3 20.6L52.6 20.9ZM0 27.6H64V29H0Z";
+
 /** Nine dots: the "all sections" button. */
 const GRID = (
   <g fill="currentColor" stroke="none">
@@ -88,26 +96,33 @@ export function SiteHeader() {
         <div className="hleft">
           <Link href="/" className="brandlink" aria-label={t("navHome")}>
             <span className="wordmark">
-              {/* A globe that turns slowly: a shaded ball, with meridian lines that sweep round it. */}
+              {/* The Earth, turning slowly: oceans, land that drifts past, and shading that makes it a ball. */}
               <svg className="mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
                 <defs>
-                  <radialGradient id="mark-ball" cx="0.34" cy="0.28" r="0.8">
-                    <stop offset="0" stopColor="#bfe6fb" />
-                    <stop offset="0.45" stopColor="#4a9cc8" />
-                    <stop offset="1" stopColor="#123a56" />
+                  <radialGradient id="mark-sea" cx="0.36" cy="0.3" r="0.85">
+                    <stop offset="0" stopColor="#4fa6dc" />
+                    <stop offset="0.55" stopColor="#1f6ea8" />
+                    <stop offset="1" stopColor="#0b2f52" />
+                  </radialGradient>
+                  <radialGradient id="mark-shade" cx="0.34" cy="0.28" r="0.78">
+                    <stop offset="0" stopColor="#fff" stopOpacity="0.28" />
+                    <stop offset="0.45" stopColor="#fff" stopOpacity="0" />
+                    <stop offset="1" stopColor="#020a16" stopOpacity="0.62" />
                   </radialGradient>
                   <clipPath id="mark-clip">
                     <circle cx="16" cy="16" r="13" />
                   </clipPath>
                 </defs>
-                <circle cx="16" cy="16" r="13" fill="url(#mark-ball)" />
-                <g clipPath="url(#mark-clip)" fill="none" stroke="#fff" strokeWidth="1" strokeOpacity="0.7">
-                  <path d="M3 16h26M4.5 9.5h23M4.5 22.5h23" strokeOpacity="0.45" />
-                  <ellipse className="mark-m m1" cx="16" cy="16" rx="13" ry="13" />
-                  <ellipse className="mark-m m2" cx="16" cy="16" rx="13" ry="13" />
-                  <ellipse className="mark-m m3" cx="16" cy="16" rx="13" ry="13" />
+                <circle cx="16" cy="16" r="13" fill="url(#mark-sea)" />
+                <g clipPath="url(#mark-clip)">
+                  {/* The map is drawn twice, side by side, so the turn has no seam. */}
+                  <g className="mark-land" fill="#7cc99a">
+                    <path d={EARTH} />
+                    <path d={EARTH} transform="translate(64 0)" />
+                  </g>
                 </g>
-                <circle cx="16" cy="16" r="13" fill="none" stroke="#fff" strokeOpacity="0.55" strokeWidth="1" />
+                <circle cx="16" cy="16" r="13" fill="url(#mark-shade)" />
+                <circle cx="16" cy="16" r="13" fill="none" stroke="#bfe4fb" strokeOpacity="0.6" strokeWidth="0.9" />
               </svg>
               Explainer
             </span>
