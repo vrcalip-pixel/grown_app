@@ -1,5 +1,9 @@
 # Changelog
 
+## Background lights stay calm on phones (live, Nov 26, 2026)
+
+- Fixed: pulling down to refresh on a phone, or scrolling so the address bar slid away, made the drifting lights jump to new places. They now keep rising steadily. The lights are only laid out again when the screen truly changes shape, such as rotating the phone, and even then the ones already on screen keep their place.
+
 ## A broader home-page intro, with its own call to action (live, Nov 26, 2026)
 
 - The intro under the headline now reads: "Clear, step-by-step guidance for the tickets, leases, bills and forms that come with adult life, so you never have to figure it out alone." Each of the four words stands for a category: tickets (Car), leases (Housing), bills (Health), forms (Money). The old line leaned toward car paperwork and left Money out.

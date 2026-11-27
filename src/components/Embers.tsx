@@ -81,16 +81,37 @@ export function Embers() {
       };
     };
 
+    // A phone changes the page's height all the time: the address bar slides away as you
+    // scroll and comes back when you pull down to refresh. Each of those used to rebuild
+    // every light from scratch, which made them jump. Now the lights are only laid out
+    // again when the screen really changes shape (a rotated phone, a resized window), and
+    // even then the ones already drifting keep their place.
+    const SPARE = 160; // extra canvas below the screen, so a taller view never shows a gap
     const resize = () => {
+      const nw = window.innerWidth;
+      const nh = window.innerHeight + SPARE;
+      const first = embers.length === 0;
+      if (!first && nw === w && Math.abs(nh - h) < SPARE) return;
+
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = window.innerWidth;
-      h = window.innerHeight;
+      if (!first) {
+        for (const e of embers) {
+          e.x *= nw / w;
+          e.y *= nh / h;
+        }
+      }
+      w = nw;
+      h = nh;
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
+      // Sized in real pixels, not "fill the screen", so the picture is never stretched.
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       // About one ember per 11,000 square pixels: roughly 28 on a phone, 80 on a laptop.
       const count = Math.max(22, Math.min(90, Math.round((w * h) / 11000)));
-      embers = Array.from({ length: count }, () => spawn(true));
+      while (embers.length < count) embers.push(spawn(first));
+      embers.length = count;
     };
 
     const draw = (dt: number) => {
