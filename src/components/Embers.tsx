@@ -3,8 +3,9 @@
 import { useEffect, useRef } from "react";
 
 /**
- * The moving part of the background: embers from a fire, drifting up through
- * the dark. Each one rises slowly, sways, flickers, and fades out.
+ * The moving part of the background: soft points of blue light drifting up
+ * through the dark, the way embers rise. Each one rises slowly, sways,
+ * flickers, and fades out.
  *
  * Decoration only. It is drawn on one canvas behind the page, never takes a
  * tap, stops while the tab is in the background, and holds still as a single
@@ -30,7 +31,8 @@ interface Ember {
   flicker: number;
 }
 
-const TONES = ["255,176,87", "255,128,48", "255,214,160"];
+// Cool blues, to match the horizon. (They were fire-orange until Nov 26, 2026.)
+const TONES = ["120,196,250", "78,160,228", "196,232,255"];
 
 /** A soft glowing dot, drawn once per colour and then stamped for every ember. */
 function sprite(rgb: string): HTMLCanvasElement {
@@ -38,7 +40,7 @@ function sprite(rgb: string): HTMLCanvasElement {
   c.width = c.height = 64;
   const g = c.getContext("2d")!;
   const grad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
-  grad.addColorStop(0, "rgba(255,245,225,1)");
+  grad.addColorStop(0, "rgba(240,250,255,1)");
   grad.addColorStop(0.12, `rgba(${rgb},.95)`);
   grad.addColorStop(0.4, `rgba(${rgb},.22)`);
   grad.addColorStop(1, `rgba(${rgb},0)`);

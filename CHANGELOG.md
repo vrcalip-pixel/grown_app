@@ -1,5 +1,10 @@
 # Changelog
 
+## A cooler background (live, Nov 26, 2026)
+
+- The glowing horizon and the rising points of light are now cool blue in place of fire orange. The shapes and movement are unchanged.
+- Why: orange and red read as heat and alarm, and in Grown they are also the colours of the warning cards. Blue is calmer and matches the app's buttons, and it leaves orange to mean "pay attention" only.
+
 ## Ripple removed (live, Nov 26, 2026)
 
 - The ripple that spread across the page from each tap is removed for now; it was too distracting. The light vibration on phones stays. The ripple can be brought back from the project history.

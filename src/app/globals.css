@@ -32,12 +32,13 @@
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--font-manrope),system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
 
-/* The background: a night sky with a wide, curved rim of warm light low on the
-   page, like a fire just over the edge of a world. Embers rise from it and
-   drift up through the dark (drawn by the Embers component). The glow swells
+/* The background: a night sky with a wide, curved rim of cool blue light low on
+   the page, like first light over the edge of a world. Soft points of light
+   rise from it and drift up through the dark (drawn by the Embers component). The glow swells
    and settles at a resting-breath pace (in about 4s, a short hold, out about
    5s). All of it holds still for people who ask their device for less motion. */
-:root{--sky-top:light-dark(#f5f0e7,#090b0e);--sky-low:light-dark(#fbe6cb,#170f0a);--rim:light-dark(#fffaf0,#ffe2b4);--glow:light-dark(#f0a85a,#ee8436);--glow-deep:light-dark(#f2c88f,#a04618);--glow-soft:light-dark(rgba(238,165,85,.38),rgba(205,92,30,.42));--mote:light-dark(rgba(186,124,54,.5),rgba(255,172,96,.8))}
+/* Cool blues, chosen to feel calm. Warm orange is kept for real warnings only. */
+:root{--sky-top:#080b10;--sky-low:#08131c;--rim:#dcf2ff;--glow:#4aa3cf;--glow-deep:#1f5c80;--glow-soft:rgba(60,150,205,.4);--mote:rgba(150,210,255,.8)}
 .breath{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:linear-gradient(var(--sky-top) 40%,var(--sky-low))}
 .horizon{position:absolute;left:50%;top:85%;width:220vw;height:220vw;margin-left:-110vw;border-radius:50%;filter:blur(.6px);background:radial-gradient(ellipse 50% 8% at 50% 0,var(--glow) 0,var(--glow-deep) 42%,transparent 100%);box-shadow:inset 0 3px 5px -1px var(--rim),0 -5px 16px -4px var(--glow),0 -22px 64px -18px var(--glow-soft)}
 .horizon::after{content:"";position:absolute;inset:0;border-radius:50%;opacity:.6;box-shadow:inset 0 7px 16px -3px var(--rim),0 -10px 36px -4px var(--glow),0 -44px 130px -22px var(--glow-soft);animation:breathe-glow 11s ease-in-out infinite}
