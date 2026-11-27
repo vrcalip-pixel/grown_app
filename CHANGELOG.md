@@ -1,8 +1,8 @@
 # Changelog
 
-## First live Housing guide, and Sources grouped by guide (on a review branch, NOT live yet, Nov 26, 2026)
+## First live Housing guide, and Sources grouped by guide (live, Nov 26, 2026)
 
-Built on the `housing-first-lease` branch, waiting for the author's approval, because it adds rules.
+Built on the `housing-first-lease` branch because it adds rules, then approved by the author and published the same day, before the facts had a human check.
 
 - **First lease or rental agreement** is a working guide: five questions (where, how far along, set term or month to month, how much is due up front, have you seen the unit) leading to a plan with one next move.
 - It covers three situations: applying, holding a lease to sign, and already signed. Outside California it says so and stops.

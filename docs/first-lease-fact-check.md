@@ -1,6 +1,6 @@
 # First lease guide: fact check sheet
 
-**Status: built on the `housing-first-lease` review branch. Not live.**
+**Status: live since Nov 26, 2026, on the author's approval. The facts below still need a human check.**
 
 Every rule the first-lease guide can show comes from one of the 23 facts below. Each was read off the official page by an AI research pass on Nov 26, 2026. **A person has not yet confirmed them.** Before this guide goes in front of testers as verified, open each source and tick the fact if the page says what the fact says.
 
