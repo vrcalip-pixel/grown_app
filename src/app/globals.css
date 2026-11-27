@@ -57,7 +57,7 @@ header{border-bottom:1px solid var(--line);padding:14px max(5vw,16px)}
 .hwrap{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:10px;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:22px;letter-spacing:-.01em}
 .tag{font-size:13px;color:var(--soft)}
-main{max-width:640px;margin:0 auto;padding:28px max(5vw,16px) 48px}
+main{max-width:640px;margin:0 auto;padding:16px max(5vw,16px) 48px}
 h1{font-size:clamp(30px,6vw,40px);line-height:1.1;margin:6px 0 12px;text-wrap:balance;font-weight:800;letter-spacing:-.02em}
 h2{font-size:22px;line-height:1.2;margin:0 0 8px;font-weight:800}
 h1:focus,h2:focus{outline:none}
@@ -143,9 +143,10 @@ footer{max-width:640px;margin:0 auto;padding:0 max(5vw,16px) 40px;font-size:13px
 .btn:disabled{opacity:.5;cursor:not-allowed}
 
 /* Read this to me */
-.readrow{display:flex;justify-content:flex-end;margin:-12px 0 6px}
-.readbtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;border:0;background:transparent;color:var(--action-text);font:700 15px inherit;font-family:inherit;cursor:pointer;transition:background-color .15s var(--ease)}
-.readbtn:hover,.readbtn[aria-pressed=true]{background:var(--action-soft)}
+.hleft{display:flex;align-items:center;gap:10px;flex:none}
+.readbtn{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--action-text);background:var(--card);border:1px solid var(--line);box-shadow:inset 0 1px 0 var(--shine),0 1px 0 var(--edge),0 8px 16px -12px var(--shadow);transition:transform .12s var(--ease),background-color .15s var(--ease)}
+.readbtn:hover{transform:translateY(-1px)}
+.readbtn.on{background:var(--action-soft);border-color:var(--action)}
 .readbtn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 
 /* Show more */

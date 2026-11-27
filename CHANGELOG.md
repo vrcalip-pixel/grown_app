@@ -1,5 +1,11 @@
 # Changelog
 
+## Read aloud moves into the header (live, Nov 26, 2026)
+
+- "Read this to me" is no longer a line of text above every page. It is now a round speaker button next to the Grown name in the header, on every page including the ticket guide.
+- Tap it to hear the current screen; tap again to stop. It still stops by itself when you move to another screen, and it still appears only when the device has its own voice for the language.
+- Page titles now sit closer to the header.
+
 ## Bottom-of-page text now follows the language switch (live, Nov 26, 2026)
 
 - The fine print at the foot of every page was fixed English text. It now changes with the language switch, in English, Spanish and Khmer.

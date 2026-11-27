@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { LANGS } from "@/i18n/strings";
+import { ReadAloud } from "./ReadAloud";
 import { ThemeToggle } from "./ThemeToggle";
 
 /** The bar at the top of every page: logo, the three sections, language, and light or dark. */
@@ -50,9 +51,12 @@ export function SiteHeader() {
   return (
     <header>
       <div className="hwrap">
-        <Link href="/" className="brandlink" aria-label={t("navHome")}>
-          <span className="wordmark">Grown</span>
-        </Link>
+        <div className="hleft">
+          <Link href="/" className="brandlink" aria-label={t("navHome")}>
+            <span className="wordmark">Grown</span>
+          </Link>
+          <ReadAloud lang={lang} startLabel={t("readAloud")} stopLabel={t("stopReading")} />
+        </div>
         <div className="hright">
           <nav className="hnav" aria-label="Sections">
             {NAV.map((n) => (

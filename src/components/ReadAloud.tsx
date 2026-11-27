@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, type RefObject } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * "Read this to me." Speaks the words on the current screen with a voice that
@@ -68,50 +69,62 @@ export function voiceScore(v: { name: string; lang: string; default?: boolean })
   return s;
 }
 
-export function ReadAloud({
-  target,
-  screenKey,
-  lang = "en",
-  startLabel = "Read this to me",
-  stopLabel = "Stop reading",
-}: {
-  target: RefObject<HTMLElement | null>;
-  screenKey: string;
-  /** The language of the words on screen. The button hides if the device has no on-device voice for it. */
-  lang?: string;
-  startLabel?: string;
-  stopLabel?: string;
-}) {
+/** The part of the page that holds the current screen's words. Pages mark it with data-read. */
+const screenNow = () => document.querySelector<HTMLElement>("[data-read]");
+
+/**
+ * The read-aloud button in the header. It reads whatever screen is showing and
+ * stops by itself as soon as that screen is replaced.
+ */
+export function ReadAloud({ lang, startLabel, stopLabel }: { lang: string; startLabel: string; stopLabel: string }) {
+  const path = usePathname();
+  const [voiceLang, setVoiceLang] = useState("en");
   const [available, setAvailable] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const run = useRef(0);
+  const watcher = useRef<MutationObserver | null>(null);
+
+  // A screen says which language its words are in (the ticket guide is English only).
+  useEffect(() => {
+    setVoiceLang(screenNow()?.getAttribute("data-read") || lang);
+  }, [path, lang]);
 
   // Voices load after the page does, so check now and again when they arrive.
+  // The button hides if the device has no on-device voice for the language.
   useEffect(() => {
     if (!("speechSynthesis" in window)) return;
-    const check = () => setAvailable(localVoice(lang) !== null);
+    const check = () => setAvailable(localVoice(voiceLang) !== null);
     check();
     window.speechSynthesis.addEventListener("voiceschanged", check);
     return () => window.speechSynthesis.removeEventListener("voiceschanged", check);
-  }, [lang]);
+  }, [voiceLang]);
 
   const stop = () => {
     run.current++;
+    watcher.current?.disconnect();
+    watcher.current = null;
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     setSpeaking(false);
   };
 
-  // Never keep reading a screen the person has left.
-  useEffect(() => stop, [screenKey]);
+  // Never keep reading after leaving the site's pages.
+  useEffect(() => stop, []);
 
   const start = () => {
-    const voice = localVoice(lang);
-    if (!target.current || !voice) return;
-    const chunks = readableChunks(target.current);
+    const target = screenNow();
+    const voice = localVoice(target?.getAttribute("data-read") || lang);
+    if (!target || !voice) return;
+    const chunks = readableChunks(target);
     if (!chunks.length) return;
     window.speechSynthesis.cancel();
     const mine = ++run.current;
     setSpeaking(true);
+    // Never keep reading a screen the person has left: each new screen replaces this element.
+    watcher.current?.disconnect();
+    watcher.current = new MutationObserver(() => {
+      if (!target.isConnected) stop();
+    });
+    watcher.current.observe(document.body, { childList: true, subtree: true });
     // One utterance per line: some browsers cut off long ones.
     chunks.forEach((text, i) => {
       const u = new SpeechSynthesisUtterance(text);
@@ -121,7 +134,7 @@ export function ReadAloud({
       u.rate = 0.9;
       if (i === chunks.length - 1) {
         u.onend = u.onerror = () => {
-          if (run.current === mine) setSpeaking(false);
+          if (run.current === mine) stop();
         };
       }
       window.speechSynthesis.speak(u);
@@ -129,21 +142,19 @@ export function ReadAloud({
   };
 
   if (!available) return null;
+  const label = speaking ? stopLabel : startLabel;
   return (
-    <div className="readrow" data-noread>
-      <button className="readbtn" onClick={speaking ? stop : start} aria-pressed={speaking}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          {speaking ? (
-            <rect x="6" y="6" width="12" height="12" rx="2" />
-          ) : (
-            <>
-              <path d="M4 9v6h4l5 4V5L8 9z" />
-              <path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12" />
-            </>
-          )}
-        </svg>
-        {speaking ? stopLabel : startLabel}
-      </button>
-    </div>
+    <button className={`readbtn${speaking ? " on" : ""}`} onClick={speaking ? stop : start} aria-pressed={speaking} aria-label={label} title={label}>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        {speaking ? (
+          <rect x="6" y="6" width="12" height="12" rx="2" />
+        ) : (
+          <>
+            <path d="M4 9v6h4l5 4V5L8 9z" />
+            <path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12" />
+          </>
+        )}
+      </svg>
+    </button>
   );
 }

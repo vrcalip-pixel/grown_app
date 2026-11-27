@@ -1,20 +1,17 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/i18n/LanguageProvider";
-import { ReadAloud } from "./ReadAloud";
 
-/** The frame for every page that is not a guide: the read-aloud button, then the page. */
+/** The frame for every page that is not a guide. The header's read-aloud button reads the part marked data-read. */
 export function Page({ children }: { children: ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
   const path = usePathname();
-  const { lang, t } = useLanguage();
+  const { lang } = useLanguage();
 
   return (
     <main id="app">
-      <ReadAloud target={ref} screenKey={`${path}:${lang}`} lang={lang} startLabel={t("readAloud")} stopLabel={t("stopReading")} />
-      <div className="fade" key={`${path}:${lang}`} ref={ref}>
+      <div className="fade" key={`${path}:${lang}`} data-read={lang}>
         {children}
       </div>
     </main>

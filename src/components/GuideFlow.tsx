@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AskGrown } from "./AskGrown";
-import { ReadAloud } from "./ReadAloud";
 import { daysUntil, resolve, visibleQuestions, type Answers, type Result } from "@/engine";
 import Link from "next/link";
 import type { LivePack } from "@/pack/schema";
@@ -54,7 +53,6 @@ function Icon({ name }: { name: keyof typeof ICONS }) {
 export function GuideFlow({ pack, checkedOn, backHref }: { pack: LivePack; checkedOn: string; backHref: string }) {
   const [view, setView] = useState<View>("q0");
   const [answers, setAnswers] = useState<Answers>({});
-  const screenRef = useRef<HTMLDivElement>(null);
 
   // On each new screen, go to the top and hand focus to its heading, so a
   // screen reader announces the new question instead of staying on a button
@@ -157,8 +155,8 @@ export function GuideFlow({ pack, checkedOn, backHref }: { pack: LivePack; check
 
   return (
     <main id="app">
-      <ReadAloud target={screenRef} screenKey={view} />
-      <div className="fade" key={view} ref={screenRef}>
+      {/* The guide is in English, so the header's read-aloud button uses an English voice here. */}
+      <div className="fade" key={view} data-read="en">
         {screen}
       </div>
     </main>
