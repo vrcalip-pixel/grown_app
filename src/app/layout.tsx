@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
+import { CardTransitions } from "@/components/CardTransitions";
 import { Embers } from "@/components/Embers";
 import { Haptics } from "@/components/Haptics";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <span className="horizon" />
         </div>
         <Haptics />
+        <CardTransitions />
         <LanguageProvider>
           <SiteHeader />
           {children}

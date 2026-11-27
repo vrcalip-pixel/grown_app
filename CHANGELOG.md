@@ -1,5 +1,10 @@
 # Changelog
 
+## Cards open into their pages; Sources is one list per category (live, Nov 26, 2026)
+
+- Tapping a card on the home page or a category page now opens it: the card grows to fill the screen and the new page fades in inside it. Browsers without this feature, and devices set to reduce motion, open the page the usual way.
+- The Sources page is now the full list for each category. Each bar is a category (Car, Housing); inside it, every live guide in that category is listed with its own sources and last-checked date. With one live guide per category today it looks much the same, and it will hold the next guides without changing shape.
+
 ## First live Housing guide, and Sources grouped by guide (live, Nov 26, 2026)
 
 Built on the `housing-first-lease` branch because it adds rules, then approved by the author and published the same day, before the facts had a human check.

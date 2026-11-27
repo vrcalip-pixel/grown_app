@@ -277,15 +277,15 @@ export function PreviewView({ category, preview }: { category: string; preview: 
 }
 
 interface SourceGroup {
-  id: string;
   /** "car", or the id of a category in PREVIEW_CATEGORIES. */
   category: string;
-  guide: string;
-  checkedIso: string;
-  sources: { title: string; url: string; covers: string }[];
+  guides: { id: string; guide: string; checkedIso: string; sources: { title: string; url: string; covers: string }[] }[];
 }
 
-/** The sources page: one bar per guide, under its category, that opens to show where that guide's rules come from. */
+/**
+ * The sources page: one bar per category. Open a bar to see every live guide
+ * in that category and the official pages its rules come from.
+ */
 export function SourcesView({ groups }: { groups: SourceGroup[] }) {
   const { lang, t, tr } = useLanguage();
   const day = (iso: string) =>
@@ -310,26 +310,32 @@ export function SourcesView({ groups }: { groups: SourceGroup[] }) {
       <p className="muted">{t("srcBody")}</p>
       {groups.map((g, i) => {
         const cat = look(g.category);
+        const total = g.guides.reduce((n, x) => n + x.sources.length, 0);
         return (
-          <details className="srcgroup" key={g.id} open={i === 0}>
+          <details className="srcgroup" key={g.category} open={i === 0}>
             <summary>
               <span className={`cattile ${cat.tone} small`}>{svg(cat.icon, 26)}</span>
               <span className="srchead">
-                <span className="caps">{cat.name}</span>
-                <strong>{g.guide}</strong>
+                <strong>{cat.name}</strong>
                 <span className="muted">
-                  {t("srcCount", { n: count(g.sources.length, lang) })} · {t("srcGroupChecked", { date: day(g.checkedIso) })}
+                  {g.guides.map((x) => x.guide).join(" · ")} · {t("srcCount", { n: count(total, lang) })}
                 </span>
               </span>
             </summary>
-            <ul className="src">
-              {g.sources.map((src) => (
-                <li key={src.url}>
-                  <a href={src.url}>{src.title}</a>
-                  {lang === "en" && <span>{src.covers}</span>}
-                </li>
-              ))}
-            </ul>
+            {g.guides.map((x) => (
+              <div className="srcguide" key={x.id}>
+                <h2>{x.guide}</h2>
+                <p className="muted">{t("srcGroupChecked", { date: day(x.checkedIso) })}</p>
+                <ul className="src">
+                  {x.sources.map((src) => (
+                    <li key={src.url}>
+                      <a href={src.url}>{src.title}</a>
+                      {lang === "en" && <span>{src.covers}</span>}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </details>
         );
       })}

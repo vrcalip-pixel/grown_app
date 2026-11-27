@@ -307,4 +307,17 @@ h1+.badge,.badge+h1{margin-top:8px}
 .srchead strong{font-size:18px;font-weight:800;line-height:1.25}
 .srchead .caps{margin:0}
 .srchead .muted{font-size:13px}
-.srcgroup>.src{margin:0;padding:4px 18px 16px 38px;border-top:1px solid var(--line)}
+.srcguide{padding:14px 18px 6px;border-top:1px solid var(--line)}
+.srcguide h2{font-size:17px;margin:0 0 2px}
+.srcguide>.muted{font-size:13px;margin:0 0 6px}
+.srcguide>.src{margin:0 0 8px;padding-left:20px}
+
+/* Opening a card: the card's outline grows into the page it leads to. The card's
+   own contents fade out quickly, and the new page fades in as the outline opens. */
+::view-transition-group(opened-card){animation-duration:.6s;animation-timing-function:cubic-bezier(.3,.05,.2,1);overflow:clip;border-radius:20px}
+::view-transition-old(opened-card){animation:vt-out .2s ease both}
+::view-transition-new(opened-card){animation:vt-in .5s ease .1s both}
+::view-transition-old(root){animation-duration:.3s}
+::view-transition-new(root){animation-duration:.45s}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0}}
