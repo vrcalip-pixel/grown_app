@@ -26,6 +26,8 @@ export const STRINGS = {
   langSwitcher: { en: "Language", es: "Idioma", km: "ភាសា" },
   toDark: { en: "Switch to dark mode", es: "Cambiar a modo oscuro", km: "ប្តូរទៅផ្ទៃងងឹត" },
   toLight: { en: "Switch to light mode", es: "Cambiar a modo claro", km: "ប្តូរទៅផ្ទៃភ្លឺ" },
+  menuAll: { en: "All sections", es: "Todas las secciones", km: "ផ្នែកទាំងអស់" },
+  menuSources: { en: "Sources", es: "Fuentes", km: "ប្រភព" },
   home: { en: "Home", es: "Inicio", km: "ទំព័រដើម" },
   readAloud: { en: "Read this to me", es: "Léemelo", km: "អានឱ្យខ្ញុំស្តាប់" }, // es added here
   stopReading: { en: "Stop reading", es: "Dejar de leer", km: "ឈប់អាន" }, // es added here

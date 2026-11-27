@@ -1,5 +1,10 @@
 # Changelog
 
+## Grid menu and a quieter speaker (live, Nov 26, 2026)
+
+- The header's separate Auto, Residences and Sources buttons are replaced by one grid button. It opens a panel with every section: Auto, Residences, Medical, Finance and Sources. A new section added later appears there by itself.
+- The read-aloud control is now just the speaker symbol, with no button outline, so it sits quietly beside the Grown name.
+
 ## Read aloud in the author's own voice (live, Nov 26, 2026)
 
 - The speaker button now plays recorded clips in Vincent Calip's own cloned voice instead of the device's built-in voice: 322 lines in English and 178 in Spanish, covering every page and every path through the ticket guide.
