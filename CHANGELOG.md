@@ -1,5 +1,12 @@
 # Changelog
 
+## Bottom-of-page text now follows the language switch (live, Nov 26, 2026)
+
+- The fine print at the foot of every page was fixed English text. It now changes with the language switch, in English, Spanish and Khmer.
+- The "Grown is not the court, the police, or immigration" panel had Spanish but no Khmer. Khmer added.
+- Five small Khmer gaps filled: "Read this to me," "Stop reading," the light-mode and language labels, and the note that the ticket guide is in English for now.
+- All of the new Spanish and Khmer was written during the build and has not had a human review.
+
 ## Work & Money becomes Finance (live, Nov 26, 2026)
 
 - The **Work & Money** section is now called **Finance** ("Finanzas" in Spanish, "ហិរញ្ញវត្ថុ" in Khmer), with a dollar sign as its icon.

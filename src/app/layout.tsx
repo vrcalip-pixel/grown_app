@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { Haptics } from "@/components/Haptics";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
-import { checkedOn, loadPack } from "@/pack/load";
+import { checkedIso, loadPack } from "@/pack/load";
 import "./globals.css";
 
 // Self-hosted at build time, so a visit never calls Google.
@@ -34,20 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LanguageProvider>
           <SiteHeader />
           {children}
+          <SiteFooter checkedIso={checkedIso(ticket)} version={ticket.version} />
         </LanguageProvider>
-        <footer>
-          <p>
-            Grown explains what a document means and what your options are. It is not a lawyer and doesn&apos;t give
-            legal advice. Grown never makes up fees or dates. It points you to the amount and due date printed on your
-            own ticket or court notice. Facts last checked against official California court sources on{" "}
-            {checkedOn(ticket)}.
-          </p>
-          <p>
-            Built by Vincent Calip for HDA 294/494, The Agentic Self (ASU). Version {ticket.version} · Long Beach,
-            CA. Nothing you tap is saved. If you choose to use Ask Grown, your question and the answers you tapped are
-            sent to Claude, an AI made by Anthropic, to write a reply. Grown does not store them.
-          </p>
-        </footer>
       </body>
     </html>
   );

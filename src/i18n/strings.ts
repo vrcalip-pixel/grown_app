@@ -23,12 +23,12 @@ export const STRINGS = {
   navAuto: { en: "Auto and traffic tickets", es: "Auto y multas de tráfico", km: "រថយន្ត និងសំបុត្រផាកពិន័យចរាចរណ៍" },
   navResidences: { en: "Residences and housing", es: "Vivienda y contratos", km: "លំនៅដ្ឋាន និងកិច្ចសន្យាជួល" },
   navSources: { en: "Official court sources", es: "Fuentes oficiales de la corte", km: "ប្រភពផ្លូវការរបស់តុលាការ" },
-  langSwitcher: { en: "Language", es: "Idioma" },
+  langSwitcher: { en: "Language", es: "Idioma", km: "ភាសា" },
   toDark: { en: "Switch to dark mode", es: "Cambiar a modo oscuro", km: "ប្តូរទៅផ្ទៃងងឹត" },
-  toLight: { en: "Switch to light mode", es: "Cambiar a modo claro" },
+  toLight: { en: "Switch to light mode", es: "Cambiar a modo claro", km: "ប្តូរទៅផ្ទៃភ្លឺ" },
   home: { en: "Home", es: "Inicio", km: "ទំព័រដើម" },
-  readAloud: { en: "Read this to me", es: "Léemelo" }, // es added here
-  stopReading: { en: "Stop reading", es: "Dejar de leer" }, // es added here
+  readAloud: { en: "Read this to me", es: "Léemelo", km: "អានឱ្យខ្ញុំស្តាប់" }, // es added here
+  stopReading: { en: "Stop reading", es: "Dejar de leer", km: "ឈប់អាន" }, // es added here
 
   // Home
   homeTitle: {
@@ -41,13 +41,29 @@ export const STRINGS = {
     es: "Guía clara paso a paso para multas, contratos de renta, avisos del DMV y facturas médicas, para que nunca tengas que resolverlo sin apoyo. Elige una categoría para empezar.",
     km: "ការណែនាំច្បាស់លាស់មួយជំហានម្តងៗ សម្រាប់សំបុត្រផាកពិន័យ កិច្ចសន្យាជួលផ្ទះ លិខិត DMV និងវិក្កយបត្រពេទ្យ ដើម្បីកុំឱ្យអ្នកដោះស្រាយតែម្នាក់ឯង។ សូមជ្រើសប្រភេទមួយដើម្បីចាប់ផ្តើម។",
   },
-  // The trust promise stays on screen one. Spanish added here; Khmer not written yet.
-  trustLead: { en: "Grown is not the court, the police, or immigration.", es: "Grown no es la corte, la policía ni inmigración." },
-  trust1: { en: "No account", es: "Sin cuenta" },
-  trust2: { en: "No name or license number", es: "Sin nombre ni número de licencia" },
-  trust3: { en: "No income questions", es: "Sin preguntas sobre ingresos" },
-  trust4: { en: "No trackers", es: "Sin rastreadores" },
-  trust5: { en: "Nothing you tap is saved", es: "No se guarda nada de lo que tocas" },
+  // The trust promise on the home page. Spanish and Khmer added here, not yet reviewed by a person.
+  trustLead: {
+    en: "Grown is not the court, the police, or immigration.",
+    es: "Grown no es la corte, la policía ni inmigración.",
+    km: "Grown មិនមែនជាតុលាការ ប៉ូលិស ឬអន្តោប្រវេសន៍ទេ។",
+  },
+  trust1: { en: "No account", es: "Sin cuenta", km: "មិនចាំបាច់មានគណនី" },
+  trust2: { en: "No name or license number", es: "Sin nombre ni número de licencia", km: "មិនសួរឈ្មោះ ឬលេខប័ណ្ណបើកបរ" },
+  trust3: { en: "No income questions", es: "Sin preguntas sobre ingresos", km: "មិនសួរអំពីប្រាក់ចំណូល" },
+  trust4: { en: "No trackers", es: "Sin rastreadores", km: "គ្មានកម្មវិធីតាមដាន" },
+  trust5: { en: "Nothing you tap is saved", es: "No se guarda nada de lo que tocas", km: "អ្វីដែលអ្នកចុច មិនត្រូវបានរក្សាទុកទេ" },
+
+  // The fine print at the foot of every page. Spanish and Khmer added here, not yet reviewed by a person.
+  footLegal: {
+    en: "Grown explains what a document means and what your options are. It is not a lawyer and doesn't give legal advice. Grown never makes up fees or dates. It points you to the amount and due date printed on your own ticket or court notice. Facts last checked against official California court sources on {date}.",
+    es: "Grown explica qué significa un documento y cuáles son tus opciones. No es un abogado y no da asesoría legal. Grown nunca inventa cobros ni fechas. Te señala la cantidad y la fecha límite impresas en tu propia multa o aviso de la corte. Datos revisados por última vez con fuentes oficiales de las cortes de California el {date}.",
+    km: "Grown ពន្យល់ថាឯកសារមួយមានន័យយ៉ាងណា និងអ្នកមានជម្រើសអ្វីខ្លះ។ វាមិនមែនជាមេធាវី ហើយមិនផ្តល់ដំបូន្មានផ្លូវច្បាប់ទេ។ Grown មិនដែលបង្កើតតម្លៃ ឬកាលបរិច្ឆេទដោយខ្លួនឯងឡើយ។ វាចង្អុលអ្នកទៅចំនួនទឹកប្រាក់ និងថ្ងៃផុតកំណត់ ដែលបោះពុម្ពលើសំបុត្រផាកពិន័យ ឬលិខិតតុលាការរបស់អ្នកផ្ទាល់។ ព័ត៌មានត្រូវបានពិនិត្យចុងក្រោយជាមួយប្រភពផ្លូវការរបស់តុលាការរដ្ឋកាលីហ្វ័រញ៉ា នៅថ្ងៃ {date}។",
+  },
+  footBuilt: {
+    en: "Built by Vincent Calip for HDA 294/494, The Agentic Self (ASU). Version {version} · Long Beach, CA. Nothing you tap is saved. If you choose to use Ask Grown, your question and the answers you tapped are sent to Claude, an AI made by Anthropic, to write a reply. Grown does not store them.",
+    es: "Creado por Vincent Calip para HDA 294/494, The Agentic Self (ASU). Versión {version} · Long Beach, CA. No se guarda nada de lo que tocas. Si decides usar Ask Grown, tu pregunta y las respuestas que tocaste se envían a Claude, una IA creada por Anthropic, para escribir una respuesta. Grown no las guarda.",
+    km: "បង្កើតដោយ Vincent Calip សម្រាប់ HDA 294/494, The Agentic Self (ASU)។ កំណែ {version} · Long Beach, CA។ អ្វីដែលអ្នកចុច មិនត្រូវបានរក្សាទុកទេ។ ប្រសិនបើអ្នកជ្រើសប្រើ Ask Grown សំណួររបស់អ្នក និងចម្លើយដែលអ្នកបានចុច នឹងត្រូវបញ្ជូនទៅ Claude ដែលជា AI បង្កើតដោយ Anthropic ដើម្បីសរសេរចម្លើយ។ Grown មិនរក្សាទុកពួកវាទេ។",
+  },
 
   catAuto: { en: "Auto", es: "Auto", km: "រថយន្ត" },
   catAutoBlurb: {
@@ -110,6 +126,7 @@ export const STRINGS = {
   guideEnglishOnly: {
     en: "This guide is in English for now. Other languages are being reviewed by a person before they go live.",
     es: "Por ahora esta guía está en inglés. Una persona está revisando la traducción antes de publicarla.",
+    km: "មគ្គុទ្ទេសក៍នេះមានជាភាសាអង់គ្លេសសិន។ ភាសាផ្សេងទៀតកំពុងត្រូវបានពិនិត្យដោយមនុស្ស មុននឹងដាក់ឱ្យប្រើ។",
   },
 
   // Residences
