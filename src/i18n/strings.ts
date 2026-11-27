@@ -10,8 +10,8 @@
 
 export type Lang = "en" | "es" | "km";
 export const LANGS: { id: Lang; label: string; name: string }[] = [
-  { id: "en", label: "EN", name: "English" },
-  { id: "es", label: "ES", name: "Español" },
+  { id: "en", label: "English", name: "English" },
+  { id: "es", label: "Español", name: "Español" },
   { id: "km", label: "ខ្មែរ", name: "Khmer" },
 ];
 

@@ -3,6 +3,7 @@
 ## Grid menu and a quieter speaker (live, Nov 26, 2026)
 
 - The header's separate Auto, Residences and Sources buttons are replaced by one grid button. It opens a panel with every section: Auto, Residences, Medical, Finance and Sources. A new section added later appears there by itself.
+- The language switch now spells out each language in its own script (English, Español, ខ្មែរ) instead of EN and ES. Flags were considered and set aside: a flag stands for a country, not a language, and Spanish has no single one.
 - The read-aloud control is now just the speaker symbol, with no button outline, so it sits quietly beside the Grown name.
 
 ## Read aloud in the author's own voice (live, Nov 26, 2026)
