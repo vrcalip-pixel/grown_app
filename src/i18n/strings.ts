@@ -37,9 +37,15 @@ export const STRINGS = {
     km: "គ្មាននរណាឱ្យសៀវភៅណែនាំសម្រាប់រឿងទាំងនេះទេ។ យើងនៅជាមួយអ្នក។",
   },
   homeIntro: {
-    en: "Clear, step-by-step guidance for tickets, leases, DMV notices, and medical bills, so you never have to figure it out alone. Pick a category to start.",
-    es: "Guía clara paso a paso para multas, contratos de renta, avisos del DMV y facturas médicas, para que nunca tengas que resolverlo sin apoyo. Elige una categoría para empezar.",
-    km: "ការណែនាំច្បាស់លាស់មួយជំហានម្តងៗ សម្រាប់សំបុត្រផាកពិន័យ កិច្ចសន្យាជួលផ្ទះ លិខិត DMV និងវិក្កយបត្រពេទ្យ ដើម្បីកុំឱ្យអ្នកដោះស្រាយតែម្នាក់ឯង។ សូមជ្រើសប្រភេទមួយដើម្បីចាប់ផ្តើម។",
+    en: "Clear, step-by-step guidance for the tickets, leases, bills and forms that come with adult life, so you never have to figure it out alone.",
+    es: "Guía clara paso a paso para las multas, contratos, facturas y formularios que llegan con la vida adulta, para que nunca tengas que resolverlo sin apoyo.",
+    km: "ការណែនាំច្បាស់លាស់មួយជំហានម្តងៗ សម្រាប់សំបុត្រផាកពិន័យ កិច្ចសន្យាជួល វិក្កយបត្រ និងទម្រង់បែបបទ ដែលមកជាមួយជីវិតពេញវ័យ ដើម្បីកុំឱ្យអ្នកដោះស្រាយតែម្នាក់ឯង។",
+  },
+  // The call to action, on its own line under the intro.
+  homeCta: {
+    en: "Pick a category to start.",
+    es: "Elige una categoría para empezar.",
+    km: "សូមជ្រើសប្រភេទមួយដើម្បីចាប់ផ្តើម។",
   },
   // The fine print at the foot of every page. It carries the trust promise that used to be a
   // panel on the home page. Spanish and Khmer added here, not yet reviewed by a person.

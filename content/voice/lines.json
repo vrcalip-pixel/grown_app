@@ -1,7 +1,6 @@
 {
  "en": [
   "Nobody hands you a manual for this. We got you.",
-  "Clear, step-by-step guidance for tickets, leases, DMV notices, and medical bills, so you never have to figure it out alone. Pick a category to start.",
   "Car.",
   "Housing.",
   "Health.",
@@ -439,11 +438,12 @@
   "Explainer only covers California leases so far.",
   "Explainer version one only covers California, starting with Long Beach. Renting rules are different in each state, so the rules here may not apply to you.",
   "Last checked Nov 22, 2026.",
-  "Last checked Nov 26, 2026."
+  "Last checked Nov 26, 2026.",
+  "Clear, step-by-step guidance for the tickets, leases, bills and forms that come with adult life, so you never have to figure it out alone.",
+  "Pick a category to start."
  ],
  "es": [
   "Nadie te da un manual para esto. Aquí estamos contigo.",
-  "Guía clara paso a paso para multas, contratos de renta, avisos del DMV y facturas médicas, para que nunca tengas que resolverlo sin apoyo. Elige una categoría para empezar.",
   "Carro.",
   "Vivienda.",
   "Salud.",
@@ -635,6 +635,8 @@
   "Revisado por última vez el 22 nov 2026.",
   "Revisado por última vez el 26 nov 2026.",
   "I got a traffic ticket.",
-  "First lease or rental agreement."
+  "First lease or rental agreement.",
+  "Guía clara paso a paso para las multas, contratos, facturas y formularios que llegan con la vida adulta, para que nunca tengas que resolverlo sin apoyo.",
+  "Elige una categoría para empezar."
  ]
 }

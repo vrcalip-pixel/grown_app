@@ -1,5 +1,10 @@
 # Changelog
 
+## A broader home-page intro, with its own call to action (live, Nov 26, 2026)
+
+- The intro under the headline now reads: "Clear, step-by-step guidance for the tickets, leases, bills and forms that come with adult life, so you never have to figure it out alone." Each of the four words stands for a category: tickets (Car), leases (Housing), bills (Health), forms (Money). The old line leaned toward car paperwork and left Money out.
+- "Pick a category to start." is now its own bolder line beneath the intro.
+
 ## The globe is now the Earth (live, Nov 26, 2026)
 
 - The mark beside the name shows the Earth: blue oceans, green continents, and a highlight and shadow that make it look round. The continents drift slowly past, one full turn about every 40 seconds.

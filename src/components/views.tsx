@@ -102,6 +102,7 @@ export function HomeView() {
         {t("homeTitle")}
       </h1>
       <p>{t("homeIntro")}</p>
+      <p className="cta">{t("homeCta")}</p>
       <div className="catgrid">
         <CatCard href="/car" icon={ICON.car} tone="blue" title={t("catAuto")} blurb={t("catAutoBlurb")} list={t("catAutoList")} />
         {Object.entries(PREVIEW_CATEGORIES).map(([id, c]) => (

@@ -328,3 +328,6 @@ h1+.badge,.badge+h1{margin-top:8px}
 ::view-transition-new(root){animation-duration:.45s}
 @keyframes vt-out{to{opacity:0}}
 @keyframes vt-in{from{opacity:0}}
+
+/* The home page's call to action: its own line under the intro, a little bolder. */
+.cta{font-weight:800;font-size:18px;margin:2px 0 14px}
