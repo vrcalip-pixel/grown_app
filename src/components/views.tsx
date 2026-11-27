@@ -41,12 +41,12 @@ export const ICON = {
       <path d="M8 12h2l1-2 2 4 1-2h2" />
     </>
   ),
-  // A dollar sign.
+  // A dollar sign, drawn wider and with a heavier line than the outlined icons so it carries the same weight.
   dollar: (
-    <>
+    <g strokeWidth="2.8">
       <path d="M12 2v20" />
-      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-    </>
+      <path d="M18 6H9a3 3 0 0 0 0 6h6a3 3 0 0 1 0 6H5.5" />
+    </g>
   ),
   doc: (
     <>
