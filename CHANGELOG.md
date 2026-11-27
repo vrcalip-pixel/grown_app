@@ -1,5 +1,13 @@
 # Changelog
 
+## Home cards: a reassuring line and a short list (live, Nov 26, 2026)
+
+- Each home card now shows a short list of what is inside beside its icon (for example: Traffic tickets, DMV notices, Registration), then the section name, then one reassuring line.
+- The lines: "Let's sort out that ticket, one step at a time." (Car), "Let's get your home paperwork handled." (Housing), "Let's make sense of that bill before you pay." (Health), "Let's figure out where your money is going." (Money).
+- The lines are about understanding the paper, not promising an outcome, on purpose.
+- The "1 live" and "3 previews" tags moved down beside each section name.
+- New Spanish and Khmer for these lines was written during the build and is not yet reviewed.
+
 ## Plain names for the four sections (live, Nov 26, 2026)
 
 - The sections are now **Car, Housing, Health and Money**, replacing Auto, Residences, Medical and Finance. The aim is the word a person would actually say.

@@ -76,14 +76,22 @@ function Crumb({ href, label }: { href: string; label: string }) {
   );
 }
 
-function CatCard({ href, icon, tone, badge, title, blurb }: { href: string; icon: ReactNode; tone: string; badge: string; title: string; blurb: string }) {
+/** A home card: the icon with a short list of what is inside, then the name and one reassuring line. */
+function CatCard({ href, icon, tone, badge, title, blurb, list }: { href: string; icon: ReactNode; tone: string; badge: string; title: string; blurb: string; list: string }) {
   return (
     <Link className="catcard" href={href}>
       <span className="cattop">
         <span className={`cattile ${tone}`}>{svg(icon, 38)}</span>
+        <span className="catlist">
+          {list.split("|").map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </span>
+      </span>
+      <span className="cathead">
+        <strong>{title}</strong>
         <span className="badge">{badge}</span>
       </span>
-      <strong>{title}</strong>
       <span className="catblurb">{blurb}</span>
     </Link>
   );
@@ -98,7 +106,7 @@ export function HomeView() {
       </h1>
       <p>{t("homeIntro")}</p>
       <div className="catgrid">
-        <CatCard href="/car" icon={ICON.car} tone="blue" badge={t("badgeLive")} title={t("catAuto")} blurb={t("catAutoBlurb")} />
+        <CatCard href="/car" icon={ICON.car} tone="blue" badge={t("badgeLive")} title={t("catAuto")} blurb={t("catAutoBlurb")} list={t("catAutoList")} />
         {Object.entries(PREVIEW_CATEGORIES).map(([id, c]) => (
           <CatCard
             key={id}
@@ -108,6 +116,7 @@ export function HomeView() {
             badge={t("badgePreviews", { n: count(c.order.length, lang) })}
             title={tr(c.name)}
             blurb={tr(c.blurb)}
+            list={tr(c.list)}
           />
         ))}
       </div>

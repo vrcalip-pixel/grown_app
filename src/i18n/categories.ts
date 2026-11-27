@@ -16,7 +16,10 @@ export interface PreviewCategory {
   tone: "green" | "rose" | "gold";
   icon: "home" | "medical" | "dollar";
   name: Text;
+  /** One reassuring line for the home card. */
   blurb: Text;
+  /** A short list of what is inside, for the home card. Items are split on "|". */
+  list: Text;
   eyebrow: Text;
   title: Text;
   intro: Text;
@@ -29,11 +32,8 @@ export const PREVIEW_CATEGORIES: Record<string, PreviewCategory> = {
     tone: "green",
     icon: "home",
     name: { en: "Housing", es: "Vivienda", km: "លំនៅដ្ឋាន" },
-    blurb: {
-      en: "First leases, deposits, repairs, notices, and roommates.",
-      es: "Primer contrato, depósitos, reparaciones, avisos y compañeros.",
-      km: "កិច្ចសន្យាជួលដំបូង ប្រាក់កក់ ការជួសជុល សេចក្តីជូនដំណឹង និងអ្នករួមបន្ទប់។",
-    },
+    blurb: { en: "Let's get your home paperwork handled.", es: "Pongamos en orden los papeles de tu vivienda.", km: "មករៀបចំឯកសារផ្ទះរបស់អ្នកឱ្យរួចរាល់។" },
+    list: { en: "Leases|Deposits|Repairs", es: "Contratos|Depósitos|Reparaciones", km: "កិច្ចសន្យាជួល|ប្រាក់កក់|ការជួសជុល" },
     eyebrow: { en: "HOUSING", es: "VIVIENDA", km: "លំនៅដ្ឋាន" },
     title: { en: "Housing paperwork without the guesswork.", es: "Papeles de vivienda sin andar adivinando.", km: "ឯកសារជួលផ្ទះ ដោយមិនបាច់ស្មានទុកមុន។" },
     intro: {
@@ -48,11 +48,8 @@ export const PREVIEW_CATEGORIES: Record<string, PreviewCategory> = {
     tone: "rose",
     icon: "medical",
     name: { en: "Health", es: "Salud", km: "សុខភាព" },
-    blurb: {
-      en: "Hospital bills, insurance letters, and itemized statements.",
-      es: "Facturas de hospital, cartas del seguro y cobros detallados.",
-      km: "វិក្កយបត្រមន្ទីរពេទ្យ លិខិតធានារ៉ាប់រង និងបញ្ជីចំណាយលម្អិត។",
-    },
+    blurb: { en: "Let's make sense of that bill before you pay.", es: "Entendamos esa factura antes de que pagues.", km: "មកយល់ពីវិក្កយបត្រនោះ មុនពេលអ្នកបង់ប្រាក់។" },
+    list: { en: "Hospital bills|Insurance letters|Itemized statements", es: "Facturas de hospital|Cartas del seguro|Cobros detallados", km: "វិក្កយបត្រមន្ទីរពេទ្យ|លិខិតធានារ៉ាប់រង|បញ្ជីចំណាយលម្អិត" },
     eyebrow: { en: "HEALTH", es: "SALUD", km: "សុខភាព" },
     title: { en: "Health paperwork, one line at a time.", es: "Papeles médicos, línea por línea." },
     intro: {
@@ -66,11 +63,8 @@ export const PREVIEW_CATEGORIES: Record<string, PreviewCategory> = {
     tone: "gold",
     icon: "dollar",
     name: { en: "Money", es: "Dinero", km: "លុយ" },
-    blurb: {
-      en: "Tax forms, paycheck deductions, and benefits letters.",
-      es: "Formularios de impuestos, descuentos del cheque y cartas de beneficios.",
-      km: "ទម្រង់ពន្ធ ការកាត់ប្រាក់ខែ និងលិខិតអត្ថប្រយោជន៍។",
-    },
+    blurb: { en: "Let's figure out where your money is going.", es: "Veamos a dónde se va tu dinero.", km: "មកមើលថាលុយរបស់អ្នកទៅណា។" },
+    list: { en: "Tax forms|Paychecks|Benefits letters", es: "Formularios de impuestos|Cheques de pago|Cartas de beneficios", km: "ទម្រង់ពន្ធ|ប្រាក់ខែ|លិខិតអត្ថប្រយោជន៍" },
     eyebrow: { en: "MONEY", es: "DINERO", km: "លុយ" },
     title: { en: "Money paperwork, made plain.", es: "Papeles de dinero, en claro." },
     intro: {

@@ -70,11 +70,9 @@ export const STRINGS = {
   },
 
   catAuto: { en: "Car", es: "Carro", km: "រថយន្ត" },
-  catAutoBlurb: {
-    en: "Traffic tickets, DMV notices, and vehicle registration.",
-    es: "Multas de tráfico, avisos del DMV y registro del carro.",
-    km: "សំបុត្រផាកពិន័យចរាចរណ៍ លិខិត DMV និងការចុះបញ្ជីរថយន្ត។",
-  },
+  // Each home card: one reassuring line, and a short list of what is inside (items split on "|").
+  catAutoBlurb: { en: "Let's sort out that ticket, one step at a time.", es: "Resolvamos esa multa, paso a paso.", km: "មកដោះស្រាយសំបុត្រផាកពិន័យនោះ មួយជំហានម្តងៗ។" },
+  catAutoList: { en: "Traffic tickets|DMV notices|Registration", es: "Multas de tráfico|Avisos del DMV|Registro", km: "សំបុត្រផាកពិន័យចរាចរណ៍|លិខិត DMV|ការចុះបញ្ជីរថយន្ត" },
   catHousing: { en: "Housing", es: "Vivienda", km: "លំនៅដ្ឋាន" },
   catHousingBlurb: {
     en: "First leases, deposits, repairs, notices, and roommates.",
