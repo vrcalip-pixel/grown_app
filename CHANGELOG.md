@@ -1,5 +1,10 @@
 # Changelog
 
+## A shooting-star mark that glistens (live, Nov 26, 2026)
+
+- The plain four-point star beside the name is now a shooting star with a fading tail. Its bright core slowly dims and shines, about once every five seconds, like light on a cut stone.
+- It is drawn as a vector, so it looks the same on every phone, and it holds still on devices set to reduce motion.
+
 ## Grown is now Explainer (live, Nov 26, 2026)
 
 - The app is renamed **Explainer**, and its address is **explainer.guide**. The author wanted a name that says what the app does, in place of one that was a little tongue-in-cheek.

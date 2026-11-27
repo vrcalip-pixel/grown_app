@@ -280,8 +280,15 @@ a.catcard:active,a.listcard:active{transform:translateY(1px)}
 h1+.badge,.badge+h1{margin-top:8px}
 
 /* Plain wordmark in the header. */
-.wordmark{display:flex;align-items:center;gap:8px;font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1;padding:8px 2px}
-.wordmark .mark{flex:none;color:var(--action-text)}
+.wordmark{display:flex;align-items:center;gap:6px;font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1;padding:8px 2px}
+/* The shooting-star mark. It glistens like a cut stone turning in the light: the star
+   brightens and its white core swells, slowly, then settles. Drawn as a vector, so it
+   looks the same on every phone. It holds still for people who ask for less motion. */
+.wordmark .mark{flex:none;color:var(--action-text);overflow:visible;filter:drop-shadow(0 0 4px rgba(140,205,255,.45))}
+.mark-star{animation:mark-shine 5.5s ease-in-out infinite}
+.mark-core{transform-box:fill-box;transform-origin:center;animation:mark-glint 5.5s ease-in-out infinite}
+@keyframes mark-shine{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes mark-glint{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.25)}}
 /* Bigger icons on the cards, so each section is easy to spot. */
 .cattile{width:76px;height:76px;border-radius:22px}
 .cattile.small{width:60px;height:60px;border-radius:18px}
