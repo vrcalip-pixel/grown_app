@@ -76,8 +76,8 @@ function Crumb({ href, label }: { href: string; label: string }) {
   );
 }
 
-/** A home card: the icon with a short list of what is inside, then the name and one reassuring line. */
-function CatCard({ href, icon, tone, badge, title, blurb, list }: { href: string; icon: ReactNode; tone: string; badge: string; title: string; blurb: string; list: string }) {
+/** A home card: the icon with a short list of what is inside, then the name and one reassuring line. No status tags: the pages inside say what is live and what is coming. */
+function CatCard({ href, icon, tone, title, blurb, list }: { href: string; icon: ReactNode; tone: string; title: string; blurb: string; list: string }) {
   return (
     <Link className="catcard" href={href}>
       <span className="cattop">
@@ -88,17 +88,14 @@ function CatCard({ href, icon, tone, badge, title, blurb, list }: { href: string
           ))}
         </span>
       </span>
-      <span className="cathead">
-        <strong>{title}</strong>
-        <span className="badge">{badge}</span>
-      </span>
+      <strong>{title}</strong>
       <span className="catblurb">{blurb}</span>
     </Link>
   );
 }
 
 export function HomeView() {
-  const { lang, t, tr } = useLanguage();
+  const { t, tr } = useLanguage();
   return (
     <Page>
       <h1 data-focus tabIndex={-1}>
@@ -106,18 +103,13 @@ export function HomeView() {
       </h1>
       <p>{t("homeIntro")}</p>
       <div className="catgrid">
-        <CatCard href="/car" icon={ICON.car} tone="blue" badge={t("badgeLive")} title={t("catAuto")} blurb={t("catAutoBlurb")} list={t("catAutoList")} />
+        <CatCard href="/car" icon={ICON.car} tone="blue" title={t("catAuto")} blurb={t("catAutoBlurb")} list={t("catAutoList")} />
         {Object.entries(PREVIEW_CATEGORIES).map(([id, c]) => (
           <CatCard
             key={id}
             href={`/${id}`}
             icon={ICON[c.icon]}
             tone={c.tone}
-            badge={
-              c.live.length
-                ? `${t("badgeLive")} · ${t("badgePreviews", { n: count(c.order.length - c.live.length, lang) })}`
-                : t("badgePreviews", { n: count(c.order.length, lang) })
-            }
             title={tr(c.name)}
             blurb={tr(c.blurb)}
             list={tr(c.list)}

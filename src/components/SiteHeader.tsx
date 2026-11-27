@@ -88,17 +88,26 @@ export function SiteHeader() {
         <div className="hleft">
           <Link href="/" className="brandlink" aria-label={t("navHome")}>
             <span className="wordmark">
-              {/* A shooting star: a four-point star with a fading tail. Its bright core slowly dims and shines. */}
+              {/* A globe that turns slowly: a shaded ball, with meridian lines that sweep round it. */}
               <svg className="mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
                 <defs>
-                  <linearGradient id="mark-tail" x1="21" y1="11" x2="3" y2="29" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stopColor="currentColor" stopOpacity="0.75" />
-                    <stop offset="1" stopColor="currentColor" stopOpacity="0" />
-                  </linearGradient>
+                  <radialGradient id="mark-ball" cx="0.34" cy="0.28" r="0.8">
+                    <stop offset="0" stopColor="#bfe6fb" />
+                    <stop offset="0.45" stopColor="#4a9cc8" />
+                    <stop offset="1" stopColor="#123a56" />
+                  </radialGradient>
+                  <clipPath id="mark-clip">
+                    <circle cx="16" cy="16" r="13" />
+                  </clipPath>
                 </defs>
-                <path d="M19.6 8.8 23.2 12.4 2.5 29.5Z" fill="url(#mark-tail)" />
-                <path className="mark-star" d="M22 1.5 24 8 30.5 10 24 12 22 18.5 20 12 13.5 10 20 8Z" fill="currentColor" />
-                <path className="mark-core" d="M22 5 23 9 27 10 23 11 22 15 21 11 17 10 21 9Z" fill="#fff" />
+                <circle cx="16" cy="16" r="13" fill="url(#mark-ball)" />
+                <g clipPath="url(#mark-clip)" fill="none" stroke="#fff" strokeWidth="1" strokeOpacity="0.7">
+                  <path d="M3 16h26M4.5 9.5h23M4.5 22.5h23" strokeOpacity="0.45" />
+                  <ellipse className="mark-m m1" cx="16" cy="16" rx="13" ry="13" />
+                  <ellipse className="mark-m m2" cx="16" cy="16" rx="13" ry="13" />
+                  <ellipse className="mark-m m3" cx="16" cy="16" rx="13" ry="13" />
+                </g>
+                <circle cx="16" cy="16" r="13" fill="none" stroke="#fff" strokeOpacity="0.55" strokeWidth="1" />
               </svg>
               Explainer
             </span>

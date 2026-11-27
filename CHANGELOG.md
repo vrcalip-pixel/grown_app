@@ -1,5 +1,10 @@
 # Changelog
 
+## Globe mark, and no status tags on the home cards (live, Nov 26, 2026)
+
+- The mark beside the name is now a small shaded globe that turns slowly, about one turn every 14 seconds. It replaces the shooting star.
+- The "1 live" and "3 previews" tags are gone from the home cards. In Spanish and Khmer the text was spilling out of the tag, and without them the home page reads like a finished app. The pages inside still say which guides are live and which are previews.
+
 ## A shooting-star mark that glistens (live, Nov 26, 2026)
 
 - The plain four-point star beside the name is now a shooting star with a fading tail. Its bright core slowly dims and shines, about once every five seconds, like light on a cut stone.
