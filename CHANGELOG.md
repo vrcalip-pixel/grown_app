@@ -1,5 +1,10 @@
 # Changelog
 
+## A quieter mark: the lit sphere (live, Nov 26, 2026)
+
+- The Earth beside the name is replaced by a lit sphere: a faint ring with one bright edge. It is a single-colour outline at the same line weight as the app's other icons, so it matches them. The bright edge travels slowly round the ring, once every 30 seconds.
+- The Earth was dropped because its coloured fills looked like a different style from the rest of the app.
+
 ## Background lights stay calm on phones (live, Nov 26, 2026)
 
 - Fixed: pulling down to refresh on a phone, or scrolling so the address bar slid away, made the drifting lights jump to new places. They now keep rising steadily. The lights are only laid out again when the screen truly changes shape, such as rotating the phone, and even then the ones already on screen keep their place.

@@ -281,13 +281,13 @@ h1+.badge,.badge+h1{margin-top:8px}
 
 /* Plain wordmark in the header. */
 .wordmark{display:flex;align-items:center;gap:6px;font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1;padding:8px 2px}
-/* The Earth mark. The continents drift from left to right behind a round window, and a
-   soft highlight and shadow on top make it read as a ball turning. One full turn takes
-   about 40 seconds. Drawn as a vector, so it looks the same on every phone, and it
-   holds still for people who ask for less motion. */
-.wordmark .mark{flex:none;overflow:visible;filter:drop-shadow(0 0 5px rgba(90,170,220,.4))}
-.mark-land{animation:mark-turn 40s linear infinite}
-@keyframes mark-turn{from{transform:translateX(-64px)}to{transform:translateX(0)}}
+/* The mark: a lit sphere. A faint ring with one bright edge, drawn at the same line
+   weight as the app's other icons. The bright edge travels once round the ring every
+   30 seconds, like daylight moving across a planet. It is a vector, so it looks the
+   same on every phone, and it holds still for people who ask for less motion. */
+.wordmark .mark{flex:none;overflow:visible;color:var(--action-text);filter:drop-shadow(0 0 4px rgba(120,195,240,.35))}
+.mark-light{transform-box:view-box;transform-origin:16px 16px;animation:mark-turn 30s linear infinite}
+@keyframes mark-turn{to{transform:rotate(360deg)}}
 /* Bigger icons on the cards, so each section is easy to spot. */
 .cattile{width:76px;height:76px;border-radius:22px}
 .cattile.small{width:60px;height:60px;border-radius:18px}
