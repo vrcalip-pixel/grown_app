@@ -1,5 +1,9 @@
 # Changelog
 
+## "All sections" becomes "All categories" (live, Nov 26, 2026)
+
+- The back button and the grid menu now say "All categories," to match the home page, which says "Pick a category to start."
+
 ## "Home" button renamed to "All sections" (live, Nov 26, 2026)
 
 - The back button at the top of each section page said "Home," which was easy to confuse with the Housing section. It now says "All sections," the same words as the grid menu.

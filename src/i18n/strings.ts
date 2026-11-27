@@ -25,7 +25,7 @@ export const STRINGS = {
   navSources: { en: "Official court sources", es: "Fuentes oficiales de la corte", km: "ប្រភពផ្លូវការរបស់តុលាការ" },
   langSwitcher: { en: "Language", es: "Idioma", km: "ភាសា" },
   // Also the label on the back button at the top of each section page ("Home" was confusing next to "Housing").
-  menuAll: { en: "All sections", es: "Todas las secciones", km: "ផ្នែកទាំងអស់" },
+  menuAll: { en: "All categories", es: "Todas las categorías", km: "ប្រភេទទាំងអស់" },
   menuSources: { en: "Sources", es: "Fuentes", km: "ប្រភព" },
   readAloud: { en: "Read this to me", es: "Léemelo", km: "អានឱ្យខ្ញុំស្តាប់" }, // es added here
   stopReading: { en: "Stop reading", es: "Dejar de leer", km: "ឈប់អាន" }, // es added here
