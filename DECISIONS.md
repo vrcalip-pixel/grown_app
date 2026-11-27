@@ -194,3 +194,10 @@ They were written during the build, not carried over from a verified source. Eac
 ## 50. The animated logo was retired
 It was built at the author's request and removed at the author's request, because the tree and vine made the name hard to read at header size.
 **Why keep a note:** a plain wordmark is the right call for a header. If the animation returns, it belongs somewhere with room, such as a splash screen, not beside the navigation.
+
+## 51. Read aloud uses the author's own voice, recorded ahead of time
+The device voices sounded robotic, so the speaker button now plays clips in Vincent Calip's cloned voice (made with ElevenLabs from his own recording).
+**How it keeps the privacy promise:** the clips are made once on the author's computer with `npm run voice` and saved as plain audio files on the Grown site. When a visitor taps the speaker, their phone only fetches those files from Grown. Nothing they read or tap goes to ElevenLabs or anyone else, and no AI runs at that moment.
+**How it keeps the facts rule:** the voice only reads lines that are already on screen, word for word. The list of lines (`content/voice/lines.json`) was collected by walking every page and all 1,080 answer paths of the ticket guide.
+**What falls back to the device voice:** a line with no clip, such as the sentence built from a date the person types, and all Khmer. If a wording change is published without running `npm run voice` again, the new line is read by the device voice until the clips are remade.
+**Not yet done:** nobody has listened to all 500 clips. A cloned voice can mispronounce a word or a court name, so the ticket guide clips need a listen before the Showcase.

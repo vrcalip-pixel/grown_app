@@ -2,15 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { lineId } from "@/voice/hash";
 
 /**
- * "Read this to me." Speaks the words on the current screen with a voice that
- * lives on the person's own device. No AI, no network: if the device only has
- * voices that send text to a server, the button does not appear at all.
+ * "Read this to me." A button in the header that reads the current screen out
+ * loud.
+ *
+ * It plays clips recorded ahead of time in the author's own voice. The clips
+ * are plain audio files on this site, so nothing the person reads or taps is
+ * sent anywhere. A line with no clip (a date the person typed, say) is spoken
+ * by a voice that lives on the device. No AI runs when the button is tapped,
+ * and a device voice that would send text to a server is never used.
  */
 
 /** The screen's words, in reading order, skipping what is hidden or not content. */
-export function readableChunks(root: HTMLElement): string[] {
+export function readableChunks(root: HTMLElement, includeClosed = false): string[] {
   const chunks: string[] = [];
   let current = "";
   const flush = () => {
@@ -18,7 +24,7 @@ export function readableChunks(root: HTMLElement): string[] {
     if (text) chunks.push(/[.!?:]$/.test(text) ? text : `${text}.`);
     current = "";
   };
-  const BLOCK = new Set(["P", "DIV", "H1", "H2", "LI", "UL", "BUTTON", "DETAILS", "SMALL", "STRONG", "LABEL"]);
+  const BLOCK = new Set(["P", "DIV", "H1", "H2", "LI", "UL", "BUTTON", "DETAILS", "SMALL", "STRONG", "LABEL", "B", "SPAN"]);
 
   const walk = (node: Node) => {
     if (node.nodeType === Node.TEXT_NODE) {
@@ -35,7 +41,7 @@ export function readableChunks(root: HTMLElement): string[] {
     const block = BLOCK.has(node.tagName);
     if (block) flush();
     // A closed "Show more" stays unread, the same as it stays unseen.
-    const closed = node.tagName === "DETAILS" && !(node as HTMLDetailsElement).open;
+    const closed = node.tagName === "DETAILS" && !(node as HTMLDetailsElement).open && !includeClosed;
     if (!closed) node.childNodes.forEach(walk);
     if (block) flush();
   };
@@ -45,8 +51,9 @@ export function readableChunks(root: HTMLElement): string[] {
   return chunks;
 }
 
-/** An English voice that runs on the device, or null if there is none. */
+/** A voice for this language that runs on the device, or null if there is none. */
 function localVoice(lang: string): SpeechSynthesisVoice | null {
+  if (!("speechSynthesis" in window)) return null;
   const voices = window.speechSynthesis.getVoices().filter((v) => v.localService && v.lang.toLowerCase().startsWith(lang));
   return voices.sort((a, b) => voiceScore(b) - voiceScore(a))[0] ?? null;
 }
@@ -69,6 +76,26 @@ export function voiceScore(v: { name: string; lang: string; default?: boolean })
   return s;
 }
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+/** Which lines have a recorded clip, by language. Loaded once per visit. */
+type Clips = Record<string, string[]>;
+type ClipSets = Record<string, Set<string>>;
+let clipList: Promise<ClipSets> | undefined;
+function loadClips(): Promise<ClipSets> {
+  if (!clipList) {
+    clipList = fetch(`${BASE}/voice/manifest.json`)
+      .then((r): Promise<Clips> => (r.ok ? r.json() : Promise.resolve({})))
+      .then((m) => {
+        const sets: ClipSets = {};
+        for (const [lang, ids] of Object.entries(m)) sets[lang] = new Set(ids);
+        return sets;
+      })
+      .catch((): ClipSets => ({}));
+  }
+  return clipList;
+}
+
 /** The part of the page that holds the current screen's words. Pages mark it with data-read. */
 const screenNow = () => document.querySelector<HTMLElement>("[data-read]");
 
@@ -79,21 +106,30 @@ const screenNow = () => document.querySelector<HTMLElement>("[data-read]");
 export function ReadAloud({ lang, startLabel, stopLabel }: { lang: string; startLabel: string; stopLabel: string }) {
   const path = usePathname();
   const [voiceLang, setVoiceLang] = useState("en");
-  const [available, setAvailable] = useState(false);
+  const [hasDeviceVoice, setHasDeviceVoice] = useState(false);
   const [speaking, setSpeaking] = useState(false);
+  const [clips, setClips] = useState<Record<string, Set<string>>>({});
   const run = useRef(0);
   const watcher = useRef<MutationObserver | null>(null);
+  const player = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    loadClips().then(setClips);
+    // For building the list of lines to record. Not present on the live site.
+    if (process.env.NODE_ENV !== "production") {
+      (window as unknown as { __grownLines?: (el: HTMLElement) => string[] }).__grownLines = (el) => readableChunks(el, true);
+    }
+  }, []);
 
   // A screen says which language its words are in (the ticket guide is English only).
   useEffect(() => {
     setVoiceLang(screenNow()?.getAttribute("data-read") || lang);
   }, [path, lang]);
 
-  // Voices load after the page does, so check now and again when they arrive.
-  // The button hides if the device has no on-device voice for the language.
+  // Device voices load after the page does, so check now and again when they arrive.
   useEffect(() => {
     if (!("speechSynthesis" in window)) return;
-    const check = () => setAvailable(localVoice(voiceLang) !== null);
+    const check = () => setHasDeviceVoice(localVoice(voiceLang) !== null);
     check();
     window.speechSynthesis.addEventListener("voiceschanged", check);
     return () => window.speechSynthesis.removeEventListener("voiceschanged", check);
@@ -103,6 +139,7 @@ export function ReadAloud({ lang, startLabel, stopLabel }: { lang: string; start
     run.current++;
     watcher.current?.disconnect();
     watcher.current = null;
+    player.current?.pause();
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     setSpeaking(false);
   };
@@ -112,11 +149,14 @@ export function ReadAloud({ lang, startLabel, stopLabel }: { lang: string; start
 
   const start = () => {
     const target = screenNow();
-    const voice = localVoice(target?.getAttribute("data-read") || lang);
-    if (!target || !voice) return;
-    const chunks = readableChunks(target);
+    if (!target) return;
+    const readLang = target.getAttribute("data-read") || lang;
+    const recorded = clips[readLang] ?? new Set<string>();
+    const voice = localVoice(readLang);
+    const chunks = readableChunks(target).filter((text) => recorded.has(lineId(text)) || voice);
     if (!chunks.length) return;
-    window.speechSynthesis.cancel();
+
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     const mine = ++run.current;
     setSpeaking(true);
     // Never keep reading a screen the person has left: each new screen replaces this element.
@@ -125,22 +165,40 @@ export function ReadAloud({ lang, startLabel, stopLabel }: { lang: string; start
       if (!target.isConnected) stop();
     });
     watcher.current.observe(document.body, { childList: true, subtree: true });
-    // One utterance per line: some browsers cut off long ones.
-    chunks.forEach((text, i) => {
-      const u = new SpeechSynthesisUtterance(text);
-      u.voice = voice;
-      u.lang = voice.lang;
-      // A touch slower than normal speech: calmer, and easier to follow.
-      u.rate = 0.9;
-      if (i === chunks.length - 1) {
-        u.onend = u.onerror = () => {
-          if (run.current === mine) stop();
-        };
-      }
-      window.speechSynthesis.speak(u);
-    });
+
+    // One audio element for the whole visit: phones only let sound start from a tap,
+    // and an element that has played once is allowed to play the next clip.
+    const audio = (player.current ??= new Audio());
+
+    const playClip = (text: string) =>
+      new Promise<void>((done) => {
+        audio.onended = audio.onerror = () => done();
+        audio.src = `${BASE}/voice/${readLang}/${lineId(text)}.mp3`;
+        audio.play().catch(() => done());
+      });
+    const speak = (text: string) =>
+      new Promise<void>((done) => {
+        if (!voice) return done();
+        const u = new SpeechSynthesisUtterance(text);
+        u.voice = voice;
+        u.lang = voice.lang;
+        // A touch slower than normal speech: calmer, and easier to follow.
+        u.rate = 0.9;
+        u.onend = u.onerror = () => done();
+        window.speechSynthesis.speak(u);
+      });
+
+    let i = 0;
+    const next = () => {
+      if (run.current !== mine) return;
+      if (i >= chunks.length) return stop();
+      const text = chunks[i++];
+      (recorded.has(lineId(text)) ? playClip(text) : speak(text)).then(next);
+    };
+    next();
   };
 
+  const available = hasDeviceVoice || (clips[voiceLang]?.size ?? 0) > 0;
   if (!available) return null;
   const label = speaking ? stopLabel : startLabel;
   return (

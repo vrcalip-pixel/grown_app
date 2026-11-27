@@ -1,5 +1,13 @@
 # Changelog
 
+## Read aloud in the author's own voice (live, Nov 26, 2026)
+
+- The speaker button now plays recorded clips in Vincent Calip's own cloned voice instead of the device's built-in voice: 322 lines in English and 178 in Spanish, covering every page and every path through the ticket guide.
+- The clips are audio files on the Grown site itself. A visitor never contacts the voice service, and nothing they tap or read is sent anywhere.
+- A line with no clip (for example, the sentence built from a date you type) and all Khmer still use the device voice.
+- After a wording change, run `npm run voice` to make clips for the new lines.
+- Small fix along the way: an option's title and its "Good fit for you" tag are now read as two separate phrases instead of run together.
+
 ## Read aloud moves into the header (live, Nov 26, 2026)
 
 - "Read this to me" is no longer a line of text above every page. It is now a round speaker button next to the Grown name in the header, on every page including the ticket guide.
