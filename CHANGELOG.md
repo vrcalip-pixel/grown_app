@@ -1,5 +1,10 @@
 # Changelog
 
+## "Home" button renamed to "All sections" (live, Nov 26, 2026)
+
+- The back button at the top of each section page said "Home," which was easy to confuse with the Housing section. It now says "All sections," the same words as the grid menu.
+- The Grown name in the header still goes to the home page too.
+
 ## A cooler background (live, Nov 26, 2026)
 
 - The glowing horizon and the rising points of light are now cool blue in place of fire orange. The shapes and movement are unchanged.

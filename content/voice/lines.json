@@ -9,7 +9,6 @@
   "3 previews.",
   "Health.",
   "Money.",
-  "Home.",
   "CAR.",
   "Car paperwork, one step at a time.",
   "Start with a Long Beach traffic ticket; DMV and registration are next.",
@@ -327,7 +326,8 @@
   "Let's figure out where your money is going.",
   "Tax forms.",
   "Paychecks.",
-  "Benefits letters."
+  "Benefits letters.",
+  "All sections."
  ],
  "es": [
   "Nadie te da un manual para esto. Aquí estamos contigo.",
@@ -339,7 +339,6 @@
   "3 vistas previas.",
   "Salud.",
   "Dinero.",
-  "Inicio.",
   "CARRO.",
   "Papeles del carro, paso por paso.",
   "Empieza con una multa en Long Beach; DMV y registro vienen después.",
@@ -513,6 +512,7 @@
   "Veamos a dónde se va tu dinero.",
   "Formularios de impuestos.",
   "Cheques de pago.",
-  "Cartas de beneficios."
+  "Cartas de beneficios.",
+  "Todas las secciones."
  ]
 }

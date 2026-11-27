@@ -128,7 +128,7 @@ export function AutoView() {
   const { t } = useLanguage();
   return (
     <Page>
-      <Crumb href="/" label={t("home")} />
+      <Crumb href="/" label={t("menuAll")} />
       <div className="eyebrow caps">{t("autoEyebrow")}</div>
       <h1 data-focus tabIndex={-1}>
         {t("autoTitle")}
@@ -190,7 +190,7 @@ export function CategoryView({ category, previews }: { category: string; preview
   const cat = PREVIEW_CATEGORIES[category];
   return (
     <Page>
-      <Crumb href="/" label={t("home")} />
+      <Crumb href="/" label={t("menuAll")} />
       <div className="eyebrow caps">{tr(cat.eyebrow)}</div>
       <span className="badge warm">{t("previewTag")}</span>
       <h1 data-focus tabIndex={-1}>
@@ -255,7 +255,7 @@ export function SourcesView({ sources, checkedIso }: { sources: { title: string;
   });
   return (
     <Page>
-      <Crumb href="/" label={t("home")} />
+      <Crumb href="/" label={t("menuAll")} />
       <div className="eyebrow caps">{t("srcEyebrow")}</div>
       <h1 data-focus tabIndex={-1}>
         {t("srcTitle")}
