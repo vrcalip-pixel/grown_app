@@ -10,8 +10,8 @@ import { ReadAloud } from "./ReadAloud";
 import { ICON } from "./views";
 
 /**
- * The bar at the top of every page: logo, read aloud, the grid menu of every
- * section, and language.
+ * The bar at the top of every page: logo, read aloud, language, and the grid
+ * menu of every section at the far right.
  */
 
 const icon = (d: ReactNode, size: number) => (
@@ -91,40 +91,38 @@ export function SiteHeader() {
           </Link>
           <ReadAloud lang={lang} startLabel={t("readAloud")} stopLabel={t("stopReading")} />
         </div>
-        <div className="hright">
-          <div className="menuwrap" ref={menu}>
-            <button
-              className={`navbtn${open ? " on" : ""}`}
-              aria-label={t("menuAll")}
-              title={t("menuAll")}
-              aria-expanded={open}
-              aria-controls="sections-menu"
-              onClick={() => setOpen((o) => !o)}
-            >
-              {icon(GRID, 22)}
+        <div className="langs" role="group" aria-label={t("langSwitcher")} ref={langs}>
+          {pill && <span className="langpill" aria-hidden="true" style={{ width: pill.w, transform: `translateX(${pill.x}px)` }} />}
+          {LANGS.map((l) => (
+            <button key={l.id} className={lang === l.id ? "on" : ""} aria-pressed={lang === l.id} aria-label={l.name} lang={l.id} onClick={() => setLang(l.id)}>
+              {l.label}
             </button>
-            {open && (
-              <nav className="menu" id="sections-menu" aria-label={t("menuAll")}>
-                {sections.map((s) => {
-                  const here = path.startsWith(s.href);
-                  return (
-                    <Link key={s.href} href={s.href} className={`menuitem${here ? " on" : ""}`} aria-current={here ? "page" : undefined} onClick={() => setOpen(false)}>
-                      <span className={`cattile ${s.tone}`}>{icon(s.icon, 26)}</span>
-                      <span>{s.label}</span>
-                    </Link>
-                  );
-                })}
-              </nav>
-            )}
-          </div>
-          <div className="langs" role="group" aria-label={t("langSwitcher")} ref={langs}>
-            {pill && <span className="langpill" aria-hidden="true" style={{ width: pill.w, transform: `translateX(${pill.x}px)` }} />}
-            {LANGS.map((l) => (
-              <button key={l.id} className={lang === l.id ? "on" : ""} aria-pressed={lang === l.id} aria-label={l.name} lang={l.id} onClick={() => setLang(l.id)}>
-                {l.label}
-              </button>
-            ))}
-          </div>
+          ))}
+        </div>
+        <div className="menuwrap" ref={menu}>
+          <button
+            className={`navbtn${open ? " on" : ""}`}
+            aria-label={t("menuAll")}
+            title={t("menuAll")}
+            aria-expanded={open}
+            aria-controls="sections-menu"
+            onClick={() => setOpen((o) => !o)}
+          >
+            {icon(GRID, 22)}
+          </button>
+          {open && (
+            <nav className="menu" id="sections-menu" aria-label={t("menuAll")}>
+              {sections.map((s) => {
+                const here = path.startsWith(s.href);
+                return (
+                  <Link key={s.href} href={s.href} className={`menuitem${here ? " on" : ""}`} aria-current={here ? "page" : undefined} onClick={() => setOpen(false)}>
+                    <span className={`cattile ${s.tone}`}>{icon(s.icon, 26)}</span>
+                    <span>{s.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          )}
         </div>
       </div>
     </header>

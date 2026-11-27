@@ -206,3 +206,8 @@ The device voices sounded robotic, so the speaker button now plays clips in Vinc
 The author chose the dark look as the one look, for its contrast, and removed the light/dark switch. The background gained rising embers and every tap now sends a ripple across the page.
 **Why it is safe to do:** the embers and ripple are decoration behind and above the page. They never take a tap, they stop for people who ask their device for less motion, and the embers pause in a background tab to save battery.
 **Trade-offs to watch:** an earlier rule said motion should be "gentle and fast, 250ms or less" and the app should feel calm. The embers move constantly and the ripple lasts about a second. Someone reading a stressful notice in bright sunlight may also find a dark screen harder to read than a light one, and there is no longer a way to switch. Worth asking the next testers about both.
+
+## 53. The trust promise now lives in the fine print
+The author asked to simplify the home page by folding the "Grown is not the court, the police, or immigration" panel into the footer text, without repeating anything. It now opens the fine print on every page, with that first sentence in bold.
+**What was gained:** a simpler home page, and the promise now appears on every page, including inside the ticket guide, where before it was on the home page only.
+**Trade-off:** this is the second step away from the handoff's rule to "say the quiet part on screen one" (see decision 48). The promise went from a panel at the top, to a panel at the bottom, to small print. A first-time visitor who is wary of who is behind the app is now less likely to see it before they start. Worth testing with the next few people: after using Grown, can they say who it is not?

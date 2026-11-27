@@ -111,15 +111,6 @@ export function HomeView() {
           />
         ))}
       </div>
-      {/* The trust promise sits at the foot of the home page, just above the fine print. */}
-      <div className="trust atfoot">
-        <strong>{t("trustLead")}</strong>
-        <ul>
-          {(["trust1", "trust2", "trust3", "trust4", "trust5"] as StringKey[]).map((k) => (
-            <li key={k}>{t(k)}</li>
-          ))}
-        </ul>
-      </div>
     </Page>
   );
 }

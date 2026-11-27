@@ -1,5 +1,11 @@
 # Changelog
 
+## Menu at the far right; trust promise folded into the fine print (live, Nov 26, 2026)
+
+- The grid menu now sits at the top far right, after the language switch. On a phone it stays at the top right beside the Grown name, and the language switch has its own row underneath.
+- The "Grown is not the court, the police, or immigration" panel is gone from the home page. Its promises are now the opening of the fine print at the bottom of every page, with the lead sentence in bold and nothing said twice.
+- The fine print reads, in order: who Grown is not and what it does; what it never asks for or keeps; that it never makes up fees or dates; and the credit line.
+
 ## Slower language glide; ripple only on the page (live, Nov 26, 2026)
 
 - The highlight in the language switch now glides across in about two thirds of a second, easing in and out.
