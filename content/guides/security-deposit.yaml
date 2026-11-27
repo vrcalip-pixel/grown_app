@@ -4,7 +4,7 @@
 id: security-deposit
 version: "0.1"
 status: preview
-category: residences
+category: housing
 title:
   en: "Same pattern, new paper: your security deposit."
   es: "Mismo patrón, nuevo papel: tu depósito de seguridad."

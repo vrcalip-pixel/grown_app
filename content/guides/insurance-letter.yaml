@@ -6,7 +6,7 @@
 id: insurance-letter
 version: "0.1"
 status: preview
-category: medical
+category: health
 title:
   en: "Same pattern, new paper: a letter from your health insurance."
   es: "Mismo patrón, nuevo papel: una carta de tu seguro médico."

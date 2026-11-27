@@ -6,7 +6,7 @@
 id: hospital-bill
 version: "0.1"
 status: preview
-category: medical
+category: health
 title:
   en: "Same pattern, new paper: a hospital or clinic bill."
   es: "Mismo patrón, nuevo papel: una factura de hospital o clínica."

@@ -4,7 +4,7 @@
 id: repairs
 version: "0.1"
 status: preview
-category: residences
+category: housing
 title:
   en: "Same pattern, new paper: repair requests."
   es: "Mismo patrón, nuevo papel: pedir reparaciones."

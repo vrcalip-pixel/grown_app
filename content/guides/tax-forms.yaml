@@ -6,7 +6,7 @@
 id: tax-forms
 version: "0.1"
 status: preview
-category: finance
+category: money
 title:
   en: "Same pattern, new paper: a tax form in the mail."
   es: "Mismo patrón, nuevo papel: un formulario de impuestos en el correo."

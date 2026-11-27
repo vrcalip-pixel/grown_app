@@ -8,7 +8,7 @@ export default function TrafficTicket() {
   return (
     <>
       <GuideLanguageNote />
-      <GuideFlow pack={pack} checkedOn={checkedOn(pack)} backHref="/auto" />
+      <GuideFlow pack={pack} checkedOn={checkedOn(pack)} backHref="/car" />
     </>
   );
 }

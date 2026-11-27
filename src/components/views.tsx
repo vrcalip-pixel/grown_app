@@ -98,7 +98,7 @@ export function HomeView() {
       </h1>
       <p>{t("homeIntro")}</p>
       <div className="catgrid">
-        <CatCard href="/auto" icon={ICON.car} tone="blue" badge={t("badgeLive")} title={t("catAuto")} blurb={t("catAutoBlurb")} />
+        <CatCard href="/car" icon={ICON.car} tone="blue" badge={t("badgeLive")} title={t("catAuto")} blurb={t("catAutoBlurb")} />
         {Object.entries(PREVIEW_CATEGORIES).map(([id, c]) => (
           <CatCard
             key={id}
@@ -126,7 +126,7 @@ export function AutoView() {
       </h1>
       <p>{t("autoIntro")}</p>
 
-      <Link className="listcard live" href="/auto/traffic-ticket">
+      <Link className="listcard live" href="/car/traffic-ticket">
         <span className="listtop">
           <span className="cattile blue small">{svg(ICON.car, 32)}</span>
           <span>
@@ -175,7 +175,7 @@ export function GuideLanguageNote() {
   );
 }
 
-/** A category of previews: housing, medical, or finance. */
+/** A category of previews: housing, health, or money. */
 export function CategoryView({ category, previews }: { category: string; previews: PreviewPack[] }) {
   const { t, tr } = useLanguage();
   const cat = PREVIEW_CATEGORIES[category];

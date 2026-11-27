@@ -59,7 +59,7 @@ export function SiteHeader() {
 
   // Every section, in one place. A new section added to the app shows up here by itself.
   const sections = [
-    { href: "/auto", label: t("catAuto"), tone: "blue", icon: ICON.car },
+    { href: "/car", label: t("catAuto"), tone: "blue", icon: ICON.car },
     ...Object.entries(PREVIEW_CATEGORIES).map(([id, c]) => ({ href: `/${id}`, label: tr(c.name), tone: c.tone as string, icon: ICON[c.icon] })),
     { href: "/sources", label: t("menuSources"), tone: "grey", icon: BOOK },
   ];

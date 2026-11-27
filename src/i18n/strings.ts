@@ -20,8 +20,8 @@ type Entry = { en: string; es?: string; km?: string };
 export const STRINGS = {
   // Header
   navHome: { en: "Grown home", es: "Inicio de Grown", km: "ទំព័រដើម Grown" },
-  navAuto: { en: "Auto and traffic tickets", es: "Auto y multas de tráfico", km: "រថយន្ត និងសំបុត្រផាកពិន័យចរាចរណ៍" },
-  navResidences: { en: "Residences and housing", es: "Vivienda y contratos", km: "លំនៅដ្ឋាន និងកិច្ចសន្យាជួល" },
+  navAuto: { en: "Car and traffic tickets", es: "Carro y multas de tráfico", km: "រថយន្ត និងសំបុត្រផាកពិន័យចរាចរណ៍" },
+  navHousing: { en: "Housing", es: "Vivienda y contratos", km: "លំនៅដ្ឋាន និងកិច្ចសន្យាជួល" },
   navSources: { en: "Official court sources", es: "Fuentes oficiales de la corte", km: "ប្រភពផ្លូវការរបស់តុលាការ" },
   langSwitcher: { en: "Language", es: "Idioma", km: "ភាសា" },
   menuAll: { en: "All sections", es: "Todas las secciones", km: "ផ្នែកទាំងអស់" },
@@ -69,25 +69,25 @@ export const STRINGS = {
     km: "បង្កើតដោយ Vincent Calip សម្រាប់ HDA 294/494, The Agentic Self (ASU)។ កំណែ {version} · Long Beach, CA។",
   },
 
-  catAuto: { en: "Auto", es: "Auto", km: "រថយន្ត" },
+  catAuto: { en: "Car", es: "Carro", km: "រថយន្ត" },
   catAutoBlurb: {
     en: "Traffic tickets, DMV notices, and vehicle registration.",
     es: "Multas de tráfico, avisos del DMV y registro del carro.",
     km: "សំបុត្រផាកពិន័យចរាចរណ៍ លិខិត DMV និងការចុះបញ្ជីរថយន្ត។",
   },
-  catResidences: { en: "Residences", es: "Vivienda", km: "លំនៅដ្ឋាន" },
-  catResidencesBlurb: {
+  catHousing: { en: "Housing", es: "Vivienda", km: "លំនៅដ្ឋាន" },
+  catHousingBlurb: {
     en: "First leases, deposits, repairs, notices, and roommates.",
     es: "Primer contrato, depósitos, reparaciones, avisos y compañeros.",
     km: "កិច្ចសន្យាជួលដំបូង ប្រាក់កក់ ការជួសជុល សេចក្តីជូនដំណឹង និងអ្នករួមបន្ទប់។",
   },
-  catMedical: { en: "Medical", es: "Salud y facturas", km: "សុខភាព" },
+  catMedical: { en: "Health", es: "Salud", km: "សុខភាព" },
   catMedicalBlurb: {
     en: "Hospital bills, insurance letters, and itemized statements.",
     es: "Facturas de hospital, cartas del seguro y cobros detallados.",
     km: "វិក្កយបត្រមន្ទីរពេទ្យ លិខិតធានារ៉ាប់រង និងបញ្ជីចំណាយលម្អិត។",
   },
-  catWork: { en: "Finance", es: "Finanzas", km: "ហិរញ្ញវត្ថុ" },
+  catWork: { en: "Money", es: "Dinero", km: "លុយ" },
   catWorkBlurb: {
     en: "Tax forms, paycheck deductions, and benefits letters.",
     es: "Formularios de impuestos, descuentos del cheque y cartas de beneficios.",
@@ -98,8 +98,8 @@ export const STRINGS = {
   comingNext: { en: "Coming next", es: "Próximamente", km: "មកដល់ឆាប់ៗ" },
 
   // Auto
-  autoEyebrow: { en: "AUTO", es: "AUTO", km: "រថយន្ត" },
-  autoTitle: { en: "Auto paperwork, one step at a time.", es: "Papeles del carro, paso por paso.", km: "ឯកសាររថយន្ត ដោះស្រាយមួយជំហានម្តងៗ។" },
+  autoEyebrow: { en: "CAR", es: "CARRO", km: "រថយន្ត" },
+  autoTitle: { en: "Car paperwork, one step at a time.", es: "Papeles del carro, paso por paso.", km: "ឯកសាររថយន្ត ដោះស្រាយមួយជំហានម្តងៗ។" },
   autoIntro: {
     en: "Start with a Long Beach traffic ticket; DMV and registration are next.",
     es: "Empieza con una multa en Long Beach; DMV y registro vienen después.",
@@ -133,8 +133,8 @@ export const STRINGS = {
     km: "មគ្គុទ្ទេសក៍នេះមានជាភាសាអង់គ្លេសសិន។ ភាសាផ្សេងទៀតកំពុងត្រូវបានពិនិត្យដោយមនុស្ស មុននឹងដាក់ឱ្យប្រើ។",
   },
 
-  // Residences
-  resEyebrow: { en: "RESIDENCES", es: "VIVIENDA", km: "លំនៅដ្ឋាន" },
+  // Housing
+  resEyebrow: { en: "HOUSING", es: "VIVIENDA", km: "លំនៅដ្ឋាន" },
   previewTag: { en: "Preview · not live yet", es: "Vista previa · aún no está activa", km: "មើលជាមុន · មិនទាន់ដំណើរការពេញលេញទេ" },
   resTitle: { en: "Housing paperwork without the guesswork.", es: "Papeles de vivienda sin andar adivinando.", km: "ឯកសារជួលផ្ទះ ដោយមិនបាច់ស្មានទុកមុន។" },
   resIntro: {
@@ -147,7 +147,7 @@ export const STRINGS = {
     es: "Cada tarjeta abre una vista previa de nuestro patrón de seis preguntas. Ninguna de estas guías está activa todavía.",
     km: "កាតនីមួយៗខាងក្រោមបើកការមើលជាមុននៃលំនាំសំណួរ ៦ ចំណុចរបស់យើង។ មគ្គុទ្ទេសក៍ទាំងនេះមិនទាន់ដំណើរការពេញលេញទេ។",
   },
-  allPreviews: { en: "All Residences previews", es: "Todas las vistas previas de Vivienda", km: "ការមើលជាមុនផ្នែកលំនៅដ្ឋានទាំងអស់" },
+  allPreviews: { en: "All Housing previews", es: "Todas las vistas previas de Vivienda", km: "ការមើលជាមុនផ្នែកលំនៅដ្ឋានទាំងអស់" },
   howItWorks: { en: "How this Grown guide will work", es: "Cómo funcionará esta guía de Grown", km: "របៀបដែលមគ្គុទ្ទេសក៍ Grown នេះនឹងដំណើរការ" },
   sixQuestions: {
     en: "Every Grown guide asks the same six core questions. Only the rules and options change.",

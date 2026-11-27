@@ -1,5 +1,12 @@
 # Changelog
 
+## Plain names for the four sections (live, Nov 26, 2026)
+
+- The sections are now **Car, Housing, Health and Money**, replacing Auto, Residences, Medical and Finance. The aim is the word a person would actually say.
+- In Spanish: Carro, Vivienda, Salud, Dinero. In Khmer, Money is now "លុយ"; the other three were already plain.
+- Addresses changed to match: `/car`, `/housing`, `/health`, `/money`. The ticket guide is now at `/car/traffic-ticket`. Old links to the previous addresses no longer work.
+- 21 new voice clips were made for the renamed lines.
+
 ## Menu at the far right; trust promise folded into the fine print (live, Nov 26, 2026)
 
 - The grid menu now sits at the top far right, after the language switch. On a phone it stays at the top right beside the Grown name, and the language switch has its own row underneath.
