@@ -11,8 +11,10 @@
 type Text = { en: string; es?: string; km?: string };
 
 export interface PreviewCategory {
-  /** Preview guide ids, in the order they are listed. */
+  /** Guide ids, in the order they are listed. */
   order: string[];
+  /** Which of those are live guides. The rest are previews. */
+  live: string[];
   tone: "green" | "rose" | "gold";
   icon: "home" | "medical" | "dollar";
   name: Text;
@@ -29,6 +31,7 @@ export interface PreviewCategory {
 export const PREVIEW_CATEGORIES: Record<string, PreviewCategory> = {
   housing: {
     order: ["first-lease", "security-deposit", "repairs", "notices-rent", "roommates"],
+    live: ["first-lease"],
     tone: "green",
     icon: "home",
     name: { en: "Housing", es: "Vivienda", km: "លំនៅដ្ឋាន" },
@@ -45,6 +48,7 @@ export const PREVIEW_CATEGORIES: Record<string, PreviewCategory> = {
   },
   health: {
     order: ["hospital-bill", "insurance-letter", "itemized-statement"],
+    live: [],
     tone: "rose",
     icon: "medical",
     name: { en: "Health", es: "Salud", km: "សុខភាព" },
@@ -60,6 +64,7 @@ export const PREVIEW_CATEGORIES: Record<string, PreviewCategory> = {
   },
   money: {
     order: ["tax-forms", "paycheck", "benefits-letter"],
+    live: [],
     tone: "gold",
     icon: "dollar",
     name: { en: "Money", es: "Dinero", km: "លុយ" },

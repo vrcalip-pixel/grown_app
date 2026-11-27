@@ -113,7 +113,11 @@ export function HomeView() {
             href={`/${id}`}
             icon={ICON[c.icon]}
             tone={c.tone}
-            badge={t("badgePreviews", { n: count(c.order.length, lang) })}
+            badge={
+              c.live.length
+                ? `${t("badgeLive")} · ${t("badgePreviews", { n: count(c.order.length - c.live.length, lang) })}`
+                : t("badgePreviews", { n: count(c.order.length, lang) })
+            }
             title={tr(c.name)}
             blurb={tr(c.blurb)}
             list={tr(c.list)}
@@ -184,32 +188,59 @@ export function GuideLanguageNote() {
   );
 }
 
-/** A category of previews: housing, health, or money. */
-export function CategoryView({ category, previews }: { category: string; previews: PreviewPack[] }) {
+interface GuideCard {
+  id: string;
+  live: boolean;
+  title: { en: string; es?: string | null; km?: string | null };
+  blurb: { en: string; es?: string | null; km?: string | null };
+}
+
+/** A category page: housing, health, or money. Live guides come with a start button; the rest open a preview. */
+export function CategoryView({ category, guides }: { category: string; guides: GuideCard[] }) {
   const { t, tr } = useLanguage();
   const cat = PREVIEW_CATEGORIES[category];
+  const anyLive = guides.some((g) => g.live);
   return (
     <Page>
       <Crumb href="/" label={t("menuAll")} />
       <div className="eyebrow caps">{tr(cat.eyebrow)}</div>
-      <span className="badge warm">{t("previewTag")}</span>
+      {!anyLive && <span className="badge warm">{t("previewTag")}</span>}
       <h1 data-focus tabIndex={-1}>
         {tr(cat.title)}
       </h1>
       <p>{tr(cat.intro)}</p>
-      <p className="muted">{t("resNote")}</p>
-      {previews.map((p) => (
-        <Link className="listcard" href={`/${category}/${p.id}`} key={p.id}>
-          <span className="listtop">
-            <span className={`cattile ${cat.tone} small`}>{svg(ICON[cat.icon], 32)}</span>
-            <span>
-              <span className="badge warm">{t("previewTag")}</span>
-              <strong>{tr(p.card.title)}</strong>
+      <p className="muted">{t(anyLive ? "mixedNote" : "resNote")}</p>
+      {guides.map((g) =>
+        g.live ? (
+          <Link className="listcard live" href={`/${category}/${g.id}`} key={g.id}>
+            <span className="listtop">
+              <span className={`cattile ${cat.tone} small`}>{svg(ICON[cat.icon], 32)}</span>
+              <span>
+                <span className="badge">{t("liveGuide")}</span>
+                <strong>{tr(g.title)}</strong>
+              </span>
             </span>
-          </span>
-          <span className="catblurb">{tr(p.card.blurb)}</span>
-        </Link>
-      ))}
+            <span className="catblurb">{tr(g.blurb)}</span>
+            <span className="listfoot">
+              <span />
+              <span className="btn">
+                {t("startGuide")} {svg(ICON.arrow, 16)}
+              </span>
+            </span>
+          </Link>
+        ) : (
+          <Link className="listcard" href={`/${category}/${g.id}`} key={g.id}>
+            <span className="listtop">
+              <span className={`cattile ${cat.tone} small`}>{svg(ICON[cat.icon], 32)}</span>
+              <span>
+                <span className="badge warm">{t("previewTag")}</span>
+                <strong>{tr(g.title)}</strong>
+              </span>
+            </span>
+            <span className="catblurb">{tr(g.blurb)}</span>
+          </Link>
+        ),
+      )}
     </Page>
   );
 }
@@ -245,14 +276,29 @@ export function PreviewView({ category, preview }: { category: string; preview: 
   );
 }
 
-export function SourcesView({ sources, checkedIso }: { sources: { title: string; url: string; covers: string }[]; checkedIso: string }) {
-  const { lang, t } = useLanguage();
-  const date = new Date(`${checkedIso}T00:00:00Z`).toLocaleDateString(lang === "es" ? "es-US" : lang === "km" ? "km" : "en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+interface SourceGroup {
+  id: string;
+  /** "car", or the id of a category in PREVIEW_CATEGORIES. */
+  category: string;
+  guide: string;
+  checkedIso: string;
+  sources: { title: string; url: string; covers: string }[];
+}
+
+/** The sources page: one bar per guide, under its category, that opens to show where that guide's rules come from. */
+export function SourcesView({ groups }: { groups: SourceGroup[] }) {
+  const { lang, t, tr } = useLanguage();
+  const day = (iso: string) =>
+    new Date(`${iso}T00:00:00Z`).toLocaleDateString(lang === "es" ? "es-US" : lang === "km" ? "km" : "en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    });
+  const look = (category: string) => {
+    const cat = PREVIEW_CATEGORIES[category];
+    return cat ? { name: tr(cat.name), tone: cat.tone as string, icon: ICON[cat.icon] } : { name: t("catAuto"), tone: "blue", icon: ICON.car };
+  };
   return (
     <Page>
       <Crumb href="/" label={t("menuAll")} />
@@ -261,18 +307,32 @@ export function SourcesView({ sources, checkedIso }: { sources: { title: string;
         {t("srcTitle")}
       </h1>
       <p>{t("srcIntro")}</p>
-      <div className="card">
-        <p style={{ fontWeight: 700 }}>{t("srcChecked", { date })}</p>
-        <p className="muted">{t("srcBody")}</p>
-        <ul className="src">
-          {sources.map((s) => (
-            <li key={s.url}>
-              <a href={s.url}>{s.title}</a>
-              {lang === "en" && <span>{s.covers}</span>}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <p className="muted">{t("srcBody")}</p>
+      {groups.map((g, i) => {
+        const cat = look(g.category);
+        return (
+          <details className="srcgroup" key={g.id} open={i === 0}>
+            <summary>
+              <span className={`cattile ${cat.tone} small`}>{svg(cat.icon, 26)}</span>
+              <span className="srchead">
+                <span className="caps">{cat.name}</span>
+                <strong>{g.guide}</strong>
+                <span className="muted">
+                  {t("srcCount", { n: count(g.sources.length, lang) })} · {t("srcGroupChecked", { date: day(g.checkedIso) })}
+                </span>
+              </span>
+            </summary>
+            <ul className="src">
+              {g.sources.map((src) => (
+                <li key={src.url}>
+                  <a href={src.url}>{src.title}</a>
+                  {lang === "en" && <span>{src.covers}</span>}
+                </li>
+              ))}
+            </ul>
+          </details>
+        );
+      })}
     </Page>
   );
 }

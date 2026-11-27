@@ -5,7 +5,7 @@ import { Haptics } from "@/components/Haptics";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
-import { checkedIso, loadPack } from "@/pack/load";
+import { loadPack, oldestCheckIso } from "@/pack/load";
 import "./globals.css";
 
 // Self-hosted at build time, so a visit never calls Google.
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LanguageProvider>
           <SiteHeader />
           {children}
-          <SiteFooter checkedIso={checkedIso(ticket)} version={ticket.version} />
+          <SiteFooter checkedIso={oldestCheckIso()} version={ticket.version} />
         </LanguageProvider>
       </body>
     </html>

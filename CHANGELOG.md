@@ -1,5 +1,19 @@
 # Changelog
 
+## First live Housing guide, and Sources grouped by guide (on a review branch, NOT live yet, Nov 26, 2026)
+
+Built on the `housing-first-lease` branch, waiting for the author's approval, because it adds rules.
+
+- **First lease or rental agreement** is a working guide: five questions (where, how far along, set term or month to month, how much is due up front, have you seen the unit) leading to a plan with one next move.
+- It covers three situations: applying, holding a lease to sign, and already signed. Outside California it says so and stops.
+- 23 facts from six official pages: four chapters of the California Department of Real Estate's Landlords' and Tenants' Rights Guide, the California Attorney General's tenant page, and the City of Long Beach's Tenant and Landlord Resources page.
+- **Every one of those facts still needs a person to confirm it.** They were read off the pages by an AI research pass. The checklist is in `docs/first-lease-fact-check.md`.
+- The Housing page now shows the live guide first with a Start button, and the home card reads "1 live · 4 previews."
+- **Sources page:** one bar per guide, under its category, that opens to show that guide's sources and when they were last checked.
+- The guide engine gained one option: a guide can name its own heading for the options list ("What to check" for a lease).
+- The fine print now says "printed on your own paper" and "official California sources," since Grown is no longer only about court papers.
+- Not done yet: voice clips for the new guide (it uses the device voice until they are made), and Spanish or Khmer for the guide itself.
+
 ## "All sections" becomes "All categories" (live, Nov 26, 2026)
 
 - The back button and the grid menu now say "All categories," to match the home page, which says "Pick a category to start."

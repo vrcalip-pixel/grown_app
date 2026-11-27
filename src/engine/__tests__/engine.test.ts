@@ -294,7 +294,7 @@ describe("pack validator", () => {
 
   it("passes the shipped packs", () => {
     expect(validatePack(raw(), "t").errors).toEqual([]);
-    for (const id of ["first-lease", "security-deposit", "repairs", "notices-rent", "roommates", "hospital-bill", "insurance-letter", "itemized-statement", "tax-forms", "paycheck", "benefits-letter"]) {
+    for (const id of ["security-deposit", "repairs", "notices-rent", "roommates", "hospital-bill", "insurance-letter", "itemized-statement", "tax-forms", "paycheck", "benefits-letter"]) {
       expect(loadPack(id).status, id).toBe("preview");
     }
   });
@@ -330,7 +330,7 @@ describe("pack validator", () => {
   });
 
   it("refuses to let a preview pack carry results", () => {
-    const lease = structuredClone(loadPack("first-lease")) as unknown as Record<string, any>;
+    const lease = structuredClone(loadPack("security-deposit")) as unknown as Record<string, any>;
     lease.branches = [];
     expect(validatePack(lease, "t").errors.length).toBeGreaterThan(0);
   });

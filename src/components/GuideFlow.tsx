@@ -228,7 +228,7 @@ function ResultView({
 
       {r.options.length > 0 && (
         <div className="card">
-          <h2 className="label">Your options</h2>
+          <h2 className="label">{r.optionsLabel ?? "Your options"}</h2>
           {r.options.map((o) => (
             <div className="opt" key={o.id}>
               <b>{o.title}</b>

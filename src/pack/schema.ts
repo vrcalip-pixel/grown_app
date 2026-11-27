@@ -154,6 +154,11 @@ export const LivePack = z
   .object({
     ...base,
     status: z.literal("live"),
+    /** The category page this guide is listed on, and its card there. The ticket guide has its own page and needs neither. */
+    category: z.string().min(1).optional(),
+    card: z.object({ title: Localized, blurb: Localized }).strict().optional(),
+    /** The heading over the options on the plan. Defaults to "Your options". */
+    options_label: Localized.optional(),
     /** Sources always listed, whatever the answers. */
     base_sources: z.array(z.string()).optional(),
     sources: z.record(z.string(), Source),

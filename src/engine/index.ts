@@ -23,6 +23,8 @@ export interface Result {
   nextMove: { text: string; why?: string; link?: { label: string; url: string } };
   whatThisIs: { lead: string; detail: string };
   showDate: boolean;
+  /** Heading over the options list, when the guide sets its own. */
+  optionsLabel?: string;
   options: {
     id: string;
     title: string;
@@ -164,6 +166,7 @@ export function resolve(pack: LivePack, rawAnswers: Answers, opts: Options = {})
     },
     whatThisIs: { lead: t(what.lead), detail: join(what.detail) },
     showDate: typeof branch.show_date === "boolean" ? branch.show_date : ok(branch.show_date),
+    optionsLabel: pack.options_label ? t(pack.options_label) : undefined,
     options: options.map((o) => ({
       id: o.id,
       title: t(o.title),

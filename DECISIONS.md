@@ -217,3 +217,11 @@ The author asked whether the home page needs a quiz or other wayfinding aid to h
 **Why:** with four cards, each showing a plain name and three examples, the grid is already the wayfinder. A quiz in front of it adds a step, and the home page had just been simplified.
 **What to watch for:** testers hesitating over which card to tap.
 **What to build if they do:** one question under the intro, "Not sure where your paper goes? Who sent it?", with one-tap answers (a court or the police, the DMV, a landlord, a hospital or insurer, an employer or tax office) that lead to the right category. No typing, nothing stored. Ruled out: a multi-question quiz, a search box, and sorting from a photo (it would need AI to read a personal document).
+
+## 55. The second live guide is a first lease, built to the same rules as the ticket
+The author asked for a live Housing guide so testers can see the pattern work on a second kind of paper.
+**What was kept the same:** every rule is a fact with a source link and a check date; the engine decides and no AI writes any of it; one next move; no amounts invented. The lease guide states one legal limit as a rule ("no more than one month's rent") because the state guide states it that way, and it gives no dollar figures.
+**What is different, and honest about it:** the ticket facts were checked by the author. The lease facts were read off official pages by an AI research pass in one sitting, so all 23 are flagged as needing a human check and the file says who really did the reading. It was built on a branch and held for approval under the standing rule for anything that adds a legal claim.
+**Left out on purpose:** roommate and co-signer liability, the screening-fee dollar limit, and local rent control, because the pages read did not support a plain statement. A guide that says less is better than one that guesses.
+**Privacy check:** the guide asks how the up-front total compares to one month's rent. It does not ask what the rent is or what the person earns, and it says so on that screen.
+**Known gap:** typed questions in Ask Grown (the AI layer, still switched off) are wired to the ticket guide only. They must be pointed at the right guide before that layer is ever turned on.

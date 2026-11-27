@@ -1,15 +1,20 @@
-# Preview only. No verified facts yet, so this guide cannot go live.
-# Text brought over from the author's FYI build. Spanish and Khmer are
-# machine-written there and still need a human review.
+# Grown guide pack: a first lease or rental agreement in California, starting with Long Beach.
+# The engine decides what a person sees from this file alone. No fee, amount,
+# day count or deadline may be written here unless a fact below carries its source.
+#
+# HOW THE FACTS WERE CHECKED. On Nov 26, 2026 each fact was read off the official
+# page named in `source` by an AI research pass during the build. A person has
+# not yet opened each page and confirmed it, so every fact carries
+# confirm_source: true. Vincent Calip needs to check them before the pitch.
+#
+# Card text (title, blurb) and its Spanish and Khmer came from the author's FYI
+# build and still need a human review. The guide itself is English only.
 
 id: first-lease
-version: "0.1"
-status: preview
+version: "1.0"
+status: live
 category: housing
-title:
-  en: "Same pattern, new paper: your first lease."
-  es: "Mismo patrón, nuevo papel: tu primer contrato."
-  km: "លំនាំដូចគ្នា ឯកសារថ្មី៖ កិច្ចសន្យាជួលដំបូងរបស់អ្នក។"
+title: { en: "First lease or rental agreement" }
 card:
   title:
     en: "First lease or rental agreement"
@@ -19,26 +24,441 @@ card:
     en: "Check what you're signing before you hand over money."
     es: "Revisa qué estás firmando antes de entregar dinero."
     km: "ពិនិត្យអ្វីដែលអ្នកកំពុងចុះហត្ថលេខា មុនពេលប្រគល់ប្រាក់។"
-intro:
-  en: "A lease is a binding contract. Here is how Grown will walk you through every key line before you sign."
-  es: "Un contrato de renta es un acuerdo serio. Así es como Grown te guiará línea por línea antes de firmar."
-  km: "កិច្ចសន្យាជួលគឺជាកិច្ចព្រមព្រៀងផ្លូវច្បាប់ នេះជារបៀបដែល Grown នឹងនាំអ្នកពិនិត្យមុនចុះហត្ថលេខា។"
-answers:
-  - en: "Fixed-term lease vs. month-to-month rental agreement, and who is actually on the contract."
-    es: "Contrato a plazo fijo vs. mes a mes, y quién aparece realmente en el contrato."
-    km: "កិច្ចសន្យាកំណត់រយៈពេល ឬជួលប្រចាំខែ និងអ្នកណាខ្លះមានឈ្មោះក្នុងកិច្ចសន្យា។"
-  - en: "Long Beach, LA County, or elsewhere in California. City rules affect tenant protections."
-    es: "Long Beach, Condado de LA o el resto de California. Las reglas locales importan."
-    km: "ទីក្រុង Long Beach ខោនធី LA ឬកន្លែងផ្សេងទៀតក្នុង California ច្បាប់ទីក្រុងប៉ះពាល់សិទ្ធិអ្នកជួល។"
-  - en: "Move-in date, lease end date, and when automatic renewal or notice windows kick in."
-    es: "Fecha de mudanza, fin del contrato y cuándo empiezan las ventanas de aviso."
-    km: "ថ្ងៃចូលស្នាក់នៅ ថ្ងៃផុតកំណត់កិច្ចសន្យា និងពេលវេលាត្រូវជូនដំណឹងជាមុន។"
-  - en: "Monthly rent, security deposit limits, late fee wording, and which utilities you pay."
-    es: "Renta mensual, límites del depósito, recargos por retraso y qué servicios pagas."
-    km: "ថ្លៃជួលប្រចាំខែ ដែនកំណត់ប្រាក់កក់ ថ្លៃពិន័យបង់យឺត និងថ្លៃទឹកភ្លើងដែលអ្នកត្រូវបង់។"
-  - en: "Ask for unclear terms in writing, document move-in condition with photos, or walk away before signing."
-    es: "Pedir cambios por escrito, tomar fotos al entrar o decidir no firmar todavía."
-    km: "ស្នើសុំបញ្ជាក់ជាលាយលក្ខណ៍អក្សរ ថតរូបស្ថានភាពបន្ទប់ពេលចូល ឬមិនទាន់ចុះហត្ថលេខា។"
-  - en: "One clear check to do before you sign or send your first deposit."
-    es: "Una revisión clara antes de firmar o enviar tu primer depósito."
-    km: "ការត្រួតពិនិត្យច្បាស់មួយមុនពេលអ្នកចុះហត្ថលេខា ឬផ្ញើប្រាក់កក់ដំបូង។"
+
+# The heading over the list of options on the plan. A lease has things to check, not choices to pick between.
+options_label: { en: "What to check" }
+
+base_sources: [dre_when]
+
+sources:
+  dre_looking:
+    title: "California Department of Real Estate, Landlords' and Tenants' Rights Guide: Looking for a Rental Unit"
+    url: https://www.dre.ca.gov/publications/ResourceGuidebook/gb05_lookingfor.html
+    covers: { en: "Application screening fees, holding deposits, and what a landlord may not ask or refuse you for" }
+    open_label: { en: "Open the state's guide to applying" }
+  dre_before:
+    title: "California Department of Real Estate, Landlords' and Tenants' Rights Guide: Before You Agree to Rent"
+    url: https://www.dre.ca.gov/publications/ResourceGuidebook/gb06_before.html
+    covers: { en: "Fixed-term and month-to-month agreements, and your right to a signed copy" }
+  dre_when:
+    title: "California Department of Real Estate, Landlords' and Tenants' Rights Guide: When You Have Decided to Rent"
+    url: https://www.dre.ca.gov/Publications/ResourceGuidebook/gb07_when.html
+    covers: { en: "Reading the agreement, the security deposit limit, move-in photos and the inventory checklist" }
+    open_label: { en: "Open the state's guide to signing a lease" }
+  dre_living:
+    title: "California Department of Real Estate, Landlords' and Tenants' Rights Guide: Living in the Rental Unit"
+    url: https://www.dre.ca.gov/publications/ResourceGuidebook/gb08_living.html
+    covers: { en: "How rent can be paid, and when a late fee is valid" }
+  ag:
+    title: "California Attorney General: Landlord-Tenant Issues"
+    url: https://oag.ca.gov/tenants
+    covers: { en: "Getting a deposit back, limits on rent increases, and eviction protections after 12 months" }
+  lb:
+    title: "City of Long Beach: Tenant and Landlord Resources"
+    url: https://www.longbeach.gov/lbcd/hn/tenant-landlord-resources/
+    covers: { en: "Long Beach's Just Cause ordinance and who the city lists for tenant help" }
+    open_label: { en: "Open Long Beach's tenant resources page" }
+
+_checked: &checked
+  verified_on: "2026-11-26"
+  verified_by: "AI research pass during the build; awaiting a check by Vincent Calip"
+  operative_date: in_effect_at_verification
+  confirm_source: true
+
+facts:
+  - id: contract-read
+    claim: { en: "Both sides should read the rental agreement carefully and understand all of its terms before signing. A renter should not feel rushed into signing." }
+    source: dre_when
+    <<: *checked
+  - id: promises-writing
+    claim: { en: "The written agreement should contain every promise the landlord or the landlord's agent made, including promised repairs." }
+    source: dre_when
+    <<: *checked
+  - id: basic-rights
+    claim: { en: "Tenants have basic legal rights that are always present, no matter what the rental agreement states." }
+    source: dre_when
+    <<: *checked
+  - id: lease-same
+    claim: { en: "\"Lease\" and \"rental agreement\" mean the same thing. What differs is whether the tenancy is for a fixed term or runs period to period, such as month to month." }
+    source: dre_before
+    <<: *checked
+  - id: fixed-term
+    claim: { en: "In a fixed-term tenancy the landlord cannot raise the rent during the term unless the agreement allows it. A tenant who moves out early can still owe rent." }
+    source: dre_before
+    <<: *checked
+  - id: copy-15
+    claim: { en: "The landlord must give the tenant a signed copy of the rental agreement within 15 days of signing." }
+    source: dre_before
+    <<: *checked
+  - id: deposit-cap
+    claim: { en: "Beginning July 1, 2024, most landlords can charge a security deposit of no more than one month's rent, whether the unit is furnished or not." }
+    source: dre_when
+    <<: *checked
+    operative_date: "2024-07-01"
+  - id: deposit-small
+    claim: { en: "Small landlords can charge up to two months' rent. A small landlord is an individual, or an LLC owned by individuals, who owns and rents one or two properties with no more than four rental units." }
+    source: dre_when
+    <<: *checked
+    operative_date: "2024-07-01"
+  - id: deposit-names
+    claim: { en: "A security deposit may be called last month's rent, a pet deposit, a key fee or a cleaning fee. Those all count as the security deposit. An application screening fee does not." }
+    source: dre_when
+    <<: *checked
+  - id: deposit-refundable
+    claim: { en: "A landlord cannot require that a security deposit be nonrefundable." }
+    source: dre_when
+    <<: *checked
+  - id: deposit-21
+    claim: { en: "Within 21 days of the tenant moving out, the landlord must return the security deposit, minus lawful deductions, and provide an itemized statement." }
+    source: ag
+    <<: *checked
+  - id: screening-fee
+    claim: { en: "An application screening fee has a legal maximum that is adjusted each year. The landlord must give a receipt that itemizes the cost, and cannot charge the fee when they know or should know there is no vacancy." }
+    source: dre_looking
+    <<: *checked
+  - id: holding
+    claim: { en: "A holding deposit only guarantees that the landlord will not rent the unit to someone else for a stated period of time. A renter should ask whether it goes toward the first month's rent or the security deposit, and get the agreement and a receipt in writing." }
+    source: dre_looking
+    <<: *checked
+  - id: immigration
+    claim: { en: "In most cases a landlord may not ask about a tenant's or applicant's immigration or citizenship status. A landlord may still ask for documents to confirm identity and finances." }
+    source: dre_looking
+    <<: *checked
+  - id: vouchers
+    claim: { en: "Landlords are prohibited from refusing to rent to someone because they receive Section 8 assistance. There is a narrow exception for renting one room in a home the owner lives in." }
+    source: dre_looking
+    <<: *checked
+  - id: photos
+    claim: { en: "For tenancies that begin on or after July 1, 2025, the landlord is required to take photographs of the rental unit. A tenant can ask for copies, or take their own photos before moving their things in." }
+    source: dre_when
+    <<: *checked
+    operative_date: "2025-07-01"
+  - id: checklist
+    claim: { en: "An inventory checklist is not legally required, but it is good practice to complete one with the landlord, and to sign and date it." }
+    source: dre_when
+    <<: *checked
+  - id: pay-method
+    claim: { en: "A landlord normally cannot require rent to be paid in cash or by electronic funds transfer only. Other ways to pay, such as a personal check, a money order or a cashier's check, must be allowed." }
+    source: dre_living
+    <<: *checked
+  - id: cash-receipt
+    claim: { en: "A tenant should never pay rent in cash without getting a receipt every single time." }
+    source: dre_when
+    <<: *checked
+  - id: late-fee
+    claim: { en: "A late fee that is so high that it amounts to a penalty is not legally valid. A reasonable late fee may be valid." }
+    source: dre_living
+    <<: *checked
+  - id: tpa-12
+    claim: { en: "California's Tenant Protection Act gives most residential tenants eviction protections after they have lived in their unit for 12 months, and limits how much rent can be raised over a 12-month period. Some homes are excluded." }
+    source: ag
+    <<: *checked
+  - id: lb-just-cause
+    claim: { en: "Long Beach has a Just Cause for Termination of Tenancies Ordinance. It covers tenants who have continuously and lawfully lived in the rental unit for 12 months or more. Some homes are excluded." }
+    source: lb
+    <<: *checked
+  - id: lb-help
+    claim: { en: "The City of Long Beach's tenant page lists the Fair Housing Foundation at 562-989-1206 and Stay Housed LA at 800-694-0040. The City does not provide legal assistance and does not mediate tenant and landlord disputes." }
+    source: lb
+    <<: *checked
+
+guide:
+  lines:
+    no_amounts_or_dates:
+      en: "Grown doesn't guess amounts or dates. Check your lease, your receipt, or the state's tenant guide."
+    off_pack:
+      en: "That's outside what Grown has checked, so I won't guess. The state's Landlords' and Tenants' Rights Guide is the official place to look."
+    blocked:
+      en: "I couldn't answer that using only checked sources, so I'm not going to guess. Your plan on this page still stands."
+    unavailable:
+      en: "Ask Grown isn't available right now. Your plan on this page still stands."
+  handoff_source: dre_when
+
+  # Built-in questions. No AI: a person taps one and sees the answer below,
+  # written from facts already in this pack. Nothing leaves the device.
+  builtin:
+    - id: first
+      question: { en: "What do I do first?" }
+      from_next_move: true
+
+    - id: lease-vs-rental
+      when: { not: { q: where, eq: out } }
+      question: { en: "Is a lease different from a rental agreement?" }
+      text: { en: "No. The two words mean the same thing. What matters is whether yours has a set term, like 12 months, or runs month to month." }
+      facts: [lease-same]
+
+    - id: holding-deposit
+      when: { q: stage, eq: applying }
+      question: { en: "What is a holding deposit?" }
+      text: { en: "It only holds the unit for you for a stated time. Before you pay one, ask whether it goes toward your first month's rent or your security deposit, and get the agreement and a receipt in writing." }
+      facts: [holding]
+
+    - id: immigration-status
+      when: { not: { q: where, eq: out } }
+      question: { en: "Can a landlord ask about my immigration status?" }
+      text: { en: "In most cases, no. A landlord may not ask about your immigration or citizenship status. They can still ask for documents that confirm who you are and that you can pay." }
+      facts: [immigration]
+
+    - id: voucher
+      when: { all: [{ not: { q: where, eq: out } }, { q: stage, eq: applying }] }
+      question: { en: "Can a landlord turn me down for using a housing voucher?" }
+      text: { en: "Landlords are not allowed to refuse to rent to you because you receive Section 8 assistance. There is a narrow exception for renting one room in a home the owner lives in." }
+      facts: [vouchers]
+
+    - id: deposit-back
+      when: { all: [{ not: { q: where, eq: out } }, { q: stage, in: [offered, signed] }] }
+      question: { en: "When do I get my deposit back?" }
+      text: { en: "Within 21 days of moving out, the landlord must return your deposit, minus lawful deductions, and give you an itemized statement." }
+      facts: [deposit-21]
+
+    - id: lb-help
+      when: { q: where, eq: lb }
+      question: { en: "Who can I call for help in Long Beach?" }
+      text: { en: "The City of Long Beach's tenant page lists the Fair Housing Foundation at 562-989-1206 and Stay Housed LA at 800-694-0040. The City itself does not give legal help or settle disputes." }
+      facts: [lb-help]
+
+questions:
+  - id: where
+    text: { en: "Where is the place you want to rent?" }
+    why: { en: "Renting rules are set by each state, and some cities add their own. Grown starts with California and Long Beach." }
+    answers:
+      - { id: lb, label: { en: "In Long Beach" } }
+      - { id: la, label: { en: "Somewhere else in LA County" } }
+      - { id: ca, label: { en: "Somewhere else in California" } }
+      - { id: out, label: { en: "Outside California" } }
+
+  - id: stage
+    show_when: { not: { q: where, eq: out } }
+    text: { en: "Where are you with this place?" }
+    why: { en: "What matters most is different before and after you sign." }
+    answers:
+      - { id: applying, label: { en: "I'm applying" }, sub: { en: "I haven't been offered a lease yet" } }
+      - { id: offered, label: { en: "I have a lease to sign" }, sub: { en: "I haven't signed it yet" } }
+      - { id: signed, label: { en: "I already signed" } }
+
+  - id: term
+    show_when: { q: stage, in: [offered, signed] }
+    text: { en: "Does the agreement have an end date?" }
+    why: { en: "A set term and a month-to-month agreement work differently if the rent changes or you want to leave." }
+    answers:
+      - { id: fixed, label: { en: "Yes, a set term" }, sub: { en: "Like 6 or 12 months" } }
+      - { id: month, label: { en: "No, it's month to month" } }
+      - { id: unsure, label: { en: "I'm not sure" } }
+
+  - id: deposit
+    show_when: { q: stage, in: [offered, signed] }
+    text: { en: "Besides your first month's rent, how much are you asked to pay up front?" }
+    why: { en: "California limits the security deposit for most rentals. Grown asks so it can tell you what to check. It never asks what you earn." }
+    why_visible: true
+    answers:
+      - { id: under, label: { en: "One month's rent or less" } }
+      - { id: over, label: { en: "More than one month's rent" }, sub: { en: "Count deposits, last month's rent, and pet, key or cleaning fees" } }
+      - { id: unsure, label: { en: "I'm not sure yet" } }
+
+  - id: seen
+    show_when: { q: stage, in: [applying, offered] }
+    text: { en: "Have you seen the unit in person?" }
+    why: { en: "It's much easier to get a problem fixed, or written down, before you sign." }
+    answers:
+      - { id: "yes", label: { en: "Yes" } }
+      - { id: "no", label: { en: "Not yet" } }
+
+# Text reused in more than one branch.
+_shared:
+  deposit_body: &deposit_body
+    - { en: "Since July 1, 2024, most landlords can charge no more than one month's rent as a security deposit. Last month's rent, and pet, key or cleaning fees, all count as the deposit." }
+    - { en: "Small landlords can charge up to two months' rent. That means an individual, or an LLC owned by individuals, who owns and rents one or two properties with no more than four rental units." }
+  opt_pay: &opt_pay
+    id: pay
+    title: { en: "How you pay rent" }
+    short: { en: "Cash only, or online only, usually isn't allowed." }
+    body: { en: "A landlord normally can't make you pay rent in cash, or only by electronic transfer. You must be allowed another way, such as a personal check, a money order or a cashier's check." }
+    source: dre_living
+    facts: [pay-method]
+  opt_late: &opt_late
+    id: late
+    title: { en: "Late fees" }
+    short: { en: "A late fee can't be a penalty." }
+    body: { en: "A late fee that is so high it works as a penalty is not legally valid. A reasonable late fee may be. Find the late fee line in your agreement so it doesn't surprise you." }
+    source: dre_living
+    facts: [late-fee]
+  opt_copy: &opt_copy
+    id: copy
+    title: { en: "Your signed copy" }
+    short: { en: "You're owed one within 15 days of signing." }
+    body: { en: "The landlord must give you a signed copy of the agreement within 15 days of signing. Keep it somewhere you can find it." }
+    source: dre_before
+    facts: [copy-15]
+  opt_movein: &opt_movein
+    id: movein
+    title: { en: "Move-in photos" }
+    short: { en: "Photos of the unit protect your deposit." }
+    body: { en: "For tenancies that begin on or after July 1, 2025, the landlord has to take photos of the unit. You can ask for copies, or take your own before you move your things in. A move-in checklist isn't required by law, but it's good practice to fill one out with the landlord, then sign and date it." }
+    source: dre_when
+    facts: [photos, checklist]
+  watch_cash: &watch_cash
+    text: { en: "Never pay rent in cash without getting a receipt, every single time." }
+    facts: [cash-receipt]
+  watch_lb: &watch_lb
+    when: { q: where, eq: lb }
+    text: { en: "Long Beach has a Just Cause ordinance that covers tenants who have lived in the unit 12 months or more. Some homes are excluded." }
+    facts: [lb-just-cause]
+  watch_tpa: &watch_tpa
+    text: { en: "After 12 months in the unit, state law gives most renters eviction protections and limits how much the rent can go up in a year. Some homes are excluded." }
+    facts: [tpa-12]
+
+branches:
+  # ---------------------------------------------------------------- outside CA
+  - id: outside-ca
+    when: { q: where, eq: out }
+    show_date: false
+    what:
+      - lead: { en: "Grown only covers California leases so far." }
+        detail: { en: "Grown version one only covers California, starting with Long Beach. Renting rules are different in each state, so the rules here may not apply to you." }
+        no_claim: true
+    next_move:
+      - text: { en: "Look for your own state's official guide for renters before you sign." }
+        no_claim: true
+
+  # ------------------------------------------------------------------ applying
+  - id: applying
+    when: { q: stage, eq: applying }
+    show_date: false
+    what:
+      - lead: { en: "You're applying. Know what you can be charged." }
+        detail: { en: "Before offering you a lease, a landlord can check your application and may charge a screening fee. That fee has a legal maximum, and you are owed an itemized receipt." }
+        facts: [screening-fee]
+    urgent:
+      - when: { q: seen, eq: "no" }
+        tone: warn
+        title: { en: "See the unit before you pay a deposit." }
+        body:
+          - { en: "Walk through the actual unit first. Anything the landlord promises to fix should end up written into the agreement." }
+        facts: [promises-writing]
+    next_move:
+      - text: { en: "Before you pay an application fee, ask for an itemized receipt." }
+        why: { en: "The landlord has to give you one. They also can't charge the fee when they know there's no unit available." }
+        link: dre_looking
+        facts: [screening-fee]
+    options:
+      - id: fee
+        title: { en: "The application fee" }
+        short: { en: "Limited by law, and you get a receipt." }
+        body: { en: "An application screening fee has a legal maximum that changes each year. The landlord must give you a receipt that itemizes the cost. They can't charge it when they know, or should know, there is no vacancy." }
+        source: dre_looking
+        facts: [screening-fee]
+      - id: hold
+        title: { en: "A holding deposit" }
+        short: { en: "It only holds the unit for a set time." }
+        body: { en: "A holding deposit only guarantees the landlord won't rent the unit to someone else for a stated time. Ask whether it goes toward your first month's rent or your security deposit, and get the agreement and a receipt in writing." }
+        source: dre_looking
+        facts: [holding]
+      - id: ask
+        title: { en: "What a landlord can't ask" }
+        short: { en: "In most cases, not your immigration or citizenship status." }
+        body: { en: "In most cases a landlord may not ask about your immigration or citizenship status. They can still ask for documents that confirm who you are and that you can pay. Landlords are also not allowed to refuse you because you receive Section 8 assistance, with a narrow exception for renting one room in a home the owner lives in." }
+        source: dre_looking
+        facts: [immigration, vouchers]
+    watch_out:
+      - *watch_cash
+
+  # -------------------------------------------------------------------- signed
+  - id: signed
+    when: { q: stage, eq: signed }
+    show_date: false
+    what:
+      - lead: { en: "You've signed. Here's what you're owed now." }
+        detail:
+          - text: { en: "Your agreement is a contract, and both sides are held to it." }
+          - when: { q: term, eq: fixed }
+            text: { en: "With a set term, the landlord can't raise the rent during the term unless the agreement allows it. If you move out early, you can still owe rent." }
+          - when: { q: term, eq: month }
+            text: { en: "Yours runs month to month, with no set end date." }
+          - text: { en: "Your basic rights as a tenant stay in place no matter what the agreement says." }
+        facts: [lease-same, fixed-term, basic-rights]
+    urgent:
+      - when: { q: deposit, eq: over }
+        tone: warn
+        title: { en: "Check what you paid as a deposit." }
+        body: *deposit_body
+        facts: [deposit-cap, deposit-small, deposit-names]
+    next_move:
+      - text: { en: "Get your signed copy, and take dated photos before you move your things in." }
+        why: { en: "The landlord owes you a signed copy within 15 days of signing. Photos of how the unit looks now protect your deposit when you move out." }
+        link: dre_when
+        facts: [copy-15, photos]
+    options:
+      - *opt_copy
+      - *opt_movein
+      - *opt_pay
+      - *opt_late
+      - id: back
+        title: { en: "Getting your deposit back" }
+        short: { en: "Within 21 days of moving out." }
+        body: { en: "Within 21 days of moving out, the landlord must return your deposit, minus lawful deductions, and give you an itemized statement. A landlord can't require a deposit to be nonrefundable." }
+        source: ag
+        facts: [deposit-21, deposit-refundable]
+    watch_out:
+      - *watch_cash
+      - *watch_lb
+      - *watch_tpa
+
+  # ----------------------------------------------- offered a lease, not signed
+  - id: offered
+    show_date: false
+    what:
+      - when: { q: term, eq: fixed }
+        lead: { en: "A lease with a set term. Read it before you sign." }
+        detail: { en: "A lease or rental agreement is a contract. Yours has a set term. During that term the landlord can't raise the rent unless the agreement allows it, and if you move out early you can still owe rent. Read every page and make sure you understand it. You don't have to sign on the spot." }
+        facts: [lease-same, fixed-term, contract-read]
+      - when: { q: term, eq: month }
+        lead: { en: "A month-to-month agreement. Read it before you sign." }
+        detail: { en: "A lease or rental agreement is a contract. Yours runs month to month, with no set end date. Read every page and make sure you understand it. You don't have to sign on the spot." }
+        facts: [lease-same, contract-read]
+      - lead: { en: "A lease is a contract. Read it before you sign." }
+        detail: { en: "\"Lease\" and \"rental agreement\" mean the same thing. Look for whether yours has an end date, which makes it a set term, or runs month to month. Read every page and make sure you understand it. You don't have to sign on the spot." }
+        facts: [lease-same, contract-read]
+    urgent:
+      - when: { q: deposit, eq: over }
+        tone: warn
+        title: { en: "Check the deposit before you pay." }
+        body: *deposit_body
+        facts: [deposit-cap, deposit-small, deposit-names]
+      - when: { q: seen, eq: "no" }
+        tone: warn
+        title: { en: "See the unit before you sign." }
+        body:
+          - { en: "Walk through the actual unit first. Anything the landlord promises to fix should be written into the agreement." }
+        facts: [promises-writing]
+    next_move:
+      - when: { q: deposit, eq: over }
+        text: { en: "Before you pay, ask the landlord in writing how the total fits California's deposit limit." }
+        why: { en: "You're not accusing anyone. Some small landlords are allowed two months' rent. Asking in writing gets you a clear answer you can keep." }
+        link: dre_when
+        facts: [deposit-cap, deposit-small]
+      - when: { q: seen, eq: "no" }
+        text: { en: "See the unit in person before you sign or pay anything." }
+        why: { en: "If something needs fixing, you want it written into the agreement before you sign." }
+        facts: [promises-writing]
+      - text: { en: "Read every page before you sign, and get every promise in writing." }
+        why: { en: "If the landlord said they would fix or include something, it should be in the agreement. You don't have to sign on the spot." }
+        link: dre_when
+        facts: [contract-read, promises-writing]
+    options:
+      - id: deposit
+        title: { en: "The deposit" }
+        short: { en: "One month's rent at most, for most rentals." }
+        body: { en: "Since July 1, 2024, most landlords can charge no more than one month's rent as a security deposit. Last month's rent, and pet, key or cleaning fees, all count as the deposit. Small landlords can charge up to two months' rent. A landlord can't require a deposit to be nonrefundable." }
+        source: dre_when
+        facts: [deposit-cap, deposit-names, deposit-small, deposit-refundable]
+      - *opt_pay
+      - *opt_late
+      - *opt_movein
+      - *opt_copy
+    watch_out:
+      - text: { en: "In most cases a landlord may not ask about your immigration or citizenship status." }
+        facts: [immigration]
+      - *watch_cash
+      - text: { en: "Your basic rights as a tenant stay in place no matter what the agreement says." }
+        facts: [basic-rights]
+      - *watch_lb

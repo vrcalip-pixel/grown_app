@@ -29,13 +29,26 @@ export function loadPack(id: string): Pack {
   return pack;
 }
 
-/** Every preview guide in a category, in the order given. */
-export function loadPreviews(category: string, order: string[]): PreviewPack[] {
+/** Every guide in a category, live or preview, in the order given. */
+export function loadCategory(category: string, order: string[]): (LivePack | PreviewPack)[] {
   return order.map((id) => {
     const p = loadPack(id);
-    if (p.status !== "preview" || p.category !== category) throw new Error(`"${id}" is not a ${category} preview`);
+    if (p.category !== category) throw new Error(`"${id}" is not in the ${category} category`);
+    if (p.status === "live" && !p.card) throw new Error(`Live guide "${id}" needs a card to be listed in a category`);
     return p;
   });
+}
+
+/** Every live guide, in file order. */
+export function loadLivePacks(): LivePack[] {
+  return listPackFiles()
+    .map((f) => loadPack(f.replace(/\.yaml$/, "")))
+    .filter((p): p is LivePack => p.status === "live");
+}
+
+/** The oldest check across every live guide, as an ISO date. */
+export function oldestCheckIso(): string {
+  return loadLivePacks().map(checkedIso).sort()[0];
 }
 
 /** The oldest check among a guide's facts, as an ISO date. A page never claims to be fresher than its stalest rule. */

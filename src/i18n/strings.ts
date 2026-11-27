@@ -59,9 +59,9 @@ export const STRINGS = {
     km: "មិនចាំបាច់មានគណនី មិនសួរឈ្មោះ ឬលេខប័ណ្ណបើកបរ មិនសួរអំពីប្រាក់ចំណូល និងគ្មានកម្មវិធីតាមដាន។ អ្វីដែលអ្នកចុច មិនត្រូវបានរក្សាទុកទេ។ ប្រសិនបើអ្នកជ្រើសប្រើ Ask Grown សំណួររបស់អ្នក និងចម្លើយដែលអ្នកបានចុច នឹងត្រូវបញ្ជូនទៅ Claude ដែលជា AI បង្កើតដោយ Anthropic ដើម្បីសរសេរចម្លើយ។ Grown មិនរក្សាទុកពួកវាទេ។",
   },
   footFacts: {
-    en: "Grown never makes up fees or dates. It points you to the amount and due date printed on your own ticket or court notice. Facts last checked against official California court sources on {date}.",
-    es: "Grown nunca inventa cobros ni fechas. Te señala la cantidad y la fecha límite impresas en tu propia multa o aviso de la corte. Datos revisados por última vez con fuentes oficiales de las cortes de California el {date}.",
-    km: "Grown មិនដែលបង្កើតតម្លៃ ឬកាលបរិច្ឆេទដោយខ្លួនឯងឡើយ។ វាចង្អុលអ្នកទៅចំនួនទឹកប្រាក់ និងថ្ងៃផុតកំណត់ ដែលបោះពុម្ពលើសំបុត្រផាកពិន័យ ឬលិខិតតុលាការរបស់អ្នកផ្ទាល់។ ព័ត៌មានត្រូវបានពិនិត្យចុងក្រោយជាមួយប្រភពផ្លូវការរបស់តុលាការរដ្ឋកាលីហ្វ័រញ៉ា នៅថ្ងៃ {date}។",
+    en: "Grown never makes up fees or dates. It points you to the amount and due date printed on your own paper. Facts last checked against official California sources on {date}.",
+    es: "Grown nunca inventa cobros ni fechas. Te señala la cantidad y la fecha límite impresas en tu propio documento. Datos revisados por última vez con fuentes oficiales de California el {date}.",
+    km: "Grown មិនដែលបង្កើតតម្លៃ ឬកាលបរិច្ឆេទដោយខ្លួនឯងឡើយ។ វាចង្អុលអ្នកទៅចំនួនទឹកប្រាក់ និងថ្ងៃផុតកំណត់ ដែលបោះពុម្ពលើឯកសាររបស់អ្នកផ្ទាល់។ ព័ត៌មានត្រូវបានពិនិត្យចុងក្រោយជាមួយប្រភពផ្លូវការរបស់រដ្ឋកាលីហ្វ័រញ៉ា នៅថ្ងៃ {date}។",
   },
   footBuilt: {
     en: "Built by Vincent Calip for HDA 294/494, The Agentic Self (ASU). Version {version} · Long Beach, CA.",
@@ -133,6 +133,15 @@ export const STRINGS = {
 
   // Housing
   resEyebrow: { en: "HOUSING", es: "VIVIENDA", km: "លំនៅដ្ឋាន" },
+  // A category with a live guide and previews side by side.
+  mixedNote: {
+    en: "The first guide is live. The other cards open a preview of what's coming.",
+    es: "La primera guía ya está activa. Las otras tarjetas abren una vista previa de lo que viene.",
+    km: "មគ្គុទ្ទេសក៍ទីមួយកំពុងដំណើរការ។ កាតផ្សេងទៀតបើកការមើលជាមុននៃអ្វីដែលនឹងមក។",
+  },
+  // Sources page: one bar per guide.
+  srcGroupChecked: { en: "Last checked {date}", es: "Revisado por última vez el {date}", km: "ពិនិត្យចុងក្រោយ {date}" },
+  srcCount: { en: "{n} sources", es: "{n} fuentes", km: "ប្រភព {n}" },
   previewTag: { en: "Preview · not live yet", es: "Vista previa · aún no está activa", km: "មើលជាមុន · មិនទាន់ដំណើរការពេញលេញទេ" },
   resTitle: { en: "Housing paperwork without the guesswork.", es: "Papeles de vivienda sin andar adivinando.", km: "ឯកសារជួលផ្ទះ ដោយមិនបាច់ស្មានទុកមុន។" },
   resIntro: {
@@ -168,8 +177,8 @@ export const STRINGS = {
   srcEyebrow: { en: "SOURCES", es: "FUENTES", km: "ប្រភព" },
   srcTitle: { en: "Where every Grown answer comes from.", es: "De dónde sale cada respuesta de Grown.", km: "កន្លែងដែលចម្លើយរបស់ Grown មកពី។" },
   srcIntro: {
-    en: "Only official California court and city sources. Never guesswork or ads.",
-    es: "Solo fuentes oficiales de las cortes de California y la ciudad. Sin adivinanzas.",
+    en: "Only official California state, court and city sources. Never guesswork or ads.",
+    es: "Solo fuentes oficiales del estado de California, sus cortes y la ciudad. Sin adivinanzas.",
     km: "ប្រើតែប្រភពផ្លូវការរបស់តុលាការ California និងទីក្រុងប៉ុណ្ណោះ មិនស្មាន ឬផ្សាយពាណិជ្ជកម្មឡើយ។",
   },
   srcChecked: {
@@ -178,8 +187,8 @@ export const STRINGS = {
     km: "ព័ត៌មានត្រូវបានផ្ទៀងផ្ទាត់ជាមួយប្រភពផ្លូវការរបស់តុលាការរដ្ឋ California នៅថ្ងៃទី {date}",
   },
   srcBody: {
-    en: "Grown checks every rule against public California court self-help pages and state codes before a guide goes live. Grown never links to paid traffic schools, ticket lawyers, or referral sites.",
-    es: "Grown revisa cada regla en páginas públicas de ayuda de las cortes de California y códigos estatales antes de publicar una guía. Nunca enlaza a escuelas de tráfico pagadas ni anuncios de abogados.",
+    en: "Grown checks every rule against public California court, state agency and city pages before a guide goes live. Grown never links to paid traffic schools, ticket lawyers, or referral sites.",
+    es: "Grown revisa cada regla en páginas públicas de las cortes, las agencias estatales y la ciudad antes de publicar una guía. Nunca enlaza a escuelas de tráfico pagadas ni anuncios de abogados.",
     km: "Grown ផ្ទៀងផ្ទាត់វិធាននីមួយៗជាមួយគេហទំព័រជំនួយខ្លួនឯងសាធារណៈរបស់តុលាការ California និងច្បាប់រដ្ឋ មុនពេលបើកដំណើរការ។ Grown មិនដាក់តំណទៅសាលាចរាចរណ៍បង់ប្រាក់ ឬមេធាវីឡើយ។",
   },
 } satisfies Record<string, Entry>;
