@@ -15,9 +15,12 @@ const manrope = Manrope({ subsets: ["latin"], weight: ["400", "600", "800"], var
 export const metadata: Metadata = {
   title: "Explainer: clear steps for adult paperwork",
   description: "Nobody hands you a manual for this. Explainer asks a few plain questions and tells you your next move.",
+  // Lets an iPhone open Explainer full screen, under its own name, once it is added to the home screen.
+  appleWebApp: { capable: true, title: "Explainer", statusBarStyle: "black-translucent" },
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1 };
+// themeColor tints the phone's status bar to match the app when it is opened from the home screen.
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#0a0e13" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const ticket = loadPack("traffic-ticket-long-beach");

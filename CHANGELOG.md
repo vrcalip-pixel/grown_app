@@ -1,5 +1,11 @@
 # Changelog
 
+## Explainer can be added to a phone's home screen (live, Nov 27, 2026)
+
+- Explainer now has an app icon (the lit sphere on the night-sky colour) and the settings a phone needs to install it. On Android, Chrome offers "Install app" or "Add to Home screen". On an iPhone, it is Share, then "Add to Home Screen". It then opens full screen, without browser bars, under the name Explainer.
+- The browser tab shows the same icon.
+- This is not an app-store listing, and it does not work offline. It is the first step toward both.
+
 ## A quieter mark: the lit sphere (live, Nov 26, 2026)
 
 - The Earth beside the name is replaced by a lit sphere: a faint ring with one bright edge. It is a single-colour outline at the same line weight as the app's other icons, so it matches them. The bright edge travels slowly round the ring, once every 30 seconds.
