@@ -26,6 +26,9 @@ const make = (file, size, scale) => sharp(Buffer.from(svg(scale))).resize(size, 
   fs.mkdirSync("public/icons", { recursive: true });
   await make("src/app/icon.png", 256, 13); // browser tab
   await make("src/app/apple-icon.png", 180, 11); // iPhone home screen
+  // iPhones also look for these two fixed addresses, whatever the page says, so they get the same picture.
+  await make("public/apple-touch-icon.png", 180, 11);
+  await make("public/apple-touch-icon-precomposed.png", 180, 11);
   await make("public/icons/icon-192.png", 192, 12);
   await make("public/icons/icon-512.png", 512, 12);
   await make("public/icons/maskable-512.png", 512, 8.5); // Android, which crops to its own shape

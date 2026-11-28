@@ -1,5 +1,9 @@
 # Changelog
 
+## iPhone home-screen icon made more reliable (live, Nov 27, 2026)
+
+- An iPhone showed a plain letter E in place of the app icon. The page was already pointing to the icon correctly, so the likeliest cause was the phone using a copy of the page saved before the icon existed. As a safeguard, the icon is now also served at the two fixed addresses iPhones check on their own.
+
 ## Explainer can be added to a phone's home screen (live, Nov 27, 2026)
 
 - Explainer now has an app icon (the lit sphere on the night-sky colour) and the settings a phone needs to install it. On Android, Chrome offers "Install app" or "Add to Home screen". On an iPhone, it is Share, then "Add to Home Screen". It then opens full screen, without browser bars, under the name Explainer.
